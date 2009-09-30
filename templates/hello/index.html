@@ -2,12 +2,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-type" content="text/html;charset=iso-8859-1" /> 
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8" /> 
 	<title>CS215 Project</title>
 	<link rel="stylesheet" type="text/css" href="./style.css" />
-	
 	<script src=" http://maps.google.com/?file=api&amp;v=2.x&amp;key=ABQIAAAAJZucu9WsDLjQXvuECRZKCBQRGTGblqjXGZsy6qp4j7Tq5uisrBQsnfZ93sKzS3WUIoi0j9Xpt69noQ" type="text/javascript"></script> 
-	<script type="text/javascript"> 
+    <script type="text/javascript"> 
  
     var map;
     var gdir;
@@ -21,7 +20,7 @@
         GEvent.addListener(gdir, "load", onGDirectionsLoad);
         GEvent.addListener(gdir, "error", handleErrors);
  
-        setDirections("San Francisco", "Mountain View", "en_US");
+        setDirections("Regina Saskatchewan", "Saskatoon Saskatchewan", "en_US");
       }
     }
     
@@ -39,7 +38,7 @@
 	   else if (gdir.getStatus().code == G_GEO_MISSING_QUERY)
 	     alert("The HTTP q parameter was either missing or had no value. For geocoder requests, this means that an empty address was specified as input. For directions requests, this means that no query was specified in the input.\n Error code: " + gdir.getStatus().code);
  
-	//   else if (gdir.getStatus().code == G_UNAVAILABLE_ADDRESS)  <--- Doc bug... this is either not defined, or Doc is wrong
+	//   else if (gdir.getStatus().code == G_UNAVAILABLE_ADDRESS)  <!-- Doc bug... this is either not defined, or Doc is wrong -->
 	//     alert("The geocode for the given address or the route for the given directions query cannot be returned due to legal or contractual reasons.\n Error code: " + gdir.getStatus().code);
 	     
 	   else if (gdir.getStatus().code == G_GEO_BAD_KEY)
@@ -61,10 +60,8 @@
 	  // and yada yada yada...
 	}
     </script> 
-
-	
 </head>
-<body onload="initialize()" onunload="GUnload()">
+<body onload="initialize()" onunload="GUnload()"> 
 	<div id="wrapper">
 		<div id="header">
 			<h2>general header h2</h2>
@@ -85,11 +82,11 @@
 			<h5>content h5</h5>
 			<h6>content h6</h6>
 			<div id="map_canvas" style="width: 310px; height: 400px"></div>
-			<div id="directions" style="width: 275px">
-
 		</div>
 		<div id="footer">
-			<h5>footer h5</h5>
+			<a href="http://validator.w3.org/check?uri=referer"> 
+			<img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" style="border:0;"/> 
+			</a> 
 		</div>
 	</div>
 </body>
