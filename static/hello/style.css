@@ -1,0 +1,49 @@
+body {
+	background-image: url('http://i153.photobucket.com/albums/s214/emeraldaslgirl08/happy_face.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+#wrapper {
+	width: 920px;
+	margin: auto;
+//	background: white;	
+}
+#title {
+	float: left;
+	width: 720px;
+	height: 150px;
+	background: #00ff00;
+}
+#userinfo {
+	float: left;
+	width: 200px;
+	height: 150px;
+	background: #ff0000;
+}
+#navbar {
+//	float: left;
+	clear: both;
+	width: 100%;
+	margin: 20px 0px 0px 0px;
+	background: #ff00ff;
+}
+#content {
+//	margin: 20px 0px 0px 20px;
+//	float: left;
+	width: 100%;
+	padding: 10px 10px 10px 10px;
+	background: #AABBCC;
+}
+#footer {
+	clear: both;
+//	width: 700px;
+//	float: right;
+	text-align: center;
+	background: #CCAABB;
+}
+#navbar li {
+	list-style: none;
+}
+#navbar ul {
+
+}

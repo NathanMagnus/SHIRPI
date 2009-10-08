@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- if all -->
+{% if categories %}
+	{% for category, rest in categories.iteritems %}
+	{{user.username}}
+		<h1>{{ category }}</h1>
+		<table>
+		<tr><th>Name</th><th>Address</th></tr>
+		{% for r in rest %}
+			{% if r.visible %}
+				<tr><td>{{ r.name }}</td><td>{{ r.street_address }}</td></tr>
+			{% endif %}
+			<br />
+		{% endfor %}
+		</table>
+	{% endfor %}
+{% else %}
+	<!-- does not exist -->
+	{% if error %}
+		<h1>{{error}}</h1>
+	{% endif %}
+	<!-- It is a restaurant -->
+	<h1>{{rest.name}}</h1>
+	<h2>Reviews</h2>
+	{% for review in reviews %}
+	<p>
+		{{ review.review }}	
+	</p>
+	{% endfor %}
+	<a href="/cs215/hello/review/{{rest.name}}">Review </a>
+{% endif %}
+{% endblock %}

@@ -17,12 +17,15 @@ DATABASE_HOST = ''             # Set to empty string for localhost. Not used wit
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 FORCE_SCRIPT_NAME = ''
 
+#user login stuff
+#AUTH_PROFILE_MODULE = 'hello.UserProfile'
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Regina'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -81,3 +84,4 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'project.hello',
 )
+LOGIN_REDIRECT_URL = '/cs215/hello/'

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form name="register" method="POST">
+	{{ rform.as_p }}
+	<input type="submit" value="Register" name="submit" />
+</form>
+{% endblock %}

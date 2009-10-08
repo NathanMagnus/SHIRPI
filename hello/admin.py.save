@@ -1,0 +1,3 @@
+site.register(Restaurant, RestaurantAdmin)
+admin.site.register(Review, ReviewAdmin)
+admin.site.register(Location, LocationAdmin)

@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from hello.admin import *
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -15,4 +16,10 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^cs215/admin/', include(admin.site.urls)),
     (r'^cs215/hello/$', 'project.hello.views.index'),
+    (r'^cs215/hello/login/$', 'django.contrib.auth.views.login', {'template_name': 'registration/login.html'}),
+    (r'^cs215/hello/browse/(?P<rest_name>[^/]+)', 'project.hello.views.browse'),
+    (r'^cs215/hello/review/(?P<rest_name>[^/]+)', 'project.hello.views.review'),
+    (r'^cs215/hello/save/(?P<rest_name>[^/]+)', 'project.hello.views.save'),
+    (r'^cs215/hello/register/$', 'project.hello.views.register'),
+    (r'^cs215/hello/logout/$', 'project.hello.views.logout'),
 )
