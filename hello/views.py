@@ -9,41 +9,59 @@ from hello.models import *
 from django.views.generic.simple import direct_to_template
 from django import forms
 from django.http import HttpResponseRedirect
+try:
+	CRIT_VAL = HICategory.objects.get(category="Critical").max_value
+except HICategory.DoesNotExist:
+	CRIT_VAL = 9
+try:
+	MOD_VAL = HICategory.objects.get(category="Moderate").max_value
+except HICategory.DoesNotExist:
+	MOD_VAL = 2
+try:
+	GOOD_VAL =  HICategory.objects.get(category="Good").max_value
+except HICategory.DoesNotExist:
+	GOOD_VAL = 0
 
-CRIT_VAL = 9#HICategory.objects.get(category="Critical").max_value
-MOD_VAL = 2#HICategory.objects.get(category="Moderate").max_value
-GOOD_VAL = 0# HICategory.objects.get(category="Good").max_value
 
 def save(request, rest_name):
 	try:
 #Set up comment info and save in db
-		
-		comment = Comment()
-		try: 
+		#if the comment already exists, select it
+		try:
+			comment = Comment.objects.get(id = rest_name)
+			count = 1
+			rest_name = comment.restaurant.name #change the rest name so that restaurant can be selected
+		except Comment.DoesNotExist:#otherwise, new comment
+			comment = Comment()
+			count =0
+		try:  #if the user is authenticated, they are the author
 			request.user.is_authenticated()
 			comment.author = User.objects.get(username = request.user.username)
-		except:
+		except User.DoesNotExist:
 			comment.author = User.objects.get(username="Anonymous")
 		comment.restaurant = Restaurant.objects.get(name=rest_name)
+		rest = comment.restaurant
+		#update rest stats
+		rest.cleanliness = rest.cleanliness - float(comment.cleanliness) + request.POST['cleanliness']
+		rest.food_quality = rest.food_quality - float(comment.food_quality)+request.POST['food_quality']
+		rest.atmosphere = rest.atmosphere - float(comment.atmosphere) + request.POST['atmosphere']
+		rest.wait_time = rest.wait_time - float(comment.wait_time) + request.POST['wait_time']
+		rest.comment_count = rest.comment_count + count
+		
 		comment.comment = request.POST['comment']
 		comment.cleanliness = request.POST['cleanliness']
 		comment.food_quality = request.POST['food_quality']
 		comment.atmosphere = request.POST['atmosphere']
 		comment.wait_time = request.POST['wait_time']
 		comment.combined = float(comment.cleanliness)+ float(comment.food_quality) + float(comment.atmosphere) - float(comment.wait_time)
+		
+		rest.combined = rest.combined - float(comment.combined)
+		rest.save()
 		comment.save()
 #set up restaurant info and save in db
-		rest = comment.restaurant
-		rest.combined = rest.combined + float(comment.combined)
-		rest.cleanliness = rest.cleanliness + float(comment.cleanliness)
-		rest.food_quality = rest.food_quality + float(comment.food_quality)
-		rest.atmosphere = rest.atmosphere + float(comment.atmosphere)
-		rest.wait_time = rest.wait_time + float(comment.wait_time)
-		rest.comment_count = rest.comment_count + 1
-		rest.save()
 
 	except Restaurant.DoesNotExist:
-		return HttpResponseRedirect('/cs215/hello/index.html')
+		return HttpResponseRedirect('/cs215/hello/')
 	return HttpResponseRedirect('/cs215/hello/browse/'+rest_name+'/')
 
 def index(request):
@@ -129,6 +147,3 @@ def edit_comment(request, comment_id):
 	comment = Comment.objects.get(id=comment_id)
 	form = CommentForm(initial={'comment':comment.comment, 'food_quality': comment.food_quality, 'cleanliness': comment.cleanliness, 'atmosphere': comment.atmosphere, 'wait_time': comment.wait_time})
 	return render_to_response('hello/edit_comment.html', {'comment': comment, 'form':form})
-
-def save_comment_edit(request, comment_id):
-	return HttpResponseRedirct('/cs215/hello/profile/' + user.username + '/')

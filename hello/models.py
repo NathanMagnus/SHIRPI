@@ -30,6 +30,11 @@ class Location(models.Model):
 		return "%s - %s, %s, %s"%(self.region, self.city, self.province, self.country)
 
 
+class Favourite(models.Model):
+	user = models.ForeignKey(User)
+	restaurant = models.ForeignKey(Restaurant)
+	position = models.IntegerField()
+
 class RegistrationForm(forms.Form):
 	query = Location.objects.all()
 	username = forms.CharField(max_length=30, label="Username:")
@@ -72,11 +77,11 @@ class Comment(models.Model):
 	comment = models.TextField()
 	author = models.ForeignKey(User)
 	restaurant = models.ForeignKey(Restaurant)
-	combined = models.FloatField()
-	cleanliness = models.FloatField()
-	food_quality = models.FloatField()
-	atmosphere = models.FloatField()
-	wait_time = models.FloatField()
+	combined = models.FloatField(default=0)
+	cleanliness = models.FloatField(default=0)
+	food_quality = models.FloatField(default=0)
+	atmosphere = models.FloatField(default=0)
+	wait_time = models.FloatField(default=0)
 	id = models.IntegerField(primary_key = True, unique=True)
 
 class CommentAdmin(admin.ModelAdmin):
@@ -95,9 +100,5 @@ class UserProfile(models.Model):
 	def __unicode__(self):
 		return "%s" % (self.user.username)
 
-class Favourite(models.Model):
-	user = models.ForeignKey(User)
-	restaurant = models.ForeignKey(Restaurant)
-	position = models.IntegerField()
 	
 	
