@@ -17,10 +17,10 @@
 	</div>
 	<div id="userinfo">
 		{% if user.is_authenticated %}
-			<p>Howdy, {{ user.username }} [Logout, My Profile]</p>
+			<p>Howdy, {{ user.username }} [<a href="/cs215/hello/logout/">Logout</a>, <a href="/cs215/hello/profile/{{user.username}}">My Profile]</a></p>
 		{% else %}
 			{% block userinfo %}
-				<p>[Login or Register]</p>
+				<p>[<a href="/cs215/hello/login/">Login</a> or <a href="/cs215/hello/register/">Register]</a></p>
 			{% endblock %}
 		{% endif %}
 	</div>

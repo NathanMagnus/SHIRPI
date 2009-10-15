@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load browse_extras %}
+{% block content %}
+{% if myprofile %}
+	<p>Username: {{user.username}}</p>
+	<p>First Name: {{user.first_name}}</p>
+	<p>Last Name: {{user.last_name}}</p>
+	<p>email: {{user.email}}</p>
+	<p>Last Login: {{user.last_login}}</p>
+	<p>Date Joined: {{user.date_joined}}</p>
+	<h2>Favourites</h2>
+	<table>
+		{{ favourite|display_rest_table_header}}
+		{% for favourite in favourites %}
+			{{ favourite.restaurant|display_rest_info }}
+		{% endfor %}
+	</table>
+	<p><a href="/cs215/hello/profile/{{user.username}}/edit_favourites">Edit Favourites</a></p>
+{% else %}
+	<h1>You are not {{ profile.username  }}</h1>
+{% endif %}
+{% if comments %}
+	<h2>Comments</h2>
+	<table>
+	{{comment|display_comment_table_header}}
+	{% for comment in comments %}
+		{{comment|display_comment:user.username}}
+	{% endfor %}
+	</table>
+{% endif %}
+{% endblock %}

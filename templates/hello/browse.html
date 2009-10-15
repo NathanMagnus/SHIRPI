@@ -1,34 +1,51 @@
 {% extends "base.html" %}
-
 {% block content %}
-<!-- if all -->
-{% if categories %}
-	{% for category, rest in categories.iteritems %}
-	{{user.username}}
-		<h1>{{ category }}</h1>
-		<table>
-		<tr><th>Name</th><th>Address</th></tr>
-		{% for r in rest %}
-			{% if r.visible %}
-				<tr><td>{{ r.name }}</td><td>{{ r.street_address }}</td></tr>
-			{% endif %}
-			<br />
-		{% endfor %}
-		</table>
+{% load browse_extras %}
+{% if Critical %}
+	<h1>Critical</h1>
+	<table class="critical">
+	{{ Moderate|display_rest_table_header }}
+	{% for r in Critical %}
+		{% if r.visible %}
+			{{ r|display_rest_info }}
+		{% endif %}
 	{% endfor %}
-{% else %}
-	<!-- does not exist -->
-	{% if error %}
-		<h1>{{error}}</h1>
-	{% endif %}
-	<!-- It is a restaurant -->
+	</table>
+{% endif %}
+{%if Moderate %}
+	<h1>Moderate</h1>
+	<table class="moderate">
+	{{ Moderate|display_rest_table_header }}
+	{% for r in Moderate %}
+		{% if r.visible %}
+			{{ r|display_rest_info }}
+		{% endif %}
+	{% endfor %}
+	</table>
+{% endif %}
+{% if Good %}
+	<h1>Good</h1>
+	<table class="good">
+	{{ Moderate|display_rest_table_header }}
+	{% for r in Good %}
+		{% if r.visible %}
+			{{ r|display_rest_info }}
+		{% endif %}
+	{% endfor %}
+	</table>
+{% endif %}
+{% if rest and rest.visible%}
 	<h1>{{rest.name}}</h1>
-	<h2>Reviews</h2>
-	{% for review in reviews %}
-	<p>
-		{{ review.review }}	
-	</p>
-	{% endfor %}
-	<a href="/cs215/hello/review/{{rest.name}}">Review </a>
+	<table>
+		{{ rest|display_comment_table_header  }}
+		{% for comment in comments %}
+			{{ comment|display_comment:user }}
+		{% endfor %}
+	</table>
+	<p><a href="/cs215/hello/comment/{{ rest.name }}">Comment on {{ rest.name }}</a></p>
+{% endif %}
+{% if not Critical and not Moderate and not Good and not rest %}
+	<!-- does not exist -->
+	<h1>{{ error }}</h1>
 {% endif %}
 {% endblock %}

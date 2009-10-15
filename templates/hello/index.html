@@ -1,4 +1,59 @@
 {% extends "base.html" %}
+{% load browse_extras %}
 {% block content %}
-<h1>Content</h1>
+
+{% if Critical %}
+	<h1>Critical</h1>
+	<table class="critical">
+		<tr><th>Name</th><th>Address</th><th>Combined</th><th>HI Status</th><th>Food Quality</th><th>Cleanliness</th><th>Atmosphere</th><th>Wait Time</th></tr>
+	{% for r in Critical %}
+		{% if r.visible %}
+			{{r|display_rest_info}}
+		{% endif %}
+		<br />
+	{% endfor %}
+	</table>
+{% endif %}
+{%if Moderate %}
+	<h1>Moderate</h1>
+	<table class="moderate">
+		<tr><th>Name</th><th>Address</th><th>Combined</th><th>HI Status</th><th>Food Quality</th><th>Cleanliness</th><th>Atmosphere</th><th>Wait Time</th></tr>
+	{% for r in Moderate %}
+		{% if r.visible %}
+			<tr>
+				<td><a href="/cs215/hello/browse/{{r.name}}/">{{ r.name }}</a></td>
+				<td>{{ r.street_address }}</td>
+				<td>{{ r.combined }}</td>
+				<td>{{ r.health_inspection_status }}</td>
+				<td>{{ r.food_quality }}</td>
+				<td>{{ r.cleanliness }}</td>
+				<td>{{ r.atmosphere }} </td>
+				<td>{{ r.wait_time }}</td>
+			</tr>
+		{% endif %}
+		<br />
+	{% endfor %}
+	</table>
+{% endif %}
+{% if Good %}
+	<h1>Good</h1>
+	<table class="good">
+		<tr><th>Name</th><th>Address</th><th>Combined</th><th>HI Status</th><th>Food Quality</th><th>Cleanliness</th><th>Atmosphere</th><th>Wait Time</th></tr>
+	{% for r in Good %}
+		{% if r.visible %}
+			<tr>
+				<td><a href="/cs215/hello/browse/{{r.name}}/">{{ r.name }}</a></td>
+				<td>{{ r.street_address }}</td>
+				<td>{{ r.combined }}</td>
+				<td>{{ r.health_inspection_status }}</td>
+				<td>{{ r.food_quality }}</td>
+				<td>{{ r.cleanliness }}</td>
+				<td>{{ r.atmosphere }} </td>
+				<td>{{ r.wait_time }}</td>
+			</tr>
+		{% endif %}
+		<br />
+	{% endfor %}
+	</table>
+{% endif %}
 {% endblock %}

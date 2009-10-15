@@ -24,7 +24,8 @@ body {
 //	float: left;
 	clear: both;
 	width: 100%;
-	margin: 20px 0px 0px 0px;
+	height: 30px;
+	margin: 20px 0px 20px 0px;
 	background: #ff00ff;
 }
 #content {
@@ -43,7 +44,19 @@ body {
 }
 #navbar li {
 	list-style: none;
+	float: left;
+	padding: 0px 30px 0px 30px;
 }
 #navbar ul {
 
+}
+
+.good {
+	background: #66FF33;
+}
+.moderate {
+	background: #FFFF66;
+}
+.critical{
+	background: #F75D59;
 }
