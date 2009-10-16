@@ -3,45 +3,19 @@
 {% load browse_extras %}
 {% if Critical %}
 	<h1>Critical</h1>
-	<table class="critical">
-	{{ Moderate|display_rest_table_header }}
-	{% for r in Critical %}
-		{% if r.visible %}
-			{{ r|display_rest_info }}
-		{% endif %}
-	{% endfor %}
-	</table>
+	{{ Critical|display_restaurant_set:"critical" }}
 {% endif %}
 {%if Moderate %}
 	<h1>Moderate</h1>
-	<table class="moderate">
-	{{ Moderate|display_rest_table_header }}
-	{% for r in Moderate %}
-		{% if r.visible %}
-			{{ r|display_rest_info }}
-		{% endif %}
-	{% endfor %}
-	</table>
+	{{ Moderate|display_restaurant_set:"moderate" }}
 {% endif %}
 {% if Good %}
 	<h1>Good</h1>
-	<table class="good">
-	{{ Moderate|display_rest_table_header }}
-	{% for r in Good %}
-		{% if r.visible %}
-			{{ r|display_rest_info }}
-		{% endif %}
-	{% endfor %}
-	</table>
+	{{ Good|display_restaurant_set:"good" }}
 {% endif %}
 {% if rest and rest.visible%}
 	<h1>{{rest.name}}</h1>
-	<table>
-		{{ rest|display_comment_table_header  }}
-		{% for comment in comments %}
-			{{ comment|display_comment:user }}
-		{% endfor %}
-	</table>
+	{{ comments|display_comment_set:user.username }}
 	<p><a href="/cs215/hello/comment/{{ rest.name }}">Comment on {{ rest.name }}</a></p>
 {% endif %}
 {% if not Critical and not Moderate and not Good and not rest %}

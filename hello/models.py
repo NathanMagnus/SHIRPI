@@ -10,6 +10,7 @@ class HICategory(models.Model):
 	max_value = models.FloatField()
 	def __unicode__(self):
 		return "%s: %s - %s" % (self.category, self.min_value, self.max_value)
+
 class Location(models.Model):
 	countryChoices = (
 		(u'CA', u'Canada'),
@@ -30,10 +31,6 @@ class Location(models.Model):
 		return "%s - %s, %s, %s"%(self.region, self.city, self.province, self.country)
 
 
-class Favourite(models.Model):
-	user = models.ForeignKey(User)
-	restaurant = models.ForeignKey(Restaurant)
-	position = models.IntegerField()
 
 class RegistrationForm(forms.Form):
 	query = Location.objects.all()
@@ -64,6 +61,11 @@ class Restaurant(models.Model):
 class RestaurantAdmin(admin.ModelAdmin):
 	fields = ['name', 'location', 'street_address', 'visible']
 	list_display = ('name', 'location', 'street_address', 'visible')
+
+class Favourite(models.Model):
+	user = models.ForeignKey(User)
+	restaurant = models.ForeignKey(Restaurant)
+	position = models.IntegerField()
 
 class CommentForm(forms.Form):
 	comment = forms.CharField(widget=forms.Textarea(), required=False)
@@ -102,3 +104,13 @@ class UserProfile(models.Model):
 
 	
 	
+#health inspection item
+class HIItemMaster(models.Model):
+	number = models.IntegerField(unique = True, primary_key=True)
+	description = models.TextField()
+	severity = models.IntegerField()
+
+class HIItem(models.Model):
+	master = models.ForeignKey(HIItemMaster)
+	report = models.ForeignKey(HealthReport)
+

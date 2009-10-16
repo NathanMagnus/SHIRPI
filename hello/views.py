@@ -31,7 +31,7 @@ def save(request, rest_name):
 			comment = Comment.objects.get(id = rest_name)
 			count = 1
 			rest_name = comment.restaurant.name #change the rest name so that restaurant can be selected
-		except Comment.DoesNotExist:#otherwise, new comment
+		except:#otherwise, new comment
 			comment = Comment()
 			count =0
 		try:  #if the user is authenticated, they are the author
@@ -42,12 +42,13 @@ def save(request, rest_name):
 		comment.restaurant = Restaurant.objects.get(name=rest_name)
 		rest = comment.restaurant
 		#update rest stats
-		rest.cleanliness = rest.cleanliness - float(comment.cleanliness) + request.POST['cleanliness']
-		rest.food_quality = rest.food_quality - float(comment.food_quality)+request.POST['food_quality']
-		rest.atmosphere = rest.atmosphere - float(comment.atmosphere) + request.POST['atmosphere']
-		rest.wait_time = rest.wait_time - float(comment.wait_time) + request.POST['wait_time']
-		rest.comment_count = rest.comment_count + count
+		rest.cleanliness = rest.cleanliness - float(comment.cleanliness) + float(request.POST['cleanliness'])
+		rest.food_quality = rest.food_quality - float(comment.food_quality)+float(request.POST['food_quality'])
+		rest.atmosphere = rest.atmosphere - float(comment.atmosphere) +float(request.POST['atmosphere'])
+		rest.wait_time = rest.wait_time - float(comment.wait_time) + float(request.POST['wait_time'])
+		rest.comment_count = int(rest.comment_count) + int(count)
 		
+		rest.combined = rest.combined - float(comment.combined)
 		comment.comment = request.POST['comment']
 		comment.cleanliness = request.POST['cleanliness']
 		comment.food_quality = request.POST['food_quality']
@@ -55,7 +56,7 @@ def save(request, rest_name):
 		comment.wait_time = request.POST['wait_time']
 		comment.combined = float(comment.cleanliness)+ float(comment.food_quality) + float(comment.atmosphere) - float(comment.wait_time)
 		
-		rest.combined = rest.combined - float(comment.combined)
+		rest.combined = rest.combined + float(comment.combined)
 		rest.save()
 		comment.save()
 #set up restaurant info and save in db
@@ -138,10 +139,9 @@ def userProfile(request, user_name):
 	profile = User.objects.get(username = user_name)
 	return render_to_response('hello/profile.html', {'user': request.user, 'myprofile':user_name==request.user.username, 'favourites': favourites, 'profile':profile, 'comments':comments})
 
-def edit_favourites(request, user_name):
-	u = User.objects.get(username = user_name)
-	favourites = Favourite.objects.filter(user=u)
-	return render_to_response('hello/edit_favourites.html', {'favourites': favourites, 'user': request.user, 'user_name': user_name})
+def edit_favourites(request):
+	favourites = Favourite.objects.filter(user__username=request.user.username)
+	return render_to_response('hello/edit_favourites.html', {'favourites': favourites, 'user': request.user})
 
 def edit_comment(request, comment_id):
 	comment = Comment.objects.get(id=comment_id)

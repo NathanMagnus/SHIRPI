@@ -1,11 +1,6 @@
 {% extends "base.html" %}
 {% load browse_extras %}
 {% block content %}
-<h1>{{user_name}}'s Favourite Restaurants</h1>
-<table>
-{{favourite.restaurant|display_rest_table_header}}
-{% for favourite in favourites %}
-	{{ favourite.restaurant|display_rest_info }}
-</table>
-{% endfor %}
+<h1>Your Favourite Restaurants</h1>
+{{ favourites|display_restaurant_set:"favourites" }}
 {% endblock %}
