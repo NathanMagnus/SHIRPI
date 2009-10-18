@@ -37,7 +37,7 @@ def save(request, rest_name):
 		try:  #if the user is authenticated, they are the author
 			request.user.is_authenticated()
 			comment.author = User.objects.get(username = request.user.username)
-		except User.DoesNotExist:
+		except User.DoesNotExist:#otherwise anonymous auther
 			comment.author = User.objects.get(username="Anonymous")
 		comment.restaurant = Restaurant.objects.get(name=rest_name)
 		rest = comment.restaurant
@@ -145,5 +145,7 @@ def edit_favourites(request):
 
 def edit_comment(request, comment_id):
 	comment = Comment.objects.get(id=comment_id)
+	if request.user != comment.author:
+		return HttpResponseRedirect('/cs215/hello');
 	form = CommentForm(initial={'comment':comment.comment, 'food_quality': comment.food_quality, 'cleanliness': comment.cleanliness, 'atmosphere': comment.atmosphere, 'wait_time': comment.wait_time})
 	return render_to_response('hello/edit_comment.html', {'comment': comment, 'form':form})

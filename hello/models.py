@@ -46,7 +46,7 @@ class RegistrationForm(forms.Form):
 class Restaurant(models.Model):
 	name = models.CharField(max_length=100, primary_key=True)
 	location = models.ForeignKey(Location)	
-	visible = models.BooleanField()
+	visible = models.BooleanField(default = True)
 	street_address = models.CharField(max_length=50)
 	health_inspection_status = models.IntegerField(default=0)
 	combined = models.FloatField(default=0)
@@ -91,9 +91,11 @@ class CommentAdmin(admin.ModelAdmin):
 	search_fields = ['comment', 'restaurant']
 
 class HealthReport(models.Model):
-	date = models.DateTimeField()
+	date = models.CharField(max_length=100)#DateTimeField()
 	health_inspection_score = models.IntegerField()
 	restaurant = models.ForeignKey(Restaurant)
+	def __unicode__(self):
+		return "%s %s %s" % (self.restaurant.name, self.health_inspection_score, self.date)
 
 class UserProfile(models.Model):
 	street_address = models.CharField(max_length=75)

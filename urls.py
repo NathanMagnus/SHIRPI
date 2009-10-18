@@ -25,4 +25,5 @@ urlpatterns = patterns('',
     (r'^cs215/hello/profile/edit_favourites/$', 'project.hello.views.edit_favourites'),
     (r'^cs215/hello/profile/(?P<user_name>[^/]+)/$', 'project.hello.views.userProfile'),
     (r'^cs215/hello/edit_comment/(?P<comment_id>\d+)/$', 'project.hello.views.edit_comment'),
+    (r'^cs215/populateDB/$', 'project.populateDB.views.populate'),
 )

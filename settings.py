@@ -83,5 +83,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'project.hello',
+    'project.populateDB',
 )
 LOGIN_REDIRECT_URL = '/cs215/hello/'
