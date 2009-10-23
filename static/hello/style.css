@@ -60,3 +60,12 @@ body {
 .critical{
 	background: #F75D59;
 }
+.good td, .moderate td, .critical td, .good th, .moderate th, .critical th{
+	font-size: 10pt;
+}
+table caption {
+	text-align: left;
+	position: absolute;
+	background: inherit;
+	font-size: 14pt;
+}

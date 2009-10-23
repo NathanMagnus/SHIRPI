@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django import forms
+from django.forms import ModelForm
 
 #categories for restaurants
 class HICategory(models.Model):
@@ -20,11 +21,8 @@ class Location(models.Model):
 		(u'Regina', u'Regina'),
 		(u'Saskatoon', u'Saskatoon'),
 	)
-	regionChoices = (
-		(u'Regina/QuAppelle', u'Regina/Qu\'Appelle'),
-	)
 	city = models.CharField(max_length=50, choices=cityChoices)
-	region = models.CharField(max_length=50, choices=regionChoices, primary_key=True)
+	region = models.CharField(max_length=100)
 	province = models.CharField(max_length=2, choices=((u'SK',u'Saskatchewan'),))
 	country = models.CharField(max_length=3, choices=countryChoices)
 	def __unicode__(self):
@@ -44,7 +42,7 @@ class RegistrationForm(forms.Form):
 	location = forms.ModelChoiceField(queryset=query, empty_label=None)
 
 class Restaurant(models.Model):
-	name = models.CharField(max_length=100, primary_key=True)
+	name = models.CharField(max_length=100)
 	location = models.ForeignKey(Location)	
 	visible = models.BooleanField(default = True)
 	street_address = models.CharField(max_length=50)
@@ -55,25 +53,17 @@ class Restaurant(models.Model):
 	atmosphere = models.FloatField(default=0)
 	wait_time = models.FloatField(default=0)
 	comment_count = models.IntegerField(default=0)
+	chain = models.CharField(max_length=50, default="")
 	def __unicode__(self):
-		return self.name
+		return "%s - %s" % (self.name, self.street_address)
 
-class RestaurantAdmin(admin.ModelAdmin):
-	fields = ['name', 'location', 'street_address', 'visible']
-	list_display = ('name', 'location', 'street_address', 'visible')
 
 class Favourite(models.Model):
 	user = models.ForeignKey(User)
 	restaurant = models.ForeignKey(Restaurant)
 	position = models.IntegerField()
 
-class CommentForm(forms.Form):
-	comment = forms.CharField(widget=forms.Textarea(), required=False)
-	food_quality = forms.FloatField(label="Food Quality", required=False)
-	cleanliness = forms.FloatField(required=False)
-	#service = forms.FloatField(label="Quality of Service:", required=False)
-	atmosphere = forms.FloatField(required=False)
-	wait_time = forms.FloatField(label="Wait Time", required=False)
+
 	
 class Comment(models.Model):
 	comment = models.TextField()
@@ -86,16 +76,21 @@ class Comment(models.Model):
 	wait_time = models.FloatField(default=0)
 	id = models.IntegerField(primary_key = True, unique=True)
 
+class CommentForm(ModelForm):
+	class Meta:
+		model = Comment
+		fields = ('comment', 'food_quality', 'cleanliness', 'atmosphere', 'wait_time')
+#	comment = forms.CharField(widget=forms.Textarea(), required=False)
+#	food_quality = forms.FloatField(label="Food Quality", required=False)
+#	cleanliness = forms.FloatField(required=False)
+	#service = forms.FloatField(label="Quality of Service:", required=False)
+#	atmosphere = forms.FloatField(required=False)
+#	wait_time = forms.FloatField(label="Wait Time", required=False)
+
 class CommentAdmin(admin.ModelAdmin):
 	list_display = ('restaurant', 'comment', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time')	
 	search_fields = ['comment', 'restaurant']
 
-class HealthReport(models.Model):
-	date = models.CharField(max_length=100)#DateTimeField()
-	health_inspection_score = models.IntegerField()
-	restaurant = models.ForeignKey(Restaurant)
-	def __unicode__(self):
-		return "%s %s %s" % (self.restaurant.name, self.health_inspection_score, self.date)
 
 class UserProfile(models.Model):
 	street_address = models.CharField(max_length=75)
@@ -107,12 +102,19 @@ class UserProfile(models.Model):
 	
 	
 #health inspection item
-class HIItemMaster(models.Model):
+class HIItem(models.Model):
 	number = models.IntegerField(unique = True, primary_key=True)
 	description = models.TextField()
 	severity = models.IntegerField()
+	def __unicode__(self):
+		return "%s"%(self.number)
 
-class HIItem(models.Model):
-	master = models.ForeignKey(HIItemMaster)
-	report = models.ForeignKey(HealthReport)
-
+class HealthReport(models.Model):
+	date = models.CharField(max_length=100)#DateTimeField()
+	health_inspection_score = models.IntegerField(default=0)
+	restaurant = models.ForeignKey(Restaurant)
+	priority = models.CharField(max_length=20)
+	type = models.CharField(max_length=20)
+	items = models.ManyToManyField(HIItem)
+	def __unicode__(self):
+		return "%s %s %s" % (self.restaurant.name, self.health_inspection_score, self.date)

@@ -3,15 +3,15 @@
 {% block content %}
 
 {% if Critical %}
-	<h1>Critical</h1>
 	{{ Critical|display_restaurant_set:"critical" }}
 {% endif %}
+<br />
 {%if Moderate %}
-	<h1>Moderate</h1>
 	{{ Moderate|display_restaurant_set:"moderate" }}
 {% endif %}
+<br />
 {% if Good %}
-	<h1>Good</h1>
 	{{ Good|display_restaurant_set:"good" }}
 {% endif %}
+<br />
 {% endblock %}

@@ -23,7 +23,7 @@ except HICategory.DoesNotExist:
 	GOOD_VAL = 0
 
 
-def save(request, rest_name):
+def save(request, rest_name, rest_address):
 	try:
 #Set up comment info and save in db
 		#if the comment already exists, select it
@@ -39,7 +39,7 @@ def save(request, rest_name):
 			comment.author = User.objects.get(username = request.user.username)
 		except User.DoesNotExist:#otherwise anonymous auther
 			comment.author = User.objects.get(username="Anonymous")
-		comment.restaurant = Restaurant.objects.get(name=rest_name)
+		comment.restaurant = Restaurant.objects.get(name=rest_name, street_address=rest_address)
 		rest = comment.restaurant
 		#update rest stats
 		rest.cleanliness = rest.cleanliness - float(comment.cleanliness) + float(request.POST['cleanliness'])
@@ -63,18 +63,21 @@ def save(request, rest_name):
 
 	except Restaurant.DoesNotExist:
 		return HttpResponseRedirect('/cs215/hello/')
-	return HttpResponseRedirect('/cs215/hello/browse/'+rest_name+'/')
+	return HttpResponseRedirect('/cs215/hello/browse/'+rest_name+'/'+rest_address+'/')
 
 def index(request):
 	MAXSHOW = 10
-	crit = Restaurant.objects.filter(health_inspection_status__gte=CRIT_VAL)[0:MAXSHOW]
-	mod = Restaurant.objects.filter(health_inspection_status__gte=MOD_VAL).filter(health_inspection_status__lt=CRIT_VAL)[0:MAXSHOW]
-	good = Restaurant.objects.filter(health_inspection_status__lte=GOOD_VAL)[0:MAXSHOW]
+	crit = Restaurant.objects.filter(health_inspection_status__gte=CRIT_VAL).filter(visible=True).order_by('-health_inspection_status')[0:MAXSHOW]
+	mod = Restaurant.objects.filter(health_inspection_status__gte=MOD_VAL).filter(visible=True).filter(health_inspection_status__lt=CRIT_VAL).order_by('-health_inspection_status')[0:MAXSHOW]
+	good = Restaurant.objects.filter(health_inspection_status__lte=GOOD_VAL).filter(visible=True).order_by('-health_inspection_status')[0:MAXSHOW]
 	return render_to_response('hello/index.html', {'user': request.user, 'Critical': crit, 'Moderate': mod, 'Good': good})
 
-def comment(request, rest_name):
-	form = CommentForm(request.POST)
-	rest = Restaurant.objects.get(name=rest_name)
+def comment(request, rest_name, rest_address):
+	try:
+		rest = Restaurant.objects.get(name=rest_name, street_address = rest_address)
+	except Restaurant.DoesNotExist:
+		return HttpResponseRedirect('/cs215/hello/browse/' + rest_name  + '/' + rest_address + '/')
+	form = CommentForm()
 	return render_to_response('hello/comment.html', {'rest':rest, 'form': form, 'user': request.user})
 
 def login(request):
@@ -91,15 +94,16 @@ def logout(request):
 	djlogout(request)
 	return direct_to_template(request, 'hello/index.html')
 
-def browse(request, rest_name):
+def browse(request, rest_name, rest_address):
 	try:
-		rest = Restaurant.objects.get(name=rest_name)
+		rest = Restaurant.objects.get(name=rest_name, street_address=rest_address)
 		comments = Comment.objects.filter(restaurant = rest)
-		return render_to_response('hello/browse.html', {'rest': rest, 'comments': comments, 'user': request.user})
+		reps = HealthReport.objects.filter(restaurant=rest)
+		return render_to_response('hello/browse.html', {'rest': rest, 'comments': comments, 'user': request.user, 'reps':reps})
 	except Restaurant.DoesNotExist:
-		crit = Restaurant.objects.filter(health_inspection_status__gte=CRIT_VAL)
-		mod = Restaurant.objects.filter(health_inspection_status__gte=MOD_VAL).filter(health_inspection_status__lt=CRIT_VAL)
-		good = Restaurant.objects.filter(health_inspection_status__lte=GOOD_VAL)
+		crit = Restaurant.objects.filter(health_inspection_status__gte=CRIT_VAL).filter(visible=True).order_by('-health_inspection_status')
+		mod = Restaurant.objects.filter(health_inspection_status__gte=MOD_VAL).filter(health_inspection_status__lt=CRIT_VAL).filter(visible=True).order_by('-health_inspection_status')
+		good = Restaurant.objects.filter(health_inspection_status__lte=GOOD_VAL).filter(visible=True).order_by('-health_inspection_status')
 		if rest_name == "All":	
 			return render_to_response('hello/browse.html', {'user': request.user, 'Critical': crit, 'Moderate': mod, 'Good': good})
 		elif rest_name == "Good":
@@ -139,9 +143,9 @@ def userProfile(request, user_name):
 	profile = User.objects.get(username = user_name)
 	return render_to_response('hello/profile.html', {'user': request.user, 'myprofile':user_name==request.user.username, 'favourites': favourites, 'profile':profile, 'comments':comments})
 
-def edit_favourites(request):
+def edit_favourites(request, user_name):
 	favourites = Favourite.objects.filter(user__username=request.user.username)
-	return render_to_response('hello/edit_favourites.html', {'favourites': favourites, 'user': request.user})
+	return render_to_response('hello/edit_favourites.html', {'favourites': favourites, 'user': request.user, 'favourite_form': fav_form})
 
 def edit_comment(request, comment_id):
 	comment = Comment.objects.get(id=comment_id)

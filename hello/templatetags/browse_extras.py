@@ -9,6 +9,7 @@ register = template.Library()
 def display_restaurant_set(set, category, autoescape=None):
 	#start table
 	result = "<table class=\"" + category + "\">\n"
+	result += "<hr style=\"position:relative;top:20px;\" /><caption>" + category.capitalize() + "</caption>"
 	result += display_restaurant_table_header(set)
 	#display info for each restaurant in the set
 	for rest in set:
@@ -22,7 +23,7 @@ display_restaurant_set.needs_category = True
 #display the info of one restaurant
 @register.filter
 def display_restaurant_info(value, autoescape=None):
-	result = '<tr>\n\t<td><a href="/cs215/hello/browse/' + value.name +'/">' + value.name + '</a></td>'
+	result = '<tr>\n\t<td><a href="/cs215/hello/browse/' + value.name +'/' + value.street_address + '">' + value.name + '</a></td>'
 	result += '<td>' + str(value.street_address) + '</td><td>' + str(value.combined) +'</td>'
 	result += '<td>' + str(value.health_inspection_status) + '</td><td>' + str(value.food_quality) + '</td>'
 	result += '<td>' + str(value.cleanliness) + '</td><td>' + str(value.atmosphere) + '</td><td>' + str(value.wait_time) + '</td>'

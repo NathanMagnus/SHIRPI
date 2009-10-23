@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load browse_extras %}
+{% block content %}
+<h3>{{existing}} previously existing reports</h3>
+<h3>{{new}} new reports</h3>
+<table>
+{% for rep in reports %}
+	<tr>
+		<td>{{rep.restaurant.name}}</td>
+		<td>{{rep.restaurant.street_address}}</td>
+		<td>{{rep.health_inspection_score}}</td>	
+	</tr>
+{%endfor%}
+</table>
+{% endblock %}
