@@ -65,7 +65,7 @@ def login(request):
 def logout(request):
 	#log them out, simple as that
 	djlogout(request)
-	return direct_to_template(request, 'SHIRPI/index.html')
+	return HttpResponseRedirect('/cs215/SHIRPI/');
 
 #create a comment
 def comment(request, restaurant_name, restaurant_address):
