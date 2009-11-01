@@ -82,7 +82,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'project.hello',
+#    'project.hello',
+    'project.SHIRPI',
     'project.populateDB',
+    'project.kwiki',
 )
-LOGIN_REDIRECT_URL = '/cs215/hello/'
+LOGIN_REDIRECT_URL = '/cs215/SHIRPI/'

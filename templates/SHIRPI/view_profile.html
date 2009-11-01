@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block content %}
+{% load favourite_filters %}
+{% load browse_filters %}
+{% if error %}
+	<h1>{{error}}</h1>
+{% endif %}
+{% if user_to_view %}
+	<h1>{{user_to_view.username}}'s Profile</h1>
+	{{favourites|display_favourite_set:"favourites"}}
+	{{comments|display_comment_set:user.username}}
+{% endif %}
+
+{% endblock %}

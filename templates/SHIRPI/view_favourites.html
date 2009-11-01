@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load favourite_filters %}
+{% block content %}
+
+{% ifequal user_to_view.username user.username %}
+	<h1>display favourite edit/delete here</h1>
+	{{favourites|display_favourite_set:"favourite"}}
+{% else %}
+	{{favourites|display_favourite_set:"favourite"}}
+{% endifequal %}
+{% endblock %}

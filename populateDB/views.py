@@ -1,7 +1,8 @@
 import xml.etree.cElementTree as et
-from project.hello.models import *
+from project.SHIRPI.models import *
 import django
 from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
 
 def populateMaster():
 	items = ["Potentially hazardous foods and perishable foods must be stored at 4oC/40oF or below Hazardous foods must be thawed in a refrigerator or under cold, running water."] 
@@ -21,18 +22,21 @@ def populateMaster():
 	items.append('All restaurants are to be free of vermin')
 	items.append(' Floors, walls and ceilings of all rooms in which food is stored, prepared or served or in which dishes, utensils and equipment are washed or stored should be kept clean and in good repair.')
 	items.append('Approved plumbing must be installed and properly maintained to prevent food contamination.  Light shields or shatterproof bulbs are to be provided in every room in which food is prepared or stored. Unless otherwise approved, every restaurant is to have a ventilation system that prevents the accumulation of odours, smoke, grease/oils and condensation.')
+	severities = ["2", "3", "2", "2", "2", "2", "3", "3", "1000", "2", "1", "2", "1", "4", "1", "1"]
 	for i in range(1,17):
 
 		try:
-			item = HIItem.objects.get(number=i)
-		except HIItem.DoesNotExist:	
-			item = HIItem()
+			item = HealthInspectionItem.objects.get(number=i)
+		except HealthInspectionItem.DoesNotExist:	
+			item = HealthInspectionItem()
 			item.number =i
-			item.severity = i
+			item.severity = severities[i-1]
 		item.description = items[i-1]
 		item.save()
 		
-def populate(request):
+def populate(request, password):
+	if password != "Popul8IT123!":
+		return HttpResponseRedirect('/cs215/SHIRPI')
 	existing=0
 	new = 0
 	populateMaster()
@@ -40,18 +44,20 @@ def populate(request):
 		if elem.tag == "location":
 			#get/make the appropriate restaurant
 			try:
-				rest = Restaurant.objects.get(name=elem.attrib.get("name"), street_address = elem.attrib.get("address"))
+				rest = Restaurant.objects.get(name=elem.attrib.get("name"), address = elem.attrib.get("address"))
 			except Restaurant.DoesNotExist:
 				rest = Restaurant()
 				rest.name = elem.attrib.get("name")
-				rest.street_address = elem.attrib.get("address")
+				rest.address = elem.attrib.get("address")
 				rest.visible = True
+				rest.health_report_status=0
 				#get/make the appropriate location if rest doesn't exist
 				try:
-					loc = Location.objects.get(region=elem.attrib.get("rha"))
+					loc = Location.objects.get(rha=elem.attrib.get("rha"), municipality = elem.attrib.get("municipality"))
 				except Location.DoesNotExist:
 					loc = Location()
 					loc.region = elem.attrib.get("rha")
+					loc.municipality = elem.attrib.get("municipality")
 					loc.city = "Regina"
 					loc.province = "Saskatchewan"
 					loc.country = "Canada"
@@ -76,11 +82,11 @@ def populate(request):
 					score_total=0
 					for item in report.findall("item"):
 						item_text = item.text.lstrip().rstrip()
-						item = HIItem.objects.get(number=item_text)
+						item = HealthInspectionItem.objects.get(number=item_text)
 						rep.items.add(item)
 						score_total = item.severity + score_total
 					rep.health_inspection_score = score_total
-					rest.health_inspection_status = score_total
+					rest.health_report_status = score_total
 					rest.save()
 					rep.save()
 

@@ -1,0 +1,172 @@
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 100%;
+	max-height: 100%;
+}
+* html body {
+	padding: 160px 0 0 0;
+}
+#wrapper {
+	width: 920px;
+	margin: auto;
+}
+#title {
+	float: left;
+	left: 0;
+	top: 0;
+	height: 105px;
+	width: 720px;
+	min-width: 720px;
+	background: #0f0;
+}
+#userinfo {
+	float: left;
+	right: 0;
+	top: 0;
+	padding: 10px 10px 10px 10px;
+	height: 85px;
+	width: 179px;
+	background-color: #063;
+	border-left: 1px solid white;
+	border-bottom: 1px solid white;
+}
+#userinfo a {
+	color: white;
+	text-decoration: none;
+}
+#userinfo a:hover {
+	text-decoration: underline;
+	color: red;
+}
+#navbar {
+	clear: both;
+	padding: 0;
+	margin: 0;
+	left: 0;
+	top: 130px;
+	min-width: 920px;
+	width: 100%;
+	height: 27px;
+	border-bottom: 1px solid white;
+	background-color: #063;
+}
+#navbar a {
+	height: 27px;
+	text-decoration: none;
+	font-size: 18pt;
+	background-color: #063;
+	color: white;
+	border-style: solid;
+	border-color: white;
+	border-top: none;
+	border-bottom: none;
+	border-left: none;
+	border-right-width: 1px;
+	border-collapse: collapse;
+	padding: 0 30px 0 30px;
+}
+#navbar a:hover {
+	text-decoration: underline;
+	background-color: #396;
+	color: red;
+}
+#content {
+	width: 900px;
+	padding: 25px 10px 0px 10px;
+	background: #ABC;
+}
+#content a {
+	text-decoration: none;
+}
+#content a:hover {
+	text-decoration: underline;
+	color: red;
+}
+* html #content {
+	height: 100%;
+	width: 100%;
+}
+#footer {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
+#navbar li {
+	list-style: none;
+	float: left;
+}
+#navbar ul {
+
+}
+
+.good {
+	border-collapse: collapse;
+	width: 850px;
+	margin: auto;
+	background: #5B4;
+}
+.moderate {
+	border-collapse: collapse;
+	width: 850px;
+	margin: auto;
+	background: #FF6;
+}
+.critical{
+	border-collapse: collapse;
+	width: 850px;
+	margin: auto;
+	background-color: #C66;
+}
+.moderate tr:nth-child(2n) {
+	background: #DD3;
+}
+.moderate tr:n-th child(2n) a:hover {
+	color: red;
+}
+.moderate tr:n-th child(2n+1) a:hover {
+	color: green;
+}
+.good tr:nth-child(2n) {
+	background: #391;
+}
+.good tr:nth-child(2n) a:hover {
+	color: red;
+}
+.good tr:nth-child(2n+1) a:hover {
+	color: yellow;
+}
+.critical tr:nth-child(2n) {
+	background-color: #A33;
+}
+.critical tr:nth-child(2n+1) a:hover {
+	color: yellow;
+}
+.critical tr:nth-child(2n) a:hover {
+	color: green;
+}
+.good td, .moderate td, .critical td, .good th, .moderate th, .critical th{
+	font-size: 10pt;
+}
+table th {
+	text-align: center;
+}
+table caption {
+	text-align: left;
+	padding: 5px 0 5px 10px;
+	background: inherit;
+	font-size: 14pt;
+}
+
+.restaurant_set {
+	
+}
+.comment_set {
+	background-color: #69B;
+	border-collapse: collapse;
+}
+.comment_set tr:nth-child(2n) {
+	background-color: #369;
+}

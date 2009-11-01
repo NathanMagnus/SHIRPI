@@ -73,11 +73,11 @@ def index(request):
 	return render_to_response('hello/index.html', {'user': request.user, 'Critical': crit, 'Moderate': mod, 'Good': good})
 
 def comment(request, rest_name, rest_address):
-	try:
-		rest = Restaurant.objects.get(name=rest_name, street_address = rest_address)
-	except Restaurant.DoesNotExist:
-		return HttpResponseRedirect('/cs215/hello/browse/' + rest_name  + '/' + rest_address + '/')
-	form = CommentForm()
+#	try:
+#		rest = Restaurant.objects.get(name=rest_name, street_address = rest_address)
+#	except Restaurant.DoesNotExist:
+#		return HttpResponseRedirect('/cs215/hello/browse/' + rest_name  + '/' + rest_address + '/')
+#	form = CommentForm()
 	return render_to_response('hello/comment.html', {'rest':rest, 'form': form, 'user': request.user})
 
 def login(request):

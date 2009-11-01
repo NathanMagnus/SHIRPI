@@ -3,45 +3,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-type" content="text/html;charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="/cs215/static/hello/style.css" />
+        <link rel="stylesheet" type="text/css" href="/cs215/static/SHIRPI/style.css" />
 	<title>{% block title %}{% endblock %}</title>
 	{% block extrahead %} 
 	<!-- default extra head information -->
 	{% endblock %}
 </head>
+{% block bodytag %}
 <body>
+{% endblock %}
 <div id="wrapper">
-	<div id="title">
-		{% block header %}<h1>SHIRPI</h1>
-		<h2>(Saskatchewan Health Inspections Reports Parser and Interface)</h2>{% endblock %}
-	</div>
-	<div id="userinfo">
-		{% if user.is_authenticated %}
-			<p>Howdy, {{ user.username }} [<a href="/cs215/hello/logout/">Logout</a>, <a href="/cs215/hello/profile/{{user.username}}">My Profile]</a></p>
-		{% else %}
-			{% block userinfo %}
-				<p>[<a href="/cs215/hello/login/">Login</a> or <a href="/cs215/hello/register/">Register]</a></p>
-			{% endblock %}
-		{% endif %}
-	</div>
-
-        <div id="navbar">
-		{% block navbar %}
-		<!-- Default Navbar -->
-		<ul class="nav">
-			<li><a href="/cs215/hello/browse/All/All">Browse Restaurants</a></li>
-			<li><a href="/cs215/hello/login/">Login/Logout</a></li>
-			<li><a href="/cs215/hello/">Home</a></li>
-		</ul>
+<div id="title">
+	{% block header %}<h1>SHIRPI</h1>
+	<h2>(Saskatchewan Health Inspections Reports Parser and Interface)</h2>{% endblock %}
+</div>
+<div id="userinfo">
+	{% if user.is_authenticated %}
+	<p>Hi, {{ user.username }} <br />
+	<a href="/cs215/SHIRPI/logout/">Logout</a><br />
+	<a href="/cs215/SHIRPI/view_profile/{{user.username}}">My Profile</a></p>
+	{% else %}
+		{% block userinfo %}
+			<a href="/cs215/SHIRPI/login/">Login</a><br />
+			<a href="/cs215/SHIRPI/register/">Register</a>
 		{% endblock %}
-        </div>
-	<div id="content">
-		{% block content %}
-		<!-- Default Content -->
-		contentDefault
-		{% endblock %}
-	</div>
-	<div class="clear"></div>
+	{% endif %}
+</div>
+<div id="navbar">
+	{% block navbar %}
+	<!-- Default Navbar -->
+	<ul class="nav">
+		<li><a href="/cs215/SHIRPI/browse/All/All">Browse Restaurants</a></li>
+		<li><a href="/cs215/SHIRPI/login/">Login/Logout</a></li>
+		<li><a href="/cs215/SHIRPI/">Home</a></li>
+	</ul>
+	{% endblock %}
+</div>
+<div id="content">
+	{% block content %}
+	<!-- Default Content -->
+	contentDefault
+	{% endblock %}
 	<div id="footer">
 		{% block footer %}
 		<!-- Default Footer -->
@@ -50,6 +52,7 @@
 		</a>
 		{% endblock %}
 	</div>
+</div>
 </div>
 </body>
 </html>

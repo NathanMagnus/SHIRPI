@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{% if error %}
+	<h1>{{error}}</h1>
+{% endif %}
+<h1>{{restaurant.name}} Page<h1>
+<form name="reviewForm" method="POST" action="/cs215/SHIRPI/save/{{restaurant.name}}/{{restaurant.address}}/">
+	{{form.as_p }}
+	<input type="submit" value="Submit Review" name="submit" />
+</form>
+{% endblock %}
