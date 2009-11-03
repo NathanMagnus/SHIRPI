@@ -4,9 +4,14 @@ body {
 	border: 0;
 	height: 100%;
 	max-height: 100%;
+	background-color: #F0F0F0;
 }
 * html body {
 	padding: 160px 0 0 0;
+}
+#map_canvas {
+	float: right;
+	margin: 20px 20px 20px 20px;
 }
 #wrapper {
 	width: 920px;
@@ -61,7 +66,7 @@ body {
 	border-style: solid;
 	border-color: white;
 	border-top: none;
-	border-bottom: none;
+	border-bottom-width: 1px;
 	border-left: none;
 	border-right-width: 1px;
 	border-collapse: collapse;
@@ -71,11 +76,13 @@ body {
 	text-decoration: underline;
 	background-color: #396;
 	color: red;
+	border-bottom: 1px solid white;
 }
 #content {
+	word-wrap: break-word;
 	width: 900px;
 	padding: 25px 10px 0px 10px;
-	background: #ABC;
+	min-height: 750px;
 }
 #content a {
 	text-decoration: none;
@@ -89,7 +96,9 @@ body {
 	width: 100%;
 }
 #footer {
+	clear: both;
 	position: relative;
+
 	bottom: 0;
 	left: 0;
 	text-align: center;
@@ -159,6 +168,14 @@ table caption {
 	background: inherit;
 	font-size: 14pt;
 }
+table {
+	width: 850px; 
+	table-layout: fixed;
+	margin: auto;
+}
+table td {
+	padding: 0px 2px 0px 2px;
+}
 
 .restaurant_set {
 	
@@ -166,6 +183,7 @@ table caption {
 .comment_set {
 	background-color: #69B;
 	border-collapse: collapse;
+	font-size: 10pt;
 }
 .comment_set tr:nth-child(2n) {
 	background-color: #369;

@@ -7,6 +7,7 @@ from django.contrib.auth import logout as djlogout
 from django.views.generic.simple import direct_to_template
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
+from django.template import RequestContext
 
 GOOD_VAL = 0
 MODERATE_VAL = 1
@@ -50,7 +51,7 @@ def browse(request, restaurant_name, restaurant_address):
 				return render_to_response("SHIRPI/browse.html", {'chain': chain, 'user':request.user})
 		except Restaurant.DoesNotExist: #if it isn't a restaurant chain render an error page
 			pass
-	return render_to_response("SHIRPI/browse.html", {'user':request.user, 'error':"No restaurant(s) exist with that information"})
+	return render_to_response("SHIRPI/browse.html", {'error':"No restaurant(s) exist with that information"}, RequestContext(request))
 
 #user login
 def login(request):
@@ -73,9 +74,9 @@ def comment(request, restaurant_name, restaurant_address):
 	try:
 		restaurant = Restaurant.objects.get(name = restaurant_name, address = restaurant_address)
 	except Restaurant.DoesNotExist: #if it doesn't exist, error
-		return render_to_response('SHIRPI/comment.html', {'user': request.user, 'error':"The restaurant you are trying to comment on does not exist"})
+		return render_to_response('SHIRPI/comment.html', {'error':"The restaurant you are trying to comment on does not exist"}, RequestContext(request))
 	form = CommentForm() #create the comment form and render
-	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'user': request.user, 'form':form})
+	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form}, RequestContext(request))
 
 def save_edit(request, comment_id):
 	if request.method=="POST":
@@ -114,7 +115,7 @@ def save_edit(request, comment_id):
 
 			#comment doesn't exist, error
 			except Comment.DoesNotExist:
-				return render_to_response('SHIRPI/comment.html', {'user':user, 'error': "Comment does not exist"})	
+				return render_to_response('SHIRPI/comment.html', {'error': "Comment does not exist"}, RequestContext(requet))	
 
 #save a comment
 def save(request, restaurant_name, restaurant_address):
@@ -126,7 +127,7 @@ def save(request, restaurant_name, restaurant_address):
 			try:
 				restaurant = Restaurant.objects.get(name=restaurant_name, address=restaurant_address)
 			except Restaurant.DoesNotExist:
-				return render_to_response('SHIRPI/comment.html', {'error': "Restaurant or comment does not exist"})
+				return render_to_response('SHIRPI/comment.html', {'error': "Restaurant or comment does not exist"}, RequestContext(request))
 				#create the new comment and associate to the restaurant
 			comment = Comment()
 			comment.restaurant = restaurant
@@ -202,25 +203,25 @@ def view_favourites(request, user_name):
 	try:
 		user_to_view = User.objects.get(username=user_name)
 	except User.DoesNotExist:
-		return render_to_response('SHIRPI/view_favourites.html', {'error': "User does not exist"})
+		return render_to_response('SHIRPI/view_favourites.html', {'error': "User does not exist"}, RequestContext(request))
 	favourites = Favourite.objects.filter(user=user_to_view)
 	
-	return render_to_response('SHIRPI/view_favourites.html', {'user': request.user, 'favourites':favourites, 'user_to_view': user_to_view})
+	return render_to_response('SHIRPI/view_favourites.html', {'favourites':favourites, 'user_to_view': user_to_view}, RequestContext(request))
 
 def view_profile(request, user_name):
 	try:
 		user_to_view = User.objects.get(username=user_name)
 	except User.DoesNotExist:
-		return render_to_response('SHIRPI/view_profile.html', {'error': "No user with username '" + user_name +"'"})
+		return render_to_response('SHIRPI/view_profile.html', {'error': "No user with username '" + user_name +"'"}, RequestContext(request))
 	favourites = Favourite.objects.filter(user=user_to_view)
 	comments = Comment.objects.filter(author=user_to_view)
-	return render_to_response('SHIRPI/view_profile.html', {'user':request.user, 'user_to_view': user_to_view, 'favourites': favourites, 'comments': comments})	
+	return render_to_response('SHIRPI/view_profile.html', {'user_to_view': user_to_view, 'favourites': favourites, 'comments': comments}, RequestContext(request))	
 
 
 def edit_comment(request, comment_id):
 	try:
 		comment = Comment.objects.get(id=comment_id)
 		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': comment.cleanliness, 'atmosphere': comment.atmosphere, 'wait_time': comment.wait_time, 'food_quality':comment.food_quality})
-		return render_to_response('SHIRPI/edit_comment.html', {'user':request.user, 'form': form, 'comment':comment})
+		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment}, RequestContext(request))
 	except Comment.DoesNotExist:
-		return render_to_response('SHIRPI/edit_comment.html', {'error': "That comment does not exist"})
+		return render_to_response('SHIRPI/edit_comment.html', {'error': "That comment does not exist"}, RequestContext(request))

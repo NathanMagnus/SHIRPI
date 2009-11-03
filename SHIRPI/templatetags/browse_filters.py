@@ -46,6 +46,7 @@ display_restaurant_info.needs_autoescape = True
 def display_comment_set(set, user_name, autoescape=None):
 	#start the table
 	result = '<table class=\"comment_set\">\n'
+	result += "<caption>Comments</caption>"
 	result += display_comment_table_header(set, user_name)
 	#put the information for each comment into the table
 	for comment in set:

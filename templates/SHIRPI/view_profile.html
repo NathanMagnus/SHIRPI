@@ -7,6 +7,9 @@
 {% endif %}
 {% if user_to_view %}
 	<h1>{{user_to_view.username}}'s Profile</h1>
+	{% ifequal user_to_view.username user.username %}
+		{{favourites|display_favourite_set_edit:"favourites"}}
+	{% endifequal %}
 	{{favourites|display_favourite_set:"favourites"}}
 	{{comments|display_comment_set:user.username}}
 {% endif %}
