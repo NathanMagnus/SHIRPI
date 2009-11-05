@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% load browse_filters %}
+{% block content %}
+{{comments|display_comment_set:user.username}}
+
+{% endblock %}
