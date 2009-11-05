@@ -8,9 +8,17 @@
 {% if user_to_view %}
 	<h1>{{user_to_view.username}}'s Profile</h1>
 	{% ifequal user_to_view.username user.username %}
-		{{favourites|display_favourite_set_edit:"favourites"}}
+		{% if user.is_staff %}
+			<h5><a href="/cs215/admin/">Admin Page</a></h5>
+		{% endif %}
+		{% ifnotequal favourites|length 0 %}
+			{{favourites|display_favourite_set_edit:"favourite"}}
+		{% else %}
+			<h2>No favourites</h2>
+		{% endifnotequal %}
+	{% else %}
+		{{favourites|display_favourite_set:"favourites"}}
 	{% endifequal %}
-	{{favourites|display_favourite_set:"favourites"}}
 	{{comments|display_comment_set:user.username}}
 {% endif %}
 

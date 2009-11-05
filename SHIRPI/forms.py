@@ -4,4 +4,4 @@ from django.forms import ModelForm
 class CommentForm(ModelForm):
 	class Meta:
 		model = Comment
-		exclude = ('restaurant', 'author', 'id', 'combined')
+		exclude = ('restaurant', 'author', 'id', 'combined', 'created', 'last_modified')

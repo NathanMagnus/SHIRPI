@@ -180,11 +180,22 @@ table td {
 .restaurant_set {
 	
 }
-.comment_set {
-	background-color: #69B;
-	border-collapse: collapse;
-	font-size: 10pt;
+.comment {
+	background-color: #F00;
+	border: 1px solid black;
 }
-.comment_set tr:nth-child(2n) {
-	background-color: #369;
+.comment_body {
+	clear: both;
+}
+.comment_attributes {
+	list-style: none;
+}
+.comment_attributes li {
+	float: left;
+}
+.comment_attributes h4 {
+	
+}
+.timestamp {
+	
 }

@@ -3,8 +3,11 @@
 {% block content %}
 
 {% ifequal user_to_view.username user.username %}
-	<h1>display favourite edit/delete here</h1>
-	{{favourites|display_favourite_set:"favourite"}}
+	{% ifnotequal favourites|length 0 %}
+		{{favourites|display_favourite_set_edit:"favourite"}}
+	{% else %}
+		<h2>No favourites</h2>
+	{% endifnotequal %}
 {% else %}
 	{{favourites|display_favourite_set:"favourite"}}
 {% endifequal %}

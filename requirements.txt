@@ -8,13 +8,13 @@ Those unaddressed are indicated by - in front
 8. Allow users to view other revies and ratings
 9. Allow administrators to log in
 10. Allow administrators to modify text reviews
--11. Allow administrators to delete reviews and ratings
--12. Allow administrators to manage user accounts
+11. Allow administrators to delete reviews and ratings
+12. Allow administrators to manage user accounts
 -13. Allow users to create and log into accounts
 -14. Allow users to edit their account
 15. Allow logged in users to edit their reviews
 16. Allow registered users to create a list of favourite restaurants
--17. Allow registered users to modify their list of favourite restaurants
--18. Allow registered users to modify the order of their favourite restaurants
+17. Allow registered users to modify their list of favourite restaurants
+18. Allow registered users to modify the order of their favourite restaurants
 19. Provide users with restaurant addresses
 20. Show restaurant locations on a map

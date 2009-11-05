@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load browse_filters %}
+{% load greaterthan %}
 {% block extrahead %}
 	{% if restaurant %}
 	<script src="http://maps.google.com/?file=api&amp;v=2.x&amp;key=ABQIAAAAJZucu9WsDLjQXvuECRZKCBRFsYESLCWDQrfH4g8pYUVgNYJbSxRMjk6wTuPC3mllAtrGN9hs-42WYg" type="text/javascript"></script>
@@ -81,7 +82,12 @@
 {% endif %}
 {% if restaurant and restaurant.visible%}
 	<h1>{{restaurant.name}}</h1>
-	{{ comments|display_comment_set:user.username }}
+	{% ifnotequal comments|length 0 %}
+		{{ comments|display_comment_set:user.username }}
+		{% ifequal comments|length 5 %}
+			<a href="/cs215/SHIRPI/view_comments/{{restaurant.name}}/{{restaurant.address}}/">More Comments</a>
+		{% endifequal %}
+	{% endifnotequal %}
 	<p><a href="/cs215/SHIRPI/comment/{{ restaurant.name }}/{{restaurant.address}}">Comment on {{ restaurant.name }}</a></p>
 	{% if user.is_authenticated %}
 		<p><a href="/cs215/SHIRPI/add_favourite/{{restaurant.name}}/{{restaurant.address}}">Add to favourites</a></p>
@@ -91,9 +97,9 @@
 	{% for report in reps %}
 	Report Date: {{report.date}}
 	<ul>
-	{% ifnotequal report.items.all.len 0 %}
+	{% ifequal report.items.all|length 0 %}
 		<li>None</li>
-	{% endifnotequal %}
+	{% endifequal %}
 	{% for item in report.items.all %}
 	<li>{{item.description}}</li>
 	{% endfor %}

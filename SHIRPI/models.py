@@ -47,6 +47,8 @@ class Comment(models.Model):
 	food_quality = models.FloatField(default = "0", choices=choices)
 	atmosphere = models.FloatField(default = "0", choices=choices)
 	wait_time = models.FloatField(default = "0", choices=choices)
+        created = models.DateTimeField()
+        last_modified = models.DateTimeField()
 
 class Favourite(models.Model):
 	restaurant = models.ForeignKey(Restaurant)

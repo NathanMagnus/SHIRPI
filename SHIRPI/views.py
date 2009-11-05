@@ -2,6 +2,7 @@
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm 
 
+from datetime import datetime
 from django.contrib.auth.models import User
 from django.contrib.auth import logout as djlogout
 from django.views.generic.simple import direct_to_template
@@ -38,7 +39,7 @@ def browse(request, restaurant_name, restaurant_address):
 		#get the reports
 		reps = HealthReport.objects.filter(restaurant=restaurant)
 		#get the comments
-		comments = Comment.objects.filter(restaurant=restaurant)
+		comments = Comment.objects.filter(restaurant=restaurant)[0:5]
 		#render the page
 		return render_to_response("SHIRPI/browse.html", {'restaurant': restaurant, 'reps':reps, 'user':request.user, 'comments': comments})
 	#if there was an error, this is because they are trying to get a restaurant that doesn't exist
@@ -168,6 +169,9 @@ def save(request, restaurant_name, restaurant_address):
 			restaurant.combined_count = restaurant.combined_count + 1
 			restaurant.combined = restaurant.combined + comment.combined
 
+			#set datetime
+			comment.created = datetime.now()
+			comment.last_modified = datetime.now()
 			#save everything
 			restaurant.save()
 			comment.save()
@@ -213,7 +217,7 @@ def view_profile(request, user_name):
 		user_to_view = User.objects.get(username=user_name)
 	except User.DoesNotExist:
 		return render_to_response('SHIRPI/view_profile.html', {'error': "No user with username '" + user_name +"'"}, RequestContext(request))
-	favourites = Favourite.objects.filter(user=user_to_view)
+	favourites = Favourite.objects.filter(user=user_to_view).order_by('rank')
 	comments = Comment.objects.filter(author=user_to_view)
 	return render_to_response('SHIRPI/view_profile.html', {'user_to_view': user_to_view, 'favourites': favourites, 'comments': comments}, RequestContext(request))	
 
@@ -221,7 +225,32 @@ def view_profile(request, user_name):
 def edit_comment(request, comment_id):
 	try:
 		comment = Comment.objects.get(id=comment_id)
-		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': comment.cleanliness, 'atmosphere': comment.atmosphere, 'wait_time': comment.wait_time, 'food_quality':comment.food_quality})
+		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'wait_time': int(comment.wait_time), 'food_quality': int(comment.food_quality)})
 		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment}, RequestContext(request))
 	except Comment.DoesNotExist:
 		return render_to_response('SHIRPI/edit_comment.html', {'error': "That comment does not exist"}, RequestContext(request))
+
+def view_comments(request, restaurant_name, restaurant_address):
+	try:
+		comments = Comment.objects.filter(restaurant__name = restaurant_name, restaurant__address = restaurant_address)
+	except Comment.DoesNotExist:
+		return HttpResponseRedirect('/cs215/SHIRPI/browse/' + restaurant_name + '/' + restaurant_address +'/')
+	return render_to_response('SHIRPI/view_comments.html', {'comments': comments}, RequestContext(request))
+
+
+def edit_favourites(request):
+	if request.method=="POST":
+		favourites = Favourite.objects.filter(user__username = request.user.username)
+		for favourite in favourites:
+			favourite.rank = request.POST[favourite.restaurant.name]
+			favourite.save()
+	return HttpResponseRedirect('/cs215/SHIRPI/view_profile/' + request.user.username + '/')
+
+
+def delete_favourite(request, restaurant_name, restaurant_address):
+	try:
+		favourite = Favourite.objects.get(user__username = request.user.username, restaurant__name = restaurant_name, restaurant__address = restaurant_address)
+		favourite.delete()
+	except Favourite.DoesNotExist:
+		pass
+	return HttpResponseRedirect('/cs215/SHIRPI/view_profile/' + request.user.username + '/')

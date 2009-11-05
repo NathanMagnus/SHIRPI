@@ -18,16 +18,19 @@
 	<h2>(Saskatchewan Health Inspections Reports Parser and Interface)</h2>{% endblock %}
 </div>
 <div id="userinfo">
+{% block userinfo %}
 	{% if user.is_authenticated %}
-	<p>Hi, {{ user.username }} <br />
-	<a href="/cs215/SHIRPI/logout/">Logout</a><br />
-	<a href="/cs215/SHIRPI/view_profile/{{user.username}}">My Profile</a></p>
-	{% else %}
-		{% block userinfo %}
+		Hi, {{ user.username }} <br />
+		<a href="/cs215/SHIRPI/logout/">Logout</a><br />
+		<a href="/cs215/SHIRPI/view_profile/{{user.username}}">My Profile</a><br />
+		{% if user.is_staff %}
+			<a href="/cs215/admin/">Admin</a>
+		{% endif %}
+		{% else %}
 			<a href="/cs215/SHIRPI/login/">Login</a><br />
 			<a href="/cs215/SHIRPI/register/">Register</a>
-		{% endblock %}
-	{% endif %}
+		{% endif %}
+{% endblock %}
 </div>
 <div id="navbar">
 	{% block navbar %}
