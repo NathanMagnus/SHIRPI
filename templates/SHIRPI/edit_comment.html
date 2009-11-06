@@ -3,7 +3,7 @@
 {% if error %}
 	<h1>{{error}}</h1>
 {% else %}
-	<form name="comment" action="/cs215/SHIRPI/save/{{comment.id}}/" method="post">
+	<form name="comment" action="/cs215/shirpi/save/{{comment.id}}/" method="post">
 	{{form.as_p}}
 	<input type="submit" name="save" value="Save" />
 	</form>

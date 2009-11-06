@@ -38,7 +38,7 @@ def populateMaster():
 		
 def populate(request, password):
 	if password != "Popul8IT123!":
-		return HttpResponseRedirect('/cs215/SHIRPI')
+		return HttpResponseRedirect('/cs215/shirpi')
 	existing=0
 	new = 0
 	populateMaster()

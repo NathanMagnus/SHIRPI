@@ -21,14 +21,14 @@
 {% block userinfo %}
 	{% if user.is_authenticated %}
 		Hi, {{ user.username }} <br />
-		<a href="/cs215/SHIRPI/accounts/logout/">Logout</a><br />
-		<a href="/cs215/SHIRPI/view_profile/{{user.username}}">My Profile</a><br />
+		<a href="/cs215/shirpi/accounts/logout/">Logout</a><br />
+		<a href="/cs215/shirpi/view_profile/{{user.username}}">My Profile</a><br />
 		{% if user.is_staff %}
 			<a href="/cs215/admin/">Admin</a>
 		{% endif %}
 		{% else %}
-			<a href="/cs215/SHIRPI/accounts/login/">Login</a><br />
-			<a href="/cs215/SHIRPI/accounts/register/">Register</a>
+			<a href="/cs215/shirpi/accounts/login/">Login</a><br />
+			<a href="/cs215/shirpi/accounts/register/">Register</a>
 		{% endif %}
 {% endblock %}
 </div>
@@ -36,8 +36,8 @@
 	{% block navbar %}
 	<!-- Default Navbar -->
 	<ul class="nav">
-		<li><a href="/cs215/SHIRPI/browse/All/All">Browse Restaurants</a></li>
-		<li><a href="/cs215/SHIRPI/">Home</a></li>
+		<li><a href="/cs215/shirpi/browse/All/All">Browse Restaurants</a></li>
+		<li><a href="/cs215/shirpi/">Home</a></li>
 	</ul>
 	{% endblock %}
 </div>

@@ -69,7 +69,7 @@ def login(request):
 def logout(request):
 	#log them out, simple as that
 	djlogout(request)
-	return HttpResponseRedirect('/cs215/SHIRPI/');
+	return HttpResponseRedirect('/cs215/shirpi/');
 
 #create a comment
 def comment(request, restaurant_name, restaurant_address):
@@ -114,7 +114,7 @@ def save_edit(request, comment_id):
 				comment.save()
 
 				#forward to the restaurant browse
-				return HttpResponseRedirect('/cs215/SHIRPI/browse/' + restaurant.name + '/' + restaurant.address + '/')
+				return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant.name + '/' + restaurant.address + '/')
 
 			#comment doesn't exist, error
 			except Comment.DoesNotExist:
@@ -178,18 +178,18 @@ def save(request, restaurant_name, restaurant_address):
 			restaurant.save()
 			comment.save()
 	#render response
-	return HttpResponseRedirect('/cs215/SHIRPI/browse/' + restaurant_name + "/" + restaurant_address + "/")
+	return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + "/" + restaurant_address + "/")
 
 #add the favourite to the user
 def add_favourite(request, restaurant_name, restaurant_address):
 	#if the user is not authenticated, just send them back to the browse page they were on
 	if not request.user.is_authenticated():
-		return HttpResponseRedirect('/cs215/SHIRPI/browse/' + restaurant_name + '/' + restaurant_address + '/')
+		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address + '/')
 	#get the restaurant that is being added or send back to browse page if it doesn't exist
 	try:
 		restaurant = Restaurant.objects.get(name=restaurant_name, address = restaurant_address)
 	except Restaurant.DoesNotExist:
-		return HttpResponseRedirect('/cs215/SHIRPI/browse/' + restaurant_name + '/' + restaurant_address + '/')
+		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address + '/')
 
 	#see if the favourite already exists for this user, if it does, do nothing, otherwise add the favourite
 	try:
@@ -203,7 +203,7 @@ def add_favourite(request, restaurant_name, restaurant_address):
 		favourite.restaurant = restaurant
 		favourite.rank = rank
 		favourite.save()
-	return HttpResponseRedirect('/cs215/SHIRPI/view_favourites/' + request.user.username + '/')
+	return HttpResponseRedirect('/cs215/shirpi/view_favourites/' + request.user.username + '/')
 
 def view_favourites(request, user_name):
 	try:
@@ -236,7 +236,7 @@ def view_comments(request, restaurant_name, restaurant_address):
 	try:
 		comments = Comment.objects.filter(restaurant__name = restaurant_name, restaurant__address = restaurant_address)
 	except Comment.DoesNotExist:
-		return HttpResponseRedirect('/cs215/SHIRPI/browse/' + restaurant_name + '/' + restaurant_address +'/')
+		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address +'/')
 	return render_to_response('SHIRPI/view_comments.html', {'comments': comments}, RequestContext(request))
 
 
@@ -246,7 +246,7 @@ def edit_favourites(request):
 		for favourite in favourites:
 			favourite.rank = request.POST[favourite.restaurant.name]
 			favourite.save()
-	return HttpResponseRedirect('/cs215/SHIRPI/view_profile/' + request.user.username + '/')
+	return HttpResponseRedirect('/cs215/shirpi/view_profile/' + request.user.username + '/')
 
 
 def delete_favourite(request, restaurant_name, restaurant_address):
@@ -255,4 +255,4 @@ def delete_favourite(request, restaurant_name, restaurant_address):
 		favourite.delete()
 	except Favourite.DoesNotExist:
 		pass
-	return HttpResponseRedirect('/cs215/SHIRPI/view_profile/' + request.user.username + '/')
+	return HttpResponseRedirect('/cs215/shirpi/view_profile/' + request.user.username + '/')

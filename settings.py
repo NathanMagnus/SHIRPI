@@ -89,7 +89,7 @@ INSTALLED_APPS = (
     'project.populateDB',
     'project.kwiki',
 )
-LOGIN_REDIRECT_URL = '/cs215/SHIRPI/'
+LOGIN_REDIRECT_URL = '/cs215/shirpi/'
 
 # Registration Related
 ACCOUNT_ACTIVATION_DAYS = 2
