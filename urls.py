@@ -23,9 +23,9 @@ urlpatterns = patterns('',
     (r'^cs215/shirpi/browse/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?$', 'project.SHIRPI.views.browse'),
     (r'^cs215/shirpi/view_profile/(?P<user_name>[^/]+)/?$', 'project.SHIRPI.views.view_profile'),
     
-    (r'^cs215/shirpi/add_favourite/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/', 'project.SHIRPI.views.add_favourite'),
+    (r'^cs215/shirpi/add_favourite/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?', 'project.SHIRPI.views.add_favourite'),
     (r'^cs215/shirpi/view_favourites/(?P<user_name>[^/]+)/?$', 'project.SHIRPI.views.view_favourites'),
-    (r'^cs215/shirpi/edit_favourites/$', 'project.SHIRPI.views.edit_favourites'),
+    (r'^cs215/shirpi/edit_favourites/?$', 'project.SHIRPI.views.edit_favourites'),
     (r'^cs215/shirpi/delete_favourite/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?', 'project.SHIRPI.views.delete_favourite'),
     
     (r'^cs215/shirpi/comment/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?', 'project.SHIRPI.views.comment'),
