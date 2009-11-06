@@ -104,12 +104,12 @@
 {% if restaurant and restaurant.visible%}
 	<h1>{{restaurant.name}}</h1>
 	{% ifnotequal comments|length 0 %}
+		<div id='comments'>
+		<h1>Comments</h1>
 		{% for comment in comments %}
-			<div id='comments'>
-				<h1>Comments</h1>
 				{{ comment|display_comment:user.username }}
-			</div>
 		{% endfor %}
+		</div>
 		{% ifequal comments|length 5 %}
 			<a href="/cs215/shirpi/view_comments/{{restaurant.name}}/{{restaurant.address}}/">More Comments</a>
 		{% endifequal %}
