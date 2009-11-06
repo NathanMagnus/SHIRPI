@@ -25,7 +25,7 @@
 		<div id='restaurants' class='favourites'>
 		<h1>Favourites</h1>
 		{% for favourite in favourites %}
-			{{favourite|display_favourite:favourites.len}}
+			{{favourite|display_favourite}}
 		{% endfor %}
 		</div>
 	{% endifequal %}
