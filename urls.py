@@ -34,6 +34,7 @@ urlpatterns = patterns('',
     (r'^cs215/shirpi/save/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?', 'project.SHIRPI.views.save'),
     (r'^cs215/shirpi/save/(?P<comment_id>\d+)/?', 'project.SHIRPI.views.save_edit'),
     
-    (r'^cs215/shirpi/accounts/', include('registration.urls')),
-    (r'^cs215.+', 'project.SHIRPI.views.index'), # catch all. may or may not want this during development
+    (r'^cs215/shirpi/accounts/?', include('registration.urls')),
+    (r'^cs215/SHIRPI|shirpi/?', 'project.SHIRPI.views.index') # not catch-all
+    #(r'^cs215.+', 'project.SHIRPI.views.index'), # catch all. may or may not want this during development
 )
