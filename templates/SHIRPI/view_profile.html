@@ -16,13 +16,18 @@
 			<div id='restaurants' class='favourites'>
 			<h1>Favourites</h1>
 			{% for restaurant in favourites %}
-			{{restaurant|display_favourite_edit}}
+			{{restaurant|display_favourite_edit|user.username}}
 			{% endfor %}
 		{% else %}
 			<h2>No favourites</h2>
 		{% endifnotequal %}
 	{% else %}
-		{{favourites|display_favourite_set:"favourites"}}
+		<div id='restaurants' class='favourites'>
+		<h1>Favourites</h1>
+		{% for favourite in favourites %}
+			{{favourite|display_favourite|user.username}}
+		{% endfor %}
+		</div>
 	{% endifequal %}
 	{{comments|display_comment_set:user.username}}
 {% endif %}
