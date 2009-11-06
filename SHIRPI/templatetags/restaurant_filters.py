@@ -18,7 +18,7 @@ def display_restaurant(value, autoescape=None):
 	if value.wait_time_count<1:
 		value.wait_time_count =1 
 	result = "<div class='restaurant'>\n"
-	result += "<h3 class='name'><a href='/cs215/shirpi/browse/" + value.name +"/" + value.address + "'>" + value.name + "</a></h3>"
+	result += "<h3 class='name'><a href=\"/cs215/shirpi/browse/" + value.name +"/" + value.address + "\">" + value.name + "</a></h3>"
 	result +="<h3 class='address'>" + str(value.address) + "</h3>"
 	result += "<h4>" + str(value.health_report_status) +"</h4>"
 	result += "<h4>" + str(value.combined/value.combined_count) + "</h4>"
