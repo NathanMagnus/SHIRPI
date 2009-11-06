@@ -7,7 +7,7 @@ register = template.Library()
 #display a group of restaurants in a table
 @register.filter
 def display_favourite(favourite, autoescape=None):
-	result = "<div class='favourite' class='"
+	result = "<div id='favourite' class='"
 	if favourite.restaurant.health_report_status > 5:
 		result+="critical"
 	elif favourite.restaurant.health_report_status > 0:
@@ -27,7 +27,7 @@ display_favourite.needs_category = True
 #display a group of restaurants in a table
 @register.filter
 def display_favourite_edit(favourite, count, autoescape=None):
-	result = "<div class='favourite' class='"
+	result = "<div id='favourite' class='"
 	if favourite.restaurant.health_report_status > 5:
 		result+="critical"
 	elif favourite.restaurant.health_report_status > 0:
