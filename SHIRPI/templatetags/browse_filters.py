@@ -33,7 +33,7 @@ def display_restaurant_info(value, autoescape=None):
 		value.atmosphere_count = 1
 	if value.wait_time_count<1:
 		value.wait_time_count =1 
-	result = '\n\t<td><a href="/cs215/SHIRPI/browse/' + value.name +'/' + value.address + '">' + value.name + '</a></td>'
+	result = '\n\t<td><a href="/cs215/shirpi/browse/' + value.name +'/' + value.address + '">' + value.name + '</a></td>'
 	result += '<td>' + str(value.address) + '</td><td>' + str(value.health_report_status) +'</td>'
 	result += '<td>' + str(value.combined/value.combined_count) + '</td><td>' + str(value.food_quality/value.food_quality_count) + '</td>'
 	result += '<td>' + str(value.cleanliness/value.cleanliness_count) + '</td><td>' + str(value.atmosphere/value.atmosphere_count) + '</td><td>' + str(value.wait_time/value.wait_time_count) + '</td>'
@@ -71,7 +71,7 @@ def display_comment(value, user_name,autoescape=None):
 
 	result += "<h3 class='username'>"
 	if value.author.username != "Anonymous":
-	        result += "<a href='/cs215/SHIRPI/view_profile/" + value.author.username + "/'>" #ALWAYS ADD TRAILING SLASHES
+	        result += "<a href='/cs215/shirpi/view_profile/" + value.author.username + "/'>" #ALWAYS ADD TRAILING SLASHES
 		result += value.author.username
 		result += "</a>"
 	else:
@@ -90,7 +90,7 @@ def display_comment(value, user_name,autoescape=None):
 	#Display comment and Generate link to edit comment, kinda.
 	result += "<div class='comment_body'>"
 	if user_name == value.author.username:
-		result += '<a href="/cs215/SHIRPI/edit_comment/' + str(value.pk) + '">' + value.comment + "</a>"
+		result += '<a href="/cs215/shirpi/edit_comment/' + str(value.pk) + '">' + value.comment + "</a>"
 	else:
 		result += value.comment
 	result += "</div>\n"

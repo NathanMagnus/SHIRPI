@@ -20,7 +20,7 @@ def display_favourite_set(set, category, autoescape=None):
 			result += "good"
 		result += "'>"
 		result += "<td>" + str(favourite.rank) + "</td><td>"
-		result += "<a href='/cs215/SHIRPI/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/'>" + str(favourite.restaurant.name) + "</a></td>"
+		result += "<a href='/cs215/shirpi/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/'>" + str(favourite.restaurant.name) + "</a></td>"
 		result += "<td>" + str(favourite.restaurant.address) + "</td>"
 		result += "</tr>"
 	result += "</table>";
@@ -33,7 +33,7 @@ display_favourite_set.needs_category = True
 @register.filter
 def display_favourite_set_edit(set, category, autoescape=None):
 	count = len(set) +1
-	result = "<form name='edit_favourite' method='post' action='/cs215/SHIRPI/edit_favourites/'>\n"
+	result = "<form name='edit_favourite' method='post' action='/cs215/shirpi/edit_favourites/'>\n"
 	result += "<table style='border-collapse: collapse;'>\n"
 	result += "<caption>Favourites</caption>\n"
 	result += "<tr><th style='width: 30px'></th><th style='width: 40px;'>Rank</th><th>Name</th><th>Address</th></tr>\n"
@@ -46,7 +46,7 @@ def display_favourite_set_edit(set, category, autoescape=None):
 		else:
 			result += "good"
 		result += "'>"
-		result += "<td><a href=\"/cs215/SHIRPI/delete_favourite/" + favourite.restaurant.name + "/" + favourite.restaurant.address + "/\">Del</a></td>"
+		result += "<td><a href=\"/cs215/shirpi/delete_favourite/" + favourite.restaurant.name + "/" + favourite.restaurant.address + "/\">Del</a></td>"
 		result += "<td><select name=\"" +favourite.restaurant.name+ "\">"
 		for i in range(1, count):
 			result += "<option"
@@ -54,7 +54,7 @@ def display_favourite_set_edit(set, category, autoescape=None):
 				result += " selected='selected'"
 			result += ">" + str(i) + "</option>"
 		result += "</select></td>"
-		result += "<td><a href='/cs215/SHIRPI/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/'>" + str(favourite.restaurant.name) + "</a></td>"
+		result += "<td><a href='/cs215/shirpi/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/'>" + str(favourite.restaurant.name) + "</a></td>"
 		result += "<td>" + str(favourite.restaurant.address) + "</td>"
 		result += "</tr>\n"
 	result += "</table>\n"

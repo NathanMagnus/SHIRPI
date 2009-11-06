@@ -20,20 +20,20 @@ urlpatterns = patterns('',
     #(r'^cs215/hello/profile/(?P<user_name>[^/]+)/$', 'project.hello.views.userProfile'),
     #(r'^cs215/hello/edit_comment/(?P<comment_id>\d+)/$', 'project.hello.views.edit_comment'),
      
-    (r'^cs215/SHIRPI|shirpi/$', 'project.SHIRPI.views.index'),
-    (r'^cs215/SHIRPI/browse/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?$', 'project.SHIRPI.views.browse'),
-    (r'^cs215/SHIRPI/view_profile/(?P<user_name>[^/]+)/$', 'project.SHIRPI.views.view_profile'),
+    (r'^cs215/shirpi/browse/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?$', 'project.SHIRPI.views.browse'),
+    (r'^cs215/shirpi/view_profile/(?P<user_name>[^/]+)/?$', 'project.SHIRPI.views.view_profile'),
     
-    (r'^cs215/SHIRPI/add_favourite/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/', 'project.SHIRPI.views.add_favourite'),
-    (r'^cs215/SHIRPI/view_favourites/(?P<user_name>[^/]+)/$', 'project.SHIRPI.views.view_favourites'),
-    (r'^cs215/SHIRPI/edit_favourites/$', 'project.SHIRPI.views.edit_favourites'),
-    (r'^cs215/SHIRPI/delete_favourite/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/', 'project.SHIRPI.views.delete_favourite'),
+    (r'^cs215/shirpi/add_favourite/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/', 'project.SHIRPI.views.add_favourite'),
+    (r'^cs215/shirpi/view_favourites/(?P<user_name>[^/]+)/?$', 'project.SHIRPI.views.view_favourites'),
+    (r'^cs215/shirpi/edit_favourites/$', 'project.SHIRPI.views.edit_favourites'),
+    (r'^cs215/shirpi/delete_favourite/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?', 'project.SHIRPI.views.delete_favourite'),
     
-    (r'^cs215/SHIRPI/comment/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/', 'project.SHIRPI.views.comment'),
-    (r'^cs215/SHIRPI/edit_comment/(?P<comment_id>\d+)/$', 'project.SHIRPI.views.edit_comment'),
-    (r'^cs215/SHIRPI/view_comments/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/$', 'project.SHIRPI.views.view_comments'),
-    (r'^cs215/SHIRPI/save/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/', 'project.SHIRPI.views.save'),
-    (r'^cs215/SHIRPI/save/(?P<comment_id>\d+)/', 'project.SHIRPI.views.save_edit'),
+    (r'^cs215/shirpi/comment/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?', 'project.SHIRPI.views.comment'),
+    (r'^cs215/shirpi/edit_comment/(?P<comment_id>\d+)/$', 'project.SHIRPI.views.edit_comment'),
+    (r'^cs215/shirpi/view_comments/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?$', 'project.SHIRPI.views.view_comments'),
+    (r'^cs215/shirpi/save/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?', 'project.SHIRPI.views.save'),
+    (r'^cs215/shirpi/save/(?P<comment_id>\d+)/?', 'project.SHIRPI.views.save_edit'),
     
-    (r'^cs215/SHIRPI/accounts/', include('registration.urls')),
+    (r'^cs215/shirpi/accounts/', include('registration.urls')),
+    (r'^cs215/?$', 'project.SHIRPI.views.index'), # catch all
 )
