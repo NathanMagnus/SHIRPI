@@ -15,10 +15,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^cs215/admin/', include(admin.site.urls)),
-    #(r'^cs215/hello/register/$', 'project.hello.views.register'),
-    #(r'^cs215/hello/profile/(?P<user_name>[^/]+)/edit_favourites/$', 'project.hello.views.edit_favourites'),
-    #(r'^cs215/hello/profile/(?P<user_name>[^/]+)/$', 'project.hello.views.userProfile'),
-    #(r'^cs215/hello/edit_comment/(?P<comment_id>\d+)/$', 'project.hello.views.edit_comment'),
      
     (r'^cs215/shirpi/browse/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?$', 'project.SHIRPI.views.browse'),
     (r'^cs215/shirpi/view_profile/(?P<user_name>[^/]+)/?$', 'project.SHIRPI.views.view_profile'),
@@ -36,5 +32,4 @@ urlpatterns = patterns('',
     
     (r'^cs215/shirpi/accounts/?', include('registration.urls')),
     (r'^cs215/SHIRPI|shirpi/?', 'project.SHIRPI.views.index') # not catch-all
-    #(r'^cs215.+', 'project.SHIRPI.views.index'), # catch all. may or may not want this during development
 )
