@@ -119,6 +119,7 @@ def save_edit(request, comment_id):
 				return render_to_response('SHIRPI/comment.html', {'error': "Comment does not exist"}, RequestContext(requet))	
 
 #save a comment
+# I have added a comment!
 def save(request, restaurant_name, restaurant_address):
 	#if the form was submitted
 	if request.method=="POST":
