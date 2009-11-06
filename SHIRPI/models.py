@@ -65,6 +65,9 @@ class HealthInspectionItem(models.Model):
 		return "%s" % (self.number)
 
 class HealthReport(models.Model):
+	# TODO: The problem with unescaping ('allowing periods') the name (restaraunt) field is that
+	# it allows for injection and other crap. I may integrate this into the parser, but then
+	# some information may be lost.
 	date = models.CharField(max_length="100")
 	health_inspection_score = models.IntegerField(default=0)
 	restaurant = models.ForeignKey(Restaurant)

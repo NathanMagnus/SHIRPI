@@ -18,3 +18,20 @@ Those unaddressed are indicated by - in front
 18. Allow registered users to modify the order of their favourite restaurants
 19. Provide users with restaurant addresses
 20. Show restaurant locations on a map
+
+
+Todo:
+    Interface:
+        - plenty here.
+        
+    Backend:
+        - overhaul item models to allow for "brief descriptions", links to saskhealth documentation, etc.
+        - escaping of resaraunt names to prevent injection and URL fudgery when saskhealth is hacked.
+    
+    API:
+        - plenty here.
+    
+    Scraping:
+        - Scrape multiple reports and convert to XML..
+        - Automated execution and upload.
+        
