@@ -40,4 +40,6 @@ urlpatterns = patterns('',
     (r'^cs215/SHIRPI/view_comments/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/$', 'project.SHIRPI.views.view_comments'),
     (r'^cs215/SHIRPI/edit_favourites/$', 'project.SHIRPI.views.edit_favourites'),
     (r'^cs215/SHIRPI/delete_favourite/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/', 'project.SHIRPI.views.delete_favourite'),
+    
+    (r'^cs215/SHIRPI/', include('registration.urls')),
 )
