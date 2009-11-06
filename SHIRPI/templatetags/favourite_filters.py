@@ -35,7 +35,7 @@ def display_favourite_edit(favourite, count, autoescape=None):
 	else:
 		result += "good"
 	result += "'>"
-		result += "<h4 class='delete'><a href='/cs215/shirpi/delete_favourite/" + favourite.restaurant.name + "/" + favourite.restaurant.address + "/'>Del</a></h4>"
+	result += "<h4 class='delete'><a href='/cs215/shirpi/delete_favourite/" + favourite.restaurant.name + "/" + favourite.restaurant.address + "/'>Del</a></h4>"
 	result += "<h4><select name='" +favourite.restaurant.name+ "'>"
 	for i in range(1, count):
 		result += "<option"
