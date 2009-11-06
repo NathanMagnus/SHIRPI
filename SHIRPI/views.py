@@ -56,6 +56,7 @@ def browse(request, restaurant_name, restaurant_address):
 	return render_to_response("SHIRPI/browse.html", {'error':"No restaurant(s) exist with that information"}, RequestContext(request))
 
 #user login
+# These two functions are no longer needed.
 def login(request):
 	#set login template
         login_template = 'registration/login.html'
