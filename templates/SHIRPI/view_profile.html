@@ -16,7 +16,7 @@
 			<div id='restaurants' class='favourites'>
 			<h1>Favourites</h1>
 			{% for restaurant in favourites %}
-			{{restaurant|display_favourite_edit|user.username}}
+			{{restaurant|display_favourite_edit:favourites.len}}
 			{% endfor %}
 		{% else %}
 			<h2>No favourites</h2>
@@ -25,7 +25,7 @@
 		<div id='restaurants' class='favourites'>
 		<h1>Favourites</h1>
 		{% for favourite in favourites %}
-			{{favourite|display_favourite|user.username}}
+			{{favourite|display_favourite:favourites.len}}
 		{% endfor %}
 		</div>
 	{% endifequal %}
