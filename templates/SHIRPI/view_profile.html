@@ -1,7 +1,8 @@
 {% extends "base.html"%}
 {% block content %}
 {% load favourite_filters %}
-{% load browse_filters %}
+{% load restaurant_filters %}
+{% load comment_filters %}
 {% if error %}
 	<h1>{{error}}</h1>
 {% endif %}
@@ -12,7 +13,11 @@
 			<h5><a href="/cs215/admin/">Admin Page</a></h5>
 		{% endif %}
 		{% ifnotequal favourites|length 0 %}
-			{{favourites|display_favourite_set_edit:"favourite"}}
+			<div id='restaurants' class='favourites'>
+			<h1>Favourites</h1>
+			{% for restaurant in favourites %}
+			{{restaurant|display_favourite_edit}}
+			{% endfor %}
 		{% else %}
 			<h2>No favourites</h2>
 		{% endifnotequal %}

@@ -1,17 +1,32 @@
 {% extends "base.html" %}
-{% load browse_filters %}
+{% load restaurant_filters %}
 {% block content %}
 
 {% if Critical %}
-	{{ Critical|display_restaurant_set:"critical" }}
+	<div id='restaurants' class='critical'>
+	<h1>Critical</h1>
+	{% for restaurant in Critical %}
+		{{restaurant|display_restaurant}}
+	{% endfor %}
+	</div>
 {% endif %}
 <br />
 {%if Moderate %}
-	{{ Moderate|display_restaurant_set:"moderate" }}
+	<div id='restaurants' class='moderate'>
+	<h1>Moderate</h1>
+	{% for restaurant in Moderate %}
+		{{restaurant|display_restaurant}}
+	{% endfor %}
+	</div>
 {% endif %}
 <br />
 {% if Good %}
-	{{ Good|display_restaurant_set:"good" }}
+	<div id='restaurants' class='good'>
+	<h1>Good</h1>
+	{% for restaurant in Good %}
+		{{restaurant|display_restaurant}}
+	{% endfor %}
+	</div>
 {% endif %}
 <br />
 {% endblock %}

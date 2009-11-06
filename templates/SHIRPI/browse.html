@@ -68,7 +68,7 @@
 {% endif %}
 {% if Critical %}
 	<div id='restaurants' class='critical'>
-	<caption>Critical<caption>
+	<h1>Critical<h1>
 	{% for restaurant in Critical %}
 		{{restaurant|display_restaurant}}
 	{% endfor %}
@@ -77,7 +77,7 @@
 <br />
 {%if Moderate %}
 	<div id='restaurants' class='moderate'>
-	<caption>Moderate<caption>
+	<h1>Moderate<h1>
 	{% for restaurant in Moderate %}
 		{{restaurant|display_restaurant}}
 	{% endfor %}
@@ -86,7 +86,7 @@
 <br />
 {% if Good %}
 	<div id='restaurants' class='good'>
-	<caption>Good<caption>
+	<h1>Good<h1>
 	{% for restaurant in Good %}
 		{{restaurant|display_restaurant}}
 	{% endfor %}
@@ -95,7 +95,7 @@
 <br />
 {% if chain %}
 	<div id='restaurants' class='chain'>
-	<caption>Chain</caption>
+	<h1>Chain</h1>
 	{% for restaurant in chain %}
 		{{restaurant|display_restaurant}}
 	{% endfor %}
@@ -104,7 +104,12 @@
 {% if restaurant and restaurant.visible%}
 	<h1>{{restaurant.name}}</h1>
 	{% ifnotequal comments|length 0 %}
-		{{ comments|display_comment_set:user.username }}
+		{% for comment in comments %}
+			<div id='comments'>
+				<h1>Comments</h1>
+				{{ comment|display_comment:user.username }}
+			</div>
+		{% endfor %}
 		{% ifequal comments|length 5 %}
 			<a href="/cs215/shirpi/view_comments/{{restaurant.name}}/{{restaurant.address}}/">More Comments</a>
 		{% endifequal %}
