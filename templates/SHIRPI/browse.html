@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% load browse_filters %}
+{% load restaurant_filters %}
+{% load comment_filters %}
 {% load greaterthan %}
 {% block extrahead %}
 	{% if restaurant %}
@@ -67,6 +68,7 @@
 {% endif %}
 {% if Critical %}
 	<div id='restaurants' class='critical'>
+	<caption>Critical<caption>
 	{% for restaurant in Critical %}
 		{{restaurant|display_restaurant}}
 	{% endfor %}
@@ -75,6 +77,7 @@
 <br />
 {%if Moderate %}
 	<div id='restaurants' class='moderate'>
+	<caption>Moderate<caption>
 	{% for restaurant in Moderate %}
 		{{restaurant|display_restaurant}}
 	{% endfor %}
@@ -83,6 +86,7 @@
 <br />
 {% if Good %}
 	<div id='restaurants' class='good'>
+	<caption>Good<caption>
 	{% for restaurant in Good %}
 		{{restaurant|display_restaurant}}
 	{% endfor %}
@@ -91,6 +95,7 @@
 <br />
 {% if chain %}
 	<div id='restaurants' class='chain'>
+	<caption>Chain</caption>
 	{% for restaurant in chain %}
 		{{restaurant|display_restaurant}}
 	{% endfor %}
@@ -110,16 +115,5 @@
 	{% endif %}
 	<br /><br />
 	<div id="map_canvas" style="width: 310px; height: 400px;"></div>
-	{% for report in reps %}
-	Report Date: {{report.date}}
-	<ul>
-	{% ifequal report.items.all|length 0 %}
-		<li>None</li>
-	{% endifequal %}
-	{% for item in report.items.all %}
-	<li>{{item.description}}</li>
-	{% endfor %}
-	</ul>
-	{% endfor %}
 {% endif %}
 {% endblock %}

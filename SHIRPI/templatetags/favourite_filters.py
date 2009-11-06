@@ -6,11 +6,8 @@ register = template.Library()
 
 #display a group of restaurants in a table
 @register.filter
-def display_favourite_set(set, category, autoescape=None):
-	result = "<table style='border-collapse: collapse;'>"
-	result += "<caption>Favourites</caption>"
-	result += "<tr><th style='width: 40px;'>Rank</th><th>Name</th><th>Address</th></tr>"
-	for favourite in set:
+def display_favourite_set(favourite, category, autoescape=None):
+	result = "<div class='favourite'>"
 		result += "<tr class='"
 		if favourite.restaurant.health_report_status > 5:
 			result+="critical"
@@ -46,8 +43,8 @@ def display_favourite_set_edit(set, category, autoescape=None):
 		else:
 			result += "good"
 		result += "'>"
-		result += "<td><a href=\"/cs215/shirpi/delete_favourite/" + favourite.restaurant.name + "/" + favourite.restaurant.address + "/\">Del</a></td>"
-		result += "<td><select name=\"" +favourite.restaurant.name+ "\">"
+		result += "<td><a href='/cs215/shirpi/delete_favourite/" + favourite.restaurant.name + "/" + favourite.restaurant.address + "/'>Del</a></td>"
+		result += "<td><select name='" +favourite.restaurant.name+ "'>"
 		for i in range(1, count):
 			result += "<option"
 			if i == favourite.rank:
