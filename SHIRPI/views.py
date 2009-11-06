@@ -13,6 +13,7 @@ from django.template import RequestContext
 GOOD_VAL = 0
 MODERATE_VAL = 1
 CRITICAL_VAL = 5
+#testing
 
 #main page
 def index(request):
