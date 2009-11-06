@@ -28,4 +28,4 @@ def display_restaurant(value, autoescape=None):
 	result += "<h4>" + str(value.wait_time/value.wait_time_count) + "</h4>"
 	result += "</div>"
 	return mark_safe(result)
-display_restaurant_info.needs_autoescape = True
+display_restaurant.needs_autoescape = True
