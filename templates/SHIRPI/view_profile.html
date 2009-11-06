@@ -29,7 +29,12 @@
 		{% endfor %}
 		</div>
 	{% endifequal %}
-	{{comments|display_comment_set:user.username}}
+	<h1>{{user.username}}'s Comments</h1>
+	{% for comment in comments %}
+		<div id='comments'>
+			{{comment|display_comment:user.username}}
+		</div>
+	{% endfor %}
 {% endif %}
 
 {% endblock %}

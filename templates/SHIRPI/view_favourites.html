@@ -2,13 +2,24 @@
 {% load favourite_filters %}
 {% block content %}
 
+<div id='restaurants' class='favourites'>
 {% ifequal user_to_view.username user.username %}
 	{% ifnotequal favourites|length 0 %}
-		{{favourites|display_favourite_set_edit:"favourite"}}
+		<h1>Favourites</h1>
+		{% for favourite in favourites %}
+		{{favourite|display_favourite_edit:favourites.len}}
 	{% else %}
 		<h2>No favourites</h2>
 	{% endifnotequal %}
 {% else %}
-	{{favourites|display_favourite_set:"favourite"}}
+	{% ifnotequal favourites|length 0 %}
+		{% for favourite in favourites %}
+			<h1>Favourites</h1>
+			{{favourite|display_favourite:favourites.len}}
+		{% endfor %}
+	{% else %}
+		<h2>No favourites</h2>
+	{% endifnotequal %}
 {% endifequal %}
+</div>
 {% endblock %}
