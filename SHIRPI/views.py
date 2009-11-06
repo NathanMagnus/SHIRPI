@@ -12,8 +12,7 @@ from django.template import RequestContext
 
 GOOD_VAL = 0
 MODERATE_VAL = 1
-CRITICAL_VAL = 6
-# I added a comment here
+CRITICAL_VAL = 5
 
 #main page
 def index(request):
@@ -120,7 +119,6 @@ def save_edit(request, comment_id):
 				return render_to_response('SHIRPI/comment.html', {'error': "Comment does not exist"}, RequestContext(requet))	
 
 #save a comment
-# I have added a comment!
 def save(request, restaurant_name, restaurant_address):
 	#if the form was submitted
 	if request.method=="POST":
