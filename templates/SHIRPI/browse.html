@@ -66,19 +66,35 @@
 	<h1>{{error}}</h1>
 {% endif %}
 {% if Critical %}
-	{{ Critical|display_restaurant_set:"critical" }}
+	<div id='restaurants' class='critical'>
+	{% for restaurant in Critical %}
+		{{restaurant|display_restaurant}}
+	{% endfor %}
+	</div>
 {% endif %}
 <br />
 {%if Moderate %}
-	{{ Moderate|display_restaurant_set:"moderate" }}
+	<div id='restaurants' class='moderate'>
+	{% for restaurant in Moderate %}
+		{{restaurant|display_restaurant}}
+	{% endfor %}
+	</div>
 {% endif %}
 <br />
 {% if Good %}
-	{{ Good|display_restaurant_set:"good" }}
+	<div id='restaurants' class='good'>
+	{% for restaurant in Good %}
+		{{restaurant|display_restaurant}}
+	{% endfor %}
+	</div>
 {% endif %}
 <br />
 {% if chain %}
-	{{ chain|display_restaurant_set:"chain" }}
+	<div id='restaurants' class='chain'>
+	{% for restaurant in chain %}
+		{{restaurant|display_restaurant}}
+	{% endfor %}
+	</div>
 {% endif %}
 {% if restaurant and restaurant.visible%}
 	<h1>{{restaurant.name}}</h1>
