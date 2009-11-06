@@ -15,7 +15,7 @@
 	{% ifnotequal favourites|length 0 %}
 		{% for favourite in favourites %}
 			<h1>Favourites</h1>
-			{{favourite|display_favourite:favourites|length}}
+			{{favourite|display_favourite}}
 		{% endfor %}
 	{% else %}
 		<h2>No favourites</h2>
