@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if Critical %}
-	<div id='restaurants' class='critical'>
+	<div class='restaurants critical'>
 	<h1>Critical</h1>
 	{% for restaurant in Critical %}
 		{{restaurant|display_restaurant}}
@@ -12,7 +12,7 @@
 {% endif %}
 <br />
 {%if Moderate %}
-	<div id='restaurants' class='moderate'>
+	<div class='restaurants moderate'>
 	<h1>Moderate</h1>
 	{% for restaurant in Moderate %}
 		{{restaurant|display_restaurant}}
@@ -21,7 +21,7 @@
 {% endif %}
 <br />
 {% if Good %}
-	<div id='restaurants' class='good'>
+	<div class='restaurants good'>
 	<h1>Good</h1>
 	{% for restaurant in Good %}
 		{{restaurant|display_restaurant}}
