@@ -58,6 +58,8 @@ def browse(request, restaurant_name, restaurant_address):
 		comments = Comment.objects.filter(restaurant=restaurant)[0:5]
 		#render the page
 		return render_to_response("SHIRPI/browse.html", {'restaurant': restaurant, 'reps':reps, 'user':request.user, 'comments': comments})
+	elif len(chain)==0:
+		
 	#if there was an error, this is because they are trying to get a restaurant that doesn't exist
 #	except Restaurant.DoesNotExist:
 #		try:
@@ -68,7 +70,9 @@ def browse(request, restaurant_name, restaurant_address):
 #			chain = Restaurant.objects.filter(name__contains=restaurant_name)
 #		if(len(chain)>0):
 #			return render_to_response("SHIRPI/browse.html", {'chain': chain, 'user':request.user})
-	return render_to_response("SHIRPI/browse.html", {'error':error}, RequestContext(request))
+		return render_to_response("SHIRPI/browse.html", {'error':error}, RequestContext(request))
+	else:
+		return render_to_response("SHIRPI/browse.html", {'chain': chain}, RequestContext(request))
 
 #user login
 # These two functions are no longer needed.
