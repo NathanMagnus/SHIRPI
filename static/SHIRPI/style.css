@@ -115,7 +115,7 @@ body {
 	clear: both;
 }
 .restaurants h4 {
-	text-size: 10pt;
+	font-size: 10pt;
 	float: left;
 }
 .good {
@@ -177,6 +177,14 @@ body {
 	list-style: none;
 	float: left;
 	padding: 0px 5px 0px 5px;
+}
+.restaurant .name {
+	font-size: 10pt;
+	float: left;
+}
+.restaurant .address {
+	font-size: 10px;
+	float: left;
 }
 table td {
 	padding: 0px 2px 0px 2px;
