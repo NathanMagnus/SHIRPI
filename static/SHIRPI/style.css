@@ -111,7 +111,10 @@ body {
 #navbar ul {
 
 }
-
+.restaurants h4 {
+	text-size: 10px;
+	float: left;
+}
 .good {
 	border-collapse: collapse;
 	width: 850px;
@@ -130,56 +133,46 @@ body {
 	margin: auto;
 	background-color: #C66;
 }
-.moderate tr:nth-child(2n) {
+.restaurants .moderate div:nth-child(2n) {
 	background: #DD3;
 }
-.moderate tr:n-th child(2n) a:hover {
+.restaurants .moderate div:n-th child(2n) a:hover {
 	color: red;
 }
-.moderate tr:n-th child(2n+1) a:hover {
+.restaurants .moderate div:n-th child(2n+1) a:hover {
 	color: green;
 }
-.good tr:nth-child(2n) {
+.restaurants .good div:nth-child(2n) {
 	background: #391;
 }
-.good tr:nth-child(2n) a:hover {
+.restaurants .good div:nth-child(2n) a:hover {
 	color: red;
 }
-.good tr:nth-child(2n+1) a:hover {
+.restaurants .good div:nth-child(2n+1) a:hover {
 	color: yellow;
 }
-.critical tr:nth-child(2n) {
+.restaurants .critical div:nth-child(2n) {
 	background-color: #A33;
 }
-.critical tr:nth-child(2n+1) a:hover {
+.restaurants .critical div:nth-child(2n+1) a:hover {
 	color: yellow;
 }
-.critical tr:nth-child(2n) a:hover {
+.restaurants .critical div:nth-child(2n) a:hover {
 	color: green;
 }
-.good td, .moderate td, .critical td, .good th, .moderate th, .critical th{
-	font-size: 10pt;
-}
-table th {
+.restaurants {
+	width: 850px;
+	margin: auto;	
 	text-align: center;
 }
-table caption {
+.restaurants h1 {
 	text-align: left;
 	padding: 5px 0 5px 10px;
 	background: inherit;
 	font-size: 14pt;
 }
-table {
-	width: 850px; 
-	table-layout: fixed;
-	margin: auto;
-}
 table td {
 	padding: 0px 2px 0px 2px;
-}
-
-.restaurant_set {
-	
 }
 .comment {
 	background-color: #F00;
