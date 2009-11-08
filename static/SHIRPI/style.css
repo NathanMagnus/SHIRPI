@@ -166,10 +166,11 @@ body {
 	text-align: center;
 }
 .restaurants h1 {
-	text-align: left;
-	padding: 5px 0 5px 10px;
-	background: inherit;
 	font-size: 14pt;
+}
+.restaurants li {
+	list-style: none;
+	float: left;
 }
 table td {
 	padding: 0px 2px 0px 2px;
