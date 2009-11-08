@@ -111,6 +111,9 @@ body {
 #navbar ul {
 
 }
+.restaurant {
+	clear: both;
+}
 .restaurants h4 {
 	text-size: 10px;
 	float: left;
@@ -163,7 +166,6 @@ body {
 .restaurants {
 	width: 850px;
 	margin: auto;	
-	text-align: center;
 }
 .restaurants h1 {
 	font-size: 14pt;
@@ -171,6 +173,7 @@ body {
 .restaurants li {
 	list-style: none;
 	float: left;
+	padding: 0px 5px 0px 5px;
 }
 table td {
 	padding: 0px 2px 0px 2px;
