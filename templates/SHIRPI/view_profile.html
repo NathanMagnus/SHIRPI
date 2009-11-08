@@ -16,7 +16,7 @@
 			<div class='restaurants favourites'>
 			<h1>Favourites</h1>
 			{% for restaurant in favourites %}
-			{{restaurant|display_favourite_edit:favourites.len}}
+			{{restaurant|display_favourite_edit:favourites.count}}
 			{% endfor %}
 		{% else %}
 			<h2>No favourites</h2>
