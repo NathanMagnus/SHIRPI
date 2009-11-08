@@ -115,7 +115,7 @@ body {
 	clear: both;
 }
 .restaurants h4 {
-	text-size: 10px;
+	text-size: 10pt;
 	float: left;
 }
 .good {
@@ -164,10 +164,13 @@ body {
 	color: green;
 }
 .restaurants {
+	clear: both;
 	width: 850px;
 	margin: auto;	
 }
 .restaurants h1 {
+	clear: both;
+	text-align: center;
 	font-size: 14pt;
 }
 .restaurants li {
