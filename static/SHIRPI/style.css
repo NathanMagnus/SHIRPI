@@ -111,14 +111,6 @@ body {
 #navbar ul {
 
 }
-.restaurant {
-	clear: both;
-}
-.restaurants h4 {
-	font-size: 10pt;
-	display: inline;
-	width: 30px;
-}
 .good {
 	background: #5B4;
 }
@@ -128,62 +120,32 @@ body {
 .critical{
 	background-color: #C66;
 }
-.restaurants .moderate div:nth-child(2n) {
+.moderate div:nth-child(2n) {
 	background: #DD3;
 }
-.restaurants .moderate div:n-th child(2n) a:hover {
+.moderate div:n-th child(2n) a:hover {
 	color: red;
 }
-.restaurants .moderate div:n-th child(2n+1) a:hover {
+.moderate div:n-th child(2n+1) a:hover {
 	color: green;
 }
-.restaurants .good div:nth-child(2n) {
+.good div:nth-child(2n) {
 	background: #391;
 }
-.restaurants .good div:nth-child(2n) a:hover {
+.good div:nth-child(2n) a:hover {
 	color: red;
 }
-.restaurants .good div:nth-child(2n+1) a:hover {
+.good div:nth-child(2n+1) a:hover {
 	color: yellow;
 }
-.restaurants .critical div:nth-child(2n) {
+.critical div:nth-child(2n) {
 	background-color: #A33;
 }
-.restaurants .critical div:nth-child(2n+1) a:hover {
+.critical div:nth-child(2n+1) a:hover {
 	color: yellow;
 }
-.restaurants .critical div:nth-child(2n) a:hover {
+.critical div:nth-child(2n) a:hover {
 	color: green;
-}
-.restaurants {
-	clear: both;
-	width: 850px;
-	margin: 10px auto 10px auto;
-}
-.restaurants h1 {
-	clear: both;
-	text-align: center;
-	font-size: 14pt;
-}
-.restaurants li {
-	list-style: none;
-	float: left;
-	padding: 0px 5px 0px 5px;
-}
-.restaurants .name {
-	float: left;
-	font-size: 10pt;
-	position: relative;
-	width: 200px;
-}
-.restaurants .address {
-	float: left;
-	font-size: 10pt;
-	position: relative;
-	width: 200px;
-}
-table td {
-	padding: 0px 2px 0px 2px;
 }
 .comment {
 	background-color: #F00;
