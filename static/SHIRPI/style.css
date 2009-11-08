@@ -25,7 +25,7 @@ body {
 	height: 105px;
 	width: 720px;
 	min-width: 720px;
-	background: #0f0;
+	background-color: #0f0;
 }
 #userinfo {
 	float: left;
@@ -112,16 +112,16 @@ body {
 
 }
 .good {
-	background: #5B4;
+	background-color: #5B4;
 }
 .moderate {
-	background: #FF6;
+	background-color: #FF6;
 }
 .critical{
 	background-color: #C66;
 }
 .moderate div:nth-child(2n) {
-	background: #DD3;
+	background-color: #DD3;
 }
 .moderate div:n-th child(2n) a:hover {
 	color: red;
@@ -130,7 +130,7 @@ body {
 	color: green;
 }
 .good div:nth-child(2n) {
-	background: #391;
+	background-color: #391;
 }
 .good div:nth-child(2n) a:hover {
 	color: red;
