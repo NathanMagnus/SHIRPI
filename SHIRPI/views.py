@@ -59,16 +59,16 @@ def browse(request, restaurant_name, restaurant_address):
 		#render the page
 		return render_to_response("SHIRPI/browse.html", {'restaurant': restaurant, 'reps':reps, 'user':request.user, 'comments': comments})
 	#if there was an error, this is because they are trying to get a restaurant that doesn't exist
-	except Restaurant.DoesNotExist:
-		try:
-			#see if the restaurant is a chain/has multipel locations
-			chain = Restaurant.objects.filter(name=restaurant_name)
-			#if it is a restaurant name with multiple locations, render it
-		except Restaurant.DoesNotExist: #if it isn't a restaurant "search"
-			chain = Restaurant.objects.filter(name__contains=restaurant_name)
-		if(len(chain)>0):
-			return render_to_response("SHIRPI/browse.html", {'chain': chain, 'user':request.user})
-	return render_to_response("SHIRPI/browse.html", {'error':"No restaurant(s) exist with that information"}, RequestContext(request))
+#	except Restaurant.DoesNotExist:
+#		try:
+#			#see if the restaurant is a chain/has multipel locations
+#			chain = Restaurant.objects.filter(name=restaurant_name)
+#			#if it is a restaurant name with multiple locations, render it
+#		except Restaurant.DoesNotExist: #if it isn't a restaurant "search"
+#			chain = Restaurant.objects.filter(name__contains=restaurant_name)
+#		if(len(chain)>0):
+#			return render_to_response("SHIRPI/browse.html", {'chain': chain, 'user':request.user})
+	return render_to_response("SHIRPI/browse.html", {'error':error}, RequestContext(request))
 
 #user login
 # These two functions are no longer needed.
