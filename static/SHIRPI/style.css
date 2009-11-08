@@ -111,6 +111,10 @@ body {
 #navbar ul {
 
 }
+.restaurant li {
+	list-style: none;
+	float: left;
+}
 .good {
 	background: #5B4;
 }
