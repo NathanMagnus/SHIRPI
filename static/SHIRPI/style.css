@@ -112,6 +112,8 @@ body {
 
 }
 .restaurant {
+	margin: 2px 0px 2px 0px;
+	padding: 0;
 	clear: both;
 }
 .restaurants h4 {
@@ -120,21 +122,12 @@ body {
 	width: 20px;
 }
 .good {
-	border-collapse: collapse;
-	width: 850px;
-	margin: auto;
 	background: #5B4;
 }
 .moderate {
-	border-collapse: collapse;
-	width: 850px;
-	margin: auto;
 	background: #FF6;
 }
 .critical{
-	border-collapse: collapse;
-	width: 850px;
-	margin: auto;
 	background-color: #C66;
 }
 .restaurants .moderate div:nth-child(2n) {
@@ -167,7 +160,7 @@ body {
 .restaurants {
 	clear: both;
 	width: 850px;
-	margin: auto;	
+	margin: 10px auto 10px auto;
 }
 .restaurants h1 {
 	clear: both;
