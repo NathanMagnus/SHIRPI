@@ -25,17 +25,33 @@ def index(request):
 
 #browsing restaurants
 def browse(request, restaurant_name, restaurant_address):
-	#if they inputted "All" for the restaurant name
-	if restaurant_name=="All":
+	#if they inputted "All" for the restaurant name and address
+	if restaurant_name=="All" and restaurant_name=="All":
 		#find all critical, moderate and good restauratns
 		Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by("-health_report_status")
 		Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by("-health_report_status")
 		Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by("-health_report_status")
 		#render the response
 		return render_to_response("SHIRPI/browse.html", {'Critical':Critical, 'Moderate':Moderate, 'Good': Good, 'user':request.user})
-	try:
-		#if they didn't enter all, try and get the restaurant they are hoping to view
-		restaurant = Restaurant.objects.get(name=restaurant_name, address=restaurant_address)
+	#if they want all restaurants with a certain address
+	elif restaurant_name=="All":
+		try:
+			chain = Restaurant.objects.filter(address__contains=restaurant_address)
+		except Restaurant.DoesNotExist:
+			error = "Restaurant with that address does not exist"
+	#if they want a restaurant based on name
+	elif restaurant_address=="All":
+		try:
+			chain = Restaurant.objects.filter(name__contains=restaurant_name)
+		except Restaurant.DoesNotExist:
+			error = "Restaurant name containing that sequence does not exist"
+	else:
+		try:
+			chain = Restaurant.objects.filter(name__contains=restaurant_name, address__contains=restaurant_address)
+		except Restaurant.DoesNotExist:
+			error = "Restauarnt with that name and address does not exist"
+	if len(chain)==1:
+		restaurant = chain[0]
 		#get the reports
 		reps = HealthReport.objects.filter(restaurant=restaurant)
 		#get the comments
@@ -48,10 +64,10 @@ def browse(request, restaurant_name, restaurant_address):
 			#see if the restaurant is a chain/has multipel locations
 			chain = Restaurant.objects.filter(name=restaurant_name)
 			#if it is a restaurant name with multiple locations, render it
-			if(len(chain)>0):
-				return render_to_response("SHIRPI/browse.html", {'chain': chain, 'user':request.user})
-		except Restaurant.DoesNotExist: #if it isn't a restaurant chain render an error page
-			pass
+		except Restaurant.DoesNotExist: #if it isn't a restaurant "search"
+			chain = Restaurant.objects.filter(name__contains=restaurant_name)
+		if(len(chain)>0):
+			return render_to_response("SHIRPI/browse.html", {'chain': chain, 'user':request.user})
 	return render_to_response("SHIRPI/browse.html", {'error':"No restaurant(s) exist with that information"}, RequestContext(request))
 
 #user login
