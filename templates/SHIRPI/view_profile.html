@@ -35,6 +35,8 @@
 	<h1>{{user.username}}'s Comments</h1>
 	{% for comment in comments %}
 		<div id='comments'>
+			<h3 class='name'>{{comment.restaurant.name}}</h3>
+			<h3 class='address'>{{comment.restaurant.address}}</h3>
 			{{comment|display_comment:user.username}}
 		</div>
 	{% endfor %}

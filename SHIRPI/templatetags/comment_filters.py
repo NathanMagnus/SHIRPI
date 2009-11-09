@@ -44,3 +44,4 @@ def display_comment(value, user_name,autoescape=None):
 	return mark_safe(result)
 display_comment.needs_autoescape = True
 display_comment.needs_user_name = True
+
