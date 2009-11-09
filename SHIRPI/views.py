@@ -26,7 +26,7 @@ def index(request):
 #browsing restaurants
 def browse(request, restaurant_name, restaurant_address):
 	#if they inputted "All" for the restaurant name and address
-	if restaurant_name.lower()=="all" and restaurant_address.lowercase=="all":
+	if restaurant_name.lower()=="all" and restaurant_address.lower=="all":
 		#find all critical, moderate and good restauratns
 		Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by("-health_report_status")
 		Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by("-health_report_status")
