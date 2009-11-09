@@ -127,8 +127,8 @@
 		<ul>
 			{% for item in report.items.all %}
 				<li>
-					{{item.number}}. <b>{{item.short_description}}</b><br />
-					{{item.description}}
+					{{item.number}}. <b>{{item.short_description|safe}}</b><br />
+					{{item.description|safe}}
 				</li>
 			{% endfor %}
 		</ul>

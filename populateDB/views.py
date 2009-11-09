@@ -15,7 +15,7 @@ def populateMaster():
 			'severity': 1
 			},
 		{'short_description': 'Temperatures', 
-			'description': 'Temperatures Cook foods to an internal temperature of: a) 63oC (145oF) or above for: eggs (if prepared for immediate service)\nmedium rare beef and veal steaks and roasts\nb) 68oC (155oF) or above for: game farm meat products\nc) 70oC (158oF) for: fish\nd) 71oC (160oF) or above for: ground beef/pork/veal\nfood made with ground beef/pork/veal, e.g. sausages, meatballs\npork chops, ribs and roasts\ne) 74oC (165oF) or above for: ground chicken/turkey\nfood made with ground chicken/turkey or mixtures containing poultry, meat, fish, or eggs\nchicken and turkey breasts, legs, thighs and wings\nstuffing (inside a carcass)\nstuffed pasta\nhot dogs\nleftovers\negg dishes (if not prepared as specified in 2a)\nand stuffed fish\nf) 85oC (185oC) or above for: chicken and turkey, whole bird. Reheat foods rapidly to an internal temperature of 74oC (165oF) prior to serving. Hot Holding must maintain an internal temperature of 60oC (140oF) or higher.',
+			'description': 'Temperatures Cook foods to an internal temperature of: a) 63oC (145oF) or above for: eggs (if prepared for immediate service)\n<br />medium rare beef and veal steaks and roasts\n<br />b) 68oC (155oF) or above for: game farm meat products\n<br />c) 70oC (158oF) for: fish\n<br />d) 71oC (160oF) or above for: ground beef/pork/veal\n<br />food made with ground beef/pork/veal, e.g. sausages, meatballs\n<br />pork chops, ribs and roasts\n<br />e) 74oC (165oF) or above for: ground chicken/turkey\n<br />food made with ground chicken/turkey or mixtures containing poultry, meat, fish, or eggs\n<br />chicken and turkey breasts, legs, thighs and wings\n<br />stuffing (inside a carcass)\n<br />stuffed pasta\n<br />hot dogs\n<br />leftovers\n<br />egg dishes (if not prepared as specified in 2a)\n<br />and stuffed fish\n<br />f) 85oC (185oC) or above for: chicken and turkey, whole bird. Reheat foods rapidly to an internal temperature of 74oC (165oF) prior to serving. Hot Holding must maintain an internal temperature of 60oC (140oF) or higher.',
 			'severity': 1
 			},
 		{'short_description': 'Storage Containers',
@@ -23,7 +23,7 @@ def populateMaster():
 			'severity': 1
 			},
 		{'short_description': 'Hand Washing',
-			'description': 'Hand washing must be properly done at appropriate times and intervals. An accessible, plumbed hand basin with hot and cold running water, soap in a dispenser and single-use paper towels in wall-mounted dispensers are required in food preparation areas. Hand washing Procedure: a) Wet hands and exposed arms (at least up to wrist) with warm running water\nb) Apply liquid soap\nc) Vigorously rub together wet surfaces for at least 20 seconds, lathering at least up to wrist\nd) Use a nailbrush under fingernails and other very dirty areas\ne) Thoroughly rinse with clean, warm water running from wrists to fingertips\nf) Apply soap and lather vigorously again\ng) Rinse hands and wrists thoroughly\nh) Dry hands with a single-use paper towel\ni) Use paper towel to turn off tap.',
+			'description': 'Hand washing must be properly done at appropriate times and intervals. An accessible, plumbed hand basin with hot and cold running water, soap in a dispenser and single-use paper towels in wall-mounted dispensers are required in food preparation areas. Hand washing Procedure: a) Wet hands and exposed arms (at least up to wrist) with warm running water\n<br />b) Apply liquid soap\n<br />c) Vigorously rub together wet surfaces for at least 20 seconds, lathering at least up to wrist\n<br />d) Use a nailbrush under fingernails and other very dirty areas\n<br />e) Thoroughly rinse with clean, warm water running from wrists to fingertips\n<br />f) Apply soap and lather vigorously again\n<br />g) Rinse hands and wrists thoroughly\n<br />h) Dry hands with a single-use paper towel\n<br />i) Use paper towel to turn off tap.',
 			'severity': 1
 			},
 		{'short_description': 'Employee Hygiene',
@@ -35,7 +35,7 @@ def populateMaster():
 			'severity': 1
 			},
 		{'short_description': 'Dish Washing Procedures',
-			'description': 'Proper dish washing procedures must be followed. Mechanical washing: dishwashers must be National Sanitation Foundation (NSF) approved or equivalent, designed to wash at 60oC (140oF) and utilize an approved sanitizing agent. Manual washing: (wash/rinse/sanitize in a three-compartment sink): first compartment - clean hot water 44oC (111oF) with detergent\nsecond compartment - clean hot water 44oC (111oF)\nthird compartment - approved sanitizing method.',
+			'description': 'Proper dish washing procedures must be followed. Mechanical washing: dishwashers must be National Sanitation Foundation (NSF) approved or equivalent, designed to wash at 60oC (140oF) and utilize an approved sanitizing agent. Manual washing: (wash/rinse/sanitize in a three-compartment sink): first compartment - clean hot water 44oC (111oF) with detergent\n<br />second compartment - clean hot water 44oC (111oF)\n<br />third compartment - approved sanitizing method.',
 			'severity': 1
 			},
 		{'short_description': 'Food and Water Source',
