@@ -76,7 +76,7 @@ def populateMaster():
 			}
 		]
 
-	for i, item in items:
+	for item in items:
 		try:
 			dbItem = HealthInspectionItem.objects.get(number=i+1)
 		except HealthInspectionItem.DoesNotExist:	
