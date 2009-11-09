@@ -80,9 +80,10 @@ def populateMaster():
 		try:
 			dbItem = HealthInspectionItem.objects.get(number=i)
 		except HealthInspectionItem.DoesNotExist:	
+			item = items[i]
 			dbItem = HealthInspectionItem()
 			dbItem.number =i
-			dbItem.severity = int(item['severity'])
+			dbItem.severity = item['severity']
 		dbItem.description = item['description']
 		dbItem.short_description = item['short_description']
 		dbItem.save()
