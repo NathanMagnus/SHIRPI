@@ -22,9 +22,9 @@ class FavouriteAdmin(admin.ModelAdmin):
 	fields = ['user', 'restaurant', 'rank']
 
 class HealthInspectionItemAdmin(admin.ModelAdmin):
-	list_display = ('number', 'description', 'severity')
-	search_fields = ['description']
-	fields = ['number', 'description', 'severity']
+	list_display = ('number', 'short_description', 'severity', 'description')
+	search_fields = ['description', 'short_description']
+	fields = ['number', 'short_description', 'description', 'severity']
 
 class HealthReportAdmin(admin.ModelAdmin):
 	list_display = ('restaurant', 'date', 'type', 'priority', 'health_inspection_score')
