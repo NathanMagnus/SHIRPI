@@ -18,9 +18,9 @@ def display_restaurant(restaurant, autoescape=None):
 	if restaurant.wait_time_count<1:
 		restaurant.wait_time_count =1 
 	result = "<div class='restaurant "
-	if restaurant.restaurant.health_report_status > 5:
+	if restaurant.health_report_status > 5:
         	result+="critical"
-	elif restaurant.restaurant.health_report_status > 0:
+	elif restaurant.health_report_status > 0:
 		result += "moderate"
 	else:
 		result += "good"						
