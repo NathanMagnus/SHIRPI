@@ -76,12 +76,12 @@ def populateMaster():
 			}
 		]
 
-	for item in items:
+	for i in range(1,17):
 		try:
-			dbItem = HealthInspectionItem.objects.get(number=i+1)
+			dbItem = HealthInspectionItem.objects.get(number=i)
 		except HealthInspectionItem.DoesNotExist:	
 			dbItem = HealthInspectionItem()
-			dbItem.number =i+1
+			dbItem.number =i
 			dbItem.severity = int(item['severity'])
 		dbItem.description = item['description']
 		dbItem.short_description = item['short_description']
