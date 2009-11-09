@@ -15,9 +15,12 @@
 		{% ifnotequal favourites|length 0 %}
 			<div class='restaurants favourites'>
 			<h1>Favourites</h1>
+			<form name='edit_favourite' method='post' action='/cs215/SHIRPI/edit_favourites'>
 			{% for restaurant in favourites %}
-			{{restaurant|display_favourite_edit:favourites.count}}
+				{{restaurant|display_favourite_edit:favourites.count}}			
 			{% endfor %}
+			<input type='submit' name='edit' value='Edit!' />
+			</form>
 		{% else %}
 			<h2>No favourites</h2>
 		{% endifnotequal %}
