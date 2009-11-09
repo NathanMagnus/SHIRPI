@@ -3,7 +3,7 @@ from project.SHIRPI.models import *
 import django
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from django.utiles.safestring import mark_safe
+from django.utils.safestring import mark_safe
 
 def populateMaster():
 	# This section needs to be separate and with further admin panel accessibility.
