@@ -9,7 +9,7 @@ register = template.Library()
 def display_comment(value, user_name,autoescape=None):
 
 #	result = "<div class='comment'>\n"
-	result += "<h3 class='timestamp'>" 
+	result = "<h3 class='timestamp'>" 
 	result += "<a href='#" + str(value.id) + "' name ='" + str(value.id) + "'>" + str(value.last_modified) + "</a>"	#Anchor position can be better set when layout is more mature
 	#anyone ever tell you that you are petty? Do something productive instead of complaining
 	result += "</h3>\n"
