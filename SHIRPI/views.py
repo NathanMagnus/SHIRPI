@@ -3,7 +3,7 @@ from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm 
 
 from datetime import datetime
-from django.contrib.auth.models import User
+from django.contrib.auth import User
 from django.views.generic.simple import direct_to_template
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
