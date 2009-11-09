@@ -59,6 +59,7 @@ class Favourite(models.Model):
 
 class HealthInspectionItem(models.Model):
 	number = models.IntegerField(unique = True, primary_key=True)
+	short_description = models.CharField(max_length="200")
 	description = models.TextField()
 	severity = models.IntegerField()
 	def __unicode__(self):
