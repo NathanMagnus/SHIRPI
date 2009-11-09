@@ -27,6 +27,7 @@ display_favourite.needs_category = True
 #display a group of restaurants in a table
 @register.filter
 def display_favourite_edit(favourite, count, autoescape=None):
+	count = count+1 #take into account count will be 0 based
 	result = "<div id='favourite' class='"
 	if favourite.restaurant.health_report_status > 5:
 		result+="critical"
