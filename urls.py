@@ -31,7 +31,7 @@ urlpatterns = patterns('',
     (r'^cs215/shirpi/save/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?', 'project.SHIRPI.comment_views.save'),
     (r'^cs215/shirpi/save/(?P<comment_id>\d+)/?', 'project.SHIRPI.comment_views.save_edit'),
 
-    (r'^cs215/populateDB/(?P<password>[^?]+)', 'project.populateDB.vies.populate'),
+    (r'^cs215/populateDB/(?P<password>[^?]+)', 'project.populateDB.views.populate'),
 
     (r'^cs215/shirpi/accounts/?', include('registration.urls')),
     (r'^cs215/SHIRPI|shirpi/?', 'project.SHIRPI.views.index') # not catch-all
