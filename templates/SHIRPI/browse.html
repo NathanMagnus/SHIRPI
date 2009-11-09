@@ -107,7 +107,9 @@
 		<div id='comments'>
 		<h1>Comments</h1>
 		{% for comment in comments %}
+			<div class='comment'>
 				{{ comment|display_comment:user.username }}
+			</div>
 		{% endfor %}
 		</div>
 		{% ifequal comments|length 5 %}

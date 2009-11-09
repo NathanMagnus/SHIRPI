@@ -8,7 +8,7 @@ register = template.Library()
 @register.filter
 def display_comment(value, user_name,autoescape=None):
 
-	result = "<div class='comment'>\n"
+#	result = "<div class='comment'>\n"
 	result += "<h3 class='timestamp'>" 
 	result += "<a href='#" + str(value.id) + "' name ='" + str(value.id) + "'>" + str(value.last_modified) + "</a>"	#Anchor position can be better set when layout is more mature
 	#anyone ever tell you that you are petty? Do something productive instead of complaining
@@ -39,7 +39,7 @@ def display_comment(value, user_name,autoescape=None):
 	else:
 		result += value.comment
 	result += "</div>\n"
-	result += "</div>"
+#	result += "</div>"
 	
 	return mark_safe(result)
 display_comment.needs_autoescape = True
