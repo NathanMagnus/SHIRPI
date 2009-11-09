@@ -122,5 +122,14 @@
 	{% endif %}
 	<br /><br />
 	<div id="map_canvas" style="width: 310px; height: 400px;"></div>
+	{% ifnotequal reps|length 0 %}
+		{% for report in reps %}
+		<ul>
+			{% for item in report.items.all %}
+				<li>{{item.number}}. {{item.description}}</li>
+			{% endfor %}
+		</ul>
+		{% endfor %}
+{% endifnotequal %}
 {% endif %}
 {% endblock %}

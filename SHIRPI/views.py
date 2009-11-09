@@ -70,6 +70,7 @@ def view_profile(request, user_name):
 	favourites = Favourite.objects.filter(user=user_to_view).order_by('rank')
 	comments = Comment.objects.filter(author=user_to_view)
 	return render_to_response('SHIRPI/view_profile.html', {'user_to_view': user_to_view, 'favourites': favourites, 'comments': comments}, RequestContext(request))	
+
 def edit_profile(request):
 	if request.user.is_authenticated():
 		form = ProfileForm()
