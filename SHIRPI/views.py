@@ -265,7 +265,7 @@ def edit_favourites(request):
 		for favourite in favourites:
 			favourite.rank = request.POST[favourite.restaurant.name]
 			favourite.save()
-	return HttpResponseRedirect('/cs215/shirpi/view_profile/' + request.user.username + '/')
+	return HttpResponseRedirect(request.POST['HTTP_REFERER'])#'/cs215/shirpi/view_profile/' + request.user.username + '/')
 
 
 def delete_favourite(request, restaurant_name, restaurant_address):
