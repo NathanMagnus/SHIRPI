@@ -26,7 +26,7 @@ def index(request):
 #browsing restaurants
 def browse(request, restaurant_name, restaurant_address):
 	#if they inputted "All" for the restaurant name and address
-	if restaurant_name=="All" and restaurant_address=="All":
+	if lowercase(restaurant_name)=="all" and lowercase(restaurant_address)=="all":
 		#find all critical, moderate and good restauratns
 		Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by("-health_report_status")
 		Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by("-health_report_status")
@@ -34,13 +34,13 @@ def browse(request, restaurant_name, restaurant_address):
 		#render the response
 		return render_to_response("SHIRPI/browse.html", {'Critical':Critical, 'Moderate':Moderate, 'Good': Good, 'user':request.user})
 	#if they want all restaurants with a certain address
-	elif restaurant_name=="All":
+	elif lowercase(restaurant_name)=="all":
 		try:
 			chain = Restaurant.objects.filter(address__contains=restaurant_address)
 		except Restaurant.DoesNotExist:
 			error = "Restaurant with that address does not exist"
 	#if they want a restaurant based on name
-	elif restaurant_address=="All":
+	elif lowercase(restaurant_address)=="all":
 		try:
 			chain = Restaurant.objects.filter(name__contains=restaurant_name)
 		except Restaurant.DoesNotExist:
