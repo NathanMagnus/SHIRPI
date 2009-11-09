@@ -24,7 +24,7 @@ def display_restaurant(restaurant, autoescape=None):
 		result += "moderate"
 	else:
 		result += "good"						
-	restul += "'>\n"
+	result += "'>\n"
 	result += "<h4 class='name'><a href=\"/cs215/shirpi/browse/" + restaurant.name +"/" + restaurant.address + "\">" + restaurant.name + "</a></h3>"
 	result +="<h4 class='address'>" + str(restaurant.address) + "</h3>"
 	result +="<ul class='restaurant_info'>"
