@@ -85,27 +85,33 @@ def save(request, restaurant_name, restaurant_address):
 
 			#assign the comment
 			comment.comment = comment_form.cleaned_data['comment']
-	
+		
+			addToCombined = False
 			#update the restaurant info and comment info/count
 			if cleanliness>0:
 				restaurant.cleanliness_count = restaurant.cleanliness_count + 1
 				comment.cleanliness = cleanliness
 				restaurant.cleanliness = restaurant.cleanliness + cleanliness
+				addToCombined = True
 			if food_quality>0:
 				restaurant.food_quality_count = restaurant.food_quality_count +1
 				comment.food_quality = food_quality
 				restaurant.food_quality = restaurant.food_quality = food_quality
+				addToCombined = True
 			if atmosphere>0:
 				restaurant.atmosphere_count = restaurant.atmosphere_count +1
 				comment.atmosphere = atmosphere
 				restaurant.atmosphere = restaurant.atmosphere + atmosphere
+				addToCombined = True
 			if wait_time>0:
 				restaurant.wait_time_count = restaurant.wait_time_count + 1
 				comment.wait_time = wait_time
 				restaurant.wait_time = restaurant.wait_time + wait_time
+				addToCombined = True
 			comment.combined = atmosphere + food_quality + cleanliness - wait_time
 			#update the comined info/count
-			restaurant.combined_count = restaurant.combined_count + 1
+			if (addToCombined):
+				restaurant.combined_count = restaurant.combined_count + 1
 			restaurant.combined = restaurant.combined + comment.combined
 
 			#set datetime
