@@ -117,6 +117,8 @@ def save(request, restaurant_name, restaurant_address):
 	#render response
 	return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + "/" + restaurant_address + "/")
 
+def edit_comment(request, comment_id):
+	try:
 		comment = Comment.objects.get(id=comment_id)
 		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'wait_time': int(comment.wait_time), 'food_quality': int(comment.food_quality)})
 		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment}, RequestContext(request))
