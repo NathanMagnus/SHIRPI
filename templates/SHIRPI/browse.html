@@ -126,7 +126,10 @@
 		{% for report in reps %}
 		<ul>
 			{% for item in report.items.all %}
-				<li>{{item.number}}. {{item.description}}</li>
+				<li>
+					{{item.number}}. <b>{{item.short_description}}</b><br />
+					{{item.description}}
+				</li>
 			{% endfor %}
 		</ul>
 		{% endfor %}
