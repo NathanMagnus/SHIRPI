@@ -94,7 +94,7 @@ def createAnonymous():
 	try:
 		User.objects.get(username="Anonymous")
 	except User.DoesNotExist:
-		anonymous = User(username="Anonymous", password="``1234567890-=~!@#$%^&*()_+asdfThisIsAWeirdPassword that is very long__has spaces and special characters and such")
+		anonymous = User.objects.create_user('Anonymous', 'none@none.com', '`1234567890-=~!@#$%^&*()_+QAZwsxEDCrfvTGByhnUJMik,OL.p;/[]')
 		anonymous.save()
 
 def populate(request, password):
