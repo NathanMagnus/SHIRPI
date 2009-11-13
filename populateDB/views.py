@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.utils.safestring import mark_safe
 
+
 def populateMaster():
 	# This section needs to be separate and with further admin panel accessibility.
 	# Further, it needs an overhaul to allow for more content.
