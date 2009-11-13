@@ -1,6 +1,7 @@
 import xml.etree.cElementTree as et
 from project.SHIRPI.models import *
 import django
+from django.contrib.auth import User
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.utils.safestring import mark_safe
@@ -89,12 +90,20 @@ def populateMaster():
 		dbItem.short_description = item['short_description']
 		dbItem.save()
 		
+def createAnonymous():
+	try:
+		User.objects.get(username="Anonymous")
+	except User.DoesNotExist:
+		anonymous = User(username="Anonymous", password="``1234567890-=~!@#$%^&*()_+asdfThisIsAWeirdPassword that is very long__has spaces and special characters and such")
+		anonymous.save()
+
 def populate(request, password):
 	if password != "Popul8IT123!":
 		return HttpResponseRedirect('/cs215/shirpi')
 	existing=0
 	new = 0
 	populateMaster()
+	createAnonymous()
 	for event, elem in et.iterparse("/home/cs215/project/populateDB/reports.xml"):
 		if elem.tag == "location":
 			#get/make the appropriate restaurant
