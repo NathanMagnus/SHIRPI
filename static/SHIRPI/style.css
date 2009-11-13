@@ -113,6 +113,24 @@ body {
 #navbar ul {
 
 }
+.restaurant {
+	font-size: 10pt;
+}
+.restaurant ul {
+	display: inline-block;
+}
+.restaurant li {
+	display: inline-block;
+	width: 40px;
+}
+.restaurant .address{
+	display: inline-block;
+	width: 330px;
+}
+.restaurant .name{
+	display: inline-block;
+	width: 330px;
+}
 .good {
 	background-color: #5B4;
 }

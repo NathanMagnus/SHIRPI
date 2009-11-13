@@ -32,7 +32,7 @@
 		{% endfor %}
 		</div>
 	{% endifequal %}
-	<h1>{{user.username}}'s Comments</h1>
+	<h1>{{user_to_view.username}}'s Comments</h1>
 	<div id='comments'>
 	{% for comment in comments %}
 			<div class='comment'>

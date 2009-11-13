@@ -2,15 +2,17 @@ from django import template
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 
+from project.SHIRPI.settings import *
+
 register = template.Library()
 
 #display a group of restaurants in a table
 @register.filter
 def display_favourite(favourite, autoescape=None):
 	result = "<div class='restaurant "
-	if favourite.restaurant.health_report_status > 5:
+	if favourite.restaurant.health_report_status > CRITICAL_VAL:
 		result+="critical"
-	elif favourite.restaurant.health_report_status > 0:
+	elif favourite.restaurant.health_report_status > MODERATE_VAL:
 		result += "moderate"
 	else:
 		result += "good"
@@ -29,9 +31,9 @@ display_favourite.needs_category = True
 def display_favourite_edit(favourite, count, autoescape=None):
 	count = count+1 #take into account count will be 0 based
 	result = "<div id='favourite' class='"
-	if favourite.restaurant.health_report_status > 5:
+	if favourite.restaurant.health_report_status > CRITICAL_VAL:
 		result+="critical"
-	elif favourite.restaurant.health_report_status > 0:
+	elif favourite.restaurant.health_report_status > MODERATE_VAL:
 		result += "moderate"
 	else:
 		result += "good"

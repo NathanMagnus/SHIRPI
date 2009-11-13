@@ -1,6 +1,7 @@
 # Create your views here.
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm 
+from project.SHIRPI.settings import *
 
 from datetime import datetime
 from django.contrib.auth.models import User
@@ -8,10 +9,6 @@ from django.views.generic.simple import direct_to_template
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-
-GOOD_VAL = 0
-MODERATE_VAL = 1
-CRITICAL_VAL = 5
 
 #main page
 def index(request):
