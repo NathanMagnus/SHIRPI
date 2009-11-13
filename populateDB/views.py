@@ -1,7 +1,7 @@
 import xml.etree.cElementTree as et
 from project.SHIRPI.models import *
 import django
-from django.contrib.auth import User
+from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.utils.safestring import mark_safe
