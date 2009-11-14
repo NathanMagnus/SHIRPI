@@ -9,9 +9,7 @@ body {
 	background-color: #F0F0F0;
 	font-family: serif;
 }
-* html body {
-	padding: 160px 0 0 0;
-}
+
 #map_canvas {
 	float: right;
 	margin: 20px 20px 20px 20px;
