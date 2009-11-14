@@ -79,7 +79,7 @@ def captcha_test_view(request):
     error = None
  
     if request.method == 'POST':
-        response = mycaptcha.submit(request)
+        response = captcha.submit(request)
         if response.is_valid:
             return HttpResponseRedirect('success-url/')
         else:
