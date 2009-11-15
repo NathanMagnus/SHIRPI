@@ -73,18 +73,3 @@ def edit_profile(request):
 		form = ProfileForm()
 		return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
 	return render_to_response('SHIRPI/edit_profile.html', {'error':"You are not logged in"}, RequestContext(request)) 
-
-def captcha_test_view(request):
-    import captcha
-    error = None
- 
-    if request.method == 'POST':
-        response = mycaptcha.submit(request)
-        if response.is_valid:
-            return HttpResponseRedirect('success-url/')
-        else:
-            error = response.error_code
-            
-    recaptcha = captcha.displayhtml(error)
- 
-    return render_to_response('recaptcha_test.html', {'recaptcha':recaptcha})
