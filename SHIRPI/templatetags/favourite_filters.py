@@ -16,11 +16,11 @@ def display_favourite(favourite, autoescape=None):
 		result += "moderate"
 	else:
 		result += "good"
-	result += "'>\n"
-	result += "<h4>" + str(favourite.rank) + "</h4>\n"
-	result += "<h3 class='name'><a href=\"/cs215/shirpi/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
-	result += "<h3>" + str(favourite.restaurant.address) + "</h3>\n"
-	result += "</div>\n"
+	result += "'>"
+	result += "<h4>" + str(favourite.rank) + "</h4>"
+	result += "<h3 class='name'><a href=\"/cs215/shirpi/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/\">" + str(favourite.restaurant.name) + "</a></h3>"
+	result += "<h3>" + str(favourite.restaurant.address) + "</h3>"
+	result += "</div>"
 	return mark_safe(result)
 display_favourite.needs_autoescape = True
 display_favourite.needs_category = True
@@ -37,18 +37,17 @@ def display_favourite_edit(favourite, count, autoescape=None):
 		result += "moderate"
 	else:
 		result += "good"
-	result += "'>\n"
-	result += "<h4 class='delete'><a href=\"/cs215/shirpi/delete_favourite/" + favourite.restaurant.name + "/" + favourite.restaurant.address + "/\">Del</a></h4>\n"
+	result += "'>"
+	result += "<h4 class='delete'><a href=\"/cs215/shirpi/delete_favourite/" + favourite.restaurant.name + "/" + favourite.restaurant.address + "/\">Del</a></h4>"
 	result += "<h4><select name=\"" +favourite.restaurant.name+ "\">"
 	for i in range(1, count):
 		result += "<option"
 		if i == favourite.rank:
 			result += " selected='selected'"
 		result += ">" + str(i) + "</option>"
-	result += "</select></h4>\n"
-	result += "<h3 class='name'><a href=\"/cs215/shirpi/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
-	result += "<h4>" + str(favourite.restaurant.address) + "</h4>\n"
-	result += "</div>"
+	result += "</select></h4>"
+	result += "<h3 class='name'><a href=\"/cs215/shirpi/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/\">" + str(favourite.restaurant.name) + "</a></h3>"
+	result += "<h4>" + str(favourite.restaurant.address) + "</h4>"
 	return mark_safe(result)
 display_favourite.needs_autoescape = True
 display_favourite.needs_count = True
