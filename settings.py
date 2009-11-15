@@ -84,6 +84,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.humanize',
     'registration',   
+    'djapian',
 #    'project.hello',
     'project.SHIRPI',
     'project.populateDB',

@@ -30,6 +30,7 @@ urlpatterns = patterns('',
     (r'^cs215/shirpi/view_comments/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?$', 'project.SHIRPI.comment_views.view_comments'),
     (r'^cs215/shirpi/save/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?', 'project.SHIRPI.comment_views.save'),
     (r'^cs215/shirpi/save/(?P<comment_id>\d+)/?', 'project.SHIRPI.comment_views.save_edit'),
+    (r'^cs215/shirpi/delete_comment/(?P<comment_id>\d+)/?', 'project.SHIRPI.comment_views.delete_comment'),
 
     (r'^cs215/populateDB/(?P<password>[^?]+)', 'project.populateDB.views.populate'),
 

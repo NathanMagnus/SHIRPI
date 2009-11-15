@@ -18,6 +18,7 @@ def display_favourite(favourite, autoescape=None):
 		result += "good"
 	result += "'>"
 	result += "<h4>" + str(favourite.rank) + "</h4>"
+	#names can have appostrophies and will cause issues here
 	result += "<h3 class='name'><a href=\"/cs215/shirpi/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/\">" + str(favourite.restaurant.name) + "</a></h3>"
 	result += "<h3>" + str(favourite.restaurant.address) + "</h3>"
 	result += "</div>"

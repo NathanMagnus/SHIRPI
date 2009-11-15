@@ -138,3 +138,10 @@ def view_comments(request, restaurant_name, restaurant_address):
 		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address +'/')
 	return render_to_response('SHIRPI/view_comments.html', {'comments': comments}, RequestContext(request))
 
+def delete_comment(request, comment_id):
+	try:
+		comment = Comment.objects.get(id=comment_id)
+		comment.delete()
+	except Comment.DoesNotExist:
+		HttpResponseRedirect(request.META['HTTP_REFERER'])
+
