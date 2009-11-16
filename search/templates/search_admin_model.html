@@ -1,0 +1,138 @@
+{% extends "admin/base_site.html" %}
+{% load adminmedia admin_list i18n %}
+
+{% block stylesheet %}{% admin_media_prefix %}css/changelists.css{% endblock %}
+{% block bodyclass %}change-list{% endblock %}
+{% block coltype %}colMS{% endblock %}
+
+{% block extrastyle %}{% include "__search_admin_stylesheet.html" %}{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="/admin/">{% trans "Home" %}</a> &rsaquo;
+    <a href="/admin/{{opts.app_label}}/">{{ opts.verbose_name_plural|capfirst }}</a> &rsaquo;
+    <a href="./">{{opts_model.get_meta.verbose_name|capfirst}}({{opts_model.get_meta.app_label}})</a> &rsaquo;
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+
+<h1>{{opts_model.model_name}}</h1>
+
+<div class="module">
+{% include "__search_admin_search_form.html" %}
+
+<div class="module">
+	<h2
+		style="
+			cursor: pointer;
+		"
+		onclick='
+var ul = document.getElementById("search-model-fields");
+var label = "";
+if (ul.style.display == "none")
+{
+	 label = "&rsaquo;&rsaquo; {% trans "Hide Fields" %}";
+    ul.style.display = "";
+} else {
+	 label = "&rsaquo;&rsaquo; {% trans "Show Fields" %}";
+    ul.style.display = "none";
+}
+this.innerHTML = label;
+return false;
+		'
+	>&rsaquo;&rsaquo; {% trans "Show Fields" %}</h2>
+
+  	<table width="100%" class="fields" id="search-model-fields"
+		style="
+			display: none;
+		"
+	>
+  	<thead>
+  	<tr>
+  		<td>{% trans "Name" %}</td>
+  		<td>{% trans "Type" %}</td>
+  		<td>{% trans "Store?" %}</td>
+  		<td>{% trans "Tokenize?" %}</td>
+  	</tr>
+  	</thead>
+  	{% for f in opts_model.get_meta.get_fields %}
+  	<tr
+  	{% if f.abstract %}
+  		class="abstract"
+  	{% endif %}
+  	>
+  		<th>{{f.name}}:</th>
+  		<td>{{f}}</td>
+  		<td>{{f.store|yesno}}</td>
+  		<td>{{f.tokenize|yesno}}</td>
+  	</tr>
+  	{% endfor %}
+  	</table>
+</div>
+
+<!-- object list begin -->
+<table cellspacing="0" width="100%">
+<thead>
+<tr>
+    <th scope="col" width="5%">{% trans "Hit ID" %}</th>
+    <th scope="col" width="5%">{% trans "Score" %}</th>
+    <th scope="col">{{opts_model.model_name}}</th>
+</tr>
+</thead>
+<tbody>
+{% for object in object_list %}
+<tr class="{% cycle 'row1' 'row2' %}">
+    <td align="right">{{object.hit.getId}}</td>
+    <td>{{object.hit.getScore|floatformat:"-4"}}</td>
+    <td><a href="{{object.pk}}/">{{object}}</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<p class="paginator">
+{% for i in page_range %}
+    {% ifequal page i %}
+        <span class="this-page">{{i}}</span>
+    {% else %}
+        <a href="?page={{i}}"
+            {% ifequal pages i %}
+            class="end"
+            {% endifequal %}
+        >{{i}}</a>
+    {% endifequal %}
+{% endfor %}
+
+{{ object_list.count }} {% ifequal object_list.count 1 %}{{ opts_model.meta.verbose_name|escape }}{% else %}{{ opts_model.meta.verbose_name_plural }}{% endifequal %}
+</p>
+
+
+
+<!-- object list end -->
+</div>
+
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div id="content-related">
+    <div class="module">
+        <h2>{% trans 'Actions' %}</h2>
+        <h3><a href="__clean__/"
+            onclick='
+{% if not object_list %}
+return false;
+{% endif %}
+if (! window.confirm("{% trans "Do you really clean up these objects of this model?" %}"))
+{
+    return false;
+}
+return true;
+            '
+        >{% trans 'Remove All indexed objects' %}</a></h3>
+    </div>
+
+</div>
+{% endblock %}

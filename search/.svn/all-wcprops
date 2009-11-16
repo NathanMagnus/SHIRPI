@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 23
+/svn/!svn/ver/161/trunk
+END
+core.py
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/161/trunk/core.py
+END
+constant.py
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/150/trunk/constant.py
+END
+models_sql_where.py
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/150/trunk/models_sql_where.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/150/trunk/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/117/trunk/__init__.py
+END
+utils.py
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/150/trunk/utils.py
+END
+signals.py
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/150/trunk/signals.py
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/144/trunk/README
+END
+manager.py
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/150/trunk/manager.py
+END
+middleware.py
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/143/trunk/middleware.py
+END
+document.py
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/150/trunk/document.py
+END
+queryset.py
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/150/trunk/queryset.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/133/trunk/models.py
+END
+pylucene.py
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/117/trunk/pylucene.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/150/trunk/urls.py
+END
+forms.py
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/133/trunk/forms.py
+END
+models_sql_query.py
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/148/trunk/models_sql_query.py
+END
