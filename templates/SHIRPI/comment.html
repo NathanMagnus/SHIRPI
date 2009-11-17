@@ -2,6 +2,7 @@
 {% block extrahead %}
 {% load show_stars %}
 <script type="text/javascript" src="/cs215/static/SHIRPI/prototype.js"></script>
+{% show_stars_script %}
 <!--<script type="text/javascript" src="/cs215/static/SHIRPI/jquery.js"></script>-->
 <script type="text/javascript">
 <!--
@@ -27,7 +28,6 @@ function changeValues(id, pos)
 }
 </script>
 
-{% show_stars_script %}
 {% endblock %}
 {% block content %}
 {% if error %}
