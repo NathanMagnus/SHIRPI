@@ -17,6 +17,8 @@ urlpatterns = patterns('',
     (r'^cs215/admin/', include(admin.site.urls)),
      
     (r'^cs215/shirpi/browse/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?$', 'project.SHIRPI.views.browse'),
+    (r'^cs215/shirpi/(?P<api_flag>api)/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?$', 'project.SHIRPI.views.browse'),
+    
     (r'^cs215/shirpi/view_profile/(?P<user_name>[^/]+)/?$', 'project.SHIRPI.views.view_profile'),
     (r'^cs215/shirpi/edit_profile/?', 'project.SHIRPI.views.edit_profile'),
     
@@ -35,5 +37,5 @@ urlpatterns = patterns('',
     (r'^cs215/populateDB/(?P<password>[^?]+)', 'project.populateDB.views.populate'),
 
     (r'^cs215/shirpi/accounts/?', include('registration.urls')),
-    (r'^cs215/SHIRPI|shirpi/?', 'project.SHIRPI.views.index') # not catch-all
+    #(r'^cs215/SHIRPI|shirpi/?', 'project.SHIRPI.views.index') # not catch-all
 )

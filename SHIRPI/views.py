@@ -21,46 +21,52 @@ def index(request):
 	return render_to_response("SHIRPI/index.html", {'user':request.user, 'Critical':Critical, 'Moderate':Moderate,'Good':Good})
 
 #browsing restaurants
-def browse(request, restaurant_name, restaurant_address):
-	restaurant_name = urllib.unquote_plus(restaurant_name)
-	restaurant_address = urllib.unquote_plus(restaurant_address)
+def browse(request, restaurant_name = "", restaurant_address = "", api_flag = None):
+	
+	# TODO: Remove this at leisure. This is to be depreciated by better sorting methods. Only useful on main page.
 	#if they inputted "All" for the restaurant name and address
-	if restaurant_name.lower()=="all" and restaurant_address.lower()=="all":
-		#find all critical, moderate and good restauratns
-		Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by("-health_report_status", "-combined")
-		Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by("-health_report_status", "-combined")
-		Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by("-health_report_status", "-combined")
-		#render the response
-		return render_to_response("SHIRPI/browse.html", {'Critical':Critical, 'Moderate':Moderate, 'Good': Good, 'user':request.user})
-	#if they want all restaurants with a certain address
-	elif restaurant_name.lower()=="all":
-		try:
-			chain = Restaurant.objects.filter(address__icontains=restaurant_address)
-		except Restaurant.DoesNotExist:
-			error = "Restaurant with that address does not exist"
-	#if they want a restaurant based on name
-	elif restaurant_address.lower()=="all":
-		try:
-			chain = Restaurant.objects.filter(name__icontains=restaurant_name)
-		except Restaurant.DoesNotExist:
-			error = "Restaurant name containing that sequence does not exist"
-	else:
-		try:
-			chain = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
-		except Restaurant.DoesNotExist:
-			error = "Restauarnt with that name and address does not exist"
-	if len(chain)==1:
-		restaurant = chain[0]
-		#get the reports
-		reps = HealthReport.objects.filter(restaurant=restaurant)
-		#get the comments
-		comments = Comment.objects.filter(restaurant=restaurant)[0:5]
-		#render the page
-		return render_to_response("SHIRPI/browse.html", {'restaurant': restaurant, 'reps':reps, 'user':request.user, 'comments': comments})
-	elif len(chain)==0:
-		return render_to_response("SHIRPI/browse.html", {'error':"No matches found"}, RequestContext(request))
-	else:
-		return render_to_response("SHIRPI/browse.html", {'chain': chain}, RequestContext(request))
+	#if restaurant_name.lower()=="all" and restaurant_address.lower()=="all":
+	#	#find all critical, moderate and good restauratns
+	#	Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by("-health_report_status", "-combined")
+	#	Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by("-health_report_status", "-combined")
+	#	Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by("-health_report_status", "-combined")
+	#	#render the response
+	#	return render_to_response("SHIRPI/browse.html", {'Critical':Critical, 'Moderate':Moderate, 'Good': Good, 'user':request.user})
+	
+	
+	# Prepare strings for database query
+	restaurant_name = urllib.unquote_plus(restaurant_name).lower()
+	restaurant_address = urllib.unquote_plus(restaurant_address).lower()
+	
+	if restaurant_name == "all":
+		restaurant_name = ""
+	if restaurant_address == "all":
+		restaurant_address = ""
+	
+	# Query Database
+	try:
+		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
+	except Restaurant.DoesNotExist:
+		error = "No results."
+	
+	# Standard browse
+	if api_flag == None:
+		if len(results) == 1:
+			restaurant = results[0]
+			#get the reports
+			reps = HealthReport.objects.filter(restaurant=restaurant)
+			#get the comments
+			comments = Comment.objects.filter(restaurant=restaurant)[0:5]
+			#render the page
+			return render_to_response("SHIRPI/browse.html", {'restaurant': restaurant, 'reps':reps, 'user':request.user, 'comments': comments})
+		elif len(results) == 0:
+			return render_to_response("SHIRPI/browse.html", {'error':"No matches found"}, RequestContext(request))
+		else:
+			return render_to_response("SHIRPI/browse.html", {'chain': results}, RequestContext(request))
+	
+
+		
+	
 
 def view_profile(request, user_name):
 	try:
