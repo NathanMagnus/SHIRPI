@@ -70,6 +70,9 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		else:
 			return render_to_response("SHIRPI/browse.html", {'chain': results}, RequestContext(request))
 	
+	else:
+		if request.GET.get('display') == "full":
+			 return render_to_response('api.xml', 'results': results, mimetype='application/xml')
 
 		
 	
