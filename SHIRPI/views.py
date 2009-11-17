@@ -14,9 +14,9 @@ from django.template import RequestContext
 #main page
 def index(request):
 	#get critical, moderate and good reports
-	Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by('-health_report_status, -combined').all()[:10]
-	Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by('-health_report_status, -combined').all()[:10]
-	Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by('-health_report_status, combined').all()[:10]
+	Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by('-health_report_status', '-combined').all()[:10]
+	Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by('-health_report_status', '-combined').all()[:10]
+	Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by('-health_report_status', '-combined').all()[:10]
 	#render the index page
 	return render_to_response("SHIRPI/index.html", {'user':request.user, 'Critical':Critical, 'Moderate':Moderate,'Good':Good})
 
@@ -27,9 +27,9 @@ def browse(request, restaurant_name, restaurant_address):
 	#if they inputted "All" for the restaurant name and address
 	if restaurant_name.lower()=="all" and restaurant_address.lower()=="all":
 		#find all critical, moderate and good restauratns
-		Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by("-health_report_status, -combined")
-		Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by("-health_report_status, -combined")
-		Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by("-health_report_status, -combined")
+		Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by("-health_report_status", "-combined")
+		Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by("-health_report_status", "-combined")
+		Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by("-health_report_status", "-combined")
 		#render the response
 		return render_to_response("SHIRPI/browse.html", {'Critical':Critical, 'Moderate':Moderate, 'Good': Good, 'user':request.user})
 	#if they want all restaurants with a certain address
