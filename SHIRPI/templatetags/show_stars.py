@@ -5,8 +5,8 @@ from django.conf import settings
 
 register = Library()
 
-DIV_TEMPLATE = "<div id=\"star_strip|%s\">"
-END_DIV_TEMPLAGE = "</div>"
+DIV_TEMPLATE = "<div id=\"star_strip_%s\">"
+END_DIV_TEMPLATE = "</div>"
 IMG_TEMPLATE = "<img border=\"0\" src=\"%s\" alt=\"%s\"/>"
 EX_IMG_TEMPLATE = "<img onmouseover=\"javascript: hoverStar(%s, %s);\" onmouseout=\"javascript: restoreStar(%s);\" onclick=\"javascript: clickStar('%s', %s, %s);\" border=\"0\" src=\"%s\" alt=\"%s\"/>"
 STARS = {
@@ -21,9 +21,9 @@ ROUNDERS = {
 	"half": 2,
 	"quarter": 4
 }
-CMD_PATTERN = r.compile("^show_stars (.*) of (\d*) round to (%s)$" % "|".join(ROUNDERS))
+CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s)$" % "|".join(ROUNDERS))
 EX_CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s) on change call (\w*) with (.*)$" % "|".join(ROUNDERS))
-JS_TEMPLAGE = """
+JS_TEMPLATE = """
 <script type="text/javascript">
 <!--
 var starSaves = new Hash();
@@ -76,7 +76,7 @@ function restoreStar(id)
 		return;
 	var starStrip = $('star_strip_' + id);
 	var imgs = starStrip.select("img");
-	for (vari=0;i<srcs.length;i++)
+	for (var i=0;i<srcs.length;i++)
 	{
 		imgs[i].src=srcs[i];
 	}
@@ -87,11 +87,11 @@ function restoreStar(id)
 </script>
 """
 
-class ShowStarNode(Node):
+class ShowStarsNode(Node):
 	def __init__(self, stars, total_stars, round_to, handler=None, identifier=None):
 		self.stars = stars
-		self.total_stars = int(tota_stars)
-		self.rounder = ROUNDERs[round_to.lower()]
+		self.total_stars = int(total_stars)
+		self.rounder = ROUNDERS[round_to.lower()]
 		self.handler = handler
 		self.identifier = identifier
 	def merge_star(self, pos, fraction, identifier):
@@ -136,9 +136,9 @@ class ShowStarsScriptNode(Node):
 	def render(self, context):
 		return JS_TEMPLATE
 
-def do_sho_stars(parser, token):
+def do_show_stars(parser, token):
 	def syntax_error():
-		rais TemplateSyntaxError("example: show_stars <value> of <total> round to %s [on change call <handler> with <identifier>]" % "|".join(ROUNDER))
+		raise TemplateSyntaxError("example: show_stars <value> of <total> round to %s [on change call <handler> with <identifier>]" % "|".join(ROUNDER))
 	args = token.contents.split()
 	if len(args) == 7:
 		match = CMD_PATTERN.match(token.contents)
@@ -150,11 +150,8 @@ def do_sho_stars(parser, token):
 		syntax_error()
 	return ShowStarsNode(*match.groups())
 
-def do_show_Stars_script(parser, token):
+def do_show_stars_script(parser, token):
 	return ShowStarsScriptNode()
 
 register.tag("show_stars", do_show_stars)
 register.tag("show_stars_script", do_show_stars_script)
-		
-}
-
