@@ -1,4 +1,5 @@
 # Create your views here.
+import urllib
 from project.SHIRPI.models import *
 
 from django.contrib.auth.models import User
@@ -9,6 +10,8 @@ from django.template import RequestContext
 
 #add the favourite to the user
 def add_favourite(request, restaurant_name, restaurant_address):
+	restaurant_name = urllib.unquote_plus(restaurant_name)
+	rsetaurant_address = urllib.unquote_plus(restaurant_address)
 	#if the user is not authenticated, just send them back to the browse page they were on
 	if not request.user.is_authenticated():
 		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address + '/')
@@ -33,6 +36,7 @@ def add_favourite(request, restaurant_name, restaurant_address):
 	return HttpResponseRedirect('/cs215/shirpi/view_favourites/' + request.user.username + '/')
 
 def view_favourites(request, user_name):
+	user_name = urllib.unquote_plus(user_name)
 	try:
 		user_to_view = User.objects.get(username=user_name)
 	except User.DoesNotExist:
@@ -51,6 +55,8 @@ def edit_favourites(request):
 
 
 def delete_favourite(request, restaurant_name, restaurant_address):
+	restaurant_name = urllib.unquote_plus(restaurant_name)
+	restaurant_address = urllib.unquote_plus(restaurant_address)
 	try:
 		favourite = Favourite.objects.get(user__username = request.user.username, restaurant__name = restaurant_name, restaurant__address = restaurant_address)
 		favourite.delete()

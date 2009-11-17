@@ -1,4 +1,5 @@
 # Create your views here.
+import urllib
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm 
 
@@ -10,6 +11,8 @@ from django.template import RequestContext
 
 #create a comment
 def comment(request, restaurant_name, restaurant_address):
+	restaurant_name = urllib.unquote_plus(restaurant_name)
+	restaurant_address = urllib.unquote_plus(restaurant_address)
 	#see if the restaurant exists
 	try:
 		restaurant = Restaurant.objects.get(name = restaurant_name, address = restaurant_address)
@@ -60,6 +63,8 @@ def save_edit(request, comment_id):
 
 #save a comment
 def save(request, restaurant_name, restaurant_address):
+	restaurant_name = urllib.unquote_plus(restaurant_name)
+	restaurant_address = urllib.unquote_plus(restaurant_address)
 	#if the form was submitted
 	if request.method=="POST":
 		comment_form = CommentForm(request.POST)
@@ -125,6 +130,7 @@ def save(request, restaurant_name, restaurant_address):
 	return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + "/" + restaurant_address + "/")
 
 def edit_comment(request, comment_id):
+	comment_id = urllib.unquote_plus(comment_id) #done to prevent attacks
 	try:
 		comment = Comment.objects.get(id=comment_id)
 		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'wait_time': int(comment.wait_time), 'food_quality': int(comment.food_quality)})
@@ -133,6 +139,8 @@ def edit_comment(request, comment_id):
 		return render_to_response('SHIRPI/edit_comment.html', {'error': "That comment does not exist"}, RequestContext(request))
 
 def view_comments(request, restaurant_name, restaurant_address):
+	restaurant_name = urllilb.unquote_plus(restaurant_name)
+	restaurant_address = urllib.unquote_plus(restaurant_address)
 	try:
 		comments = Comment.objects.filter(restaurant__name = restaurant_name, restaurant__address = restaurant_address)
 	except Comment.DoesNotExist:
@@ -140,6 +148,7 @@ def view_comments(request, restaurant_name, restaurant_address):
 	return render_to_response('SHIRPI/view_comments.html', {'comments': comments}, RequestContext(request))
 
 def delete_comment(request, comment_id):
+	comment_id = urllib.unquote_plus(comment_id) #prevent attacks
 	try:
 		comment = Comment.objects.get(id=comment_id)
 		comment.delete()
