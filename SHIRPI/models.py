@@ -41,7 +41,7 @@ class Comment(models.Model):
 	id = models.IntegerField(primary_key = True)
 	restaurant = models.ForeignKey(Restaurant)
 	author = models.ForeignKey(User)
-	comment = models.TextField(default = "")
+	comment = models.TextField(default = "", blank=True)
 	combined = models.FloatField(default = "0", choices=choices)
 	cleanliness = models.FloatField(default = "0", choices=choices)
 	food_quality = models.FloatField(default = "0", choices=choices)

@@ -56,6 +56,7 @@ def save_edit(request, comment_id):
 			#comment doesn't exist, error
 			except Comment.DoesNotExist:
 				return render_to_response('SHIRPI/comment.html', {'error': "Comment does not exist"}, RequestContext(requet))	
+	return render_to_response('SHIRPI/comment.html', {'error': "Comment does not exist"}, RequestContext(requet))	
 
 #save a comment
 def save(request, restaurant_name, restaurant_address):
