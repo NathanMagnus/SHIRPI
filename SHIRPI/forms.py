@@ -7,10 +7,10 @@ from django.forms.widgets import HiddenInput, Textarea
 
 class CommentForm(ModelForm):
 	comment = forms.CharField(widget=Textarea())
-	cleanliness = IntegerField()
-	food_quality = IntegerField()
-	atmosphere = IntegerField()
-	wait_time = IntegerField()
+	cleanliness = forms.IntegerField()
+	food_quality = forms.IntegerField()
+	atmosphere = forms.IntegerField()
+	wait_time = forms.IntegerField()
 	class Meta:
 		model = Comment
 		exclude = ('restaurant', 'author', 'id', 'combined', 'created', 'last_modified')
