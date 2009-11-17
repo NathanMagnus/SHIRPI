@@ -133,16 +133,15 @@
 					{{item.description|safe}}
 				</li>
 			{% endfor %}
-			{% ifequal report.items.len 0 %}
+			{% ifequal report.items|length 0 %}
 				<li>
 					None
 				</li>
 			{% endifequal %}
 		</ul>
 		{% endfor %}
-		{% ifequal report.items.len 0 %}
-			<h3>No Health Inspection Reports</h3>
-		{% endifequal %}
-{% endifnotequal %}
+	{% else %}
+	 	<h1>No Health Inspections</h1>
+	{% endifnotequal %}
 {% endif %}
 {% endblock %}
