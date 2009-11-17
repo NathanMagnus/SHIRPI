@@ -115,7 +115,7 @@ class ShowStarsNode(Node):
 		except VariableDoesNotExist:
 			identifier = self.identifier
 
-		stars = round(starts * self.rounder) / self.rounder
+		stars = round(stars * self.rounder) / self.rounder
 		fraction, integer = math.modf(stars)
 		output = []
 
