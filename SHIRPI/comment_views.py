@@ -15,13 +15,14 @@ def comment(request, restaurant_name, restaurant_address):
 	restaurant_address = urllib.unquote_plus(restaurant_address)
 	#see if the restaurant exists
 	try:
-		restaurant = Restaurant.objects.get(name = restaurant_name, address = restaurant_address)
+		restaurant = Restaurant.objects.get(name__iexact = restaurant_name, address__iexact = restaurant_address)
 	except Restaurant.DoesNotExist: #if it doesn't exist, error
 		return render_to_response('SHIRPI/comment.html', {'error':"The restaurant you are trying to comment on does not exist"}, RequestContext(request))
 	form = CommentForm() #create the comment form and render
 	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form}, RequestContext(request))
 
 def save_edit(request, comment_id):
+	comment_id = urllib.unquote_plus(comment_id)
 	if request.method=="POST":
 		form = CommentForm(request.POST)
 		if form.is_valid():
@@ -71,7 +72,7 @@ def save(request, restaurant_name, restaurant_address):
 		if comment_form.is_valid():
 			#determine if restaurant exists
 			try:
-				restaurant = Restaurant.objects.get(name=restaurant_name, address=restaurant_address)
+				restaurant = Restaurant.objects.get(name__iexact=restaurant_name, address__iexact=restaurant_address)
 			except Restaurant.DoesNotExist:
 				return render_to_response('SHIRPI/comment.html', {'error': "Restaurant or comment does not exist"}, RequestContext(request))
 				#create the new comment and associate to the restaurant
@@ -142,7 +143,7 @@ def view_comments(request, restaurant_name, restaurant_address):
 	restaurant_name = urllilb.unquote_plus(restaurant_name)
 	restaurant_address = urllib.unquote_plus(restaurant_address)
 	try:
-		comments = Comment.objects.filter(restaurant__name = restaurant_name, restaurant__address = restaurant_address)
+		comments = Comment.objects.filter(restaurant__name__iexact = restaurant_name, restaurant__address__iexact = restaurant_address)
 	except Comment.DoesNotExist:
 		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address +'/')
 	return render_to_response('SHIRPI/view_comments.html', {'comments': comments}, RequestContext(request))

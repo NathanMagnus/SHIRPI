@@ -17,7 +17,7 @@ def add_favourite(request, restaurant_name, restaurant_address):
 		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address + '/')
 	#get the restaurant that is being added or send back to browse page if it doesn't exist
 	try:
-		restaurant = Restaurant.objects.get(name=restaurant_name, address = restaurant_address)
+		restaurant = Restaurant.objects.get(name__iexact=restaurant_name, address__iexact = restaurant_address)
 	except Restaurant.DoesNotExist:
 		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address + '/')
 
@@ -58,7 +58,7 @@ def delete_favourite(request, restaurant_name, restaurant_address):
 	restaurant_name = urllib.unquote_plus(restaurant_name)
 	restaurant_address = urllib.unquote_plus(restaurant_address)
 	try:
-		favourite = Favourite.objects.get(user__username = request.user.username, restaurant__name = restaurant_name, restaurant__address = restaurant_address)
+		favourite = Favourite.objects.get(user__username = request.user.username, restaurant__name__iexact = restaurant_name, restaurant__address__iexact = restaurant_address)
 		favourite.delete()
 	except Favourite.DoesNotExist:
 		pass
