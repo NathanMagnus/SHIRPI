@@ -1,5 +1,6 @@
 from project.SHIRPI.models import Comment
 from django.contrib.auth.models import User
+from django import forms
 from django.forms import ModelForm
 from django.forms.widgets import HiddenInput, Textarea
 
