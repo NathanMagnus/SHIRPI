@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shirpi>
+	{% for location in results %}
+		<location>
+			{{ location.name }}
+		</location>
+	{% endfor %}
+</shirpi>
+	
