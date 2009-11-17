@@ -21,7 +21,8 @@ def index(request):
 	return render_to_response("SHIRPI/index.html", {'user':request.user, 'Critical':Critical, 'Moderate':Moderate,'Good':Good})
 
 #browsing restaurants
-def browse(request, restaurant_name = "", restaurant_address = "", api_flag = None):
+def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
+	# TODO: Seriously consider exclusively using GETs for input instead of view parameters
 	
 	# TODO: Remove this at leisure. This is to be depreciated by better sorting methods. Only useful on main page.
 	#if they inputted "All" for the restaurant name and address
@@ -35,6 +36,11 @@ def browse(request, restaurant_name = "", restaurant_address = "", api_flag = No
 	
 	
 	# Prepare strings for database query
+	if restaurant_name == None:
+		restaurant_name = ""
+	if restaurant_address == None:
+		restaurant_address = ""
+		
 	restaurant_name = urllib.unquote_plus(restaurant_name).lower()
 	restaurant_address = urllib.unquote_plus(restaurant_address).lower()
 	
