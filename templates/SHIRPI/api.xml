@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shirpi>
+<shirpi version="0.1">
 	{% for location in results %}
-		<location>
-			{{ location.name }}
-		</location>
+	<location name="{{ location.name }}" address="{{location.address}}" municipality="{{location.location}}">
+		{% ifequal display_type "full" %}
+		loop through reports and output
+		<report> 
+			# reports.objects.filter(restaurant=location.name).name
+		</report>
+		{% endifequal %}
+	</location>
 	{% endfor %}
 </shirpi>
 	
