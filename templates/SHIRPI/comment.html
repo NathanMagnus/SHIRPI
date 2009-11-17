@@ -3,7 +3,7 @@
 {% load show_stars %}
 <script type="text/javascript" src="/cs215/static/SHIRPI/prototype.js"></script>
 <!--<script type="text/javascript" src="/cs215/static/SHIRPI/jquery.js"></script>-->
-<script type="text/jabascript">
+<script type="text/javascript">
 <!--
 function myCallback(id, pos)
 {
@@ -32,10 +32,10 @@ function myCallback(id, pos)
 <h1>{{restaurant.name}} Page<h1>
 <form id="reviewForm" name="reviewForm" method="POST" action="/cs215/shirpi/save/{{restaurant.name}}/{{restaurant.address}}/">
 	{{ form.as_p}}
-	Cleanliness: {% show_stars 3.5 of 5 round to half on change call myCallback with 1%}
-	Food Quality: {% show_stars 3.5 of 5 round to half on change call myCallback with 2%}
-	Atmosphere: {% show_stars 3.5 of 5 round to half on change call myCallback with 3%}
-	Wait Time: {% show_stars 3.5 of 5 round to half on change call myCallback with 4%}
+	Cleanliness: {% show_stars 0 of 5 round to half on change call myCallback with 1%}
+	Food Quality: {% show_stars 0 of 5 round to half on change call myCallback with 2%}
+	Atmosphere: {% show_stars 0 of 5 round to half on change call myCallback with 3%}
+	Wait Time: {% show_stars 0 of 5 round to half on change call myCallback with 4%}
 	<input type="submit" value="Submit Review" name="submit" />
 </form>
 {% endblock %}
