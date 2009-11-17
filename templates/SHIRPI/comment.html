@@ -9,7 +9,17 @@ function myCallback(id, pos)
 {
 	var form = $('reviewForm');
 	var cleanliness = form.cleanliness;
-	cleanliness.value=pos;
+	var food_quality = form.food_quality;
+	var atmosphere = form.atmosphere;
+	var wait_time = form.wait_time;
+	if(id==1)
+		cleanliness.value=pos;
+	else if(id==2)
+		food_quality.value = pos;
+	else if(id==3)
+		atmosphere.value=pos;
+	else if(id==4)
+		wait_time.value = pos;
 }
 </script>
 
@@ -22,7 +32,10 @@ function myCallback(id, pos)
 <h1>{{restaurant.name}} Page<h1>
 <form id="reviewForm" name="reviewForm" method="POST" action="/cs215/shirpi/save/{{restaurant.name}}/{{restaurant.address}}/">
 	{{ form.as_p}}
-	{% show_stars 3.5 of 5 round to half on change call myCallback with 1%}
+	Cleanliness: {% show_stars 3.5 of 5 round to half on change call myCallback with 1%}
+	Food Quality: {% show_stars 3.5 of 5 round to half on change call myCallback with 2%}
+	Atmosphere: {% show_stars 3.5 of 5 round to half on change call myCallback with 3%}
+	Wait Time: {% show_stars 3.5 of 5 round to half on change call myCallback with 4%}
 	<input type="submit" value="Submit Review" name="submit" />
 </form>
 {% endblock %}
