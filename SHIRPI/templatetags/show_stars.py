@@ -24,6 +24,7 @@ ROUNDERS = {
 CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s)$" % "|".join(ROUNDERS))
 EX_CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s) on change call (\w*) with (.*)$" % "|".join(ROUNDERS))
 JS_TEMPLATE = """
+<script type="text/javascript" src="/cs215/static/SHIRPI/prototype.js"></script>
 <script type="text/javascript">
 <!--
 var starSaves = new Hash();
@@ -83,6 +84,30 @@ function restoreStar(id)
 	starSaves.unset(id);
 }
 
+//-->
+</script>
+<script type="text/javascript">
+<!--
+function myCallback(id, pos)
+{
+	var form = $('reviewForm');
+	var cleanliness = form.id_cleanliness;
+	var food_quality = form.id_food_quality;
+	var atmosphere = form.id_atmosphere;
+	var wait_time = form.id_wait_time;
+	if(id==1) {
+		cleanliness.value=pos;
+	}
+	if(id==2) {
+		food_quality.value = pos;
+	}
+	if(id==3) {
+		atmosphere.value=pos;
+	}
+	if(id==4) {
+		wait_time.value = pos;
+	}
+}
 //-->
 </script>
 """
