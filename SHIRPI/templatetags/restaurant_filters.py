@@ -1,3 +1,4 @@
+import urllib
 from django import template
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
@@ -26,8 +27,10 @@ def display_restaurant(restaurant, autoescape=None):
 		result += "moderate"
 	else:
 		result += "good"						
+	name = urllib.quote_plus(restaurant.name)
+	address = urllib.quote_plus(restaurant.address)
 	result += "'>\n"
-	result += "<h4 class='name'><a href=\"/cs215/shirpi/browse/" + restaurant.name +"/" + restaurant.address + "\">" + restaurant.name + "</a></h3>"
+	result += "<h4 class='name'><a href=\"/cs215/shirpi/browse/" + name +"/" + address + "\">" + name + "</a></h3>"
 	result +="<h4 class='address'>" + str(restaurant.address) + "</h3>"
 	result +="<ul class='restaurant_info'>"
 	result += "<li><h4>" + str(restaurant.health_report_status) +"</h4></li>"
