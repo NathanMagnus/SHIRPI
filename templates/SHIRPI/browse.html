@@ -123,7 +123,9 @@
 	<br /><br />
 	<div id="map_canvas" style="width: 310px; height: 400px;"></div>
 	{% ifnotequal reps|length 0 %}
+	<h1>Health Inspections</h1>
 		{% for report in reps %}
+		<h2>{{report.date}}</h2>
 		<ul>
 			{% for item in report.items.all %}
 				<li>
@@ -131,8 +133,16 @@
 					{{item.description|safe}}
 				</li>
 			{% endfor %}
+			{% ifequal report.items.len 0 %}
+				<li>
+					None
+				</li>
+			{% endifequal %}
 		</ul>
 		{% endfor %}
+		{% ifequal report.items.len 0 %}
+			<h3>No Health Inspection Reports</h3>
+		{% endifequal %}
 {% endifnotequal %}
 {% endif %}
 {% endblock %}
