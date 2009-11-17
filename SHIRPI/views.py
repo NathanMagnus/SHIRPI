@@ -22,8 +22,8 @@ def index(request):
 
 #browsing restaurants
 def browse(request, restaurant_name, restaurant_address):
-	restaurant_name = restaurant_name.urllib.unquote_plus()
-	restaurant_address = restaurant_address.urllib.unquote_plus()
+	restaurant_name = urllib.unquote_plus(restaurant_name)
+	restaurant_address = urllib.unquote_plus(restaurant_address)
 	#if they inputted "All" for the restaurant name and address
 	if restaurant_name.lower()=="all" and restaurant_address.lower()=="all":
 		#find all critical, moderate and good restauratns
