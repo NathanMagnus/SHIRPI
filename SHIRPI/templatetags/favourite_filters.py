@@ -39,7 +39,7 @@ def display_favourite_edit(favourite, count, autoescape=None):
 	else:
 		result += "good"
 	result += "'>"
-	result += "<h4 class='delete'><a href=\"/cs215/shirpi/delete_favourite/" + favourite.restaurant.name + "/" + favourite.restaurant.address + "/\">Del</a></h4>\n"
+	result += "<h4 class='delete'><a href=\"/cs215/shirpi/delete_favourite/" + urllib.quote_plus(favourite.restaurant.name) + "/" + urllib.quote_plus(favourite.restaurant.address) + "/\">Del</a></h4>\n"
 	result += "<h4><select name=\"" +favourite.restaurant.name+ "\">\n"
 	for i in range(1, count):
 		result += "<option"
@@ -47,7 +47,7 @@ def display_favourite_edit(favourite, count, autoescape=None):
 			result += " selected='selected'"
 		result += ">" + str(i) + "</option>"
 	result += "</select></h4>\n"
-	result += "<h3 class='name'><a href=\"/cs215/shirpi/browse/" +favourite.restaurant.name+ "/" +favourite.restaurant.address+ "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
+	result += "<h3 class='name'><a href=\"/cs215/shirpi/browse/" +urllib.quote_plus(favourite.restaurant.name)+ "/" +urllib.quote_plus(favourite.restaurant.address)+ "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
 	result += "<h4>" + str(favourite.restaurant.address) + "</h4>\n"
 	result += "</div>"
 	return mark_safe(result)
