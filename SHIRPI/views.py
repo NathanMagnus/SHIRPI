@@ -21,7 +21,7 @@ def index(request):
 	return render_to_response("SHIRPI/index.html", {'Critical':Critical, 'Moderate':Moderate,'Good':Good}, RequestContext(request))
 
 #browsing restaurants
-def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
+def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None, range = None):
 	# TODO: Seriously consider exclusively using GETs for input instead of view parameters
 	
 	# Prepare strings for database query
@@ -37,10 +37,16 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		restaurant_name = ""
 	if restaurant_address == "all":
 		restaurant_address = ""
+	if restaurant_name == "good":i
+		range = GOOD_VAL	
+	elif restaurant_name == "critical":
+		range = CRITICAL_VAL
+	elif restaurant_name == "moderate":
+		range = MODERATE_VAL
 	
 	# Query Database
 	try:
-		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
+		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status=range)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
