@@ -1,7 +1,7 @@
 # Create your views here.
 import urllib
 from project.SHIRPI.models import *
-from project.SHIRPI.forms import CommentForm 
+from project.SHIRPI.forms import CommentForm, ProfileForm
 from project.SHIRPI.settings import *
 
 from datetime import datetime
