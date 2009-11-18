@@ -66,7 +66,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 
 def view_restaurant(request, restaurant_name, restaurant_address):
 	try:
-		restaurant = Restaurant.objects.get(name__iexact=restaurant_name, address__iexact=restaurant_address)
+		restaurant = Restaurant.objects.get(name__iexact=urllib.unquote_plus(restaurant_name), address__iexact=urllib.unquote_plus(restaurant_address))
 		return render_to_response("SHIRPI/view_restaurant.html", {'restaurant': restaurant}, RequestContest(request))
 	except Restaurant.DoesNotExist:
 		return HttpResponseRedirect("/cs215/SHIRPI/browse.html")
