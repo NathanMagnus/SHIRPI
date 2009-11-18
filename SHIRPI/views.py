@@ -96,6 +96,7 @@ def edit_profile(request):
 			user.email = form.cleaned_data['email']
 			user.set_password(form.cleaned_data['new_password'])
 			user.save()
+			return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
 	else:
 		form = ProfileForm(initial={'email': request.user.email})
 		return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
