@@ -1,0 +1,9 @@
+{% extends "base.html"%}
+{% block content %}
+{% if error %}
+	<h1>{{error}}</h1>
+{% endif %}
+<form name="editProfile">
+	{{form.as_p}}
+</form>
+{% endblock %}

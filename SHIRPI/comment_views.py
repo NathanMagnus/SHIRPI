@@ -28,6 +28,8 @@ def save_edit(request, comment_id):
 		if form.is_valid():
 			try:
 				comment = Comment.objects.get(id=comment_id)
+				if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
+					return render_to_response('SHIRPI/comment.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
 				restaurant = comment.restaurant
 				#subtact old total
 				restaurant.cleanliness = comment.restaurant.cleanliness - comment.cleanliness
@@ -60,8 +62,8 @@ def save_edit(request, comment_id):
 			#comment doesn't exist, error
 			except Comment.DoesNotExist:
 				return render_to_response('SHIRPI/comment.html', {'error': "Comment does not exist"}, RequestContext(requet))	
-	return render_to_response('SHIRPI/comment.html', {'error': "Comment does not exist"}, RequestContext(requet))	
 
+	return render_to_response('SHIRPI/comment.html', {'error': "Comment does not exist"}, RequestContext(requet))	
 #save a comment
 def save(request, restaurant_name, restaurant_address):
 	restaurant_name = urllib.unquote_plus(restaurant_name)
@@ -134,6 +136,8 @@ def edit_comment(request, comment_id):
 	comment_id = urllib.unquote_plus(comment_id) #done to prevent attacks
 	try:
 		comment = Comment.objects.get(id=comment_id)
+		if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
+			return render_to_response('SHIRPI/comment.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
 		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'wait_time': int(comment.wait_time), 'food_quality': int(comment.food_quality)})
 		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment}, RequestContext(request))
 	except Comment.DoesNotExist:
@@ -151,7 +155,9 @@ def view_comments(request, restaurant_name, restaurant_address):
 def delete_comment(request, comment_id):
 	comment_id = urllib.unquote_plus(comment_id) #prevent attacks
 	try:
-		comment = Comment.objects.get(id=comment_id)
+		comment = Comment.objects.get(id=comment_id)	
+		if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
+			return render_to_response('SHIRPI/comment.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
 		comment.delete()
 	except Comment.DoesNotExist:
 		HttpResponseRedirect(request.META['HTTP_REFERER'])

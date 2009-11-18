@@ -1,4 +1,5 @@
 import urllib
+from datetime import date
 from django import template
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
@@ -11,7 +12,7 @@ def display_comment(value, user,autoescape=None):
 
 #	result = "<div class='comment'>\n"
 	result = "<h3 class='timestamp'>" 
-	result += "<a href='#" + urllib.quote_plus(str(value.id)) + "' name ='" + urllib.quote_plus(str(value.id)) + "'>" + str(value.last_modified) + "</a>"	#Anchor position can be better set when layout is more mature
+	result += "<a href='#" + urllib.quote_plus(str(value.id)) + "' name ='" + urllib.quote_plus(str(value.id)) + "'>" + str(date.fromtimestamp(value.last_modified)) + "</a>"	#Anchor position can be better set when layout is more mature
 	result += "</h3>\n"
 
 	result += "<h3 class='username'>"
