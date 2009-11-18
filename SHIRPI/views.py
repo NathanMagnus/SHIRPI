@@ -29,6 +29,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		restaurant_name = ""
 	if restaurant_address == None:
 		restaurant_address = ""
+	if range == None:
+		range = ""
 		
 	restaurant_name = urllib.unquote_plus(restaurant_name).lower()
 	restaurant_address = urllib.unquote_plus(restaurant_address).lower()
@@ -37,11 +39,11 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		restaurant_name = ""
 	if restaurant_address == "all":
 		restaurant_address = ""
-	if restaurant_name == "good":
+	if restaurant_name == "good" or restaurant_address == "good":
 		range = GOOD_VAL	
-	elif restaurant_name == "critical":
+	elif restaurant_name == "critical" or restaurant_address == "critical":
 		range = CRITICAL_VAL
-	elif restaurant_name == "moderate":
+	elif restaurant_name == "moderate" or restaurant_address == "moderate":
 		range = MODERATE_VAL
 	
 	# Query Database
