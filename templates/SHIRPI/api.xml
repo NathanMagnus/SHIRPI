@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shirpi version="0.1">
 	{% for location in results %}
-	<location name="{{ location.name }}" address="{{location.address}}" municipality="{{location.location}}">
+	<location name="{{ location.name }}" address="{{location.address}}" city="{{location.city}}" province="{{location.province}}" rha="{{location.rha}}">
 		{% ifequal display_type "full" %}
 		loop through reports and output
 		<report> 

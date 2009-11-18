@@ -108,7 +108,7 @@ def populate(request, password):
 		if elem.tag == "location":
 			#get/make the appropriate restaurant
 			try:
-				rest = Restaurant.objects.get(name=elem.attrib.get("name"), address = elem.attrib.get("address"))
+				rest = Restaurant.objects.get(name__iexact=elem.attrib.get("name"), address__iexact = elem.attrib.get("address"))
 			except Restaurant.DoesNotExist:
 				rest = Restaurant()
 				rest.name = elem.attrib.get("name")
@@ -117,10 +117,10 @@ def populate(request, password):
 				rest.health_report_status=0
 				#get/make the appropriate location if rest doesn't exist
 				try:
-					loc = Location.objects.get(rha=elem.attrib.get("rha"), municipality = elem.attrib.get("municipality"))
+					loc = Location.objects.get(rha__iexact=elem.attrib.get("rha"), municipality__iexact = elem.attrib.get("municipality"))
 				except Location.DoesNotExist:
 					loc = Location()
-					loc.region = elem.attrib.get("rha")
+					loc.rha = elem.attrib.get("rha")
 					loc.municipality = elem.attrib.get("municipality")
 					loc.city = "Regina"
 					loc.province = "Saskatchewan"
