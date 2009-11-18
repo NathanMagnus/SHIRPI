@@ -37,7 +37,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		restaurant_name = ""
 	if restaurant_address == "all":
 		restaurant_address = ""
-	if restaurant_name == "good":i
+	if restaurant_name == "good":
 		range = GOOD_VAL	
 	elif restaurant_name == "critical":
 		range = CRITICAL_VAL
