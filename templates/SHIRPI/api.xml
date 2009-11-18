@@ -3,14 +3,13 @@
 	{% for restaurant in results %}
 	<location name="{{ restaurant.name }}" address="{{restaurant.address}}" city="{{restaurant.location.city}}" province="{{restaurant.location.province}}" rha="{{restaurant.location.rha}}">
 		{% ifequal display_type "full" %}
-		loop through reports and output
+		{% for report in reports %}
 		<report date="{{report.date}}"  type="{{report.type}}" priority="{{report.priority}}"> 
-			{% for report in reports %}
 				{% for item in report.items.all %}}
 					<item>{{item.number}}</item>
 				{% endfor %}
-			{% endfor %}
 		</report>
+		{% endfor %}
 		{% endifequal %}
 	</location>
 	{% endfor %}
