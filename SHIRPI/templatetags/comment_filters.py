@@ -12,12 +12,11 @@ def display_comment(value, user_name,autoescape=None):
 #	result = "<div class='comment'>\n"
 	result = "<h3 class='timestamp'>" 
 	result += "<a href='#" + urllib.quote_plus(str(value.id)) + "' name ='" + urllib.quote_plus(str(value.id)) + "'>" + str(value.last_modified) + "</a>"	#Anchor position can be better set when layout is more mature
-	#anyone ever tell you that you are petty? Do something productive instead of complaining
 	result += "</h3>\n"
 
 	result += "<h3 class='username'>"
 	if value.author.username != "Anonymous":
-	        result += "<a href='/cs215/shirpi/view_profile/" + urllib.quote_plus(value.author.username) + "/'>" #ALWAYS ADD TRAILING SLASHES
+	        result += "<a href='/cs215/shirpi/view_profile/" + urllib.quote_plus(value.author.username) + "/'>"
 		result += value.author.username
 		result += "</a>"
 	else:
@@ -35,8 +34,8 @@ def display_comment(value, user_name,autoescape=None):
 	
 	#Display comment and Generate link to edit comment, kinda.
 	result += "<div class='comment_body'>"
-	if user_name == value.author.username:
-		result += "<a href='/cs215/shirpi/edit_comment/" + urllib.quote_plus(str(value.pk)) + "/'>" + value.comment + "</a>" #always add trailing slashes eh kyle? Miss one here? jerk
+	if user_name == value.author.username or user.has_perm("SHIRPI.comment"):
+		result += "<a href='/cs215/shirpi/edit_comment/" + urllib.quote_plus(str(value.pk)) + "/'>" + value.comment + "</a>"
 	else:
 		result += value.comment
 	result += "</div>\n"
