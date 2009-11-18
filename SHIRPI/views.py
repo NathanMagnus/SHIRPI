@@ -92,7 +92,7 @@ def edit_profile(request):
 #	if user.is_authenticated():
 	if request.method == "POST":
 		form = ProfileForm(request.POST)
-		if form.is_valid() and form.cleaned_data['new_password'] == form.cleaned_data['password_again'] and user.check_password(form.cleaned_data['new_password']):
+		if form.is_valid() and form.cleaned_data['new_password'] == form.cleaned_data['password_again'] and user.check_password(form.cleaned_data['old_password']):
 			user.email = form.cleaned_data['email']
 			user.set_password(form.cleaned_data['new_password'])
 			user.save()
