@@ -20,4 +20,6 @@ class ProfileForm(forms.Form):
 	new_password = forms.CharField(widget = forms.PasswordInput(render_value=False))
 	password_again = forms.CharField(widget = forms.PasswordInput(render_value=False))
 	email = forms.EmailField()
+	first_name = forms.CharField()
+	last_name = forms.CharField()
 #	address = forms.CharField()

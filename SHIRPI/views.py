@@ -24,17 +24,6 @@ def index(request):
 def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
 	# TODO: Seriously consider exclusively using GETs for input instead of view parameters
 	
-	# TODO: Remove this at leisure. This is to be depreciated by better sorting methods. Only useful on main page.
-	#if they inputted "All" for the restaurant name and address
-	#if restaurant_name.lower()=="all" and restaurant_address.lower()=="all":
-	#	#find all critical, moderate and good restauratns
-	#	Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by("-health_report_status", "-combined")
-	#	Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by("-health_report_status", "-combined")
-	#	Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by("-health_report_status", "-combined")
-	#	#render the response
-	#	return render_to_response("SHIRPI/browse.html", {'Critical':Critical, 'Moderate':Moderate, 'Good': Good, 'user':request.user})
-	
-	
 	# Prepare strings for database query
 	if restaurant_name == None:
 		restaurant_name = ""
@@ -68,15 +57,19 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		elif len(results) == 0:
 			return render_to_response("SHIRPI/browse.html", {'error':"No matches found"}, RequestContext(request))
 		else:
-			return render_to_response("SHIRPI/browse.html", {'chain': results}, RequestContext(request))
+			return render_to_response("SHIRPI/browse.html", {'restaurants': results}, RequestContext(request))
 	
 	else:
 		display_type = request.GET.get('display') # escaping required?
 		context = { 'results': results, 'reports': HealthReport.objects.all(), 'display_type': display_type }
 		return render_to_response("SHIRPI/api.xml", context, RequestContext(request),  mimetype='application/xml')
 
-		
-	
+def view_restaurant(request, restaurant_name, restaurant_address):
+	try:
+		restaurant = Restaurant.objects.get(name__iexact=restaurant_name, address__iexact=restaurant_address)
+		return render_to_response("SHIRPI/view_restaurant.html", {'restaurant': restaurant}, RequestContest(request))
+	except Restaurant.DoesNotExist:
+		return HttpResponseRedirect("/cs215/SHIRPI/browse.html")
 
 def view_profile(request, user_name):
 	try:
@@ -95,8 +88,10 @@ def edit_profile(request):
 		if form.is_valid() and form.cleaned_data['new_password'] == form.cleaned_data['password_again'] and user.check_password(form.cleaned_data['old_password']):
 			user.email = form.cleaned_data['email']
 			user.set_password(form.cleaned_data['new_password'])
+			user.first_name = form.cleaned_data['first_name']
+			user.last_name = form.cleaned_data['last_name']
 			user.save()
-			return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
+			return render_to_response('SHIRPI/edit_profile.html', {'form': form, 'message': "Changes completed"}, RequestContext(request))
 	else:
 		form = ProfileForm(initial={'email': request.user.email})
 		return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
