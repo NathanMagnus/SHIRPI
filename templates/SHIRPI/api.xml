@@ -5,7 +5,7 @@
 		{% ifequal display_type "full" %}
 		{% for report in reports %}
 		<report date="{{report.date}}"  type="{{report.type}}" priority="{{report.priority}}"> 
-				{% for item in report.items.all %}}
+				{% for item in report.items.all %}
 					<item>{{item.number}}</item>
 				{% endfor %}
 		</report>
