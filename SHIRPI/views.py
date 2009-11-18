@@ -94,7 +94,7 @@ def edit_profile(request):
 			form = ProfileForm(request.POST)
 			if form.is_valid() and form.cleaned_data['new_password'] == form.cleaned_data['password_again'] and user.check_password(form.cleaned_data['new_password']):
 				user.email = form.cleaned_data['email']
-				user.set_password(form.cleaned_data['new_password']
+				user.set_password(form.cleaned_data['new_password'])
 		else:
 			form = ProfileForm()
 			form.email = request.user.email
