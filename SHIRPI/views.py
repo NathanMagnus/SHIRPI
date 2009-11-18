@@ -1,7 +1,7 @@
 # Create your views here.
 import urllib
 from project.SHIRPI.models import *
-from project.SHIRPI.forms import CommentForm 
+from project.SHIRPI.forms import CommentForm, ProfileForm
 from project.SHIRPI.settings import *
 
 from datetime import datetime
@@ -88,7 +88,15 @@ def view_profile(request, user_name):
 	return render_to_response('SHIRPI/view_profile.html', {'user_to_view': user_to_view, 'favourites': favourites, 'comments': comments}, RequestContext(request))	
 
 def edit_profile(request):
-	if request.user.is_authenticated():
-		form = ProfileForm()
-		return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
+	user = request.user
+	if user.is_authenticated():
+		if request.method == "POST":
+			form = ProfileForm(request.POST)
+			if form.is_valid() and form.cleaned_data['new_password'] == form.cleaned_data['password_again'] and user.check_password(form.cleaned_data['new_password']):
+				user.email = form.cleaned_data['email']
+				user.set_password(form.cleaned_data['new_password'])
+				user.save()
+		else:
+			form = ProfileForm(initial={'email': request.user.email})
+			return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
 	return render_to_response('SHIRPI/edit_profile.html', {'error':"You are not logged in"}, RequestContext(request)) 

@@ -108,7 +108,7 @@
 		<h1>Comments</h1>
 		{% for comment in comments %}
 			<div class='comment'>
-				{{ comment|display_comment:user.username }}
+				{{ comment|display_comment:user }}
 			</div>
 		{% endfor %}
 		</div>

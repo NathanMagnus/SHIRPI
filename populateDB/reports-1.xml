@@ -5,34 +5,21 @@
     12
    </item>
   </report>
-  <report date="Tuesday, July 07, 2009" priority="Low" type="Routine">
-   <item>
-    5
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="5350 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4N1" name="2-4-1 Pizza">
   <report date="Wednesday, September 16, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, September 16, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2934 Dewdney Avenue" municipality="Regina, SASKATCHEWAN S4T 0X9" name="7 - Eleven">
   <report date="Wednesday, July 15, 2009" priority="Moderate" type="Routine">
    <item>
-    2
+    12
    </item>
    <item>
     3
    </item>
    <item>
-    12
+    2
    </item>
    <item>
     16
@@ -49,22 +36,12 @@
     15
    </item>
   </report>
-  <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
-   <item>
-    2
-   </item>
-   <item>
-    3
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2323 E. Quance St." municipality="Regina, SASKATCHEWAN S4V 2Z3" name="7 - Eleven Food Store">
   <report date="Thursday, April 02, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4210 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R9" name="7 - Eleven Food Store">
-  <report date="Friday, August 14, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Friday, August 14, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -77,50 +54,11 @@
     12
    </item>
   </report>
-  <report date="Friday, May 01, 2009" priority="Low" type="Routine">
-   <item>
-    2
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1761 Dewdney Ave. E." municipality="Regina, SASKATCHEWAN S4N 4N6" name="7 - Eleven Foodservice (Dewdney Avenue)">
   <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
    <item>
     10
-   </item>
-  </report>
-  <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
-   <item>
-    4
-   </item>
-   <item>
-    5
-   </item>
-  </report>
-  <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    2
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
    </item>
   </report>
  </location>
@@ -134,17 +72,8 @@
  <location rha="Regina QuAppelle Health Authority" address="1879 E. Victoria Ave." municipality="Regina, SASKATCHEWAN S4N 6E6" name="A &amp; W Restaurant">
   <report date="Saturday, July 25, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Saturday, July 25, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2701 Avonhurst Dr." municipality="Regina, SASKATCHEWAN S4R 3J3" name="A &amp; W Restaurant">
-  <report date="Friday, July 17, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Friday, July 17, 2009" priority="Low" type="Follow-up">
-  </report>
   <report date="Friday, July 17, 2009" priority="Low" type="Follow-up">
   </report>
  </location>
@@ -153,7 +82,7 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4315 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="A &amp; W Restaurant">
-  <report date="Wednesday, October 07, 2009" priority="Low" type="Routine">
+  <report date="Wednesday, December 17, 2008" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="489 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C4" name="A &amp; W Restaurant">
@@ -162,22 +91,9 @@
     10
    </item>
   </report>
-  <report date="Thursday, April 30, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2110 Robinson St." municipality="Regina, SASKATCHEWAN S4T 2P7" name="A - La - Carte">
   <report date="Wednesday, May 27, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, May 27, 2009" priority="Low" type="Routine">
-   <item>
-    16
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2018 - 12th Ave." municipality="Regina, SASKATCHEWAN S4P 0M3" name="A Moment in Thyme Bistro &amp; Catering">
@@ -185,8 +101,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="210 Leonard St." municipality="Regina, SASKATCHEWAN S4N 5V7" name="A-mazing Adventures">
-  <report date="Monday, September 14, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Monday, September 14, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -216,9 +130,7 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Agribition Centre Building Concession">
-  <report date="Friday, October 30, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Friday, October 30, 2009" priority="Low" type="Routine">
+  <report date="Thursday, March 12, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2230 Lindsay St." municipality="Regina, SASKATCHEWAN S4N 3C3" name="Al Ritchie Canteen">
@@ -228,30 +140,17 @@
  <location rha="Regina QuAppelle Health Authority" address="1264 Athol St." municipality="Regina, SASKATCHEWAN S4T 7V3" name="Albert Scott Community Centre">
   <report date="Tuesday, September 08, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Tuesday, September 08, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, September 08, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    14
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Alfredo's Fresh Pasta &amp; Bistro">
   <report date="Thursday, July 23, 2009" priority="Moderate" type="Routine">
-   <item>
-    2
-   </item>
    <item>
     10
    </item>
    <item>
     12
+   </item>
+   <item>
+    2
    </item>
    <item>
     15
@@ -264,18 +163,8 @@
  <location rha="Regina QuAppelle Health Authority" address="3217 E Eastgate Drive" municipality="Regina, SASKATCHEWAN S4V 1A4" name="Alfredo's Pasta &amp; Bistro Eastgate">
   <report date="Friday, May 15, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Friday, May 15, 2009" priority="Low" type="Routine">
-   <item>
-    14
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="All Souped Up">
-  <report date="Monday, April 20, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Monday, April 20, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -285,61 +174,37 @@
     15
    </item>
   </report>
-  <report date="Thursday, July 23, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2567 E Quance St." municipality="Regina, SASKATCHEWAN S4V 2X7" name="Angkor-Southeast Asian Delight">
-  <report date="Tuesday, October 06, 2009" priority="Low" type="Routine">
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Tuesday, October 06, 2009" priority="Low" type="Routine">
+  <report date="Thursday, October 09, 2008" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1975 Broad St." municipality="Regina, SASKATCHEWAN S4P 1Y2" name="Applause Feast &amp; Folly Food Service">
   <report date="Friday, March 13, 2009" priority="Moderate" type="Routine">
    <item>
-    4
-   </item>
-   <item>
     12
    </item>
    <item>
     15
+   </item>
+   <item>
+    4
    </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2619 Quance St. E" municipality="Regina, SASKATCHEWAN S4V 3B7" name="Applebee's On Quance">
   <report date="Thursday, September 24, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, September 24, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2665 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Applebee's Southland">
-  <report date="Thursday, September 03, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Thursday, September 03, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="Aramark - U of R - Bene Pizzeria">
   <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="Aramark - U of R - Chopsticks">
-  <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -350,12 +215,8 @@
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="Aramark - U of R - Food Services - Main Kitchen">
   <report date="Wednesday, September 30, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, September 30, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="Aramark - U of R - Grille Works">
-  <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -366,42 +227,13 @@
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="Aramark - U of R - Tim Hortons">
   <report date="Wednesday, September 30, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, September 30, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="Aramark - U of R - World's Fare">
-  <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2140 Victoria Ave. E." municipality="Regina, SASKATCHEWAN S4N 7B9" name="Arby's">
   <report date="Thursday, May 14, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Thursday, May 14, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Thursday, May 14, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    12
-   </item>
    <item>
     15
    </item>
@@ -417,12 +249,8 @@
  <location rha="Regina QuAppelle Health Authority" address="475 Albert St." municipality="Regina, SASKATCHEWAN S4R 2P1" name="Arby's Restaurant">
   <report date="Thursday, September 24, 2009" priority="Low" type="Complaint">
   </report>
-  <report date="Thursday, September 24, 2009" priority="Low" type="Complaint">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1992 Hamilton Street" municipality="Regina, SASKATCHEWAN S4S 2C6" name="Atlantis Coffee Co.">
-  <report date="Tuesday, July 28, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Tuesday, July 28, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -447,25 +275,9 @@
  <location rha="Regina QuAppelle Health Authority" address="6155 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 2R1" name="Barley Mill Brew">
   <report date="Thursday, September 24, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, September 24, 2009" priority="Low" type="Routine">
-   <item>
-    4
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1801 Scarth St." municipality="Regina, SASKATCHEWAN S4P 2G3" name="Beer Bros Bakery &amp; Cuisine">
-  <report date="Wednesday, October 14, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
-  </report>
-  <report date="Wednesday, October 14, 2009" priority="Low" type="Routine">
+  <report date="Tuesday, October 28, 2008" priority="Low" type="Routine">
    <item>
     10
    </item>
@@ -477,10 +289,10 @@
  <location rha="Regina QuAppelle Health Authority" address="2815 - 13th Avenue" municipality="Regina, SASKATCHEWAN S4T 1N6" name="Beet Root Organics Vegetarian Whole Foods">
   <report date="Tuesday, October 07, 2008" priority="Low" type="Routine">
    <item>
-    4
+    15
    </item>
    <item>
-    15
+    4
    </item>
   </report>
  </location>
@@ -494,8 +306,6 @@
  <location rha="Regina QuAppelle Health Authority" address="1950 Hamilton St." municipality="Regina, SASKATCHEWAN S4P 2C4" name="Biscuits and Broths Cafe">
   <report date="Wednesday, May 13, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, May 13, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2037 Park St." municipality="Regina, SASKATCHEWAN S4S 6S2" name="Bocados">
   <report date="Tuesday, July 07, 2009" priority="Low" type="Routine">
@@ -505,8 +315,6 @@
    <item>
     16
    </item>
-  </report>
-  <report date="Tuesday, July 07, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="5006 - 4th Avenue" municipality="Regina, SASKATCHEWAN S4T 0J6" name="Bolorama Limited">
@@ -519,38 +327,22 @@
     1
    </item>
   </report>
-  <report date="Tuesday, July 14, 2009" priority="Moderate" type="Routine">
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4634 Albert St." municipality="Regina, SASKATCHEWAN S4S 6B4" name="Bonzzini's Brew Pub">
   <report date="Wednesday, March 11, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, March 11, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4065 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="Book &amp; Brier Patch Cappuccino Bar">
-  <report date="Thursday, October 22, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, October 22, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, October 22, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
+  <report date="Thursday, March 05, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Booster Juice">
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Routine">
-   <item>
-    7
-   </item>
+  <report date="Thursday, January 15, 2009" priority="Low" type="Routine">
    <item>
     10
+   </item>
+   <item>
+    7
    </item>
   </report>
  </location>
@@ -559,8 +351,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Booster Juice Southland Mall">
-  <report date="Friday, April 17, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Friday, April 17, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -578,38 +368,17 @@
  <location rha="Regina QuAppelle Health Authority" address="2660 E Quance St." municipality="Regina, SASKATCHEWAN S4V 2X5" name="Boston Pizza (Quance Street)">
   <report date="Thursday, August 20, 2009" priority="Low" type="Routine">
    <item>
-    14
-   </item>
-   <item>
     15
    </item>
-  </report>
-  <report date="Thursday, August 20, 2009" priority="Low" type="Routine">
+   <item>
+    14
+   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1975 Broad St." municipality="Regina, SASKATCHEWAN S4P 1Y2" name="Botanica">
   <report date="Friday, May 15, 2009" priority="Low" type="Routine">
    <item>
     10
-   </item>
-  </report>
-  <report date="Friday, May 15, 2009" priority="Low" type="Routine">
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Friday, May 15, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    16
    </item>
   </report>
  </location>
@@ -622,20 +391,8 @@
     12
    </item>
   </report>
-  <report date="Wednesday, May 13, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, May 13, 2009" priority="Low" type="Routine">
-   <item>
-    11
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4324 Dewdney Ave." municipality="Regina, SASKATCHEWAN S4T 1A8" name="Brandee's Corner Store">
-  <report date="Monday, September 21, 2009" priority="Low" type="Routine">
-   <item>
-    16
-   </item>
-  </report>
   <report date="Monday, September 21, 2009" priority="Low" type="Routine">
    <item>
     16
@@ -645,22 +402,13 @@
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Brandt Centre North Ice Cream">
   <report date="Wednesday, July 29, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, July 29, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Brandt Centre North Kitchen">
-  <report date="Wednesday, July 29, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, July 29, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Brandt Centre North Popcorn">
   <report date="Tuesday, September 22, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, September 22, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Brandt Centre South Ice Cream">
@@ -674,33 +422,16 @@
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Brandt Centre South Popcorn">
   <report date="Wednesday, July 29, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, July 29, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Brandt Centre West Kitchen">
   <report date="Tuesday, September 22, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, September 22, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1832 Victoria Ave. E." municipality="Regina, SASKATCHEWAN S4N 7K3" name="Brewster's Brewing Company &amp; Restaurant">
   <report date="Thursday, March 05, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, March 05, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="480 N. McCarthy Blvd." municipality="Regina, SASKATCHEWAN S4R 7M2" name="Brewster's Brewing Company &amp; Restaurant">
-  <report date="Friday, September 18, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
   <report date="Friday, September 18, 2009" priority="Low" type="Routine">
    <item>
     15
@@ -717,14 +448,6 @@
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3806 Albert Street" municipality="Regina, SASKATCHEWAN S4S 3R2" name="Broken Rack Billiards">
   <report date="Monday, March 23, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, March 23, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="306 Albert St." municipality="Regina, SASKATCHEWAN S4R 2N7" name="Bubba's Place">
@@ -752,30 +475,13 @@
     15
    </item>
   </report>
-  <report date="Monday, August 24, 2009" priority="Low" type="Follow-up">
-   <item>
-    1
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4181 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="Burger King">
-  <report date="Monday, October 19, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, October 19, 2009" priority="Low" type="Routine">
+  <report date="Friday, March 06, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1810 Albert St." municipality="Regina, SASKATCHEWAN S4P 2S8" name="Bus Stop Canteen">
   <report date="Friday, September 11, 2009" priority="Low" type="Routine">
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="2206 Dewdney" municipality="Regina, SASKATCHEWAN S4R 1H3" name="Bushwakker Brew Pub">
-  <report date="Thursday, October 29, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2761 Avonhurst Dr" municipality="Regina, SASKATCHEWAN S4R 3J3" name="Buttertart Bake &amp; Eatery">
@@ -787,8 +493,6 @@
    <item>
     4
    </item>
-  </report>
-  <report date="Tuesday, August 11, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="100 - 1900 Albert St." municipality="Regina, SASKATCHEWAN S4P 4K8" name="Cafe Ciel">
@@ -805,13 +509,6 @@
     15
    </item>
   </report>
-  <report date="Monday, June 15, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Monday, June 15, 2009" priority="Low" type="Follow-up">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1901 Scarth St." municipality="Regina, SASKATCHEWAN S4P 4L4" name="Canada Life Assurance Company Cafeteria">
   <report date="Thursday, October 16, 2008" priority="Low" type="Routine">
@@ -823,12 +520,8 @@
  <location rha="Regina QuAppelle Health Authority" address="3801 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R4" name="Canada Safeway - Deli">
   <report date="Thursday, October 01, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, October 01, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2148 Connaught St." municipality="Regina, SASKATCHEWAN S4T 4T9" name="Canadian Italian Club">
-  <report date="Monday, May 04, 2009" priority="Low" type="Follow-up">
-  </report>
   <report date="Monday, May 04, 2009" priority="Low" type="Follow-up">
   </report>
  </location>
@@ -836,11 +529,6 @@
   <report date="Monday, July 06, 2009" priority="Low" type="Routine">
    <item>
     16
-   </item>
-  </report>
-  <report date="Monday, July 06, 2009" priority="Low" type="Routine">
-   <item>
-    1
    </item>
   </report>
  </location>
@@ -859,24 +547,11 @@
  <location rha="Regina QuAppelle Health Authority" address="2062 Albert St." municipality="Regina, SASKATCHEWAN S4P 2T7" name="Cathedral Village Free House">
   <report date="Thursday, July 16, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Thursday, July 16, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="378 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 2N6" name="Chappy's Restaurant">
   <report date="Monday, August 31, 2009" priority="Low" type="Routine">
    <item>
     15
-   </item>
-  </report>
-  <report date="Monday, August 31, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-   <item>
-    16
    </item>
   </report>
  </location>
@@ -886,23 +561,18 @@
     1
    </item>
    <item>
-    2
-   </item>
-   <item>
     10
    </item>
    <item>
     12
    </item>
+   <item>
+    2
+   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2710 Montague St." municipality="Regina, SASKATCHEWAN S4S 0J9" name="Chimney Restaurant">
   <report date="Friday, April 24, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Friday, April 24, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1458 Broad St." municipality="Regina, SASKATCHEWAN S4R 1Y9" name="China Doll Restaurant and Lounge">
@@ -917,17 +587,6 @@
  </location>
  <location rha="Regina QuAppelle Health Authority" address="532 University Park Dr." municipality="Regina, SASKATCHEWAN S4V 2Z3" name="China Pastry Cafe">
   <report date="Wednesday, June 10, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Wednesday, June 10, 2009" priority="Low" type="Follow-up">
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="685 University Park Drive" municipality="Regina, SASKATCHEWAN S4V 2V8" name="Chuck E Cheese's">
@@ -967,41 +626,23 @@
     16
    </item>
   </report>
-  <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="489 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C4" name="Colony Coffee &amp; Tea">
-  <report date="Wednesday, July 08, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, July 08, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3221 E Eastgate Dr." municipality="Regina, SASKATCHEWAN S4Z 1A4" name="Comfort Inn - Continental Breakfast">
   <report date="Tuesday, May 26, 2009" priority="Low" type="Routine">
    <item>
-    10
-   </item>
-   <item>
     11
    </item>
-  </report>
-  <report date="Tuesday, May 26, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, May 26, 2009" priority="Low" type="Routine">
    <item>
-    7
-   </item>
-   <item>
-    16
+    10
    </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="Mosaic Stadium at Taylor Field" municipality="Regina" name="Commissary">
   <report date="Saturday, July 18, 2009" priority="Low" type="Routine">
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="2400 - 13th Ave." municipality="Regina, SASKATCHEWAN S4P 0V9" name="Community Cafe YMCA">
-  <report date="Tuesday, October 06, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="200 Lakeshore Dr." municipality="Regina, SASKATCHEWAN S4S 0A4" name="Conexus Arts Centre">
@@ -1010,10 +651,6 @@
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Cookies by George">
   <report date="Friday, May 22, 2009" priority="Low" type="Routine">
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="1953 Scarth St." municipality="Regina, SASKATCHEWAN S4P 2H1" name="Copper Kettle">
-  <report date="Monday, October 26, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="Mosaic Stadium at Taylor Field" municipality="Regina" name="Corporate Barbeque">
@@ -1046,16 +683,6 @@
     14
    </item>
   </report>
-  <report date="Friday, July 17, 2009" priority="Low" type="Follow-up">
-   <item>
-    7
-   </item>
-   <item>
-    14
-   </item>
-  </report>
-  <report date="Friday, July 17, 2009" priority="Low" type="Follow-up">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1880 Saskatchewan Drive" municipality="Regina, SASKATCHEWAN S4P 0B2" name="CR Express">
   <report date="Tuesday, March 17, 2009" priority="Low" type="Routine">
@@ -1070,10 +697,6 @@
     16
    </item>
   </report>
-  <report date="Wednesday, August 26, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, August 26, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Credit Union Event Plex Concession">
   <report date="Friday, July 31, 2009" priority="Low" type="Routine">
@@ -1082,18 +705,12 @@
  <location rha="Regina QuAppelle Health Authority" address="3850 Hillsdale St." municipality="Regina, SASKATCHEWAN S4S 0X5" name="Cuisine du Bistro">
   <report date="Thursday, July 23, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, July 23, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, July 23, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="489 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C4" name="Dairy Queen #3">
   <report date="Wednesday, July 08, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2080 Park St." municipality="Regina, SASKATCHEWAN S4N 2G6" name="Dairy Queen #4">
-  <report date="Thursday, July 02, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Thursday, July 02, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -1112,9 +729,7 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4020 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R5" name="Dairy Queen">
-  <report date="Monday, October 19, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, October 19, 2009" priority="Low" type="Routine">
+  <report date="Tuesday, March 17, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1916 Elphinstone St." municipality="Regina, SASKATCHEWAN S4T 3N2" name="Dairy Queen 27242">
@@ -1122,8 +737,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="230 Hodsman Road" municipality="Regina, SASKATCHEWAN S4N 5W5" name="Dancers At The Boiler Room">
-  <report date="Friday, March 27, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Friday, March 27, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -1154,10 +767,10 @@
  <location rha="Regina QuAppelle Health Authority" address="1709 Winnipeg St." municipality="Regina, SASKATCHEWAN S4P 1G1" name="Denver's Pizza">
   <report date="Friday, August 28, 2009" priority="Low" type="Routine">
    <item>
-    10
+    11
    </item>
    <item>
-    11
+    10
    </item>
   </report>
  </location>
@@ -1171,20 +784,6 @@
  <location rha="Regina QuAppelle Health Authority" address="88 A Cavendish St." municipality="Regina, SASKATCHEWAN S4N 5G7" name="Dewdney Garden">
   <report date="Thursday, March 12, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, March 12, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="510 A Henderson Dr." municipality="Regina, SASKATCHEWAN S4N 5X2" name="Dizzy D's Diner">
   <report date="Tuesday, July 07, 2009" priority="Low" type="Routine">
@@ -1197,18 +796,12 @@
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Dome Concession Inc. Commisary">
   <report date="Friday, July 31, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Friday, July 31, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4215 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="Domino's Pizza">
-  <report date="Tuesday, October 20, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, October 20, 2009" priority="Low" type="Routine">
+  <report date="Thursday, March 19, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4523 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4R3" name="Domino's Pizza">
-  <report date="Monday, September 28, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Monday, September 28, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -1222,17 +815,13 @@
    </item>
   </report>
  </location>
- <location rha="Regina QuAppelle Health Authority" address="37 Qu'Appelle Street" municipality="Regina, SASKATCHEWAN S0G 4A0" name="Double TT Grocery Kitchen">
-  <report date="Thursday, October 08, 2009" priority="Moderate" type="Routine">
-  </report>
- </location>
  <location rha="Regina QuAppelle Health Authority" address="4203 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4R3" name="DQ Grill &amp; Chill">
   <report date="Wednesday, June 17, 2009" priority="Low" type="Routine">
    <item>
-    2
+    12
    </item>
    <item>
-    12
+    2
    </item>
   </report>
  </location>
@@ -1241,8 +830,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1875 Victoria Ave." municipality="Regina, SASKATCHEWAN S4N 7K3" name="Earl's Restaurant &amp; Bar">
-  <report date="Tuesday, April 21, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Tuesday, April 21, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -1264,55 +851,37 @@
     15
    </item>
   </report>
-  <report date="Tuesday, September 15, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3030 - 12th Avenue" municipality="Regina, SASKATCHEWAN S4T 1J6" name="Eat Healthy Foods">
-  <report date="Thursday, July 09, 2009" priority="Low" type="Follow-up">
-  </report>
   <report date="Thursday, July 09, 2009" priority="Low" type="Follow-up">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2715 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H8" name="Edo Japan #45">
   <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="489 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C4" name="Edo Japan #92">
-  <report date="Thursday, April 30, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Thursday, April 30, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Edo Japan Cornwall Centre">
   <report date="Friday, September 18, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Friday, September 18, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2171 Lorne St." municipality="Regina, SASKATCHEWAN S4P 2M6" name="Evolution Catering and Fine Foods">
   <report date="Monday, August 24, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, August 24, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    10
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="Armour Road" municipality="Regina, SASKATCHEWAN S4P 3C7" name="EVRAZ Turvey Centre">
   <report date="Tuesday, June 16, 2009" priority="Low" type="Routine">
    <item>
-    7
-   </item>
-   <item>
     10
    </item>
    <item>
     15
+   </item>
+   <item>
+    7
    </item>
   </report>
  </location>
@@ -1342,15 +911,9 @@
     2
    </item>
   </report>
-  <report date="Friday, August 14, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Extreme Pita">
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Routine">
+  <report date="Friday, May 22, 2009" priority="Low" type="Follow-up">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4323 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4R3" name="Extreme Pita">
@@ -1377,21 +940,12 @@
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="Fast Break - University of Regina">
   <report date="Thursday, September 10, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, September 10, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2305 Smith St." municipality="Regina, SASKATCHEWAN S4P 2P7" name="Fireside Bistro and Lounge">
   <report date="Monday, March 30, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Monday, March 30, 2009" priority="Low" type="Routine">
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="222 University Park Dr." municipality="Regina, SASKATCHEWAN S4V 1A3" name="First Tee (Indoor Golf Centre)">
-  <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -1400,18 +954,7 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="909 Arcola Avenue E." municipality="Regina, SASKATCHEWAN S4N 0S2" name="Four Seasons Restaurant">
-  <report date="Monday, October 19, 2009" priority="Low" type="Routine">
-   <item>
-    11
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Monday, October 19, 2009" priority="Low" type="Routine">
+  <report date="Wednesday, March 04, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3040 - 5th Avenue" municipality="Regina, SASKATCHEWAN S4T 0L5" name="Four Winds Cafe">
@@ -1434,25 +977,21 @@
    </item>
   </report>
  </location>
- <location rha="Regina QuAppelle Health Authority" address="100 - 2500 Victoria Ave." municipality="Regina, SASKATCHEWAN S4P 3X2" name="Fresh &amp; Sweet">
-  <report date="Tuesday, October 13, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, October 13, 2009" priority="Low" type="Routine">
+ <location rha="Regina QuAppelle Health Authority" address="100 - 2500 Victoria Ave." municipality="Regina, SASKATCHEWAN S4P 3X2" name="Fresh">
+  <report date="Tuesday, September 01, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="401 Victoria Avenue" municipality="Regina, SASKATCHEWAN S4N 0P7" name="From Scratch Kitchen &amp; Cafe Inc.">
-  <report date="Wednesday, October 14, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 14, 2009" priority="Low" type="Routine">
+  <report date="Friday, December 12, 2008" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="300 McDonald St." municipality="Regina, SASKATCHEWAN S4N 6P6" name="Gaebels Brewhouse and Trifon's Pizza">
   <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
    <item>
-    14
+    15
    </item>
    <item>
-    15
+    14
    </item>
   </report>
  </location>
@@ -1470,43 +1009,14 @@
  <location rha="Regina QuAppelle Health Authority" address="1727 St. John St." municipality="Regina, SASKATCHEWAN S4P 1R8" name="German Canadian Society">
   <report date="Tuesday, February 24, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Tuesday, February 24, 2009" priority="Low" type="Follow-up">
-   <item>
-    12
-   </item>
-  </report>
-  <report date="Tuesday, February 24, 2009" priority="Low" type="Follow-up">
-   <item>
-    7
-   </item>
-   <item>
-    12
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1833 Scarth St." municipality="Regina, SASKATCHEWAN S4P 2G9" name="Gilmour's Corner">
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Complaint">
-   <item>
-    4
-   </item>
-   <item>
-    10
-   </item>
+  <report date="Tuesday, May 19, 2009" priority="Low" type="Routine">
    <item>
     11
    </item>
-  </report>
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Complaint">
    <item>
     10
-   </item>
-   <item>
-    11
-   </item>
-  </report>
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Complaint">
-   <item>
-    3
    </item>
   </report>
  </location>
@@ -1531,39 +1041,17 @@
  <location rha="Regina QuAppelle Health Authority" address="3806 Albert Street" municipality="Regina, SASKATCHEWAN S4S 3R2" name="Golden Mile Bowling Centre">
   <report date="Thursday, July 23, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, July 23, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, July 23, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1945 Victoria Ave." municipality="Regina, SASKATCHEWAN S4P 0R3" name="Golf's Steak House">
   <report date="Monday, June 08, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Monday, June 08, 2009" priority="Low" type="Follow-up">
-   <item>
-    3
-   </item>
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="105 - 1881 Scarth St." municipality="Regina, SASKATCHEWAN S4P 4L1" name="Good Earth Coffeehouse &amp; Bakery">
   <report date="Wednesday, September 16, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, September 16, 2009" priority="Low" type="Routine">
-   <item>
-    4
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Gourmet Cup">
   <report date="Monday, May 04, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, May 04, 2009" priority="Low" type="Routine">
-   <item>
-    16
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4607 Dewdney Avenue" municipality="Regina, SASKATCHEWAN S4T 1B7" name="Government House Historic Property">
@@ -1576,10 +1064,10 @@
     1
    </item>
    <item>
-    4
+    11
    </item>
    <item>
-    11
+    4
    </item>
   </report>
  </location>
@@ -1601,11 +1089,6 @@
  <location rha="Regina QuAppelle Health Authority" address="4424 Albert St." municipality="Regina, SASKATCHEWAN S4S 6B4" name="Greko's Restaurant &amp; Steak House">
   <report date="Thursday, March 26, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Thursday, March 26, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1417 - 11th Ave." municipality="Regina, SASKATCHEWAN S4P 0H1" name="H &amp; H Coins &amp; Collectibles Ltd.">
   <report date="Monday, August 24, 2009" priority="Low" type="Routine">
@@ -1621,25 +1104,17 @@
  <location rha="Regina QuAppelle Health Authority" address="1950 Broad St." municipality="Regina, SASKATCHEWAN S4P 1X9" name="Hanabi Japanese Restaurant">
   <report date="Thursday, June 11, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Thursday, June 11, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="436 Dewdney Avenue" municipality="Regina, SASKATCHEWAN S4S 3R6" name="Happy Garden Restaurant">
   <report date="Thursday, July 02, 2009" priority="Moderate" type="Routine">
+   <item>
+    15
+   </item>
    <item>
     4
    </item>
    <item>
     7
-   </item>
-   <item>
-    15
    </item>
   </report>
  </location>
@@ -1669,60 +1144,9 @@
     15
    </item>
   </report>
-  <report date="Friday, March 27, 2009" priority="Low" type="Follow-up">
-   <item>
-    1
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="320 Victoria Avenue E." municipality="Regina, SASKATCHEWAN S4N 0N7" name="Hideaway Family Restaurant">
   <report date="Friday, May 22, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Friday, May 22, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Friday, May 22, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    14
-   </item>
    <item>
     15
    </item>
@@ -1734,27 +1158,13 @@
  <location rha="Regina QuAppelle Health Authority" address="4255 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="Holiday Inn Express &amp; Suites Breakfast Bar">
   <report date="Thursday, February 12, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, February 12, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, February 12, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1907 - 11th Ave." municipality="Regina, SASKATCHEWAN S4P 0J2" name="Holiday Inn Express Hotel and Suites Breakfast Bar">
-  <report date="Thursday, October 29, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, October 29, 2009" priority="Low" type="Routine">
+  <report date="Friday, October 17, 2008" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3841 Eastgate Drive" municipality="Regina, SASKATCHEWAN S4Z 1A5" name="Home Suites Breakfast Area">
   <report date="Monday, September 14, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Monday, September 14, 2009" priority="Low" type="Follow-up">
-   <item>
-    4
-   </item>
-   <item>
-    11
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="5544 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4P1" name="House of Yee">
@@ -1773,13 +1183,13 @@
  <location rha="Regina QuAppelle Health Authority" address="1126 Albert St." municipality="Regina, SASKATCHEWAN S4R 2R1" name="Houston Pizza">
   <report date="Thursday, July 16, 2009" priority="Moderate" type="Routine">
    <item>
+    10
+   </item>
+   <item>
     2
    </item>
    <item>
     7
-   </item>
-   <item>
-    10
    </item>
    <item>
     16
@@ -1791,8 +1201,6 @@
    <item>
     15
    </item>
-  </report>
-  <report date="Monday, September 21, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="328 N. McCarthy Blvd." municipality="Regina, SASKATCHEWAN S4R 7M2" name="Houston Pizza">
@@ -1839,28 +1247,9 @@
     16
    </item>
   </report>
-  <report date="Wednesday, June 03, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1755 Prince of Wales Dr." municipality="Regina, SASKATCHEWAN S4Z 1A5" name="Husky House Restaurant">
   <report date="Tuesday, May 26, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, May 26, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1601 Park St." municipality="Regina, SASKATCHEWAN S4N 5A2" name="Husky Market">
@@ -1883,8 +1272,6 @@
  <location rha="Regina QuAppelle Health Authority" address="1611 Victoria Ave." municipality="Regina, SASKATCHEWAN S4P 0P8" name="Italian Star Grocery">
   <report date="Wednesday, May 20, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, May 20, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="#120 - 2201 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4P 0J8" name="J &amp; A Restaurant">
   <report date="Tuesday, June 02, 2009" priority="Low" type="Routine">
@@ -1895,22 +1282,13 @@
     12
    </item>
   </report>
-  <report date="Tuesday, June 02, 2009" priority="Low" type="Routine">
-   <item>
-    11
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3360 Deiter Bay" municipality="Regina, SASKATCHEWAN S4V 2V9" name="Jaks Lunch Box Service">
   <report date="Thursday, September 10, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, September 10, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4114 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R8" name="Java Express">
-  <report date="Thursday, October 08, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, October 08, 2009" priority="Low" type="Routine">
+  <report date="Tuesday, March 17, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3283 E Quance St." municipality="Regina, SASKATCHEWAN S4V 3B7" name="Java Express Neighbourhood Cafe">
@@ -1922,34 +1300,13 @@
     16
    </item>
   </report>
-  <report date="Wednesday, July 08, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1055 Park St." municipality="Regina, SASKATCHEWAN S4N 5H4" name="JD's Cafe &amp; Nite Spot">
   <report date="Monday, September 14, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Monday, September 14, 2009" priority="Low" type="Follow-up">
-   <item>
-    1
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1501 Park St." municipality="Regina, SASKATCHEWAN S4N 2E9" name="Jestures">
   <report date="Wednesday, August 26, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, August 26, 2009" priority="Low" type="Routine">
-   <item>
-    11
-   </item>
-   <item>
-    12
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="8045 Kestral Drive" municipality="Regina, SASKATCHEWAN S4P 3C6" name="Joanne Goulet Golf Course">
@@ -1971,21 +1328,11 @@
     15
    </item>
   </report>
-  <report date="Thursday, September 17, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="360 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 2N7" name="Joey's Only Seafood Restaurant">
   <report date="Wednesday, September 16, 2009" priority="Low" type="Routine">
    <item>
     12
-   </item>
-  </report>
-  <report date="Wednesday, September 16, 2009" priority="Low" type="Routine">
-   <item>
-    14
-   </item>
-   <item>
-    15
    </item>
   </report>
  </location>
@@ -2002,8 +1349,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="5064 - 4th Avenue" municipality="Regina, SASKATCHEWAN S4T 0J6" name="Juliana's Pizza &amp; Restaurant (1978) Ltd.">
-  <report date="Thursday, August 27, 2009" priority="Low" type="Complaint">
-  </report>
   <report date="Thursday, August 27, 2009" priority="Low" type="Complaint">
   </report>
  </location>
@@ -2033,41 +1378,12 @@
  <location rha="Regina QuAppelle Health Authority" address="2655 E Star Lite Street" municipality="Regina, SASKATCHEWAN S4V 3V1" name="KFC #24">
   <report date="Tuesday, August 11, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Tuesday, August 11, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3998 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R1" name="KFC - Taco Bell">
   <report date="Monday, October 05, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Monday, October 05, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3501 Dewdney Avenue" municipality="Regina, SASKATCHEWAN S4T 0Z4" name="KFC">
-  <report date="Tuesday, September 29, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Tuesday, September 29, 2009" priority="Low" type="Follow-up">
-   <item>
-    3
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    14
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
   <report date="Tuesday, September 29, 2009" priority="Low" type="Follow-up">
   </report>
  </location>
@@ -2077,8 +1393,6 @@
     15
    </item>
   </report>
-  <report date="Monday, August 24, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="820 McCarthy Blvd." municipality="Regina, SASKATCHEWAN S4T 6S7" name="KFC Canada McCarthy Blvd. Unit #20">
   <report date="Monday, May 11, 2009" priority="Low" type="Routine">
@@ -2086,29 +1400,8 @@
     15
    </item>
   </report>
-  <report date="Monday, May 11, 2009" priority="Low" type="Routine">
-   <item>
-    14
-   </item>
-  </report>
-  <report date="Monday, May 11, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    14
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="489 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C4" name="King's Head Tavern">
-  <report date="Wednesday, July 08, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, July 08, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -2122,38 +1415,15 @@
     15
    </item>
   </report>
-  <report date="Monday, June 15, 2009" priority="Low" type="Follow-up">
-   <item>
-    1
-   </item>
-   <item>
-    5
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Monday, June 15, 2009" priority="Low" type="Follow-up">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2223 Victoria Avenue E." municipality="Regina, SASKATCHEWAN S4N 6E4" name="Kraut Haven">
-  <report date="Tuesday, October 13, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, October 13, 2009" priority="Low" type="Routine">
+  <report date="Thursday, March 19, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1851 Scarth St." municipality="Regina, SASKATCHEWAN S4P 2G9" name="KZ'Z Restaurant &amp; Grill">
   <report date="Friday, February 06, 2009" priority="Low" type="Routine">
    <item>
     2
-   </item>
-  </report>
-  <report date="Friday, February 06, 2009" priority="Low" type="Routine">
-   <item>
-    15
    </item>
   </report>
  </location>
@@ -2170,21 +1440,9 @@
  <location rha="Regina QuAppelle Health Authority" address="1350 - 23rd Ave." municipality="Regina, SASKATCHEWAN S4S 3S5" name="Lakeshore Restaurant">
   <report date="Tuesday, February 24, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Tuesday, February 24, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1380 - 23rd Ave." municipality="Regina, SASKATCHEWAN S4S 3S5" name="Lakeshore Sobeys Deli">
   <report date="Tuesday, September 15, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, September 15, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, September 15, 2009" priority="Low" type="Routine">
-   <item>
-    6
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="Wascana Park" municipality="Regina" name="Lakeshore Tennis Club">
@@ -2194,27 +1452,12 @@
  <location rha="Regina QuAppelle Health Authority" address="1745 Broad St." municipality="Regina, SASKATCHEWAN S4P 1X4" name="Lang's Cafe">
   <report date="Thursday, February 26, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Thursday, February 26, 2009" priority="Low" type="Follow-up">
-   <item>
-    3
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Laura Secord">
   <report date="Friday, April 17, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Friday, April 17, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2440 Broad St." municipality="Regina, SASKATCHEWAN S4P 3Z4" name="LB Catering">
-  <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -2227,29 +1470,10 @@
     3
    </item>
    <item>
+    15
+   </item>
+   <item>
     4
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Friday, June 05, 2009" priority="Moderate" type="Routine">
-  </report>
-  <report date="Friday, June 05, 2009" priority="Moderate" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    2
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    15
    </item>
   </report>
  </location>
@@ -2263,61 +1487,39 @@
  <location rha="Regina QuAppelle Health Authority" address="2625 - 29th Avenue" municipality="Regina, SASKATCHEWAN S4S 2N9" name="Lee's Chop Suey South">
   <report date="Thursday, March 26, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, March 26, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="230 Winnipeg St. N." municipality="Regina, SASKATCHEWAN S4R 8K1" name="Lindy's Diner">
   <report date="Wednesday, February 04, 2009" priority="Low" type="Routine">
+   <item>
+    10
+   </item>
+   <item>
+    12
+   </item>
+   <item>
+    15
+   </item>
    <item>
     4
    </item>
    <item>
     7
    </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="817 Victoria Avenue" municipality="Regina, SASKATCHEWAN S4T 2S7" name="Little Saigon Restaurant">
   <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
    <item>
-    5
+    15
    </item>
    <item>
     12
    </item>
    <item>
-    14
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
-   <item>
-    11
+    5
    </item>
    <item>
     14
-   </item>
-   <item>
-    15
    </item>
    <item>
     16
@@ -2331,13 +1533,6 @@
  <location rha="Regina QuAppelle Health Authority" address="3806 Albert Street" municipality="Regina, SASKATCHEWAN S4S 3R2" name="Lohas">
   <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
-   <item>
-    11
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="470 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 2N8" name="Luiggi's Pasta House">
   <report date="Friday, January 23, 2009" priority="Low" type="Routine">
@@ -2350,21 +1545,12 @@
  <location rha="Regina QuAppelle Health Authority" address="2219 Broad St." municipality="Regina, SASKATCHEWAN S4P 1Y7" name="Luscious Bite Catering Incorporated">
   <report date="Tuesday, September 22, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Tuesday, September 22, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Tuesday, September 22, 2009" priority="Low" type="Follow-up">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="Luther College - The Link (University of Regina)">
   <report date="Wednesday, April 01, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3737 Wascana Parkway" municipality="Regina, SASKATCHEWAN S4S 0A2" name="Luther College - University of Regina">
-  <report date="Wednesday, April 01, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, April 01, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -2374,36 +1560,17 @@
     14
    </item>
   </report>
-  <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1821 Broad St." municipality="Regina, SASKATCHEWAN S4P 1X7" name="Mai Phuong">
   <report date="Monday, July 06, 2009" priority="Moderate" type="Routine">
-   <item>
-    4
-   </item>
    <item>
     10
    </item>
    <item>
     15
    </item>
-  </report>
-  <report date="Monday, July 06, 2009" priority="Moderate" type="Routine">
-   <item>
-    3
-   </item>
    <item>
     4
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
    </item>
   </report>
  </location>
@@ -2423,19 +1590,12 @@
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Manchu Wok">
   <report date="Wednesday, September 02, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, September 02, 2009" priority="Low" type="Routine">
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="489 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C4" name="Manchu Wok">
   <report date="Wednesday, May 27, 2009" priority="Moderate" type="Complaint">
    <item>
     5
    </item>
-  </report>
-  <report date="Wednesday, May 27, 2009" priority="Moderate" type="Complaint">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1835 Halifax St." municipality="Regina, SASKATCHEWAN S4P 1T4" name="Marian Centre">
@@ -2447,74 +1607,25 @@
     16
    </item>
   </report>
-  <report date="Monday, May 25, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2526 E Quance St." municipality="Regina, SASKATCHEWAN S4V 2X5" name="Marilyn's Meats Limited Commissary in M&amp;M Meat Shops">
-  <report date="Monday, May 11, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Monday, May 11, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="6340 Dewdney Avenue" municipality="Regina, SASKATCHEWAN S4T 1E3" name="McCarthy Garden">
   <report date="Wednesday, October 07, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, October 07, 2009" priority="Low" type="Routine">
-   <item>
-    6
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="924 Victoria Avenue E." municipality="Regina, SASKATCHEWAN S4X 4K8" name="McDonald's #8638">
   <report date="Thursday, May 21, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, May 21, 2009" priority="Low" type="Routine">
-   <item>
-    4
-   </item>
-   <item>
-    10
-   </item>
-  </report>
-  <report date="Thursday, May 21, 2009" priority="Low" type="Routine">
-   <item>
-    4
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2150 Prince of Wales Dr." municipality="Regina, SASKATCHEWAN S4V 3A6" name="McDonald's (Walmart - Prince of Wales Drive)">
   <report date="Thursday, June 25, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, June 25, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2620 Dewdney Avenue" municipality="Regina, SASKATCHEWAN S4T 0X3" name="McDonald's - Dewdney Avenue">
   <report date="Wednesday, September 23, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Wednesday, September 23, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Wednesday, September 23, 2009" priority="Low" type="Follow-up">
-   <item>
-    10
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="McDonald's - Southland Mall">
@@ -2523,42 +1634,21 @@
     13
    </item>
    <item>
-    14
+    15
    </item>
    <item>
-    15
+    14
    </item>
    <item>
     16
    </item>
-  </report>
-  <report date="Friday, June 19, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Friday, June 19, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4651 Albert St." municipality="Regina, SASKATCHEWAN S4X 4K8" name="McDonald's Restaurant - Albert Street South">
   <report date="Wednesday, February 18, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Wednesday, February 18, 2009" priority="Low" type="Follow-up">
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Wednesday, February 18, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1105 Kramer Blvd." municipality="Regina, SASKATCHEWAN S4S 5W4" name="McDonald's Restaurant - Kramer Boulevard">
-  <report date="Monday, July 20, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, July 20, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Monday, July 20, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -2574,15 +1664,7 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2589 E Quance St." municipality="Regina, SASKATCHEWAN S4V 2Y7" name="Mediterranean Bistro">
-  <report date="Thursday, October 01, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Thursday, October 01, 2009" priority="Low" type="Routine">
+  <report date="Thursday, January 22, 2009" priority="Low" type="Routine">
    <item>
     12
    </item>
@@ -2594,19 +1676,6 @@
  <location rha="Regina QuAppelle Health Authority" address="1410 Albert St." municipality="Regina, SASKATCHEWAN S4R 2R7" name="Melrose Place Family Restaurant">
   <report date="Wednesday, September 02, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Wednesday, September 02, 2009" priority="Low" type="Follow-up">
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Wednesday, September 02, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4030 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R5" name="Melrose Place Family Restaurant">
   <report date="Thursday, January 29, 2009" priority="Low" type="Routine">
@@ -2614,17 +1683,6 @@
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1711 Victoria Ave." municipality="Regina, SASKATCHEWAN S4P 0P9" name="Memories">
   <report date="Thursday, May 14, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Thursday, May 14, 2009" priority="Low" type="Follow-up">
-   <item>
-    3
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="910 Victoria Avenue" municipality="Regina, SASKATCHEWAN S4N 0R7" name="Milky Way Ice Cream">
@@ -2640,8 +1698,6 @@
     16
    </item>
   </report>
-  <report date="Monday, September 14, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="mmmuffins">
   <report date="Wednesday, April 29, 2009" priority="Low" type="Routine">
@@ -2655,34 +1711,13 @@
     16
    </item>
   </report>
-  <report date="Wednesday, April 29, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2655 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H8" name="Montana's Cookhouse Saloon">
   <report date="Tuesday, February 10, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Tuesday, February 10, 2009" priority="Low" type="Follow-up">
-   <item>
-    3
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1800A Victoria Avenue East" municipality="Regina, SASKATCHEWAN S4N 7K3" name="Moxie's Classic Grill">
   <report date="Tuesday, March 24, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Tuesday, March 24, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    10
-   </item>
    <item>
     15
    </item>
@@ -2704,38 +1739,32 @@
     15
    </item>
   </report>
-  <report date="Monday, May 04, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="100 Victoria Ave." municipality="Regina, SASKATCHEWAN S4N 0P3" name="Mr. Sub">
-  <report date="Friday, May 22, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Friday, May 22, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1505 Albert St." municipality="Regina, SASKATCHEWAN S4P 2S5" name="Mr. Sub">
   <report date="Wednesday, January 21, 2009" priority="Low" type="Routine">
    <item>
-    10
+    11
    </item>
    <item>
-    11
+    10
    </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="370 Albert St." municipality="Regina, SASKATCHEWAN S4R 2N7" name="Mr. Sub">
   <report date="Tuesday, August 18, 2009" priority="Low" type="Routine">
    <item>
-    6
+    15
    </item>
    <item>
-    15
+    6
    </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3964 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R1" name="Mr. Sub">
-  <report date="Wednesday, August 19, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, August 19, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -2771,23 +1800,17 @@
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Mrs. Vanellis Pizza &amp; Italian Food">
   <report date="Monday, September 14, 2009" priority="Low" type="Routine">
    <item>
-    10
+    11
    </item>
    <item>
-    11
+    10
    </item>
    <item>
     15
    </item>
   </report>
-  <report date="Monday, September 14, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, September 14, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Mrs. Vanellis Pizza &amp; Italian Food">
-  <report date="Friday, May 08, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Friday, May 08, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -2832,20 +1855,6 @@
     15
    </item>
   </report>
-  <report date="Wednesday, May 20, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="New York Fries">
   <report date="Friday, September 18, 2009" priority="Moderate" type="Follow-up">
@@ -2856,35 +1865,8 @@
     12
    </item>
   </report>
-  <report date="Friday, September 18, 2009" priority="Moderate" type="Follow-up">
-   <item>
-    1
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    11
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Friday, September 18, 2009" priority="Moderate" type="Follow-up">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="New York Fries">
-  <report date="Tuesday, May 26, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
   <report date="Tuesday, May 26, 2009" priority="Low" type="Routine">
    <item>
     15
@@ -2926,35 +1908,6 @@
    <item>
     16
    </item>
-  </report>
-  <report date="Monday, August 24, 2009" priority="Low" type="Follow-up">
-   <item>
-    10
-   </item>
-  </report>
-  <report date="Monday, August 24, 2009" priority="Low" type="Follow-up">
-   <item>
-    1
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="1310 Broad St." municipality="Regina, SASKATCHEWAN S4R 6V8" name="Nhuy Tea Room">
-  <report date="Tuesday, October 06, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2176 - 7th Avenue" municipality="Regina, SASKATCHEWAN S4R 1C4" name="Nick's Pool Hall">
@@ -3011,17 +1964,11 @@
    </item>
   </report>
  </location>
- <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="O. T. Lounge">
-  <report date="Friday, October 23, 2009" priority="Low" type="Routine">
-  </report>
- </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Opa Souvlaki of Greece">
   <report date="Wednesday, April 29, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Orange Julius">
-  <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -3031,27 +1978,16 @@
     12
    </item>
   </report>
-  <report date="Wednesday, July 08, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2125 Victoria Ave." municipality="Regina, SASKATCHEWAN S4P 0S3" name="Orella Specialty Gifts">
   <report date="Friday, March 27, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Friday, March 27, 2009" priority="Low" type="Follow-up">
-   <item>
-    7
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2534 E Quance St." municipality="Regina, SASKATCHEWAN S4X 2X5" name="Panago Pizza">
   <report date="Monday, July 20, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Monday, July 20, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="5548 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4P1" name="Panago Pizza">
-  <report date="Tuesday, September 29, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Tuesday, September 29, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -3071,20 +2007,6 @@
     16
    </item>
   </report>
-  <report date="Thursday, March 19, 2009" priority="Low" type="Routine">
-   <item>
-    6
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    11
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2517 - 25th Avenue" municipality="Regina, SASKATCHEWAN S4S 4E8" name="Paroisse Saint-Jean-Baptiste">
   <report date="Wednesday, March 18, 2009" priority="Low" type="Routine">
@@ -3097,25 +2019,15 @@
  <location rha="Regina QuAppelle Health Authority" address="3037 Dewdney Ave." municipality="Regina, SASKATCHEWAN S4T 0Y3" name="Patience Custom Catering">
   <report date="Thursday, June 25, 2009" priority="Low" type="Follow-up">
    <item>
-    14
-   </item>
-   <item>
     15
    </item>
-  </report>
-  <report date="Thursday, June 25, 2009" priority="Low" type="Follow-up">
    <item>
     14
-   </item>
-   <item>
-    15
    </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3416 Hill Avenue" municipality="Regina, SASKATCHEWAN S4S 0W9" name="Pearl River Kitchen">
-  <report date="Thursday, October 29, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Thursday, October 29, 2009" priority="Low" type="Follow-up">
+  <report date="Monday, October 05, 2009" priority="Low" type="Routine">
    <item>
     15
    </item>
@@ -3127,22 +2039,9 @@
     16
    </item>
   </report>
-  <report date="Friday, September 25, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
+ </location>
+ <location rha="Regina QuAppelle Health Authority" address="3806 Albert Street" municipality="Regina, SASKATCHEWAN S4S 3R2" name="Pinling">
+  <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1077 Angus St." municipality="Regina, SASKATCHEWAN S4T 1Y4" name="Performing Arts Centre">
@@ -3165,55 +2064,15 @@
     16
    </item>
   </report>
-  <report date="Friday, September 04, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Friday, September 04, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3806 Albert Street" municipality="Regina, SASKATCHEWAN S4S 3R2" name="Pick up Stix Fresh Asian Kitchen">
   <report date="Wednesday, August 26, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, August 26, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Wednesday, August 26, 2009" priority="Low" type="Routine">
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="3806 Albert Street" municipality="Regina, SASKATCHEWAN S4S 3R2" name="Pinling">
-  <report date="Wednesday, October 07, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 07, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="5510 - 7th Avenue" municipality="Regina, SASKATCHEWAN S4T 0S7" name="Pinocchio Pizza">
   <report date="Friday, September 25, 2009" priority="Low" type="Routine">
    <item>
     15
-   </item>
-  </report>
-  <report date="Friday, September 25, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
-   <item>
-    16
    </item>
   </report>
  </location>
@@ -3224,41 +2083,11 @@
  <location rha="Regina QuAppelle Health Authority" address="1847 Scarth St." municipality="Regina, SASKATCHEWAN S4P 2G9" name="Pita Queen">
   <report date="Tuesday, July 21, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Tuesday, July 21, 2009" priority="Low" type="Follow-up">
-   <item>
-    1
-   </item>
-   <item>
-    11
-   </item>
-  </report>
-  <report date="Tuesday, July 21, 2009" priority="Low" type="Follow-up">
-   <item>
-    1
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="6310 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4C2" name="Pizza Hut #11">
   <report date="Wednesday, September 16, 2009" priority="Low" type="Routine">
    <item>
     12
-   </item>
-  </report>
-  <report date="Wednesday, September 16, 2009" priority="Low" type="Routine">
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
    </item>
   </report>
  </location>
@@ -3267,8 +2096,6 @@
    <item>
     15
    </item>
-  </report>
-  <report date="Wednesday, September 16, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4505 Albert St." municipality="Regina, SASKATCHEWAN S4S 6B6" name="Pizza Hut South Albert">
@@ -3281,22 +2108,12 @@
     15
    </item>
   </report>
-  <report date="Friday, September 18, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="#54 - 3806 Albert ST" municipality="Regina, SASKATCHEWAN S4S 3R2" name="Pizza Pizza Ltd.">
   <report date="Tuesday, May 26, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4355 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="Plum Garden">
-  <report date="Tuesday, March 31, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Tuesday, March 31, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -3306,19 +2123,9 @@
     12
    </item>
   </report>
-  <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3211 Albert St." municipality="Regina, SASKATCHEWAN S4S 5W6" name="Prairie Grouse Cafeteria">
-  <report date="Thursday, October 22, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Thursday, October 22, 2009" priority="Low" type="Routine">
+  <report date="Thursday, March 12, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3085 Albert St." municipality="Regina, SASKATCHEWAN S4S 0B2" name="Prairie Lily">
@@ -3334,12 +2141,8 @@
     16
    </item>
   </report>
-  <report date="Friday, September 04, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1425 College Ave." municipality="Regina, SASKATCHEWAN S4P 1B4" name="Qu'Appelle House">
-  <report date="Wednesday, June 10, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, June 10, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -3350,20 +2153,14 @@
  <location rha="Regina QuAppelle Health Authority" address="1802 - 9th Ave. N." municipality="Regina, SASKATCHEWAN S4R 7T4" name="Queen City Pizza and Pub">
   <report date="Wednesday, August 05, 2009" priority="Moderate" type="Special">
    <item>
-    4
-   </item>
-   <item>
     11
    </item>
-  </report>
-  <report date="Wednesday, August 05, 2009" priority="Moderate" type="Special">
+   <item>
+    4
+   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Queensbury Centre">
-  <report date="Tuesday, August 04, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, August 04, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Tuesday, August 04, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -3380,63 +2177,25 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4160 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R8" name="Quizno's Sub">
-  <report date="Thursday, October 08, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, October 08, 2009" priority="Low" type="Routine">
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="4160 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R8" name="Quizno's Sub Catering">
-  <report date="Thursday, October 08, 2009" priority="Low" type="Routine">
+  <report date="Monday, March 09, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2125 Victoria Ave." municipality="Regina, SASKATCHEWAN S4P 0S3" name="Radisson Plaza Hotel Saskatchewan (Courtlandt Dining)">
   <report date="Monday, August 24, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Monday, August 24, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, August 24, 2009" priority="Low" type="Routine">
-   <item>
-    2
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    12
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="890 Albert St." municipality="Regina, SASKATCHEWAN S4R 2P5" name="Red Lobster">
   <report date="Thursday, August 20, 2009" priority="Low" type="Routine">
    <item>
-    7
-   </item>
-   <item>
     10
    </item>
-  </report>
-  <report date="Thursday, August 20, 2009" priority="Low" type="Routine">
    <item>
-    15
+    7
    </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2220 Victoria Ave. E." municipality="Regina, SASKATCHEWAN S4N 7B9" name="Regency Palace Family Restaurant">
   <report date="Tuesday, August 18, 2009" priority="Low" type="Routine">
-   <item>
-    6
-   </item>
-  </report>
-  <report date="Tuesday, August 18, 2009" priority="Low" type="Routine">
-   <item>
-    5
-   </item>
    <item>
     6
    </item>
@@ -3458,26 +2217,13 @@
  <location rha="Regina QuAppelle Health Authority" address="88 AA Cavendish St." municipality="Regina, SASKATCHEWAN S4N 5G7" name="Regent Pizza">
   <report date="Monday, October 05, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Monday, October 05, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="190 Broad St. N." municipality="Regina, SASKATCHEWAN S4R 2X4" name="Regina Bingo Palace Canteen">
   <report date="Tuesday, July 28, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Tuesday, July 28, 2009" priority="Low" type="Routine">
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="1440 - 14th Avenue" municipality="Regina, SASKATCHEWAN S4P 0W5" name="Regina General Hospital Kitchen">
-  <report date="Tuesday, October 27, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="735 Victoria Ave." municipality="Regina, SASKATCHEWAN S4N 0R4" name="Regina Home Economics for Living Project">
-  <report date="Thursday, October 22, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, October 22, 2009" priority="Low" type="Routine">
+  <report date="Wednesday, January 28, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1235 - 2nd Ave. N." municipality="Regina, SASKATCHEWAN S4R 0X5" name="Regina Metis Sports &amp; Culture Incorporation">
@@ -3494,8 +2240,6 @@
  <location rha="Regina QuAppelle Health Authority" address="2134 Winnipeg St." municipality="Regina, SASKATCHEWAN S4P 3X6" name="Regina Senior Citizen Centre Incorporated">
   <report date="Thursday, June 04, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, June 04, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4177 Albert Street" municipality="Regina, SASKATCHEWAN S4S 3R6" name="Regina Travelodge Hotel Banquet Kitchen">
   <report date="Wednesday, January 28, 2009" priority="Low" type="Routine">
@@ -3504,10 +2248,10 @@
  <location rha="Regina QuAppelle Health Authority" address="777 Albert St." municipality="Regina, SASKATCHEWAN S4R 2P6" name="Ricky's All Day Grill">
   <report date="Tuesday, February 03, 2009" priority="Moderate" type="Routine">
    <item>
-    3
+    10
    </item>
    <item>
-    10
+    3
    </item>
   </report>
  </location>
@@ -3531,8 +2275,6 @@
     12
    </item>
   </report>
-  <report date="Monday, November 03, 2008" priority="Moderate" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1806 Albert St." municipality="Regina, SASKATCHEWAN S4P 2T2" name="Robin's Donuts">
   <report date="Monday, November 17, 2008" priority="Low" type="Routine">
@@ -3542,8 +2284,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Robin's Donuts">
-  <report date="Friday, May 22, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Friday, May 22, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -3557,19 +2297,6 @@
  <location rha="Regina QuAppelle Health Authority" address="3209 E Eastgate Drive" municipality="Regina, SASKATCHEWAN S4Z 1A4" name="Robin's Donuts">
   <report date="Monday, September 14, 2009" priority="Moderate" type="Follow-up">
   </report>
-  <report date="Monday, September 14, 2009" priority="Moderate" type="Follow-up">
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Monday, September 14, 2009" priority="Moderate" type="Follow-up">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="328 Victoria Avenue" municipality="Regina, SASKATCHEWAN S4N 0P6" name="Robin's Donuts">
   <report date="Friday, May 01, 2009" priority="Low" type="Routine">
@@ -3580,85 +2307,20 @@
     16
    </item>
   </report>
-  <report date="Friday, May 01, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-  </report>
-  <report date="Friday, May 01, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3835 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R4" name="Robin's Donuts">
-  <report date="Thursday, March 26, 2009" priority="Low" type="Follow-up">
-  </report>
   <report date="Thursday, March 26, 2009" priority="Low" type="Follow-up">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="388 McCarthy Blvd." municipality="Regina, SASKATCHEWAN S4R 7M2" name="Robin's Donuts">
   <report date="Friday, July 17, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Friday, July 17, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    5
-   </item>
-   <item>
-    11
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    14
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4555 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4R3" name="Robin's Donuts">
   <report date="Tuesday, September 01, 2009" priority="Low" type="Complaint">
   </report>
-  <report date="Tuesday, September 01, 2009" priority="Low" type="Complaint">
-  </report>
-  <report date="Tuesday, September 01, 2009" priority="Low" type="Complaint">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="645 Broad St." municipality="Regina, SASKATCHEWAN S4R 1X5" name="Robin's Donuts">
-  <report date="Wednesday, October 22, 2008" priority="Low" type="Follow-up">
-  </report>
   <report date="Wednesday, October 22, 2008" priority="Low" type="Follow-up">
   </report>
  </location>
@@ -3688,35 +2350,7 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1820 Cornwall St." municipality="Regina, SASKATCHEWAN S4P 2K2" name="Royal Canadian Legion Cafe">
-  <report date="Monday, October 19, 2009" priority="Moderate" type="Follow-up">
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Monday, October 19, 2009" priority="Moderate" type="Follow-up">
-   <item>
-    4
-   </item>
-   <item>
-    5
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Monday, October 19, 2009" priority="Moderate" type="Follow-up">
+  <report date="Tuesday, June 02, 2009" priority="Low" type="Routine">
    <item>
     12
    </item>
@@ -3750,14 +2384,6 @@
  <location rha="Regina QuAppelle Health Authority" address="2900 - 13th Avenue" municipality="Regina, SASKATCHEWAN S4T 1N7" name="Safeway Deli">
   <report date="Thursday, June 25, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Thursday, June 25, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Safeway Deli">
   <report date="Tuesday, January 27, 2009" priority="Low" type="Routine">
@@ -3774,22 +2400,9 @@
  <location rha="Regina QuAppelle Health Authority" address="1845 Osler St." municipality="Regina, SASKATCHEWAN S4P 1W2" name="Salvation Army Waterton Centre">
   <report date="Friday, September 04, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Friday, September 04, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4034 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R5" name="Saskatchewan Liquor &amp; Gaming Authority">
-  <report date="Tuesday, October 20, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, October 20, 2009" priority="Low" type="Routine">
+  <report date="Thursday, March 19, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2231 E. Quance St." municipality="Regina, SASKATCHEWAN S4V 2Z3" name="SBS Food Service (Sobey's on Quance)">
@@ -3807,35 +2420,26 @@
    </item>
   </report>
  </location>
+ <location rha="Regina QuAppelle Health Authority" address="211 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C2" name="Smitty's">
+  <report date="Monday, July 27, 2009" priority="Moderate" type="Routine">
+   <item>
+    10
+   </item>
+   <item>
+    12
+   </item>
+   <item>
+    15
+   </item>
+   <item>
+    6
+   </item>
+  </report>
+ </location>
  <location rha="Regina QuAppelle Health Authority" address="2115 Broad St." municipality="Regina, SASKATCHEWAN S4P 1Y6" name="Selam Ethiopian Restaurant">
   <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
    <item>
     12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
-   <item>
-    12
-   </item>
-   <item>
-    14
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
-   <item>
-    6
-   </item>
-   <item>
-    7
    </item>
    <item>
     15
@@ -3846,11 +2450,6 @@
   <report date="Tuesday, September 29, 2009" priority="Low" type="Routine">
    <item>
     7
-   </item>
-  </report>
-  <report date="Tuesday, September 29, 2009" priority="Low" type="Routine">
-   <item>
-    10
    </item>
   </report>
  </location>
@@ -3876,29 +2475,9 @@
  <location rha="Regina QuAppelle Health Authority" address="Wascana Campus" municipality="Regina, SASKATCHEWAN S4S 3P2" name="SIAST Wascana Campus">
   <report date="Tuesday, September 01, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Tuesday, September 01, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, September 01, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1060 Pasqua St. N." municipality="Regina, SASKATCHEWAN S4X 4V3" name="Silver's Steakhouse">
   <report date="Thursday, March 26, 2009" priority="Low" type="Routine">
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="211 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C2" name="Smitty's">
-  <report date="Monday, July 27, 2009" priority="Moderate" type="Routine">
-   <item>
-    6
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Smitty's Cornwall Centre">
@@ -3908,23 +2487,6 @@
    </item>
    <item>
     15
-   </item>
-  </report>
-  <report date="Tuesday, September 01, 2009" priority="Moderate" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
    </item>
   </report>
  </location>
@@ -3952,11 +2514,6 @@
  <location rha="Regina QuAppelle Health Authority" address="3806 Albert Street" municipality="Regina, SASKATCHEWAN S4S 3R2" name="Smitty's Restaurant">
   <report date="Tuesday, February 24, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Tuesday, February 24, 2009" priority="Low" type="Follow-up">
-   <item>
-    12
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2547 Quance St. East" municipality="Regina, SASKATCHEWAN S4V 2X7" name="Smokin Okies BBQ">
   <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
@@ -3966,8 +2523,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="Mosaic Stadium at Taylor Field" municipality="Regina" name="Smokin' Okies BBQ East">
-  <report date="Saturday, July 25, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Saturday, July 25, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -3981,14 +2536,8 @@
     12
    </item>
   </report>
-  <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4101 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4P7" name="Sobeys Deli">
-  <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Tuesday, May 05, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -4012,8 +2561,6 @@
     16
    </item>
   </report>
-  <report date="Wednesday, April 29, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2626 - 7th Avenue" municipality="Regina, SASKATCHEWAN S4T 7V8" name="Sonshine Gas &amp; Wash">
   <report date="Wednesday, August 12, 2009" priority="Low" type="Routine">
@@ -4028,25 +2575,6 @@
     12
    </item>
   </report>
-  <report date="Monday, May 25, 2009" priority="Moderate" type="Routine">
-  </report>
-  <report date="Monday, May 25, 2009" priority="Moderate" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    14
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="170 Sunset Dr." municipality="Regina, SASKATCHEWAN S4S 2S3" name="South Leisure Centre Kitchen">
   <report date="Friday, January 16, 2009" priority="Low" type="Routine">
@@ -4059,44 +2587,21 @@
  <location rha="Regina QuAppelle Health Authority" address="2403 Park St." municipality="Regina, SASKATCHEWAN S4N 2H1" name="Stan's Diner">
   <report date="Thursday, April 23, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, April 23, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, April 23, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="353 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C4" name="Starbucks">
   <report date="Monday, July 27, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Monday, July 27, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2223 Victoria Avenue E." municipality="Regina, SASKATCHEWAN S4N 6E4" name="Starbucks Coffee (Safeway)">
-  <report date="Monday, October 05, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, October 05, 2009" priority="Low" type="Routine">
+  <report date="Thursday, October 02, 2008" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2965 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Starbucks Coffee Company">
   <report date="Friday, August 21, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Friday, August 21, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Friday, August 21, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1620 - 9th Ave. E." municipality="Regina, SASKATCHEWAN S4R 8B1" name="Stats Cocktails &amp; Dreams Sports Bar">
   <report date="Wednesday, March 18, 2009" priority="Low" type="Routine">
-   <item>
-    12
-   </item>
-  </report>
-  <report date="Wednesday, March 18, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    7
-   </item>
    <item>
     12
    </item>
@@ -4110,6 +2615,10 @@
    <item>
     16
    </item>
+  </report>
+ </location>
+ <location rha="Regina QuAppelle Health Authority" address="2400 - 13th Ave." municipality="Regina, SASKATCHEWAN S4P 0V9" name="Street Culture Cafe">
+  <report date="Friday, May 29, 2009" priority="Low" type="Follow-up">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="Regina Airport" municipality="Regina, SASKATCHEWAN S4W 1B3" name="Streetside">
@@ -4129,12 +2638,8 @@
     15
    </item>
   </report>
-  <report date="Thursday, July 09, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Subway">
-  <report date="Monday, September 14, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Monday, September 14, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -4157,30 +2662,15 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1101 Kramer Blvd." municipality="Regina, SASKATCHEWAN S4S 5W4" name="Subway Restaurants 17761">
-  <report date="Thursday, October 15, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, October 15, 2009" priority="Low" type="Routine">
+  <report date="Monday, March 16, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="751 Victoria Ave. E." municipality="Regina, SASKATCHEWAN S4R 1G9" name="Subway Sandwiches and Salads #14648">
   <report date="Monday, July 27, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Monday, July 27, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2223 Victoria Avenue E." municipality="Regina, SASKATCHEWAN S4N 6E4" name="Supreme China Bistro">
-  <report date="Thursday, October 08, 2009" priority="Low" type="Routine">
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
-  <report date="Thursday, October 08, 2009" priority="Low" type="Routine">
+  <report date="Friday, January 16, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1943 Scarth St." municipality="Regina, SASKATCHEWAN S4V 3A7" name="Sushi Bar Michi Japanese Restaurant">
@@ -4188,8 +2678,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1101 D Kramer Blvd." municipality="Regina, SASKATCHEWAN S4S 5W4" name="Taco Del Mar">
-  <report date="Wednesday, May 06, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, May 06, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -4218,48 +2706,27 @@
  <location rha="Regina QuAppelle Health Authority" address="2999 Gordon Road" municipality="Regina, SASKATCHEWAN S4S 6H7" name="Taco Time">
   <report date="Wednesday, September 02, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, September 02, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="860 Victoria Avenue E." municipality="Regina, SASKATCHEWAN S4N 0J2" name="Tay Do Restaurant">
   <report date="Thursday, May 21, 2009" priority="Moderate" type="Routine">
    <item>
-    7
-   </item>
-   <item>
     10
    </item>
-  </report>
-  <report date="Thursday, May 21, 2009" priority="Moderate" type="Routine">
+   <item>
+    7
+   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="736 Victoria Avenue" municipality="Regina, SASKATCHEWAN S4N 0R3" name="Teppanyaki Japanese Steak House">
   <report date="Monday, June 15, 2009" priority="Moderate" type="Routine">
    <item>
-    4
+    11
    </item>
    <item>
     10
    </item>
    <item>
-    11
-   </item>
-  </report>
-  <report date="Monday, June 15, 2009" priority="Moderate" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
     4
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
    </item>
   </report>
  </location>
@@ -4268,8 +2735,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2317 Albert St." municipality="Regina, SASKATCHEWAN S4P 2V8" name="Thai Garden Family Restaurant">
-  <report date="Thursday, March 26, 2009" priority="Low" type="Follow-up">
-  </report>
   <report date="Thursday, March 26, 2009" priority="Low" type="Follow-up">
   </report>
  </location>
@@ -4294,27 +2759,12 @@
     10
    </item>
    <item>
-    16
+    15
    </item>
-  </report>
-  <report date="Friday, September 11, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Friday, September 11, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3414 - 13th Avenue" municipality="Regina, SASKATCHEWAN S4T 1P7" name="The Creek In Cathedral Bistro">
   <report date="Monday, September 21, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Monday, September 21, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="#2 - 2118 Robinson St." municipality="Regina, SASKATCHEWAN S4T 2P7" name="The Crushed Grape">
@@ -4330,13 +2780,9 @@
     16
    </item>
   </report>
-  <report date="Monday, July 20, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4164 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R8" name="The Extreme Pita">
-  <report date="Thursday, October 15, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, October 15, 2009" priority="Low" type="Routine">
+  <report date="Monday, March 09, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2330 Albert St." municipality="Regina, SASKATCHEWAN S4P 2V7" name="The Fainting Goat Restaurant">
@@ -4344,9 +2790,7 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="The Great Canadian Bagel">
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Routine">
+  <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
    <item>
     10
    </item>
@@ -4357,19 +2801,9 @@
     15
    </item>
   </report>
-  <report date="Wednesday, October 28, 2009" priority="Low" type="Routine">
-   <item>
-    11
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2941 - 13th Avenue" municipality="Regina, SASKATCHEWAN S4T 1N7" name="The Great Canadian Bagel">
   <report date="Monday, June 22, 2009" priority="Low" type="Follow-up">
-  </report>
-  <report date="Monday, June 22, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="120 - 1914 Hamilton Street" municipality="Regina, SASKATCHEWAN S4R 2N6" name="The Great Panini">
@@ -4385,24 +2819,14 @@
     12
    </item>
    <item>
-    14
+    15
    </item>
    <item>
-    15
+    14
    </item>
    <item>
     16
    </item>
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="4255 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="The Keg Steakhouse &amp; Bar">
-  <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
-  </report>
- </location>
- <location rha="Regina QuAppelle Health Authority" address="4371 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="The Keg Steakhouse &amp; Bar">
-  <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1880 Saskatchewan Drive" municipality="Regina, SASKATCHEWAN S4P 0B2" name="The Last Spike">
@@ -4415,13 +2839,16 @@
    </item>
   </report>
  </location>
+ <location rha="Regina QuAppelle Health Authority" address="4255 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="The Keg Steakhouse &amp; Bar">
+  <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
+  </report>
+ </location>
+ <location rha="Regina QuAppelle Health Authority" address="4371 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R6" name="The Keg Steakhouse &amp; Bar">
+  <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
+  </report>
+ </location>
  <location rha="Regina QuAppelle Health Authority" address="826 Victoria Avenue" municipality="Regina, SASKATCHEWAN S4N 0R6" name="The Lil' Belizean Cook Shack &amp; Bar">
   <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3137 E Quance St." municipality="Regina, SASKATCHEWAN S4V 2B7" name="The Mongolie Grill">
@@ -4437,15 +2864,8 @@
  <location rha="Regina QuAppelle Health Authority" address="5522 - 7th Avenue" municipality="Regina, SASKATCHEWAN S4T 0S7" name="The Moo Shoppe (2008)">
   <report date="Thursday, September 10, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, September 10, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4245 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4R3" name="The Open Tap Brewing Co. &amp; Eatery">
-  <report date="Friday, September 11, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
   <report date="Friday, September 11, 2009" priority="Low" type="Routine">
    <item>
     15
@@ -4466,10 +2886,8 @@
    </item>
   </report>
  </location>
- <location rha="Regina QuAppelle Health Authority" address="E - 1101 Kramer Blvd." municipality="Regina, SASKATCHEWAN S4S 5W4" name="The Pita Pit">
-  <report date="Friday, October 16, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Friday, October 16, 2009" priority="Low" type="Routine">
+ <location rha="Regina QuAppelle Health Authority" address="F - 1101 Kramer Blvd." municipality="Regina, SASKATCHEWAN S4S 5W4" name="The Pita Pit">
+  <report date="Friday, March 13, 2009" priority="Low" type="Routine">
    <item>
     16
    </item>
@@ -4501,19 +2919,6 @@
  <location rha="Regina QuAppelle Health Authority" address="1965 Albert St." municipality="Regina, SASKATCHEWAN S4P 2T5" name="The Sushi Bank">
   <report date="Tuesday, June 09, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Tuesday, June 09, 2009" priority="Low" type="Follow-up">
-   <item>
-    4
-   </item>
-   <item>
-    7
-   </item>
-  </report>
-  <report date="Tuesday, June 09, 2009" priority="Low" type="Follow-up">
-   <item>
-    7
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3000 Wascana Drive" municipality="Regina, SASKATCHEWAN S4P 3R9" name="The Willow on Wascana Restaurant">
   <report date="Friday, March 20, 2009" priority="Low" type="Routine">
@@ -4522,40 +2927,26 @@
  <location rha="Regina QuAppelle Health Authority" address="530 Victoria Ave. E." municipality="Regina, SASKATCHEWAN S4N 0N7" name="Theo-Bill's Pizza &amp; Family Restaurant">
   <report date="Thursday, May 28, 2009" priority="None" type="Routine">
   </report>
-  <report date="Thursday, May 28, 2009" priority="None" type="Routine">
-  </report>
-  <report date="Thursday, May 28, 2009" priority="None" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="103 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 2N3" name="Tim Hortons">
   <report date="Monday, July 27, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1800 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4P 0H8" name="Tim Hortons">
-  <report date="Tuesday, October 06, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, October 06, 2009" priority="Low" type="Routine">
+  <report date="Monday, August 24, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1960 Prince of Wales Drive" municipality="Regina, SASKATCHEWAN S4X 4R3" name="Tim Hortons">
   <report date="Thursday, September 10, 2009" priority="Low" type="Routine">
    <item>
-    7
+    15
    </item>
    <item>
-    15
+    7
    </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Tim Hortons">
-  <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Tuesday, August 25, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -4566,19 +2957,6 @@
  <location rha="Regina QuAppelle Health Authority" address="4455 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4P7" name="Tim Hortons">
   <report date="Monday, August 24, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Monday, August 24, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    11
-   </item>
-  </report>
-  <report date="Monday, August 24, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="970 Albert St." municipality="Regina, SASKATCHEWAN S4R 6T3" name="Tim Hortons">
   <report date="Friday, September 11, 2009" priority="Low" type="Routine">
@@ -4587,11 +2965,6 @@
  <location rha="Regina QuAppelle Health Authority" address="EVRAZ Place" municipality="Regina, SASKATCHEWAN S4P 2Z6" name="Tim Hortons">
   <report date="Friday, July 31, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Friday, July 31, 2009" priority="Low" type="Follow-up">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2105 Victoria Ave. E." municipality="Regina, SASKATCHEWAN S4N 7B9" name="Tim Hortons Donuts">
   <report date="Monday, July 13, 2009" priority="Low" type="Routine">
@@ -4599,35 +2972,13 @@
     15
    </item>
   </report>
-  <report date="Monday, July 13, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3900 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R2" name="Tim's Souvlaki">
-  <report date="Wednesday, October 21, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 21, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 21, 2009" priority="Low" type="Routine">
+  <report date="Friday, February 20, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="862 Victoria Ave. E." municipality="Regina, SASKATCHEWAN S4N 0P2" name="TJ's Pizza">
   <report date="Thursday, May 21, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, May 21, 2009" priority="Low" type="Routine">
-   <item>
-    2
-   </item>
-  </report>
-  <report date="Thursday, May 21, 2009" priority="Low" type="Routine">
-   <item>
-    2
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    12
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3915 Albert St." municipality="Regina, SASKATCHEWAN S4S 3R4" name="Tomas Cook Restaurant">
@@ -4673,29 +3024,6 @@
     15
    </item>
   </report>
-  <report date="Tuesday, May 26, 2009" priority="Moderate" type="Follow-up">
-   <item>
-    3
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    14
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2024 Broad St." municipality="Regina, SASKATCHEWAN S4P 1Y3" name="Trifon's Pizza">
   <report date="Wednesday, October 22, 2008" priority="Low" type="Follow-up">
@@ -4707,56 +3035,13 @@
  <location rha="Regina QuAppelle Health Authority" address="3806 Albert Street" municipality="Regina, SASKATCHEWAN S4S 3R2" name="Trifon's Pizza">
   <report date="Thursday, March 26, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Thursday, March 26, 2009" priority="Low" type="Follow-up">
-   <item>
-    4
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Thursday, March 26, 2009" priority="Low" type="Follow-up">
-   <item>
-    4
-   </item>
-   <item>
-    16
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="6210 Dewdney Avenue" municipality="Regina, SASKATCHEWAN S4T 1E2" name="Trifon's Pizza">
   <report date="Tuesday, August 04, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Tuesday, August 04, 2009" priority="Low" type="Routine">
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="3215 E Eastgate Drive" municipality="Regina, SASKATCHEWAN S4S 1A4" name="Trifon's Pizza at the Creekside Pub and Brewery">
-  <report date="Wednesday, March 18, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, March 18, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, March 18, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
+  <report date="Wednesday, March 18, 2009" priority="Low" type="Follow-up">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="708 Victoria Avenue" municipality="Regina, SASKATCHEWAN S4N 0R3" name="Triple 8 Pizza">
@@ -4765,31 +3050,18 @@
     10
    </item>
   </report>
-  <report date="Friday, June 05, 2009" priority="Low" type="Routine">
-   <item>
-    4
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="917 B Albert St." municipality="Regina, SASKATCHEWAN S4R 2P6" name="Triple A Pizza">
   <report date="Monday, July 27, 2009" priority="Moderate" type="Routine">
    <item>
-    4
+    10
    </item>
    <item>
-    10
+    4
    </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="4101 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4P7" name="Tsunami">
-  <report date="Monday, July 27, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Monday, July 27, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -4816,37 +3088,9 @@
  <location rha="Regina QuAppelle Health Authority" address="1625 Montreal St." municipality="Regina, SASKATCHEWAN S4P 1K7" name="Ukrainian Orthodox Auditorium Kitchen">
   <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    14
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2102 - 11th Avenue" municipality="Regina, SASKATCHEWAN S4N 7N4" name="Umi Sushi Express">
   <report date="Tuesday, January 20, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
-  </report>
-  <report date="Tuesday, January 20, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    8a
-   </item>
-   <item>
-    8b
-   </item>
    <item>
     10
    </item>
@@ -4870,40 +3114,13 @@
  <location rha="Regina QuAppelle Health Authority" address="1464 Broadway Ave." municipality="Regina, SASKATCHEWAN S4R 1Y9" name="Valley Girls Catering">
   <report date="Thursday, June 04, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Thursday, June 04, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="SHERWOOD" municipality="Regina" name="Valley Girls Catering">
   <report date="Monday, April 27, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Monday, April 27, 2009" priority="Low" type="Follow-up">
-   <item>
-    4
-   </item>
-   <item>
-    11
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2207 Broad St." municipality="Regina, SASKATCHEWAN S4P 1Y3" name="Value Pizza">
   <report date="Friday, May 01, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Friday, May 01, 2009" priority="Low" type="Routine">
-   <item>
-    3
-   </item>
-   <item>
-    4
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    14
-   </item>
-   <item>
-    15
-   </item>
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="101 Hodsman Road" municipality="Regina, SASKATCHEWAN S4N 5W5" name="Vicki's Cafe">
@@ -4915,8 +3132,6 @@
     15
    </item>
   </report>
-  <report date="Monday, September 14, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1300 Victoria Ave." municipality="Regina, SASKATCHEWAN S4P 0P1" name="Victoria Club">
   <report date="Wednesday, March 18, 2009" priority="Low" type="Routine">
@@ -4926,14 +3141,12 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2050 Victoria Ave. E." municipality="Regina, SASKATCHEWAN S4N 7B9" name="Victoria Park Motor Inn">
-  <report date="Tuesday, October 06, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Tuesday, October 06, 2009" priority="Low" type="Routine">
-   <item>
-    10
-   </item>
+  <report date="Monday, December 08, 2008" priority="Low" type="Routine">
    <item>
     11
+   </item>
+   <item>
+    10
    </item>
   </report>
  </location>
@@ -4955,43 +3168,13 @@
  <location rha="Regina QuAppelle Health Authority" address="419 Broad St." municipality="Regina, SASKATCHEWAN S4R 1X4" name="Vietnamese Garden">
   <report date="Thursday, September 24, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Thursday, September 24, 2009" priority="Low" type="Follow-up">
-   <item>
-    1
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    11
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="232 A College Ave. E." municipality="Regina, SASKATCHEWAN S4N 0V6" name="Wallnuts Expressive Catering">
   <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, September 09, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2577 E Quance St." municipality="Regina, SASKATCHEWAN S4V 2Y7" name="Wasabi Japanese &amp; Korean Restaurant">
-  <report date="Friday, September 18, 2009" priority="Low" type="Routine">
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Friday, September 18, 2009" priority="Low" type="Routine">
+  <report date="Friday, January 23, 2009" priority="Low" type="Routine">
    <item>
     12
    </item>
@@ -5009,25 +3192,6 @@
     12
    </item>
   </report>
-  <report date="Thursday, February 05, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Thursday, February 05, 2009" priority="Low" type="Routine">
-   <item>
-    6
-   </item>
-   <item>
-    7
-   </item>
-   <item>
-    10
-   </item>
-   <item>
-    12
-   </item>
-   <item>
-    15
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="RM 159" municipality="Regina" name="Wascana Country Club">
   <report date="Monday, June 15, 2009" priority="Moderate" type="Routine">
@@ -5038,20 +3202,12 @@
     10
    </item>
   </report>
-  <report date="Monday, June 15, 2009" priority="Moderate" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2180 - 23rd Avenue" municipality="Regina, SASKATCHEWAN S4S 0A5" name="Wascana Rehabilitation Centre">
   <report date="Wednesday, May 20, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, May 20, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, May 20, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="Wascana Park" municipality="Regina" name="Wascana Swimming Pool Food Concession">
-  <report date="Wednesday, June 24, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, June 24, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -5062,14 +3218,8 @@
  <location rha="Regina QuAppelle Health Authority" address="205 Albert St." municipality="Regina, SASKATCHEWAN S4R 2N5" name="Wendy's Restaurant">
   <report date="Monday, July 27, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Monday, July 27, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2105 Victoria Ave. E." municipality="Regina, SASKATCHEWAN S4N 7B9" name="Wendy's Restaurant">
-  <report date="Monday, July 13, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Monday, July 13, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Monday, July 13, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -5090,21 +3240,9 @@
  <location rha="Regina QuAppelle Health Authority" address="2108 Grant Road" municipality="Regina, SASKATCHEWAN S4S 5C8" name="Western Pizza">
   <report date="Wednesday, February 18, 2009" priority="Low" type="Follow-up">
   </report>
-  <report date="Wednesday, February 18, 2009" priority="Low" type="Follow-up">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="6320 Dewdney Ave." municipality="Regina, SASKATCHEWAN S4T 1E3" name="Western Pizza">
-  <report date="Wednesday, October 07, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 07, 2009" priority="Low" type="Routine">
-  </report>
-  <report date="Wednesday, October 07, 2009" priority="Low" type="Routine">
-   <item>
-    4
-   </item>
-   <item>
-    15
-   </item>
+  <report date="Friday, October 10, 2008" priority="Low" type="Follow-up">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1307 Broadway Ave." municipality="Regina, SASKATCHEWAN S4P 1E5" name="Western Pizza Broadway">
@@ -5112,8 +3250,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="Mosaic Stadium at Taylor Field" municipality="Regina" name="Western Pizza East Concession">
-  <report date="Saturday, July 25, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Saturday, July 25, 2009" priority="Low" type="Routine">
   </report>
  </location>
@@ -5127,19 +3263,11 @@
  <location rha="Regina QuAppelle Health Authority" address="346 University Park Drive" municipality="Regina, SASKATCHEWAN S4V 0Y8" name="Western Pizza Gardiner Park Mall">
   <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
    <item>
-    12
-   </item>
-   <item>
     13
    </item>
    <item>
-    15
+    12
    </item>
-   <item>
-    16
-   </item>
-  </report>
-  <report date="Thursday, August 27, 2009" priority="Low" type="Routine">
    <item>
     15
    </item>
@@ -5157,37 +3285,21 @@
     15
    </item>
   </report>
-  <report date="Monday, May 25, 2009" priority="Low" type="Routine">
-   <item>
-    1
-   </item>
-   <item>
-    3
-   </item>
-   <item>
-    6
-   </item>
-   <item>
-    12
-   </item>
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="Mosaic Stadium at Taylor Field" municipality="Regina" name="Western Pizza West Concession">
-  <report date="Saturday, July 25, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Saturday, July 25, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="439 Albert St." municipality="Regina, SASKATCHEWAN S4R 2P1" name="Westo's Pizza and Pasta">
   <report date="Thursday, January 22, 2009" priority="Moderate" type="Routine">
    <item>
-    2
-   </item>
-   <item>
     10
    </item>
    <item>
     12
+   </item>
+   <item>
+    2
    </item>
    <item>
     15
@@ -5197,10 +3309,10 @@
  <location rha="Regina QuAppelle Health Authority" address="1138 Dorothy St." municipality="Regina, SASKATCHEWAN S4X 4L1" name="Westside Pizza">
   <report date="Tuesday, July 07, 2009" priority="Low" type="Routine">
    <item>
-    10
+    11
    </item>
    <item>
-    11
+    10
    </item>
    <item>
     12
@@ -5210,16 +3322,12 @@
  <location rha="Regina QuAppelle Health Authority" address="2180 - 23rd Avenue" municipality="Regina, SASKATCHEWAN S4S 0A5" name="Windows">
   <report date="Wednesday, May 20, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Wednesday, May 20, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="1700 Broad St." municipality="Regina, SASKATCHEWAN S4P 1X5" name="Wingate By Windham Pantry">
   <report date="Thursday, September 10, 2009" priority="Low" type="Routine">
    <item>
     11
    </item>
-  </report>
-  <report date="Thursday, September 10, 2009" priority="Low" type="Routine">
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="5255 Rochdale Blvd." municipality="Regina, SASKATCHEWAN S4X 4M8" name="Winston Knoll Cafeteria">
@@ -5239,8 +3347,6 @@
  <location rha="Regina QuAppelle Health Authority" address="1729 Broad St." municipality="Regina, SASKATCHEWAN S4P 1X5" name="Wonderland Entertainment Centre">
   <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
   </report>
-  <report date="Tuesday, April 28, 2009" priority="Low" type="Routine">
-  </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="489 Albert St. N." municipality="Regina, SASKATCHEWAN S4R 3C4" name="Zellers Neighbourhood Market Cafe">
   <report date="Wednesday, July 08, 2009" priority="Low" type="Routine">
@@ -5249,10 +3355,10 @@
  <location rha="Regina QuAppelle Health Authority" address="2223 Victoria Avenue E." municipality="Regina, SASKATCHEWAN S4N 6E4" name="Zellers Restaurant">
   <report date="Friday, June 12, 2009" priority="Low" type="Routine">
    <item>
-    14
+    15
    </item>
    <item>
-    15
+    14
    </item>
    <item>
     16
@@ -5260,8 +3366,6 @@
   </report>
  </location>
  <location rha="Regina QuAppelle Health Authority" address="2903 Powerhouse Dr." municipality="Regina, SASKATCHEWAN S4N 0A1" name="Zest Restaurant &amp; Catering">
-  <report date="Wednesday, September 30, 2009" priority="Low" type="Routine">
-  </report>
   <report date="Wednesday, September 30, 2009" priority="Low" type="Routine">
   </report>
  </location>

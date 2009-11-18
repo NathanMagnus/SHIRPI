@@ -15,7 +15,9 @@ class CommentForm(ModelForm):
 		model = Comment
 		exclude = ('restaurant', 'author', 'id', 'combined', 'created', 'last_modified')
 
-class ProfileForm(ModelForm):
-	class Meta:
-		model = User
-		
+class ProfileForm(forms.Form):
+	old_password = forms.CharField(widget = forms.PasswordInput(render_value=False))
+	new_password = forms.CharField(widget = forms.PasswordInput(render_value=False))
+	password_again = forms.CharField(widget = forms.PasswordInput(render_value=False))
+	email = forms.EmailField()
+#	address = forms.CharField()
