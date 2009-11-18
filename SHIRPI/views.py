@@ -95,9 +95,8 @@ def edit_profile(request):
 			if form.is_valid() and form.cleaned_data['new_password'] == form.cleaned_data['password_again'] and user.check_password(form.cleaned_data['new_password']):
 				user.email = form.cleaned_data['email']
 				user.set_password(form.cleaned_data['new_password'])
+				user.save()
 		else:
-			form = ProfileForm()
-			form.email = request.user.email
-#			form.address = request.user.address
+			form = ProfileForm(initial={'email': request.user.email)
 			return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
 	return render_to_response('SHIRPI/edit_profile.html', {'error':"You are not logged in"}, RequestContext(request)) 

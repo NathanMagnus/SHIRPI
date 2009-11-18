@@ -3,7 +3,7 @@
 {% if error %}
 	<h1>{{error}}</h1>
 {% endif %}
-<form name="editProfile" method="post" action="/cs215/SHIRPI/edit_profile/">
+<form name="editProfile" method="post" action="/cs215/SHIRPI/edit_profile/{{user.username}}/">
 	{{form.as_p}}
 	<input type="submit" name="edit_profile" value="Edit" />
 </form>
