@@ -129,7 +129,9 @@ def populate(request, password):
 				rest.location = loc
 				rest.save()
 			#find each report
+			first = true
 			for report in elem.findall("report"):
+				first = false
 				#get/make the appropriate report
 				try:
 					rep = HealthReport.objects.get(date=report.attrib.get("date"), restaurant=rest)
@@ -150,8 +152,9 @@ def populate(request, password):
 						rep.items.add(item)
 						score_total = item.severity + score_total
 					rep.health_inspection_score = score_total
-					rest.health_report_status = score_total
-					rest.save()
+					if first:
+						rest.health_report_status = score_total
+						rest.save()
 					rep.save()
 
 	reports = HealthReport.objects.filter()
