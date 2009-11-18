@@ -29,8 +29,6 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		restaurant_name = ""
 	if restaurant_address == None:
 		restaurant_address = ""
-	if range == None:
-		range = ""
 		
 	restaurant_name = urllib.unquote_plus(restaurant_name).lower()
 	restaurant_address = urllib.unquote_plus(restaurant_address).lower()
@@ -48,7 +46,10 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	
 	# Query Database
 	try:
-		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status=range)
+		if range == None:
+			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
+		else:
+			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status=range)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
