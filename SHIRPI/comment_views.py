@@ -157,6 +157,7 @@ def delete_comment(request, comment_id):
 		if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
 			return render_to_response('SHIRPI/comment.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
 		comment.delete()
+		return HttpResponseRedirect(request.META['HTTP_REFERER'])
 	except Comment.DoesNotExist:
-		HttpResponseRedirect(request.META['HTTP_REFERER'])
+		return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
