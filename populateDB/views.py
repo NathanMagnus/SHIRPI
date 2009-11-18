@@ -129,7 +129,7 @@ def populate(request, password):
 				rest.location = loc
 				rest.save()
 			#find each report
-			first = true
+			first = True
 			for report in elem.findall("report"):
 				first = false
 				#get/make the appropriate report
@@ -153,6 +153,7 @@ def populate(request, password):
 						score_total = item.severity + score_total
 					rep.health_inspection_score = score_total
 					if first:
+						first = False
 						rest.health_report_status = score_total
 						rest.save()
 					rep.save()
