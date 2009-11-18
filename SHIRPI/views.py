@@ -89,7 +89,7 @@ def view_profile(request, user_name):
 
 def edit_profile(request):
 	user = request.user
-	if user.is_authenticated():
+#	if user.is_authenticated():
 		if request.method == "POST":
 			form = ProfileForm(request.POST)
 			if form.is_valid() and form.cleaned_data['new_password'] == form.cleaned_data['password_again'] and user.check_password(form.cleaned_data['new_password']):
