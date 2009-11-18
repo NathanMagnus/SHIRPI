@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shirpi version="0.1">
-	{% for location in results %}
-	<location name="{{ location.name }}" address="{{location.address}}" city="{{location.city}}" province="{{location.province}}" rha="{{location.rha}}">
+	{% for restaurant in results %}
+	<location name="{{ restaurant.name }}" address="{{restaurant.address}}" city="{{restaurant.location.city}}" province="{{restaurant.location.province}}" rha="{{restaurant.location.rha}}">
 		{% ifequal display_type "full" %}
 		loop through reports and output
 		<report> 
+			{% for report in reports %}
+				<date>{{report.date}}</date>
+				<type>{{report.type}}</type>
+				<priority>{{report.priority}}</priority>
+				{% for item in report.items.all %}}
+					<item>{{item.number}}</item>
+				{% endfor %}
+			# display report info
+			# display each item
+			{% endfor %}
 			# reports.objects.filter(restaurant=location.name).name
 		</report>
 		{% endifequal %}
