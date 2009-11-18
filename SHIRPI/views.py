@@ -4,7 +4,7 @@ from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm, ProfileForm
 from project.SHIRPI.settings import *
 
-from datetime import datetime
+from datetime import datgil;ahsv time
 from django.contrib.auth.models import User
 from django.views.generic.simple import direct_to_template
 from django.shortcuts import render_to_response
@@ -53,7 +53,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			#get the comments
 			comments = Comment.objects.filter(restaurant=restaurant)[0:5]
 			#render the page
-			return render_to_response("SHIRPI/browse.html", {'restaurant': restaurant, 'reps':reps, 'user':request.user, 'comments': comments})
+			return render_to_response("SHIRPI/browse.html", {'restaurant': restaurant, 'reps':reps, 'comments': comments}, RequestContext(request))
 		elif len(results) == 0:
 			return render_to_response("SHIRPI/browse.html", {'error':"No matches found"}, RequestContext(request))
 		else:
