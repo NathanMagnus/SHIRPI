@@ -18,7 +18,7 @@ def index(request):
 	Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by('-health_report_status', '-combined').all()[:10]
 	Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by('-health_report_status', '-combined').all()[:10]
 	#render the index page
-	return render_to_response("SHIRPI/index.html", {'user':request.user, 'Critical':Critical, 'Moderate':Moderate,'Good':Good})
+	return render_to_response("SHIRPI/index.html", {'Critical':Critical, 'Moderate':Moderate,'Good':Good}, RequestContext(request))
 
 #browsing restaurants
 def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
