@@ -90,13 +90,13 @@ def view_profile(request, user_name):
 def edit_profile(request):
 	user = request.user
 #	if user.is_authenticated():
-		if request.method == "POST":
-			form = ProfileForm(request.POST)
-			if form.is_valid() and form.cleaned_data['new_password'] == form.cleaned_data['password_again'] and user.check_password(form.cleaned_data['new_password']):
-				user.email = form.cleaned_data['email']
-				user.set_password(form.cleaned_data['new_password'])
-				user.save()
-		else:
-			form = ProfileForm(initial={'email': request.user.email})
-			return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
+	if request.method == "POST":
+		form = ProfileForm(request.POST)
+		if form.is_valid() and form.cleaned_data['new_password'] == form.cleaned_data['password_again'] and user.check_password(form.cleaned_data['new_password']):
+			user.email = form.cleaned_data['email']
+			user.set_password(form.cleaned_data['new_password'])
+			user.save()
+	else:
+		form = ProfileForm(initial={'email': request.user.email})
+		return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
 	return render_to_response('SHIRPI/edit_profile.html', {'error':"You are not logged in"}, RequestContext(request)) 
