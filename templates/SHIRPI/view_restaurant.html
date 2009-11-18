@@ -88,7 +88,7 @@
 	<div id="map_canvas" style="width: 310px; height: 400px;"></div>
 	{% ifnotequal reps|length 0 %}
 	<h1>Health Inspections</h1>
-		{% for report in reps %}
+		{% for report in reports %}
 		<h2>{{report.date}}</h2>
 		<ul>
 			{% for item in report.items.all %}
