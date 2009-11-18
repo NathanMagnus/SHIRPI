@@ -98,6 +98,6 @@ def edit_profile(request):
 		else:
 			form = ProfileForm()
 			form.email = request.user.email
-			form.address = request.user.address
+#			form.address = request.user.address
 			return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
 	return render_to_response('SHIRPI/edit_profile.html', {'error':"You are not logged in"}, RequestContext(request)) 
