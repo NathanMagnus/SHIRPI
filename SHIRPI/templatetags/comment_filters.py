@@ -7,7 +7,7 @@ register = template.Library()
 
 #display one comment
 @register.filter
-def display_comment(value, user_name,autoescape=None):
+def display_comment(value, user,autoescape=None):
 
 #	result = "<div class='comment'>\n"
 	result = "<h3 class='timestamp'>" 
@@ -34,7 +34,7 @@ def display_comment(value, user_name,autoescape=None):
 	
 	#Display comment and Generate link to edit comment, kinda.
 	result += "<div class='comment_body'>"
-	if user_name == value.author.username or user.has_perm("SHIRPI.comment"):
+	if user.username == value.author.username or user.has_perm("SHIRPI.comment"):
 		result += "<a href='/cs215/shirpi/edit_comment/" + urllib.quote_plus(str(value.pk)) + "/'>" + value.comment + "</a>"
 	else:
 		result += value.comment
@@ -43,5 +43,5 @@ def display_comment(value, user_name,autoescape=None):
 	
 	return mark_safe(result)
 display_comment.needs_autoescape = True
-display_comment.needs_user_name = True
+display_comment.needs_user = True
 
