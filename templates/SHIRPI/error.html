@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load restaurant_filters %}
+{% block content %}
+{% if error %}
+	<h1>Error!</h1>
+	<h3>{{error}}</h3>
+{% endif %}
+{% endblock %}
