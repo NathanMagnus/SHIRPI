@@ -6,8 +6,8 @@
 {% if message %}
 	<h3>{{message}}</h3>
 {% endif %}
-{% url project.SHRIPRI.views.edit_profile user.username as form_url %}
-<form name="editProfile" method="post" action="{{form_url}}">
+{% url project.SHRIPRI.views.edit_profile as form_url %}
+<form name="editProfile" method="post" action="{{form_url}}/{{user.username}}/">
 	{{form.as_p}}
 	<input type="submit" name="edit_profile" value="Edit" />
 </form>
