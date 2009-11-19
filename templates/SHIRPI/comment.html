@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}Comment on {{restaurant.name}} at {{restaurant.address}}{%endblock%}
 {% load show_stars %}
 {% block extrahead %}
 	{% show_stars_script %}

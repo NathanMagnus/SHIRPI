@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load show_stars %}
+{% block title %}Edit Comment {{comment.id}}{% endblock %}
 {% block extrahead %}
 	{% show_stars_script %}
 {% endblock %}
