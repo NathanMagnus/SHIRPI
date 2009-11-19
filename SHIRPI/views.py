@@ -74,7 +74,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			#get the comments
 			comments = Comment.objects.filter(restaurant=restaurant)[0:5]
 			#render the page
-			return render_to_response("SHIRPI/view.html", {'restaurant': restaurant, 'reps':reps, 'comments': comments}, RequestContext(request))
+			return render_to_response("SHIRPI/view_restaurant.html", {'restaurant': restaurant, 'reps':reps, 'comments': comments}, RequestContext(request))
 		elif len(results) == 0:
 			return render_to_response("SHIRPI/browse.html", {'error':"No matches found"}, RequestContext(request))
 		else:
