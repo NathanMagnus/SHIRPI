@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shirpi version="0.1">
 	{% for restaurant in results %}
-	<location name="{{ restaurant.name }}" address="{{restaurant.address}}" city="{{restaurant.location.city}}" province="{{restaurant.location.province}}" rha="{{restaurant.location.rha}}">
+	<location name="{{ restaurant.location.name }}" address="{{restaurant.location.address}}" city="{{restaurant.location.location.city}}" province="{{restaurant.location.location.province}}" rha="{{restaurant.location.location.rha}}">
 		{% ifequal display_type "full" %}
-		{% for report in reports %}
+		{% for report in restaurant.reports %}
 		<report name="{{report.restaurant}}" date="{{report.date}}" type="{{report.type}}" priority="{{report.priority}}"> 
 				{% for item in report.items.all %}
 				<item>{{item.number}}</item>

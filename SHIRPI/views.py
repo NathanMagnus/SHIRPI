@@ -36,10 +36,17 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	if restaurant_address == "all":
 		restaurant_address = ""
 	
-	range_low = request.GET.get('lrange')	# escape this?	
+	range_low = request.GET.get('lrange')
 	range_high = request.GET.get('hrange')	
 	# here so that user can search for all good restaurants on albert street
 	# or all mcdonalds that are good, etc
+	
+	# I do not understand why you are doing all of this. We should be using GET methods for
+	# handeling these parameters. What if a person wanted to search for 'good' in the name?
+	# I intended for ?lrange and ?hrange to be used in this manner and set them just above.
+	# I also thought I would be possible to have an range spanning multipe HI groups
+	# For example, a result set including moderate and criticals. or goods and moderates
+	#	(good and critical exclusively seems strange and not easy to do at all)
 	if restaurant_name == "good" or restaurant_address == "good":
 		range_low = GOOD_VAL	
 		range_high = GOOD_VAL+1
@@ -54,11 +61,41 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	if restaurant_address == "good" or restaurant_address == "moderate" or restaurant_address=="critical":
 		restaurant_address = ""
 	
+	# Consider modifying the above to something similar to:
+	'''
+		lower_limit = request.GET.get('lrange')
+		upper_limit = request.GET.get('hrange')	# perhaps use better GET names
+		
+		if upper_limit = "critical":
+			range_high = 9999
+			
+			if lower_limit = "moderate":
+				range_low = MODERATE_VAL
+			elif lower_limit = "good":
+				range_low = GOOD_VAL
+			else:
+				range_low = CRITICAL_VAL
+		
+		elif upper_limit = "moderate":
+			range_high = CRITICAL_VAL
+			
+			if lower_limit = "good":
+				range_low = GOOD_VAL
+			else:
+				range_low = MODERATE_VAL
+		
+		elif upper_limit = "good"
+			range_high = GOOD_VAL+1
+			range_low = GOOD_VAL
+			
+			
+	'''
+	
 	# Query Database
 	# ACTUAL RANGE EXCLUSION SHOULD BE DONE AFTER THIS
 	try:
 		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
-		if range_low != None and range_high!=None:
+		if range_low != None and range_high != None:
 			results = results.filter(health_report_status__gte=range_low, health_report_status__lt=range_high)
 	except Restaurant.DoesNotExist:
 		error = "No results."
@@ -79,13 +116,12 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			return render_to_response("SHIRPI/browse.html", {'restaurants': results}, RequestContext(request))
 	
 	# API Display
-	else:
+	else:		
 		MySpecialApiData = []
-		for location in results:
+		for location in results:	# disgusting loop solves problems
 			MySpecialApiData.append({ 'location': location, 'reports': HealthReport.objects.filter(restaurant=location) })
 		
-		display_type = request.GET.get('display') # escaping required?
-		context = { 'results': MySpecialApiData, 'display_type': display_type }
+		context = { 'results': MySpecialApiData, 'display_type': request.GET.get('display') }
 		return render_to_response("SHIRPI/api.xml", context, RequestContext(request),  mimetype='application/xml')
 
 def view_restaurant(request, restaurant_name, restaurant_address):
