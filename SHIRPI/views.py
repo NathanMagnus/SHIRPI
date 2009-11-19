@@ -56,8 +56,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	# ACTUAL RANGE EXCLUSION SHOULD BE DONE AFTER THIS
 	try:
 		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
-		if range_low != None:
-			results = results.filter(health_report_status__gte=range_low, health_report_status__lt=range_high)
+		if range_low != None and range_high!=None:
+			results = results.filter(health_report_status__gte=range_low).filter(health_report_status__lt=range_high)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
