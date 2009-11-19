@@ -140,7 +140,7 @@ def edit_profile(request):
 		if form.is_valid():
 			if form.cleaned_data['new_password'] != form.cleaned_data['password_again']:
 				return render_to_response('SHIRPI/edit_profile.html', {'message': "New passwords do not match"}, RequestContext(request))
-			if not user.check_password(form.cleaned_data['old_password'])
+			if not user.check_password(form.cleaned_data['old_password']):
 				return render_to_response('SHIRPI/edit_profile.html', {'message': "Incorrect password"}, RequestContext(request))
 			user.email = form.cleaned_data['email']
 			user.set_password(form.cleaned_data['new_password'])
