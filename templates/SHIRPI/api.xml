@@ -4,9 +4,9 @@
 	<location name="{{ restaurant.name }}" address="{{restaurant.address}}" city="{{restaurant.location.city}}" province="{{restaurant.location.province}}" rha="{{restaurant.location.rha}}">
 		{% ifequal display_type "full" %}
 		{% for report in reports %}
-		<report date="{{report.date}}"  type="{{report.type}}" priority="{{report.priority}}"> 
+		<report name="{{report.restaurant}}" date="{{report.date}}" type="{{report.type}}" priority="{{report.priority}}"> 
 				{% for item in report.items.all %}
-					<item>{{item.number}}</item>
+				<item>{{item.number}}</item>
 				{% endfor %}
 		</report>
 		{% endfor %}
@@ -14,4 +14,3 @@
 	</location>
 	{% endfor %}
 </shirpi>
-
