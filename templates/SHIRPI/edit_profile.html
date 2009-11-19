@@ -6,9 +6,10 @@
 {% endif %}
 {% if message %}
 	<h3>{{message}}</h3>
-{% endif %}
+{% else %}
 <form name="editProfile" method="post" action="{% url project.SHIRPI.views.edit_profile %}/">
 	{{form.as_p}}
 	<input type="submit" name="edit_profile" value="Edit" />
 </form>
+{% endif %}
 {% endblock %}

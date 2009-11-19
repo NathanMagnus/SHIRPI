@@ -77,7 +77,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 				range_high = 99999
 			if lower_limit == None:
 				range_low = -1
-			results = results.filter(health_report_status__gte=range_low, health_report_status__lt=range_high)
+			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=range_low, health_report_status__lt=range_high)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
