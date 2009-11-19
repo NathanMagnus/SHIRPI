@@ -63,7 +63,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
-	# Standard browse
+	# Browse Page Display
 	if api_flag == None:
 		if len(results) == 1:
 			restaurant = results[0]
@@ -78,9 +78,14 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		else:
 			return render_to_response("SHIRPI/browse.html", {'restaurants': results}, RequestContext(request))
 	
+	# API Display
 	else:
+		MySpecialApiData = []
+		for location in results:
+			MySpecialApiData.append({ 'location': location, 'reports': HealthReport.objects.filter(restaurant=location) })
+		
 		display_type = request.GET.get('display') # escaping required?
-		context = { 'results': results, 'reports': HealthReport.objects.all(), 'display_type': display_type }
+		context = { 'results': MySpecialApiData, 'display_type': display_type }
 		return render_to_response("SHIRPI/api.xml", context, RequestContext(request),  mimetype='application/xml')
 
 def view_restaurant(request, restaurant_name, restaurant_address):
