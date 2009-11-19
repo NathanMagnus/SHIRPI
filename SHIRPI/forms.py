@@ -13,7 +13,7 @@ class CommentForm(ModelForm):
 	wait_time = forms.IntegerField(initial="0", widget=HiddenInput)
 	class Meta:
 		model = Comment
-		exclude = ('restaurant', 'author', 'id', 'combined', 'created', 'last_modified')
+		exclude = ('restaurant', 'author', 'id', 'combined', 'created', 'last_modified', 'ip')
 
 class ProfileForm(forms.Form):
 	old_password = forms.CharField(widget = forms.PasswordInput(render_value=False))
