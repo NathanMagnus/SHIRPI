@@ -66,25 +66,25 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		lower_limit = request.GET.get('lrange')
 		upper_limit = request.GET.get('hrange')	# perhaps use better GET names
 		
-		if upper_limit = "critical":
+		if upper_limit == "critical":
 			range_high = 9999
 			
-			if lower_limit = "moderate":
+			if lower_limit == "moderate":
 				range_low = MODERATE_VAL
-			elif lower_limit = "good":
+			elif lower_limit == "good":
 				range_low = GOOD_VAL
 			else:
 				range_low = CRITICAL_VAL
 		
-		elif upper_limit = "moderate":
+		elif upper_limit == "moderate":
 			range_high = CRITICAL_VAL
 			
-			if lower_limit = "good":
+			if lower_limit == "good":
 				range_low = GOOD_VAL
 			else:
 				range_low = MODERATE_VAL
 		
-		elif upper_limit = "good"
+		elif upper_limit == "good"
 			range_high = GOOD_VAL+1
 			range_low = GOOD_VAL
 			
