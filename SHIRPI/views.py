@@ -148,6 +148,8 @@ def edit_profile(request):
 			user.last_name = form.cleaned_data['last_name']
 			user.save()
 			return render_to_response('SHIRPI/edit_profile.html', {'form': form, 'message': "Changes completed"}, RequestContext(request))
+		else:
+			return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
 	else:
 		form = ProfileForm(initial={'email': request.user.email})
 		return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))

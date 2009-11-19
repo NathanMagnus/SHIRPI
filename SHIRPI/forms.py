@@ -16,12 +16,12 @@ class CommentForm(ModelForm):
 		exclude = ('restaurant', 'author', 'id', 'combined', 'created', 'last_modified', 'ip')
 
 class ProfileForm(forms.Form):
-	old_password = forms.CharField(widget = forms.PasswordInput(render_value=False))
-	new_password = forms.CharField(widget = forms.PasswordInput(render_value=False))
-	password_again = forms.CharField(widget = forms.PasswordInput(render_value=False))
-	email = forms.EmailField()
-	first_name = forms.CharField()
-	last_name = forms.CharField()
+	old_password = forms.CharField(widget = forms.PasswordInput(render_value=False), required=True)
+	new_password = forms.CharField(widget = forms.PasswordInput(render_value=False), required=False)
+	password_again = forms.CharField(widget = forms.PasswordInput(render_value=False), required=False)
+	email = forms.EmailField(required=True)
+	first_name = forms.CharField(required=False)
+	last_name = forms.CharField(required=False)
 	class Meta:
 		model = UserProfile
 		exclude = ('user')
