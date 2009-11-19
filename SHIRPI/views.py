@@ -41,7 +41,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	
 	# Consider modifying the above to something similar to:
 	lower_limit = request.GET.get('lower_limit')
-	upper_limit = request.GET.get('upper_limit')	# perhaps use better GET names
+	upper_limit = request.GET.get('upper_limit')
 	
 	if upper_limit == "critical":
 		range_high = 9999
@@ -61,13 +61,14 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		else:
 			range_low = MODERATE_VAL
 	
-	elif upper_limit == "good"
+	elif upper_limit == "good":
 		range_high = GOOD_VAL+1
 		range_low = GOOD_VAL
 	
 
 	# Query Database
-	# ACTUAL RANGE EXCLUSION SHOULD BE DONE AFTER THIS
+	# ACTUAL RANGE EXCLUSION SHOULD BE DONE AS PART OF THIS TO IMPROVE UPON PERFORAMNCE
+
 	try:
 		if lower_limit == None and upper_limit==None:
 			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
