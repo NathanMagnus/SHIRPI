@@ -10,9 +10,7 @@ register = template.Library()
 #display a group of restaurants in a table
 @register.filter
 def display_sort_field(page, autoescape=None):
-	result = """
-		<form name='sort' id='sort_form'>"
-		"""
+	result ="<form name='sort' id='sort_form'>"
 	result +=
 	"
 		<div id='sort'>
