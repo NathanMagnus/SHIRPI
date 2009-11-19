@@ -59,7 +59,8 @@ class Favourite(models.Model):
 		return "%s. %s" % (self.rank, self.restaurant)
 
 class HealthInspectionItem(models.Model):
-	number = models.IntegerField(unique = True, primary_key=True)
+	id = models.IntegerField(primary_key=True, unique=True)
+	number = models.CharField(max_length="10")
 	short_description = models.CharField(max_length="200")
 	description = models.TextField()
 	severity = models.IntegerField()

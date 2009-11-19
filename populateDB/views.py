@@ -1,3 +1,4 @@
+import re
 import xml.etree.cElementTree as et
 from project.SHIRPI.models import *
 import django
@@ -149,7 +150,6 @@ def populate(request, password):
 					score_total=0
 					for item in report.findall("item"):
 						item_text = item.text.lstrip().rstrip()
-						item_text = reg.search(item_text).group(1)
 						item = HealthInspectionItem.objects.get(number=item_text)
 						rep.items.add(item)
 						score_total = item.severity + score_total
