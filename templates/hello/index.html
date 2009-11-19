@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load browse_extras %}
+{% block content %}
+
+{% if Critical %}
+	{{ Critical|display_restaurant_set:"critical" }}
+{% endif %}
+<br />
+{%if Moderate %}
+	{{ Moderate|display_restaurant_set:"moderate" }}
+{% endif %}
+<br />
+{% if Good %}
+	{{ Good|display_restaurant_set:"good" }}
+{% endif %}
+<br />
+{% endblock %}

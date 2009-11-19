@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{rest.name}} Page<h1>
+<form name="reviewForm" method="POST" action="/cs215/hello/save/{{rest.name}}/{{rest.street_address}}/">
+	{{form.as_p }}
+	<input type="submit" value="Submit Review" name="submit" />
+</form>
+{% endblock %}

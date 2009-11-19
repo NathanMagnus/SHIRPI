@@ -1,0 +1,53 @@
+{% extends "base.html"%}
+{% block content %}
+{% load favourite_filters %}
+{% load restaurant_filters %}
+{% load comment_filters %}
+{% if error %}
+	<h1>{{error}}</h1>
+{% endif %}
+{% if user_to_view %}
+	<h1>{{user_to_view.username}}'s Profile</h1>
+	{% ifequal user_to_view.username user.username %}
+		{% if user.is_staff %}
+			<h5><a href="/cs215/admin/">Admin Page</a></h5>
+		{% endif %}
+		<h5><a href="/cs215/edit_profile/">Edit Profile</a></h5>
+		{% ifnotequal favourites|length 0 %}
+			<div class='restaurants favourites'>
+			<h1>Favourites</h1>
+			<form name='edit_favourite' method='post' action='/cs215/shirpi/edit_favourites/'>
+			{% for restaurant in favourites %}
+				{{restaurant|display_favourite_edit:favourites.count}}			
+			{% endfor %}
+			<input type='submit' name='edit' value='Edit!' />
+			</form>
+			</div>
+		{% else %}
+			<h2>No favourites</h2>
+		{% endifnotequal %}
+	{% else %}
+		<div class='restaurants favourites'>
+		<h1>Favourites</h1>
+		{% for favourite in favourites %}
+			{{favourite|display_favourite}}
+		{% endfor %}
+		</div>
+	{% endifequal %}
+	<div id="user_information">
+		<h4 class="first_name">First Name: {{user_to_view.first_name}}</h4>
+		<h4 class="last_name">Last Name: {{user_to_view.last_name}}</h4>
+	</div>
+	<h1>{{user_to_view.username}}'s Comments</h1>
+	<div id='comments'>
+	{% for comment in comments %}
+			<div class='comment'>
+			<h3 class='name'>{{comment.restaurant.name}}</h3>
+			<h3 class='address'>{{comment.restaurant.address}}</h3>
+			{{comment|display_comment:user}}
+			</div>
+	{% endfor %}
+	</div>
+{% endif %}
+
+{% endblock %}

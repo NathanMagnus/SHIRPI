@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load restaurant_filters %}
+{% load comment_filters %}
+{% block extrahead %}
+	{% if restaurant %}
+	<script src="http://maps.google.com/?file=api&amp;v=2.x&amp;key=ABQIAAAAJZucu9WsDLjQXvuECRZKCBRFsYESLCWDQrfH4g8pYUVgNYJbSxRMjk6wTuPC3mllAtrGN9hs-42WYg" type="text/javascript"></script>
+
+	<script type="text/javascript">
+	var map;
+	var gdir;
+	var geocoder = null;
+	var addressMarker;
+	function initialize() {
+		if (GBrowserIsCompatible()) {      
+			map = new GMap2(document.getElementById("map_canvas"));
+			gdir = new GDirections(map, document.getElementById("directions"));
+			GEvent.addListener(gdir, "load", onGDirectionsLoad);
+			GEvent.addListener(gdir, "error", handleErrors);
+//			setDirections("Regina, Saskatchewan", "Mountain View", "en_US");
+			geocoder = new GClientGeocoder();
+			geocoder.getLatLng ("{{restaurant.address}}, {{restaurant.location.city}}, {{restaurant.location.province}}",
+				function(point) {
+					if (!point) {
+						alert(address + " not found")
+					} else {
+						map.setCenter(point, 13);
+						var marker = new GMarker(point);
+						map.addOverlay(marker);
+						marker.openInfoWindowHtml(address);
+					}
+				}
+			);
+		}
+	}
+	function setDirections(fromAddress, toAddress, locale) {
+		gdir.load("from: " + fromAddress + " to: " + toAddress,
+		          { "locale": locale });
+	}
+        function handleErrors(){
+		if (gdir.getStatus().code == G_GEO_UNKNOWN_ADDRESS)
+			alert("No corresponding geographic location could be found for one of the specified addresses. This may be due to the fact that the address is relatively new, or it may be incorrect.\nError code: " + gdir.getStatus().code);
+		else if (gdir.getStatus().code == G_GEO_SERVER_ERROR)
+			alert("A geocoding or directions request could not be successfully processed, yet the exact reason for the failure is not known.\n Error code: " + gdir.getStatus().code);
+		else if (gdir.getStatus().code == G_GEO_MISSING_QUERY)
+			alert("The HTTP q parameter was either missing or had no value. For geocoder requests, this means that an empty address was specified as input. For directions requests, this means that no query was specified in the input.\n Error code: " + gdir.getStatus().code);
+		else if (gdir.getStatus().code == G_GEO_BAD_KEY)
+			alert("The given key is either invalid or does not match the domain for which it was given. \n Error code: " + gdir.getStatus().code);
+		else if (gdir.getStatus().code == G_GEO_BAD_REQUEST)
+			alert("A directions request could not be successfully parsed.\n Error code: " + gdir.getStatus().code);
+		else alert("An unknown error occurred.");
+	}
+	function onGDirectionsLoad(){ 
+	// Use this function to access information about the latest load()
+	// results.
+        // e.g.
+        // document.getElementById("getStatus").innerHTML = gdir.getStatus().code;
+ 	}
+	</script>
+{%  endif %}
+{% endblock %}
+{% block bodytag %}
+	<body onload="initialize()" onunload="GUnload()">
+{% endblock %}
+{% block content %}
+{% if error %}
+	<h1>{{error}}</h1>
+{% endif %}
+{% if restaurant and restaurant.visible%}
+	<h1>{{restaurant.name}}</h1>
+	{% ifnotequal comments|length 0 %}
+		<div id='comments'>
+		<h1>Comments</h1>
+		{% for comment in comments %}
+			<div class='comment'>
+				{{ comment|display_comment:user }}
+			</div>
+		{% endfor %}
+		</div>
+		{% ifequal comments|length 5 %}
+			<a href="/cs215/shirpi/view_comments/{{restaurant.name|urlencode}}/{{restaurant.address|urlencode}}/">More Comments</a>
+		{% endifequal %}
+	{% endifnotequal %}
+	<p><a href="/cs215/shirpi/comment/{{ restaurant.name|urlencode }}/{{restaurant.address|urlencode}}">Comment on {{ restaurant.name }}</a></p>
+	{% if user.is_authenticated %}
+		<p><a href="/cs215/shirpi/add_favourite/{{restaurant.name|urlencode}}/{{restaurant.address|urlencode}}">Add to favourites</a></p>
+	{% endif %}
+	<br /><br />
+	<div id="map_canvas" style="width: 310px; height: 400px;"></div>
+	{% ifnotequal reps|length 0 %}
+	<h1>Health Inspections</h1>
+		{% for report in reports %}
+		<h2>{{report.date}}</h2>
+		<ul>
+			{% for item in report.items.all %}
+				<li>
+					{{item.number}}. <b>{{item.short_description|safe}}</b><br />
+					{{item.description|safe}}
+				</li>
+			{% endfor %}
+			{% ifequal report.items|length 0 %}
+				<li>
+					None
+				</li>
+			{% endifequal %}
+		</ul>
+		{% endfor %}
+	{% else %}
+	 	<h1>No Health Inspections</h1>
+	{% endifnotequal %}
+{% endif %}
+{% endblock %}

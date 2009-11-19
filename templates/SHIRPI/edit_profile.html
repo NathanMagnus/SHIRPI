@@ -1,0 +1,13 @@
+{% extends "base.html"%}
+{% block content %}
+{% if error %}
+	<h1>{{error}}</h1>
+{% endif %}
+{% if message %}
+	<h3>{{message}}</h3>
+{% endif %}
+<form name="editProfile" method="post" action="/cs215/shirpi/edit_profile/{{user.username}}/">
+	{{form.as_p}}
+	<input type="submit" name="edit_profile" value="Edit" />
+</form>
+{% endblock %}

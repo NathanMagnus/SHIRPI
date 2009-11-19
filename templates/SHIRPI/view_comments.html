@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load browse_filters %}
+{% block content %}
+{% for comment in comments %}
+	{{comment|display_comment:user}}
+{% endfor %}
+{% endblock %}

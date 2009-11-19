@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/161/trunk/_tests
+END
+core.py
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/150/trunk/_tests/core.py
+END
+test_create_index.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/150/trunk/_tests/test_create_index.py
+END
+constant.py
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/150/trunk/_tests/constant.py
+END
+models_sql_where.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/150/trunk/_tests/models_sql_where.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/69/trunk/_tests/__init__.py
+END
+test_signals.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/150/trunk/_tests/test_signals.py
+END
+indexes.py
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/150/trunk/_tests/indexes.py
+END
+utils.py
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/150/trunk/_tests/utils.py
+END
+signals.py
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/150/trunk/_tests/signals.py
+END
+test_filter_Q.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/150/trunk/_tests/test_filter_Q.py
+END
+test_thread.py
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/150/trunk/_tests/test_thread.py
+END
+manager.py
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/150/trunk/_tests/manager.py
+END
+test_objects_search.py
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/161/trunk/_tests/test_objects_search.py
+END
+document.py
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/150/trunk/_tests/document.py
+END
+test_index_model_ordering.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/150/trunk/_tests/test_index_model_ordering.py
+END
+test_create_index_pass_thru.py
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/150/trunk/_tests/test_create_index_pass_thru.py
+END
+queryset.py
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/150/trunk/_tests/queryset.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/150/trunk/_tests/models.py
+END
+test_pylucene.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/150/trunk/_tests/test_pylucene.py
+END
+pylucene.py
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/150/trunk/_tests/pylucene.py
+END
+models_sql_query.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/150/trunk/_tests/models_sql_query.py
+END
+test_models_filter.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/150/trunk/_tests/test_models_filter.py
+END

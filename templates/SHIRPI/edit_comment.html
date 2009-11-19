@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load show_stars %}
+{% block extrahead %}
+	{% show_stars_script %}
+{% endblock %}
+{% block content %}
+{% if error %}
+	<h1>{{error}}</h1>
+{% else %}
+	<form id="reviewForm" name="reviewForm" action="/cs215/shirpi/save/{{comment.id}}/" method="post">
+	{{form.as_p}}
+	Cleanliness: {% show_stars 0 of 5 round to half on change call myCallback with 1%}
+	Food Quality: {% show_stars 0 of 5 round to half on change call myCallback with 2%}
+	Atmosphere: {% show_stars 0 of 5 round to half on change call myCallback with 3%}
+	Wait Time: {% show_stars 0 of 5 round to half on change call myCallback with 4%}
+				 
+	<input type="submit" name="save" value="Save" />
+	</form>
+{% endif %}
+{% endblock %}
