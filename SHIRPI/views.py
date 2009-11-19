@@ -44,26 +44,26 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	upper_limit = request.GET.get('upper_limit')
 	
 	if upper_limit == "critical":
-		range_high = 9999
+		upper_limit = 9999
 		
 		if lower_limit == "moderate":
-			range_low = MODERATE_VAL
+			lower_limit = MODERATE_VAL
 		elif lower_limit == "good":
-			range_low = GOOD_VAL
+			lower_limit = GOOD_VAL
 		else:
-			range_low = CRITICAL_VAL
+			lower_limit = CRITICAL_VAL
 	
 	elif upper_limit == "moderate":
-		range_high = CRITICAL_VAL
+		upper_limit = CRITICAL_VAL
 		
 		if lower_limit == "good":
-			range_low = GOOD_VAL
+			lower_limit = GOOD_VAL
 		else:
-			range_low = MODERATE_VAL
+			lower_limit = MODERATE_VAL
 	
 	elif upper_limit == "good":
-		range_high = GOOD_VAL+1
-		range_low = GOOD_VAL
+		upper_limit = GOOD_VAL+1
+		lower_limit = GOOD_VAL
 	
 
 	# Query Database
@@ -74,10 +74,10 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
 		else:
 			if upper_limit == None:
-				range_high = 99999
+				upper_limit = 99999
 			if lower_limit == None:
-				range_low = -1
-			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=range_low, health_report_status__lt=range_high)
+				lower_limit = -1
+			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
