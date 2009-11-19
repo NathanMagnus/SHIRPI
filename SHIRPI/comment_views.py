@@ -44,6 +44,7 @@ def save_edit(request, comment_id):
 				comment.atmosphere = form.cleaned_data['atmosphere']
 				comment.wait_time = form.cleaned_data['wait_time']
 				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere - comment.wait_time
+				comment.ip = request.META['REMOTE_ADDR']
 
 				restaurant.cleanliness = restaurant.cleanliness + comment.cleanliness
 				restaurant.food_quality = restaurant.food_quality + comment.food_quality
@@ -124,6 +125,7 @@ def save(request, restaurant_name, restaurant_address):
 			#set datetime
 			comment.created = datetime.now()
 			comment.last_modified = datetime.now()
+			comment.ip = request.META['REMOTE_ADDR']
 			#save everything
 			restaurant.save()
 			comment.save()

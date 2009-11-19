@@ -49,6 +49,7 @@ class Comment(models.Model):
 	wait_time = models.FloatField(default = "0", choices=choices)
         created = models.DateTimeField()
         last_modified = models.DateTimeField()
+	ip = models.IPAddressField()
 
 class Favourite(models.Model):
 	restaurant = models.ForeignKey(Restaurant)
@@ -74,3 +75,13 @@ class HealthReport(models.Model):
 	items = models.ManyToManyField(HealthInspectionItem, null=True)
 	def __unicode__(self):
 		return "%s %s %s" % (self.restaurant.name, self.health_inspection_score, self.date)
+
+class UserProfile(models.Model):
+	user = models.ForeignKey(User)
+	show_first_name = models.BooleanField(default=False)
+	show_last_name = models.BooleanField(default=False)
+	show_email = models.BooleanField(default=False)
+	city = models.CharField(max_length="100", null=True)
+	province = models.CharField(max_length="100", null=True)
+	country = models.CharField(max_length="100", null=True)
+	address = models.CharField(max_length="100", null=True)

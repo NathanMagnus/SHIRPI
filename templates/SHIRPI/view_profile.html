@@ -12,6 +12,7 @@
 		{% if user.is_staff %}
 			<h5><a href="/cs215/admin/">Admin Page</a></h5>
 		{% endif %}
+		<h5><a href="/cs215/edit_profile/">Edit Profile</a></h5>
 		{% ifnotequal favourites|length 0 %}
 			<div class='restaurants favourites'>
 			<h1>Favourites</h1>
@@ -33,6 +34,10 @@
 		{% endfor %}
 		</div>
 	{% endifequal %}
+	<div id="user_information">
+		<h4 class="first_name">First Name: {{user_to_view.first_name}}</h4>
+		<h4 class="last_name">Last Name: {{user_to_view.last_name}}</h4>
+	</div>
 	<h1>{{user_to_view.username}}'s Comments</h1>
 	<div id='comments'>
 	{% for comment in comments %}
