@@ -40,19 +40,24 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	
 	range_low = request.GET.get('lrange')	# escape this?	
 	range_high = request.GET.get('hrange')	
-	''''
+	# here so that user can search for all good restaurants on albert street
+	# or all mcdonalds that are good, etc
 	if restaurant_name == "good" or restaurant_address == "good":
-		range = GOOD_VAL	
+		range_low = GOOD_VAL	
+		range_high = GOOD_VAL+1
 	elif restaurant_name == "critical" or restaurant_address == "critical":
-		range = CRITICAL_VAL
+		range_low = CRITICAL_VAL
+		range_hight = 99999
 	elif restaurant_name == "moderate" or restaurant_address == "moderate":
-		range = MODERATE_VAL
-	''''
+		range_low = MODERATE_VAL
+		range_high = CRITICAL_VAL
 	
 	# Query Database
 	# ACTUAL RANGE EXCLUSION SHOULD BE DONE AFTER THIS
 	try:
 		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
+		if range_low != None:
+			results = resuts.filter(health_inspection_status__gte=range_low, health_inspection_status__lt=range_high)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
