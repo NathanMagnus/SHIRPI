@@ -124,7 +124,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 				report_results = HealthReport.objects.filter(restaurant=location)
 			MySpecialApiData.append({ 'location': location, 'reports': report_results })
 		
-		context = { 'results': MySpecialApiData, 'display_type':  }
+		context = { 'results': MySpecialApiData, 'display_type': display_type }
 		return render_to_response("SHIRPI/api.xml", context, RequestContext(request),  mimetype='application/xml')
 
 def view_restaurant(request, restaurant_name, restaurant_address):
