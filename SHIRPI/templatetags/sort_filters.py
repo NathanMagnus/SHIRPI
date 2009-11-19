@@ -12,6 +12,7 @@ register = template.Library()
 def display_sort_field(page, autoescape=None):
 	result ="	<div id='sort'>"
 
+
 	result +="	<h4>Sort By</h4>"
 	result +="	<div class='type'><input type='radio' value='combined'>Combined Score</a></div>"
 	result +="	<div class='type'><input type='radio' value='cleanliness'>Cleanliness</a></div>"
