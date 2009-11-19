@@ -122,6 +122,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		for location in results:	# disgusting loop solves problems
 			if display_type == "full":
 				report_results = HealthReport.objects.filter(restaurant=location)
+			else
+				report_results = None
 			MySpecialApiData.append({ 'location': location, 'reports': report_results })
 		
 		context = { 'results': MySpecialApiData, 'display_type': display_type }
