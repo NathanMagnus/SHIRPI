@@ -1,1 +1,0 @@
-/media/workspace/workspace/django-search-with-lucene/project/dsl/search/signals.py
