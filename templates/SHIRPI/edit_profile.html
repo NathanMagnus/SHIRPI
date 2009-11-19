@@ -6,7 +6,7 @@
 {% if message %}
 	<h3>{{message}}</h3>
 {% endif %}
-<form name="editProfile" method="post" action="{% url project.SHIRPI.views.edit_profile user.username%}/">
+<form name="editProfile" method="post" action="{% url project.SHIRPI.views.edit_profile user.username|urlencode%}/">
 	{{form.as_p}}
 	<input type="submit" name="edit_profile" value="Edit" />
 </form>

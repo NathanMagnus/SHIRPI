@@ -90,7 +90,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			#get the comments
 			comments = Comment.objects.filter(restaurant=restaurant)[0:5]
 			#render the page
-			return render_to_response("SHIRPI/view_restaurant.html", {'restaurant': restaurant, 'reps':reps, 'comments': comments}, RequestContext(request))
+			context =  {'restaurant': restaurant, 'reps':reps, 'comments': comments}
+			return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 		elif len(results) == 0:
 			return render_to_response("SHIRPI/browse.html", {'error':"No matches found"}, RequestContext(request))
 		else:
@@ -115,18 +116,21 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 		restaurant = Restaurant.objects.get(name__iexact=urllib.unquote_plus(restaurant_name), address__iexact=urllib.unquote_plus(restaurant_address))
 		reports = HealthReport.objects.filter(restaurant=restaurant)
 		comments = Comment.objects.filter(restaurant=restaurant)
-		return render_to_response("SHIRPI/view_restaurant.html", {'restaurant': restaurant, 'reports': reports, 'comments': comments}, RequestContext(request))
+		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
+		return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 	except Restaurant.DoesNotExist:
 		return HttpResponseRedirect("/cs215/SHIRPI/browse.html")
 
 def view_profile(request, user_name):
+	user_name = urllib.unquote_plus(user_name)
 	try:
 		user_to_view = User.objects.get(username=user_name)
 	except User.DoesNotExist:
 		return render_to_response('SHIRPI/view_profile.html', {'error': "No user with username '" + user_name +"'"}, RequestContext(request))
 	favourites = Favourite.objects.filter(user=user_to_view).order_by('rank')
 	comments = Comment.objects.filter(author=user_to_view)
-	return render_to_response('SHIRPI/view_profile.html', {'user_to_view': user_to_view, 'favourites': favourites, 'comments': comments}, RequestContext(request))	
+	context = {'user_to_view': user_to_view, 'favourites': favourites, 'comments': comments}
+	return render_to_response('SHIRPI/view_profile.html', context, RequestContext(request))	
 
 def edit_profile(request):
 	user = request.user
