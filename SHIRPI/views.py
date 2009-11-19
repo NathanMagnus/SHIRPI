@@ -23,12 +23,10 @@ def index(request):
 #browsing restaurants
 def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
 	# Prepare strings for database query
-	get_value_name = request.GET.get("restaurant_name", "")
-	get_value_address = request.GET.get("restaurant_address", "")
-	if get_value_name!="" or get_value_address!="":
-		restaurant_name = get_value_name
-		restaurant_address = get_value_address
 
+	restaurant_name = request.GET.get("restaurant_name", restaurant_name)
+	restaurant_address = request.GET.get("restaurant_address", restaurant_address)
+	# silly handling due to view parameters being allowed to exist
 	if restaurant_name == None:
 		restaurant_name = ""
 	if restaurant_address == None:
