@@ -93,7 +93,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			context =  {'restaurant': restaurant, 'reps':reps, 'comments': comments}
 			return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 		elif len(results) == 0:
-			return render_to_response("SHIRPI/browse.html", {'error':"No matches found"}, RequestContext(request))
+			return render_to_response("SHIRPI/error.html", {'error':"No matches found"}, RequestContext(request))
 		else:
 			return render_to_response("SHIRPI/browse.html", {'restaurants': results}, RequestContext(request))
 	
@@ -126,7 +126,7 @@ def view_profile(request, user_name):
 	try:
 		user_to_view = User.objects.get(username=user_name)
 	except User.DoesNotExist:
-		return render_to_response('SHIRPI/view_profile.html', {'error': "No user with username '" + user_name +"'"}, RequestContext(request))
+		return render_to_response('SHIRPI/error.html', {'error': "No user with username '" + user_name +"'"}, RequestContext(request))
 	favourites = Favourite.objects.filter(user=user_to_view).order_by('rank')
 	comments = Comment.objects.filter(author=user_to_view)
 	context = {'user_to_view': user_to_view, 'favourites': favourites, 'comments': comments}
@@ -147,4 +147,4 @@ def edit_profile(request):
 	else:
 		form = ProfileForm(initial={'email': request.user.email})
 		return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
-	return render_to_response('SHIRPI/edit_profile.html', {'error':"You are not logged in"}, RequestContext(request)) 
+	return render_to_response('SHIRPI/error.html', {'error':"You are not logged in"}, RequestContext(request)) 

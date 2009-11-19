@@ -17,7 +17,7 @@ def comment(request, restaurant_name, restaurant_address):
 	try:
 		restaurant = Restaurant.objects.get(name__iexact = restaurant_name, address__iexact = restaurant_address)
 	except Restaurant.DoesNotExist: #if it doesn't exist, error
-		return render_to_response('SHIRPI/comment.html', {'error':"The restaurant you are trying to comment on does not exist"}, RequestContext(request))
+		return render_to_response('SHIRPI/error.html', {'error':"The restaurant you are trying to comment on does not exist"}, RequestContext(request))
 	form = CommentForm() #create the comment form and render
 	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form}, RequestContext(request))
 
@@ -28,7 +28,7 @@ def save_edit(request, comment_id):
 			try:
 				comment = Comment.objects.get(id=comment_id)
 				if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
-					return render_to_response('SHIRPI/comment.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
+					return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
 				restaurant = comment.restaurant
 				#subtact old total
 				restaurant.cleanliness = comment.restaurant.cleanliness - comment.cleanliness
@@ -62,7 +62,7 @@ def save_edit(request, comment_id):
 			#comment doesn't exist, error
 			except Comment.DoesNotExist:
 				pass
-	return render_to_response('SHIRPI/comment.html', {'error': "Comment does not exist"}, RequestContext(request))	
+	return render_to_response('SHIRPI/error.html', {'error': "Comment does not exist"}, RequestContext(request))	
 #save a comment
 def save(request, restaurant_name, restaurant_address):
 	restaurant_name = urllib.unquote_plus(restaurant_name)
@@ -75,7 +75,7 @@ def save(request, restaurant_name, restaurant_address):
 			try:
 				restaurant = Restaurant.objects.get(name__iexact=restaurant_name, address__iexact=restaurant_address)
 			except Restaurant.DoesNotExist:
-				return render_to_response('SHIRPI/comment.html', {'error': "Restaurant or comment does not exist"}, RequestContext(request))
+				return render_to_response('SHIRPI/error.html', {'error': "Restaurant or comment does not exist"}, RequestContext(request))
 				#create the new comment and associate to the restaurant
 			comment = Comment()
 			comment.restaurant = restaurant
@@ -137,11 +137,11 @@ def edit_comment(request, comment_id):
 	try:
 		comment = Comment.objects.get(id=comment_id)
 		if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
-			return render_to_response('SHIRPI/comment.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
+			return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
 		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'wait_time': int(comment.wait_time), 'food_quality': int(comment.food_quality)})
 		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment}, RequestContext(request))
 	except Comment.DoesNotExist:
-		return render_to_response('SHIRPI/edit_comment.html', {'error': "That comment does not exist"}, RequestContext(request))
+		return render_to_response('SHIRPI/error.html', {'error': "That comment does not exist"}, RequestContext(request))
 
 def view_comments(request, restaurant_name, restaurant_address):
 	restaurant_name = urllilb.unquote_plus(restaurant_name)
@@ -157,7 +157,7 @@ def delete_comment(request, comment_id):
 	try:
 		comment = Comment.objects.get(id=comment_id)	
 		if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
-			return render_to_response('SHIRPI/comment.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
+			return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
 		comment.delete()
 		return HttpResponseRedirect(request.META['HTTP_REFERER'])
 	except Comment.DoesNotExist:

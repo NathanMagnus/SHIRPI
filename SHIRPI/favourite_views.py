@@ -40,7 +40,7 @@ def view_favourites(request, user_name):
 	try:
 		user_to_view = User.objects.get(username=user_name)
 	except User.DoesNotExist:
-		return render_to_response('SHIRPI/view_favourites.html', {'error': "User does not exist"}, RequestContext(request))
+		return render_to_response('SHIRPI/error.html', {'error': "User does not exist"}, RequestContext(request))
 	favourites = Favourite.objects.filter(user=user_to_view)
 	
 	return render_to_response('SHIRPI/view_favourites.html', {'favourites':favourites, 'user_to_view': user_to_view}, RequestContext(request))
