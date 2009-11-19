@@ -7,7 +7,7 @@
 {% if error %}
 	<h1>{{error}}</h1>
 {% else %}
-	<form id="reviewForm" name="reviewForm" action="{% project.SHIRPI.comment_views.save%}/{{comment.id}}/" method="post">
+	<form id="reviewForm" name="reviewForm" action="{% project.SHIRPI.comment_views.save comment.id%}/" method="post">
 	{{form.as_p}}
 	Cleanliness: {% show_stars 0 of 5 round to half on change call myCallback with 1%}
 	Food Quality: {% show_stars 0 of 5 round to half on change call myCallback with 2%}
