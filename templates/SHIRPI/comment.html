@@ -7,9 +7,8 @@
 {% if error %}
 	<h1>{{error}}</h1>
 {% endif %}
-{% url project.SHIRPI.views.save restaurant.name, restaurant.address as form_url %}
 <h1>{{restaurant.name}} Page<h1>
-<form id="reviewForm" name="reviewForm" method="post" action="form_url">
+<form id="reviewForm" name="reviewForm" method="post" action="{% url project.SHIRPI.views.save restaurant.name, restaurant.address %}">
 	{{ form.as_p}}
 	Cleanliness: {% show_stars 0 of 5 round to half on change call myCallback with 1%}
 	Food Quality: {% show_stars 0 of 5 round to half on change call myCallback with 2%}
