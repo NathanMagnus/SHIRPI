@@ -22,7 +22,7 @@
 	{% if user.is_authenticated %}
 		Hi, {{ user.username }} <br />
 		<a href="/cs215/shirpi/accounts/logout/">Logout</a><br />
-		<a href="/cs215/shirpi/view_profile/{{user.username}}">My Profile</a><br />
+		<a href="{% url project.SHIRPI.views.view_profile user.username %}">My Profile</a><br />
 		{% if user.is_staff %}
 			<a href="/cs215/admin/">Admin</a>
 		{% endif %}
@@ -36,8 +36,8 @@
 	{% block navbar %}
 	<!-- Default Navbar -->
 	<ul class="nav">
-		<li><a href="/cs215/shirpi/browse/All/All">Browse Restaurants</a></li>
-		<li><a href="/cs215/shirpi/">Home</a></li>
+		<li><a href="{% url project.SHIRPI.views.browse 'all', 'all'%}">Browse Restaurants</a></li>
+		<li><a href="{% url project.SHIRPI.views.index%}">Home</a></li>
 	</ul>
 	{% endblock %}
 </div>
