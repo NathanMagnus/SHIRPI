@@ -12,8 +12,8 @@ register = template.Library()
 def display_search_field(page, autoescape=None):
 	result ="<form name='search' id='search_form' method='get'>"
 	result +="	<div id='search'>"
-	result +="	<input type='text' name='restaurant_name' /><br />"
-	result +="	<input type='text' name='restaurant_address' /><br />"
+	result +="	<label for='restaurant_name'>Restaurant Name: </label><input type='text' name='restaurant_name' id='restaurant_name' /><br />"
+	result +="	<label for='restaurant_address'>Restaurant Address: </label><input type='text' name='restaurant_address' id='restaurant_address' /><br />"
 	result +="	</div>"
 	result +="	<input type='submit' name='submitSearch' value='Search' />"
 	result += "</form>"

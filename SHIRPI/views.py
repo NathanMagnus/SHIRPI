@@ -23,10 +23,10 @@ def index(request):
 #browsing restaurants
 def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
 	# Prepare strings for database query
-	get_value = request.GET.get("restaurant_name")
+	get_value = request.GET.get("restaurant_name", "")
 	if get_value!="":
 		restaurant_name = get_value
-	get_value = request.GET.get("restaurant_address")
+	get_value = request.GET.get("restaurant_address", "")
 	if(get_value!=""):
 		restaurant_address = get_value
 
