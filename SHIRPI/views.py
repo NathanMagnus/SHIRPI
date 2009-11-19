@@ -36,67 +36,47 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	if restaurant_address == "all":
 		restaurant_address = ""
 	
-	range_low = request.GET.get('lrange')
-	range_high = request.GET.get('hrange')	
 	# here so that user can search for all good restaurants on albert street
 	# or all mcdonalds that are good, etc
 	
-	# I do not understand why you are doing all of this. We should be using GET methods for
-	# handeling these parameters. What if a person wanted to search for 'good' in the name?
-	# I intended for ?lrange and ?hrange to be used in this manner and set them just above.
-	# I also thought I would be possible to have an range spanning multipe HI groups
-	# For example, a result set including moderate and criticals. or goods and moderates
-	#	(good and critical exclusively seems strange and not easy to do at all)
-	if restaurant_name == "good" or restaurant_address == "good":
-		range_low = GOOD_VAL	
-		range_high = GOOD_VAL+1
-	elif restaurant_name == "critical" or restaurant_address == "critical":
-		range_low = CRITICAL_VAL
-		range_high = 99999
-	elif restaurant_name == "moderate" or restaurant_address == "moderate":
-		range_low = MODERATE_VAL
-		range_high = CRITICAL_VAL
-	if restaurant_name == "good" or restaurant_name == "moderate" or restaurant_name=="critical":
-		restaurant_name = ""
-	if restaurant_address == "good" or restaurant_address == "moderate" or restaurant_address=="critical":
-		restaurant_address = ""
-	
 	# Consider modifying the above to something similar to:
-	'''
-		lower_limit = request.GET.get('lrange')
-		upper_limit = request.GET.get('hrange')	# perhaps use better GET names
-		
-		if upper_limit == "critical":
-			range_high = 9999
-			
-			if lower_limit == "moderate":
-				range_low = MODERATE_VAL
-			elif lower_limit == "good":
-				range_low = GOOD_VAL
-			else:
-				range_low = CRITICAL_VAL
-		
-		elif upper_limit == "moderate":
-			range_high = CRITICAL_VAL
-			
-			if lower_limit == "good":
-				range_low = GOOD_VAL
-			else:
-				range_low = MODERATE_VAL
-		
-		elif upper_limit == "good"
-			range_high = GOOD_VAL+1
-			range_low = GOOD_VAL
-			
-			
-	'''
+	lower_limit = request.GET.get('lower_limit')
+	upper_limit = request.GET.get('upper_limit')	# perhaps use better GET names
 	
+	if upper_limit == "critical":
+		range_high = 9999
+		
+		if lower_limit == "moderate":
+			range_low = MODERATE_VAL
+		elif lower_limit == "good":
+			range_low = GOOD_VAL
+		else:
+			range_low = CRITICAL_VAL
+	
+	elif upper_limit == "moderate":
+		range_high = CRITICAL_VAL
+		
+		if lower_limit == "good":
+			range_low = GOOD_VAL
+		else:
+			range_low = MODERATE_VAL
+	
+	elif upper_limit == "good"
+		range_high = GOOD_VAL+1
+		range_low = GOOD_VAL
+	
+
 	# Query Database
 	# ACTUAL RANGE EXCLUSION SHOULD BE DONE AFTER THIS
 	try:
-		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
-		if range_low != None and range_high != None:
-			results = results.filter(health_report_status__gte=range_low, health_report_status__lt=range_high)
+		if lower_limit == None and upper_limit==None:
+			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
+		else:
+			if upper_limit == None:
+				range_hight = 99999
+			if lower_limit == None:
+				range_low = -1
+			results = results.filter(health_report_status__gte=, health_report_status__lt=range_high)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
