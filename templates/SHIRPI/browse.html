@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load restaurant_filters %}
+{% load sort_filters %}
 {% block bodytag %}
 	<body onload="initialize()" onunload="GUnload()">
 {% endblock %}
@@ -8,6 +9,7 @@
 	<h1>{{error}}</h1>
 {% endif %}
 {% if restaurants %}
+{{display_sort_field}}
 	<div class='restaurants'>
 	{% for restaurant in restaurants %}
 		{{restaurant|display_restaurant}}

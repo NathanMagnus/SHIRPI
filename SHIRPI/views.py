@@ -22,8 +22,6 @@ def index(request):
 
 #browsing restaurants
 def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
-	# TODO: Seriously consider exclusively using GETs for input instead of view parameters
-	
 	# Prepare strings for database query
 	if restaurant_name == None:
 		restaurant_name = ""
@@ -47,7 +45,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		range_high = GOOD_VAL+1
 	elif restaurant_name == "critical" or restaurant_address == "critical":
 		range_low = CRITICAL_VAL
-		range_hight = 99999
+		range_high = 99999
 	elif restaurant_name == "moderate" or restaurant_address == "moderate":
 		range_low = MODERATE_VAL
 		range_high = CRITICAL_VAL
