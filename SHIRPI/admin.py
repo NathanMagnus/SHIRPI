@@ -13,8 +13,8 @@ class RestaurantAdmin(admin.ModelAdmin):
 
 class CommentAdmin(admin.ModelAdmin):
 	list_display = ('restaurant', 'author', 'comment', 'combined', 'cleanliness', 'food_quality', 'wait_time')
-	search_fields = ['author', 'restaurant', 'comment']
-	fields = ['author', 'restaurant', 'comment', 'combined', 'cleanliness', 'food_quality', 'wait_time']
+	search_fields = ['author', 'restaurant', 'comment', 'ip']
+	fields = ['author', 'restaurant', 'comment', 'combined', 'cleanliness', 'food_quality', 'wait_time', 'ip']
 
 class FavouriteAdmin(admin.ModelAdmin):
 	list_display=('user', 'restaurant', 'rank')
