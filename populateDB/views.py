@@ -100,6 +100,7 @@ def createAnonymous():
 def populate(request, password):
 	if password != "Popul8IT123!":
 		return HttpResponseRedirect('/cs215/shirpi')
+	reg = re.compile('(\d+)')
 	existing=0
 	new = 0
 	populateMaster()
@@ -148,6 +149,7 @@ def populate(request, password):
 					score_total=0
 					for item in report.findall("item"):
 						item_text = item.text.lstrip().rstrip()
+						item_text = reg.search(item_text).group(1)
 						item = HealthInspectionItem.objects.get(number=item_text)
 						rep.items.add(item)
 						score_total = item.severity + score_total
