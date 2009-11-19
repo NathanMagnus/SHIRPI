@@ -71,19 +71,15 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		upper_limit = GOOD_VAL+1
 		lower_limit = GOOD_VAL
 	
+	else:
+		# No defined limit on score
+		upper_limit = 99999
+		lower_limit = -1
+	
 
 	# Query Database
-	# ACTUAL RANGE EXCLUSION SHOULD BE DONE AS PART OF THIS TO IMPROVE UPON PERFORAMNCE
-
 	try:
-		if lower_limit == None and upper_limit==None:
-			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
-		else:
-			if upper_limit == None:
-				upper_limit = 99999
-			if lower_limit == None:
-				lower_limit = -1
-			results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit)
+		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
