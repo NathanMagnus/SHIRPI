@@ -57,7 +57,7 @@ def save_edit(request, comment_id):
 				comment.save()
 
 				#forward to the restaurant browse
-				return HttpResponseRedirect('/cs215/shirpi/view_restaurant/' + urllib.quote_plus(restaurant.name) + '/' + urllib.quote_plus(restaurant.address) + '/')
+				return HttpResponseRedirect(requst.META['HTTP_REFERER'])
 
 			#comment doesn't exist, error
 			except Comment.DoesNotExist:
@@ -130,7 +130,7 @@ def save(request, restaurant_name, restaurant_address):
 			restaurant.save()
 			comment.save()
 	#render response
-	return HttpResponseRedirect('/cs215/shirpi/view_restaurant/' + urllib.quote_plus(restaurant_name) + "/" + urllib.quote_plus(restaurant_address) + "/")
+	return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 def edit_comment(request, comment_id):
 	comment_id = urllib.unquote_plus(comment_id) #done to prevent attacks
@@ -149,7 +149,7 @@ def view_comments(request, restaurant_name, restaurant_address):
 	try:
 		comments = Comment.objects.filter(restaurant__name__iexact = restaurant_name, restaurant__address__iexact = restaurant_address)
 	except Comment.DoesNotExist:
-		return HttpResponseRedirect('/cs215/shirpi/view_restaurant/' + restaurant_name + '/' + restaurant_address +'/')
+		return HttpResponseRedirect(request.META['HTTP_REFERER'])
 	return render_to_response('SHIRPI/view_comments.html', {'comments': comments}, RequestContext(request))
 
 def delete_comment(request, comment_id):
