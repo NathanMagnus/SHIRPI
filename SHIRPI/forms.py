@@ -22,4 +22,6 @@ class ProfileForm(forms.Form):
 	email = forms.EmailField()
 	first_name = forms.CharField()
 	last_name = forms.CharField()
-#	address = forms.CharField()
+	class Meta:
+		model = UserProfile
+		exclude = ('user')
