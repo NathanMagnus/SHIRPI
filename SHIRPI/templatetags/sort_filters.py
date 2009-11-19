@@ -11,8 +11,7 @@ register = template.Library()
 @register.filter
 def display_sort_field(page, autoescape=None):
 	result ="<form name='sort' id='sort_form'>"
-	result +=
-	"
+	result +="
 		<div id='sort'>
 		<h4>Sort By</h4>
 		<div class='type'><a href='"+page+"?order_by=combined'>Combined Score</a></div>
