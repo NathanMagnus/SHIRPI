@@ -9,7 +9,8 @@
 	<h1>{{error}}</h1>
 {% endif %}
 {% if restaurants %}
-{{display_sort_field}}
+{% url project.SHIRPI.views.browse as browse_url %}
+{{browse_url|display_sort_field}}
 	<div class='restaurants'>
 	{% for restaurant in restaurants %}
 		{{restaurant|display_restaurant}}
