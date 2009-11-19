@@ -16,7 +16,7 @@
 		{% ifnotequal favourites|length 0 %}
 			<div class='restaurants favourites'>
 			<h1>Favourites</h1>
-			<form name='edit_favourite' method='post' action='{% url project.SHIRPI.views.edit_favourites %}'>
+			<form name='edit_favourite' method='post' action='{% url project.SHIRPI.favourite_views.edit_favourites %}'>
 			{% for restaurant in favourites %}
 				{{restaurant|display_favourite_edit:favourites.count}}			
 			{% endfor %}
