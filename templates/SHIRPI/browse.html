@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load restaurant_filters %}
 {% load sort_filters %}
+{% load search_filters %}
 {% block title %}Browse Restaurants{% endblock %}
 {% block bodytag %}
 	<body onload="initialize()" onunload="GUnload()">
@@ -11,6 +12,7 @@
 {% endif %}
 {% if restaurants %}
 {% url project.SHIRPI.views.browse as browse_url %}
+{{"here"|display_search_field}}
 {{browse_url|display_sort_field}}
 	<div class='restaurants'>
 	{% for restaurant in restaurants %}
