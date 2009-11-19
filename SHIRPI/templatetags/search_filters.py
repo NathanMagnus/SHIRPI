@@ -16,5 +16,5 @@ def display_search_field(page, autoescape=None):
 	result +="	<input type='text' name='restaurant_address' /><br />"
 	result +="	</div>"
 	result +="	<input type='submit' name='submitSearch' value='Search' />"
-	results += "</form>"
+	result += "</form>"
 	return mark_safe(result)
