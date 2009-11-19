@@ -51,13 +51,17 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	elif restaurant_name == "moderate" or restaurant_address == "moderate":
 		range_low = MODERATE_VAL
 		range_high = CRITICAL_VAL
+	if restaurant_name == "good" or restaurant_name == "moderate" or restaurant_name=="critical":
+		restaurant_name = ""
+	if restaurant_address == "good" or restaurant_address == "moderate" or restaurant_address=="critical":
+		restaurant_address = ""
 	
 	# Query Database
 	# ACTUAL RANGE EXCLUSION SHOULD BE DONE AFTER THIS
 	try:
 		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address)
 		if range_low != None and range_high!=None:
-			results = results.filter(health_report_status__gte=range_low).filter(health_report_status__lt=range_high)
+			results = results.filter(health_report_status__gte=range_low, health_report_status__lt=range_high)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
