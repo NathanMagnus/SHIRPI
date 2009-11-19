@@ -116,12 +116,15 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			return render_to_response("SHIRPI/browse.html", {'restaurants': results}, RequestContext(request))
 	
 	# API Display
-	else:		
+	else:
+		display_type = request.GET.get('display')
 		MySpecialApiData = []
 		for location in results:	# disgusting loop solves problems
-			MySpecialApiData.append({ 'location': location, 'reports': HealthReport.objects.filter(restaurant=location) })
+			if display_type == "full"
+				report_results = HealthReport.objects.filter(restaurant=location)
+			MySpecialApiData.append({ 'location': location, 'reports': report_results })
 		
-		context = { 'results': MySpecialApiData, 'display_type': request.GET.get('display') }
+		context = { 'results': MySpecialApiData, 'display_type':  }
 		return render_to_response("SHIRPI/api.xml", context, RequestContext(request),  mimetype='application/xml')
 
 def view_restaurant(request, restaurant_name, restaurant_address):
