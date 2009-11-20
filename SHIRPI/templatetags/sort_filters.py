@@ -10,7 +10,7 @@ register = template.Library()
 #display a group of restaurants in a table
 @register.filter
 def display_sort_field(request, autoescape=None):
-	sorts = {'combined': "Combined Scores", 'cleanliness': "Cleanliness", 'food_quality': "Food Quality", 'atmosphere': Atmosphere}
+	sorts = [('combined', "Combined Scores"), ('cleanliness', "Cleanliness"), ('food_quality', "Food Quality"), ('atmosphere', "Atmosphere")]
 	get = request.GET.copy()
 	result ="	<div id='sort'>"
 
