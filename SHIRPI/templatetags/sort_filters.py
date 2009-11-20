@@ -9,14 +9,14 @@ register = template.Library()
 
 #display a group of restaurants in a table
 @register.filter
-def display_sort_field(page, autoescape=None):
+def display_sort_field(request, autoescape=None):
 	result ="	<div id='sort'>"
 
 	result +="	<h4>Sort By</h4>"
-	result +="	<div class='type'><input type='radio' value='combined'>Combined Score</a></div>"
-	result +="	<div class='type'><input type='radio' value='cleanliness'>Cleanliness</a></div>"
-	result +="	<div class='type'><input type='radio' value='food_quality'>Food Quality</a></div>"
-	result +="	<div class='type'><input type='radio' value='atmosphere'>Atmosphere</a></div>"
-	result +="	<div class='type'><input type='radio' value='wait_time'>Wait Time</a></div>"
+	result +="	<div class='type'><a href='combined'>Combined Score</a></div>"
+	result +="	<div class='type'><a href='cleanliness'>Cleanliness</a></div>"
+	result +="	<div class='type'><a href='food_quality'>Food Quality</a></div>"
+	result +="	<div class='type'><a href='atmosphere'>Atmosphere</a></div>"
+	result +="	<div class='type'><a href='wait_time'>Wait Time</a></div>"
 	result +="	</div>"
 	return mark_safe(result)

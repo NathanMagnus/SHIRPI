@@ -14,9 +14,9 @@
 {% url project.SHIRPI.views.browse as browse_url %}
 <form name="search_sort_field" method="get" id="search_sort_field">
 	{{browse_url|display_search_field}}
-	{{browse_url|display_sort_field}}
 	<input type="submit" name="Submit" value="Submit" id="search_sort_submit" />
 </form>
+	{{browse_url|display_sort_field}}
 	<div class='restaurants'>
 	{% for restaurant in restaurants %}
 		{{restaurant|display_restaurant}}
