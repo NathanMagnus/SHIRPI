@@ -21,32 +21,30 @@ def index(request):
 	return render_to_response("SHIRPI/index.html", {'Critical':Critical, 'Moderate':Moderate,'Good':Good}, RequestContext(request))
 
 #browsing restaurants
-def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
-	# Prepare strings for database query
+def browse(request, restaurant_name = "", restaurant_address = "", api_flag = None):
 
+	# determine the restaurant_name and restaurant_address
+	# any get information will override the parameters passed by the url
 	restaurant_name = request.GET.get("restaurant_name", restaurant_name)
 	restaurant_address = request.GET.get("restaurant_address", restaurant_address)
-	# silly handling due to view parameters being allowed to exist
-	if restaurant_name == None:
-		restaurant_name = ""
-	if restaurant_address == None:
-		restaurant_address = ""
-		
+	order_by = request.GET.get("order_by", "")
+
+	# remove % encoding from url
 	restaurant_name = urllib.unquote_plus(restaurant_name).lower()
 	restaurant_address = urllib.unquote_plus(restaurant_address).lower()
 	
+	# if they want all, set appropriate variable to blank
 	if restaurant_name == "all":
 		restaurant_name = ""
 	if restaurant_address == "all":
 		restaurant_address = ""
 	
-	# here so that user can search for all good restaurants on albert street
-	# or all mcdonalds that are good, etc
-	
-	# Consider modifying the above to something similar to:
+	# set upper and lower limit based upon the GET information
 	lower_limit = request.GET.get('lower_limit')
 	upper_limit = request.GET.get('upper_limit')
 	
+	# determine the upper limit based upon the english constants
+	# these correspond with the groupings on the index page
 	if upper_limit == "critical":
 		upper_limit = 9999
 		
@@ -76,13 +74,17 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	
 
 	# Query Database
+	# the blank string parameters defined above will filter ALL
 	try:
 		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
 	# Browse Page Display
+	
+	# if it isn't an api call
 	if api_flag == None:
+		# if there is only one result, render the view response page
 		if len(results) == 1:
 			restaurant = results[0]
 			#get the reports
@@ -92,6 +94,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			#render the page
 			context =  {'restaurant': restaurant, 'reps':reps, 'comments': comments}
 			return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
+		# if there are no matches, error
 		elif len(results) == 0:
 			return render_to_response("SHIRPI/error.html", {'error':"No matches found"}, RequestContext(request))
 		else:
@@ -101,7 +104,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	else:
 		display_type = request.GET.get('display')
 		MySpecialApiData = []
-		for location in results:	# disgusting loop solves problems
+		for location in results:
 			if display_type == "full":
 				report_results = HealthReport.objects.filter(restaurant=location)
 			else:
@@ -111,16 +114,18 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		context = { 'results': MySpecialApiData, 'display_type': display_type }
 		return render_to_response("SHIRPI/api.xml", context, RequestContext(request),  mimetype='application/xml')
 
+# viewing a specific restaurant
 def view_restaurant(request, restaurant_name, restaurant_address):
 	try:
+		# get the restaurant, reports associated with that restaurant and comments
 		restaurant = Restaurant.objects.get(name__iexact=urllib.unquote_plus(restaurant_name), address__iexact=urllib.unquote_plus(restaurant_address))
 		reports = HealthReport.objects.filter(restaurant=restaurant)
 		comments = Comment.objects.filter(restaurant=restaurant)
+		#context defined here so that isn't ugly
 		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
 		return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 	except Restaurant.DoesNotExist:
-		# whatever should happen here should happen here
-		#return HttpResponseRedirect(request.META['HTTP_REFERER'])
+		# redirect 
 		return HttpResponseRedirect("/cs215/SHIRPI/")
 
 
