@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^cs215/admin/', include(admin.site.urls)),
     (r'^cs215/shirpi/browse/?(?P<restaurant_name>[^/]+)?/?(?P<restaurant_address>[^/]+)?/?$', 'project.SHIRPI.views.browse'),
-    (r'^cs215/shirpi/view/?(?P<restaurant_name>[^/]+)?/?(?P<restaurant_address>[^/]+)?/?$', 'project.SHIRPI.views.view_restaurant'),
+    (r'^cs215/shirpi/view/(?P<restaurant_name>[^/]+)/(?P<restaurant_address>[^/]+)/?$', 'project.SHIRPI.views.view_restaurant'),
     (r'^cs215/shirpi/(?P<api_flag>api)/?(?P<restaurant_name>[^/]+)?/?(?P<restaurant_address>[^/]+)?/?$', 'project.SHIRPI.views.browse'),
     
     (r'^cs215/shirpi/view_profile/(?P<user_name>[^/]+)/?$', 'project.SHIRPI.views.view_profile'),

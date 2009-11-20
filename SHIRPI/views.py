@@ -119,9 +119,13 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
 		return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 	except Restaurant.DoesNotExist:
-		return HttpResponseRedirect(request.META['HTTP_REFERER'])
+		# whatever should happen here should happen here
+		#return HttpResponseRedirect(request.META['HTTP_REFERER'])
+		return HttpResponseRedirect("/cs215/SHIRPI/")
+
 
 def view_profile(request, user_name):
+	print "here"
 	user_name = urllib.unquote_plus(user_name)
 	try:
 		user_to_view = User.objects.get(username=user_name)
