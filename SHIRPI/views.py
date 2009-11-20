@@ -36,6 +36,12 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	if type == "DESC":
 		type = "-"
 
+	# done this way so that browse/ works properly
+	if restaurant_name == None:
+		restaurant_name = ""
+	if restaurant_address == None:
+		restaurant_address = ""
+
 	# remove % encoding from url
 	restaurant_name = urllib.unquote_plus(restaurant_name).lower()
 	restaurant_address = urllib.unquote_plus(restaurant_address).lower()
@@ -46,13 +52,6 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	if restaurant_address == "all":
 		restaurant_address = ""
 
-	# done this way so that browse/ works properly
-	if restaurant_name == None:
-		restaurant_name = ""
-	if restaurant_address == None:
-		restaurant_address = ""
-	
-	
 	# determine the upper limit based upon the english constants
 	# these correspond with the groupings on the index page
 	if upper_limit == "critical":

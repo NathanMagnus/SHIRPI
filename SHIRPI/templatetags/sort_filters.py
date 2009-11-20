@@ -18,10 +18,10 @@ def display_sort_field(request, autoescape=None):
 	result +="<h4>Sort By</h4>\n"
 	result +="<ul id='sort_by'>\n"
 	for type, verbose in sorts:
-		if get['sort_by'] == type:
-			if get['type'] == "ASC":
+		if request.GET.get('sort_by', "") == type:
+			if get.get('type', "") == "ASC":
 				get['type'] = "DESC"
-			else
+			else:
 				get['type'] = "ASC"
 		result +="<li class='type'><a href='?"+ get.urlencode() +"'>" + verbose + "</a></li>\n"
 	result +="</ul>\n"
