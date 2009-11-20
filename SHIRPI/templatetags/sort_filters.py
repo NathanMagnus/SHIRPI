@@ -17,6 +17,6 @@ def display_sort_field(request, autoescape=None):
 	result +="	<h4>Sort By</h4>"
 	for type, verbose in sorts:
 		get['sort_by'] = type
-		result +="<div class='type'><a href='"+ get.urlencode() +"'>" + verbose + "</a></div>"
+		result +="<div class='type'><a href='?"+ get.urlencode() +"'>" + verbose + "</a></div>"
 	result +="	</div>"
 	return mark_safe(result)
