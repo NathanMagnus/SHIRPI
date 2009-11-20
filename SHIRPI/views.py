@@ -95,7 +95,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		elif len(results) == 0:
 			return render_to_response("SHIRPI/error.html", {'error':"No matches found"}, RequestContext(request))
 		else:
-			return render_to_response("SHIRPI/browse.html", {'restaurants': results}, RequestContext(request))
+			return render_to_response("SHIRPI/browse.html", {'restaurants': results 'request': request}, RequestContext(request))
 	
 	# API Display
 	else:
