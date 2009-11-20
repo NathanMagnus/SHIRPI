@@ -21,13 +21,20 @@ def index(request):
 	return render_to_response("SHIRPI/index.html", {'Critical':Critical, 'Moderate':Moderate,'Good':Good}, RequestContext(request))
 
 #browsing restaurants
-def browse(request, restaurant_name = "", restaurant_address = "", api_flag = None):
+def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
 
 	# determine the restaurant_name and restaurant_address
 	# any get information will override the parameters passed by the url
 	restaurant_name = request.GET.get("restaurant_name", restaurant_name)
 	restaurant_address = request.GET.get("restaurant_address", restaurant_address)
-	order_by = request.GET.get("order_by", "")
+	# set upper and lower limit based upon the GET information
+	lower_limit = request.GET.get('lower_limit', -1)
+	upper_limit = request.GET.get('upper_limit', 9999)
+	order = request.GET.get('order_by', 'name')
+	type = request.GET.get('type', 'DESC')
+	
+	if type == "DESC":
+		type = "-"
 
 	# remove % encoding from url
 	restaurant_name = urllib.unquote_plus(restaurant_name).lower()
@@ -38,10 +45,13 @@ def browse(request, restaurant_name = "", restaurant_address = "", api_flag = No
 		restaurant_name = ""
 	if restaurant_address == "all":
 		restaurant_address = ""
+
+	# done this way so that browse/ works properly
+	if restaurant_name == None:
+		restaurant_name = ""
+	if restaurant_address == None:
+		restaurant_address = ""
 	
-	# set upper and lower limit based upon the GET information
-	lower_limit = request.GET.get('lower_limit')
-	upper_limit = request.GET.get('upper_limit')
 	
 	# determine the upper limit based upon the english constants
 	# these correspond with the groupings on the index page
@@ -66,17 +76,11 @@ def browse(request, restaurant_name = "", restaurant_address = "", api_flag = No
 	elif upper_limit == "good":
 		upper_limit = GOOD_VAL+1
 		lower_limit = GOOD_VAL
-	
-	else:
-		# No defined limit on score
-		upper_limit = 99999
-		lower_limit = -1
-	
 
 	# Query Database
 	# the blank string parameters defined above will filter ALL
 	try:
-		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit)
+		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit).order_by(type + order)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
