@@ -6,7 +6,7 @@ from django.forms.widgets import HiddenInput, Textarea
 
 
 class CommentForm(ModelForm):
-	comment = forms.CharField(widget=Textarea())
+	comment = forms.CharField(widget=Textarea(), required=False)
 	cleanliness = forms.IntegerField(initial="0", widget=HiddenInput)
 	food_quality = forms.IntegerField(initial="0", widget=HiddenInput)
 	atmosphere = forms.IntegerField(initial="0", widget=HiddenInput)
