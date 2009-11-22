@@ -1,5 +1,6 @@
 import urllib
 import time
+from datetime import datetime, date, time
 import xml.etree.cElementTree as et
 from project.SHIRPI.models import *
 import django
@@ -110,7 +111,7 @@ def populate_reports():
 			for report in elem.findall("report"):
 				# get/make the appropriate report
 				try:
-					date_key = time.strptime( report.attrib.get("date"), "%A, %B %d, %Y" )
+					date_key = datetime.strptime( report.attrib.get("date"), "%A, %B %d, %Y" )
 					
 					rep = HealthReport.objects.get(date=date_key, restaurant=rest)
 					first = False
@@ -120,7 +121,6 @@ def populate_reports():
 					new = new+1
 					rep = HealthReport()
 					rep.date = date_key
-					print rep.date
 					rep.priority = report.attrib.get("priority")
 					rep.type = report.attrib.get("type")
 					rep.restaurant = rest
