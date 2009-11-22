@@ -26,7 +26,7 @@ def display_sort_field(request, autoescape=None):
 		# if it is what is currently being sorted by
 		if request.GET.get('sort_by', '') == type:
 			# swap type of sort
-			if get.get('type', '') == "DESC":
+			if request.GET.get('type', '') == "DESC":
 				get['type'] = "ASC"
 		# add sort_by to the GET parameters
 		get['sort_by'] = type
