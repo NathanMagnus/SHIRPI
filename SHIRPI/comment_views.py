@@ -130,7 +130,7 @@ def save(request, restaurant_name, restaurant_address):
 			restaurant.save()
 			comment.save()
 	#render response
-	return HttpResponseRedirect("/cs215/shirpi/browse/"+urllib.quote_plus(restaurant.name) + "/" + urllib.quote_plus(restaurant.address)+"/")
+	return HttpResponseRedirect("/cs215/shirpi/browse/"+urllib.quote_plus(restaurant_name) + "/" + urllib.quote_plus(restaurant_address)+"/")
 
 def edit_comment(request, comment_id):
 	comment_id = urllib.unquote_plus(comment_id) #done to prevent attacks
