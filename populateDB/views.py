@@ -116,6 +116,7 @@ def populate_reports():
 					new = new+1
 					rep = HealthReport()
 					rep.date = report.attrib.get("date")
+					print rep.date
 					rep.priority = report.attrib.get("priority")
 					rep.type = report.attrib.get("type")
 					rep.restaurant = rest

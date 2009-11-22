@@ -68,7 +68,7 @@ class HealthInspectionItem(models.Model):
 		return "%s" % (self.number)
 
 class HealthReport(models.Model):
-	date = models.CharField(max_length="100")
+	date = models.DateField()
 	health_inspection_score = models.IntegerField(default=0)
 	restaurant = models.ForeignKey(Restaurant)
 	priority = models.CharField(max_length="30")
