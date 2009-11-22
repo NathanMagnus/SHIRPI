@@ -21,12 +21,13 @@ def display_sort_field(request, autoescape=None):
 	# for each type of sort
 	for type, verbose in sorts:
 		# default is descending
+		get['type'] = "DESC"
 		
 		# if it is what is currently being sorted by
 		if request.GET.get('sort_by', '') == type:
 			# swap type of sort
-			if get.get('type', '') == "ASC":
-				get['type'] = "DESC"
+			if get.get('type', '') == "DESC":
+				get['type'] = "ASC"
 		# add sort_by to the GET parameters
 		get['sort_by'] = type
 		result +="<li class='type'><a href='?"+ get.urlencode() +"'>" + verbose + "</a></li>\n"
