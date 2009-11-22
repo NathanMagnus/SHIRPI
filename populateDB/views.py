@@ -1,4 +1,5 @@
 import urllib
+import time
 import xml.etree.cElementTree as et
 from project.SHIRPI.models import *
 import django
