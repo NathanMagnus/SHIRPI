@@ -21,7 +21,6 @@ def display_sort_field(request, autoescape=None):
 	# for each type of sort
 	for type, verbose in sorts:
 		# default is descending
-		get['type'] == "DESC"
 		
 		# if it is what is currently being sorted by
 		if request.GET.get('sort_by', '') == type:
