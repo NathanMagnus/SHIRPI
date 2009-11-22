@@ -109,13 +109,16 @@ def populate_reports():
 			for report in elem.findall("report"):
 				# get/make the appropriate report
 				try:
-					rep = HealthReport.objects.get(date=report.attrib.get("date"), restaurant=rest)
+					date_key = time.strptime( report.attrib.get("date"), "%A, %B %d, %Y" )
+					
+					rep = HealthReport.objects.get(date=date_key, restaurant=rest)
 					first = False
 					existing = existing+1
+					
 				except HealthReport.DoesNotExist:
 					new = new+1
 					rep = HealthReport()
-					rep.date = report.attrib.get("date")
+					rep.date = date_key
 					print rep.date
 					rep.priority = report.attrib.get("priority")
 					rep.type = report.attrib.get("type")
