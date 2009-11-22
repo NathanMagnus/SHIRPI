@@ -1,4 +1,3 @@
-import re
 import urllib
 import xml.etree.cElementTree as et
 from project.SHIRPI.models import *
@@ -9,51 +8,78 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.utils.safestring import mark_safe
 
+# main populate function, calls the appropriate helper function
 def populate(request):
+	# get the mode and password from GET
 	mode = urllib.unquote_plus(request.GET.get('mode', ""))
 	password = urllib.unquote_plus(request.GET.get('password', ""))
 
+	# check the password
 	error = "Bad Password"
 	if password == "Popul8IT123!":
 		error = "Success"
+		# check the mode
 		if mode == "reports":
-			return populate_reports()
+			 # return the value of populate_reports which is a http response
+			populate_reports()
+
+			# get all reports and render
+			reports = HealthReport.objects.filter()
+			return render_to_response('populateDB/populate.html', {'reports': reports}, RequestContext(request))
 		elif mode == "items":
 			populate_items()
 		elif mode == "anonymous":
 			create_anonymous()
 		else:
 			error = "Bad mode"
+	#render the error or success
 	return render_to_response("SHIRPI/error.html", {'error': error}, RequestContext(request))
 
+# populate the items
 def populate_items():
+	# file containing the item information
 	from project.populateDB.items import *
+
+	# populate each item
 	for item in items:
 		try:
+			# if it already exists, do nothing
 			dbItem = HealthInspectionItem.objects.get(number=item['number'])
-		except HealthInspectionItem.DoesNotExist:	
+		except HealthInspectionItem.DoesNotExist:
+			# otherwise add it
 			dbItem = HealthInspectionItem()
 			dbItem.number =item['number']
 			dbItem.severity = item['severity']
+
+		# update the descriptions
 		dbItem.description = item['description']
 		dbItem.short_description = item['short_description']
+
+		# save changes
 		dbItem.save()
-		
+
+# create the anonymous user
 def create_anonymous():
+	# if Anonymous already exists, don't do anything, otherwise create it
 	try:
 		User.objects.get(username="Anonymous")
 	except User.DoesNotExist:
 		anonymous = User.objects.create_user('Anonymous', 'none@none.com', '`1234567890-=~!@#$%^&*()_+QAZwsxEDCrfvTGByhnUJMik,OL.p;/[]')
 		anonymous.save()
 
+# populate the db with the reports
 def populate_reports():
-	reg = re.compile('(\d+)')
+	# keep a count of the number of new reports and duplicates
 	existing=0
 	new = 0
+
+	# create the anonymous user
 	create_anonymous()
+
+	# actually look at the xml now
 	for event, elem in et.iterparse("/home/cs215/project/populateDB/reports.xml"):
 		if elem.tag == "location":
-			#get/make the appropriate restaurant
+			# get/make the appropriate restaurant
 			try:
 				rest = Restaurant.objects.get(name__iexact=elem.attrib.get("name"), address__iexact = elem.attrib.get("address"))
 			except Restaurant.DoesNotExist:
@@ -62,7 +88,7 @@ def populate_reports():
 				rest.address = elem.attrib.get("address")
 				rest.visible = True
 				rest.health_report_status=0
-				#get/make the appropriate location if rest doesn't exist
+				# get/make the appropriate location if the restaurant doesn't exist
 				try:
 					loc = Location.objects.get(rha__iexact=elem.attrib.get("rha"), municipality__iexact = elem.attrib.get("municipality"))
 				except Location.DoesNotExist:
@@ -73,12 +99,15 @@ def populate_reports():
 					loc.province = "Saskatchewan"
 					loc.country = "Canada"
 					loc.save()
+				
+				# assign the location and save the restaurant
 				rest.location = loc
 				rest.save()
-			#find each report
+
+			# find each report, first one is always the most recent so keep track of which one is first
 			first = True
 			for report in elem.findall("report"):
-				#get/make the appropriate report
+				# get/make the appropriate report
 				try:
 					rep = HealthReport.objects.get(date=report.attrib.get("date"), restaurant=rest)
 					first = False
@@ -91,7 +120,8 @@ def populate_reports():
 					rep.type = report.attrib.get("type")
 					rep.restaurant = rest
 					rep.save()
-					#add each item for this report
+				
+					# add each item for this report
 					score_total=0
 					for item in report.findall("item"):
 						item_text = item.text.lstrip().rstrip()
@@ -99,11 +129,12 @@ def populate_reports():
 						rep.items.add(item)
 						score_total = item.severity + score_total
 					rep.health_inspection_score = score_total
+					
+					# if it is the first report, set the appropriate restaurants health_report_status
 					if first:
 						first = False
 						rest.health_report_status = score_total
 						rest.save()
-					rep.save()
 
-	reports = HealthReport.objects.filter()
-	return render_to_response('populateDB/populate.html', {'reports': reports, 'new': new, 'existing': existing})
+					# save the report
+					rep.save()

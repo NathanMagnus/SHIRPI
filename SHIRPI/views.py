@@ -36,10 +36,6 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	if type == "DESC":
 		type = "-"
 
-	if lower_limit == '':
-		lower_limit = 0
-	if upper_limit == '':
-		upper_limit=9999
 	
 	# done this way so that browse/ works properly
 	if restaurant_name == None:
@@ -80,6 +76,11 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	elif upper_limit == "good":
 		upper_limit = GOOD_VAL+1
 		lower_limit = GOOD_VAL
+	else:
+		if lower_limit == None:
+			lower_limit = 0
+		if upper_limit == None:
+			upper_limit=9999
 
 	# Query Database
 	# the blank string parameters defined above will filter ALL
