@@ -87,7 +87,6 @@ def populate_reports():
 			
 			address = elem.attrib.get("address")
 			address_searchable = re.sub("^\d+\s|\s\d+\s|\s\d+$", " ", address.translate(string.maketrans("",""), string.punctuation)).strip()
-			print address_searchable
 			
 			# get/make the appropriate restaurant
 			try:
@@ -96,6 +95,7 @@ def populate_reports():
 				rest = Restaurant()
 				rest.name = name
 				rest.address = address
+				rest.address_searchable =  address_searchable
 				rest.visible = True
 				rest.health_report_status=0
 				# get/make the appropriate location if the restaurant doesn't exist
@@ -123,7 +123,7 @@ def populate_reports():
 				
 				date_key = datetime.strptime( report.attrib.get("date"), "%A, %B %d, %Y" )
 				date_key = date(date_key.year, date_key.month, date_key.day) # convert to date object
-				print date_key
+
 				try:
 					rep = HealthReport.objects.get(date=date_key, restaurant=rest)
 					first = False

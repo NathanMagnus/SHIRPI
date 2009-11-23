@@ -20,7 +20,7 @@ class Chain(models.Model):
 class Restaurant(models.Model):
 	location = models.ForeignKey(Location)
 	address = models.CharField(max_length="75")
-	address_simple = models.CharField(max_length="75")
+	address_searchable = models.CharField(max_length="75")
 	name = models.CharField(max_length="50")
 	
 	health_report_status = models.IntegerField(default=0)

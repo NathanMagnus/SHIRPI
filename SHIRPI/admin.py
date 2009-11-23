@@ -7,7 +7,7 @@ class LocationAdmin(admin.ModelAdmin):
 	fields = ['city', 'province', 'country', 'rha']
 
 class RestaurantAdmin(admin.ModelAdmin):
-	list_display = ('name', 'address', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time', 'chain', 'health_report_status', 'visible')
+	list_display = ('name', 'address', 'address_searchable', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time', 'chain', 'health_report_status', 'visible')
 	search_fields = ['name', 'address', 'location__rha']
 	fields = ['name', 'address', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time', 'chain', 'health_report_status', 'visible']
 
