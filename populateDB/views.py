@@ -83,7 +83,7 @@ def populate_reports():
 		if elem.tag == "location":
 			# get/make the appropriate restaurant
 			try:
-				rest = Restaurant.objects.get(name__iexact=elem.attrib.get("name"), address__iexact = elem.attrib.get("address"))
+				rest = Restaurant.objects.filter(name__iexact=elem.attrib.get("name"), address__iexact = elem.attrib.get("address"))
 			except Restaurant.DoesNotExist:
 				rest = Restaurant()
 				rest.name = elem.attrib.get("name")
@@ -110,10 +110,9 @@ def populate_reports():
 			first = True
 			for report in elem.findall("report"):
 				# get/make the appropriate report
+				date_key = datetime.strptime( report.attrib.get("date"), "%A, %B %d, %Y" )
 				try:
-					date_key = datetime.strptime( report.attrib.get("date"), "%A, %B %d, %Y" )
-					
-					rep = HealthReport.objects.get(date=date_key, restaurant=rest)
+					rep = HealthReport.objects.filter(date=date_key, restaurant=rest)
 					first = False
 					existing = existing+1
 					
