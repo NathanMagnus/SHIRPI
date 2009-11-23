@@ -158,6 +158,25 @@ def delete_comment(request, comment_id):
 		comment = Comment.objects.get(id=comment_id)	
 		if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
 			return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
+
+		restaurant = comment.restaurant
+		
+		restaurant.cleanliness = restaurant.cleanliness - comment.cleanliness
+		if comment.cleanliness > 0:
+			restaurant.cleanliness_count = restaurant.cleanliness_count -1
+
+		restaurant.atmosphere = restaurant.atmosphere - comment.atmosphere
+		if comment.atmosphere > 0:
+			restaurant.atmosphere_count = restaurant.atmosphere_count -1
+		
+		restaurant.food_quality = restaurant.food_quality - comment.food_quality
+		if comment.food_quality > 0:
+			restaurant.food_quality_count = restaurant.food_quality_count -1
+		
+		restaurant.combined = restaurant.combined - comment.combined
+		if comment.combined > 0:
+			restaurant.combined_count = restaurant.combined_count -1
+		
 		comment.delete()
 		return HttpResponseRedirect(request.META['HTTP_REFERER'])
 	except Comment.DoesNotExist:
