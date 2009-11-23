@@ -173,6 +173,10 @@ def delete_comment(request, comment_id):
 		if comment.food_quality > 0:
 			restaurant.food_quality_count = restaurant.food_quality_count -1
 		
+		restaurant.wait_time = restaurant.wait_time - comment.wait_time
+		if comment.wait_time > 0:
+			restaurant.wait_time_count = restaurant.wait_time_count -1
+
 		restaurant.combined = restaurant.combined - comment.combined
 		if comment.combined > 0:
 			restaurant.combined_count = restaurant.combined_count -1
