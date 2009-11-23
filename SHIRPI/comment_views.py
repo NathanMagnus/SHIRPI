@@ -10,17 +10,20 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 
 #create a comment
-def comment(request, restaurant_name, restaurant_address):
+def comment( request, restaurant_name, restaurant_address ):
 	restaurant_name = urllib.unquote_plus(restaurant_name)
 	restaurant_address = urllib.unquote_plus(restaurant_address)
-	#see if the restaurant exists
+	#see if the restaurant exists or error
 	try:
 		restaurant = Restaurant.objects.get(name__iexact = restaurant_name, address__iexact = restaurant_address)
-	except Restaurant.DoesNotExist: #if it doesn't exist, error
+	except Restaurant.DoesNotExist:
 		return render_to_response('SHIRPI/error.html', {'error':"The restaurant you are trying to comment on does not exist"}, RequestContext(request))
-	form = CommentForm() #create the comment form and render
+
+	# create comment form and render
+	form = CommentForm()
 	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form}, RequestContext(request))
 
+# save the edits made to a comment
 def save_edit(request, comment_id):
 	if request.method=="POST":
 		form = CommentForm(request.POST)

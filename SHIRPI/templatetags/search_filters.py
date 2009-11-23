@@ -10,9 +10,10 @@ register = template.Library()
 
 # display the search field
 @register.filter
-def display_search_field(request, autoescape=None):
+def display_search_field( request, autoescape = None ):
 	# enclosing div
 	result ="<div id='search'>\n"
+
 	# display label and input for form, populate with current GET values
 	result +="<label for='restaurant_name'>Name:</label><input type='text' name='restaurant_name' id='restaurant_name' value='" + request.GET.get('restaurant_name', "") + "'/>\n"
 	result +="<label for='restaurant_address'>Address:</label><input type='text' name='restaurant_address' id='restaurant_address' value='" + request.GET.get('restaurant_address', "") + "' /><br />\n"

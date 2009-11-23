@@ -11,7 +11,7 @@ register = template.Library()
 def display_comment( value, user, autoescape = None ):
 
 	result = "<h3 class='timestamp'>" 
-	result += "<a href='#" + urllib.quote_plus(str(value.id)) + "' name ='" + str(value.id) + "'>" + str(value.last_modified.ctime()) + "</a>"
+	result += "<a href='#" + urllib.quote_plus(str(value.id)) + "' name ='" + str(value.id) + "'>" + str(value.last_modified.strftime("%A, %B %d %Y  %I:%M %p")) + "</a>"
 	result += "</h3>\n"
 	
 	# if the current user is the author or an admin, let them delete the post

@@ -5,10 +5,18 @@ from django.conf import settings
 
 register = Library()
 
+'''
+Created using the tutorial at: http://ben.timby.com/?p=51
+Minor modifications made to work with our project
+'''
+
+# information common to all star strips
 DIV_TEMPLATE = "<div id=\"star_strip_%s\">"
 END_DIV_TEMPLATE = "</div>"
 IMG_TEMPLATE = "<img border=\"0\" src=\"%s\" alt=\"%s\"/>"
 EX_IMG_TEMPLATE = "<img onmouseover=\"javascript: hoverStar(%s, %s);\" onmouseout=\"javascript: restoreStar(%s);\" onclick=\"javascript: clickStar('%s', %s, %s);\" border=\"0\" src=\"%s\" alt=\"%s\"/>"
+
+# the stars values and associated images and alts
 STARS = {
 	0.0: ("No Star", "images/star_0.0.gif"),
 	0.25: ("Quarter Star", "images/star_0.25.gif"),
@@ -16,13 +24,19 @@ STARS = {
 	0.75: ("Three Quarter Star", "images/star_0.75.gif"),
 	1.0: ("Full Star", "images/star_1.0.gif")
 }
+
+# ways this can be rounded
 ROUNDERS = {
 	"full": 1,
 	"half": 2,
 	"quarter": 4
 }
+
+# command patterns
 CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s)$" % "|".join(ROUNDERS))
 EX_CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s) on change call (\w*) with (.*)$" % "|".join(ROUNDERS))
+
+# the javascript
 JS_TEMPLATE = """
 <script type="text/javascript" src="/cs215/static/SHIRPI/prototype.js"></script>
 <script type="text/javascript">
@@ -88,6 +102,7 @@ function restoreStar(id)
 </script>
 <script type="text/javascript">
 <!--
+// function that will modify hidden form fields appropriately
 function myCallback(id, pos)
 {
 	var form = $('reviewForm');
@@ -112,13 +127,16 @@ function myCallback(id, pos)
 </script>
 """
 
+# show stars node class
 class ShowStarsNode(Node):
+	# initialize the star info
 	def __init__(self, stars, total_stars, round_to, handler=None, identifier=None):
 		self.stars = stars
 		self.total_stars = int(total_stars)
 		self.rounder = ROUNDERS[round_to.lower()]
 		self.handler = handler
 		self.identifier = identifier
+
 	def merge_star(self, pos, fraction, identifier):
 		alt, src = STARS[fraction]
 		if self.handler:
@@ -127,6 +145,7 @@ class ShowStarsNode(Node):
 		else:
 			return IMG_TEMPLATE % ("/cs215/static/SHIRPI/" + src, alt)
 
+	# render the stars
 	def render(self, context):
 		try:
 			stars = resolve_variable(self.stars, context)
@@ -157,10 +176,12 @@ class ShowStarsNode(Node):
 			output.append(END_DIV_TEMPLATE)
 		return "".join(output)
 
+# set up the javascript etc
 class ShowStarsScriptNode(Node):
 	def render(self, context):
 		return JS_TEMPLATE
 
+# show the stars on the template
 def do_show_stars(parser, token):
 	def syntax_error():
 		raise TemplateSyntaxError("example: show_stars <value> of <total> round to %s [on change call <handler> with <identifier>]" % "|".join(ROUNDER))
@@ -175,8 +196,10 @@ def do_show_stars(parser, token):
 		syntax_error()
 	return ShowStarsNode(*match.groups())
 
+# put the script into the template
 def do_show_stars_script(parser, token):
 	return ShowStarsScriptNode()
 
+# register the functions as filters, use aliases to the actual function names
 register.tag("show_stars", do_show_stars)
 register.tag("show_stars_script", do_show_stars_script)

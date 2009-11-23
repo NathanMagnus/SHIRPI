@@ -8,12 +8,13 @@ from project.SHIRPI.settings import *
 register = template.Library()
 
 # display a group of restaurants in a table
-# KYLE - If you dont' like it, rewrite it because thats all you do anyways
 @register.filter
 def display_sort_field(request, autoescape=None):
+	# the possible sorts
 	sorts = [('name', "Name"), ('address_searchable', "Street"), ('combined', "Combined Scores"), ('cleanliness', "Cleanliness"), ('food_quality', "Food Quality"), ('atmosphere', "Atmosphere"), ('wait_time', "Wait Time")]
 	get = request.GET.copy()
 
+	# enclosing div
 	result ="<div id='sort'>\n"
 	result +="<h4>Sort By</h4>\n"
 	result +="<ul id='sort_by'>\n"

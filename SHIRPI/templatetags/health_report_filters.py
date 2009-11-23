@@ -12,11 +12,11 @@ def display_health_report( report, autoescape = None ):
 	result = "<div class='health_report'>\n"
 
 	# #display the date
-	result += "<h3 class='report_date'>" + str(report.date) + "</h3>\n"
+	result += "<h3 class='report_date'>" + str(report.date.strftime("%A, %B %d %Y")) + "</h3>\n"
 
 	# display each item in the report
 	result += "<ul name='report_items'>\n"
-	if report.len() >0:
+	if report.items.count() >0:
 		for item in report.items.all():
 			result += "<li class='report_item'>" + item.description + "</li>\n"
 	else:
