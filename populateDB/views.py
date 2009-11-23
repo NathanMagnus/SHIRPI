@@ -81,22 +81,26 @@ def populate_reports():
 	# actually look at the xml now
 	for event, elem in et.iterparse("/home/cs215/project/populateDB/reports.xml"):
 		if elem.tag == "location":
+			name = elem.attrib.get("name")
+			address = elem.attrib.get("address")
 			# get/make the appropriate restaurant
 			try:
-				rest = Restaurant.objects.filter(name__iexact=elem.attrib.get("name"), address__iexact = elem.attrib.get("address"))
+				rest = Restaurant.objects.get(name__iexact=name, address__iexact = address)
 			except Restaurant.DoesNotExist:
 				rest = Restaurant()
-				rest.name = elem.attrib.get("name")
-				rest.address = elem.attrib.get("address")
+				rest.name = name
+				rest.address = address
 				rest.visible = True
 				rest.health_report_status=0
 				# get/make the appropriate location if the restaurant doesn't exist
+				rha = elem.attrib.get("rha")
+				municipality = elem.attrib.get("municipality")
 				try:
-					loc = Location.objects.get(rha__iexact=elem.attrib.get("rha"), municipality__iexact = elem.attrib.get("municipality"))
+					loc = Location.objects.get(rha__iexact=rha, municipality__iexact = municipality)
 				except Location.DoesNotExist:
 					loc = Location()
-					loc.rha = elem.attrib.get("rha")
-					loc.municipality = elem.attrib.get("municipality")
+					loc.rha = rha
+					loc.municipality = municipality
 					loc.city = "Regina"
 					loc.province = "Saskatchewan"
 					loc.country = "Canada"
@@ -112,7 +116,7 @@ def populate_reports():
 				# get/make the appropriate report
 				date_key = datetime.strptime( report.attrib.get("date"), "%A, %B %d, %Y" )
 				try:
-					rep = HealthReport.objects.filter(date=date_key, restaurant=rest)
+					rep = HealthReport.objects.get(date=date_key, restaurant=rest)
 					first = False
 					existing = existing+1
 					

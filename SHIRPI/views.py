@@ -28,8 +28,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	restaurant_name = request.GET.get("restaurant_name", restaurant_name)
 	restaurant_address = request.GET.get("restaurant_address", restaurant_address)
 	# set upper and lower limit based upon the GET information
-	lower_limit = request.GET.get('lower_limit')
-	upper_limit = request.GET.get('upper_limit')
+	lower_limit = request.GET.get('lower_limit', "")
+	upper_limit = request.GET.get('upper_limit', "")
 	order = request.GET.get('sort_by', 'name')
 	type = request.GET.get('type', 'DESC')
 	
@@ -79,15 +79,15 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		upper_limit = GOOD_VAL+1
 		lower_limit = GOOD_VAL
 	else:
-		if lower_limit == None:
+		if lower_limit == "":
 			lower_limit = 0
-		if upper_limit == None:
+		if upper_limit == "":
 			upper_limit=9999
 
 	# Query Database
 	# the blank string parameters defined above will filter ALL
 	try:
-		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit).order_by(type + order)
+		results = Restaurant.objects.filter(name__icontains=restaurant_name, address__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit)#.order_by(type + order)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
