@@ -57,32 +57,24 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	# determine the upper limit based upon the english constants
 	# these correspond with the groupings on the index page
 	if upper_limit == "critical":
-		upper_limit = 9999
-		
-		if lower_limit == "moderate":
-			lower_limit = MODERATE_VAL
-		elif lower_limit == "good":
-			lower_limit = GOOD_VAL
-		else:
-			lower_limit = CRITICAL_VAL
-	
+		upper_limit = CRITICAL_VAL+1
 	elif upper_limit == "moderate":
-		upper_limit = CRITICAL_VAL
-		
-		if lower_limit == "good":
-			lower_limit = GOOD_VAL
-		else:
-			lower_limit = MODERATE_VAL
-	
+		upper_limit = MODERATE_VAL+1
 	elif upper_limit == "good":
 		upper_limit = GOOD_VAL+1
+	else:
+		upper_limit=9999
+
+	if lower_limit == "critical":
+		lower_limit = CRITICAL_VAL
+	elif lower_limit == "moderate":
+		lower_limit = MODERATE_VAL
+	elif lower_limit == "good":
 		lower_limit = GOOD_VAL
 	else:
-		if lower_limit == "":
-			lower_limit = 0
-		if upper_limit == "":
-			upper_limit=9999
-
+		lower_limit = 0
+	if lower_limit > upper_limit:
+		return render_to_response("SHIRPI/error.html", {'error': "Lower limit is higher than upper limit"}, RequestContext(request))
 	# Query Database
 	# the blank string parameters defined above will filter ALL
 	try:
