@@ -86,7 +86,7 @@ def populate_reports():
 			name = elem.attrib.get("name")
 			
 			address = elem.attrib.get("address")
-			address_searchable = re.sub("^\d+\s|\s\d+\s|\s\d+$", " ", address.translate(string.maketrans("",""), string.punctuation)).strip()
+			address_searchable = re.sub("^\d+\s|\s\d+\s|\s\d+$", " ", address.translate(string.maketrans("",""), string.punctuation)).strip().lower() # easier to read than some of the one liners in this project
 			
 			# get/make the appropriate restaurant
 			try:
@@ -95,7 +95,7 @@ def populate_reports():
 				rest = Restaurant()
 				rest.name = name
 				rest.address = address
-				rest.address_searchable =  address_searchable
+				rest.address_searchable = address_searchable
 				rest.visible = True
 				rest.health_report_status=0
 				# get/make the appropriate location if the restaurant doesn't exist
