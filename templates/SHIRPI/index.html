@@ -21,10 +21,10 @@
 	</div>
 {% endif %}
 <br />
-{% if Good %}
-	<div class='restaurants good'>
-	<h1>Good</h1>
-	{% for restaurant in Good %}
+{% if Low %}
+	<div class='restaurants low'>
+	<h1>Low</h1>
+	{% for restaurant in Low %}
 		{{restaurant|display_restaurant}}
 	{% endfor %}
 	</div>

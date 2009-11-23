@@ -13,12 +13,12 @@ from django.template import RequestContext
 
 #main page
 def index(request):
-	#get critical, moderate and good reports
+	#get critical, moderate and low reports
 	Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by('-health_report_status', '-combined').all()[:10]
 	Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by('-health_report_status', '-combined').all()[:10]
-	Good = Restaurant.objects.filter(health_report_status__lte=GOOD_VAL).order_by('-health_report_status', '-combined').all()[:10]
+	Low = Restaurant.objects.filter(health_report_status__lte=LOW_VAL).order_by('-health_report_status', '-combined').all()[:10]
 	#render the index page
-	return render_to_response("SHIRPI/index.html", {'Critical':Critical, 'Moderate':Moderate,'Good':Good}, RequestContext(request))
+	return render_to_response("SHIRPI/index.html", {'Critical':Critical, 'Moderate':Moderate,'Low':Low}, RequestContext(request))
 
 #browsing restaurants
 def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
@@ -71,8 +71,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		upper_limit = CRITICAL_VAL+1
 	elif upper_limit == "moderate":
 		upper_limit = MODERATE_VAL+1
-	elif upper_limit == "good":
-		upper_limit = GOOD_VAL+1
+	elif upper_limit == "low":
+		upper_limit = LOW_VAL+1
 	else:
 		upper_limit=9999
 
@@ -80,12 +80,15 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		lower_limit = CRITICAL_VAL
 	elif lower_limit == "moderate":
 		lower_limit = MODERATE_VAL
-	elif lower_limit == "good":
-		lower_limit = GOOD_VAL
+	elif lower_limit == "low":
+		lower_limit = LOW_VAL
 	else:
 		lower_limit = 0
+	
 	if lower_limit > upper_limit:
-		return render_to_response("SHIRPI/error.html", {'error': "Lower limit is higher than upper limit"}, RequestContext(request))
+		upper_limt = lower_limit
+	
+	
 	# Query Database
 	# the blank string parameters defined above will filter ALL
 	try:

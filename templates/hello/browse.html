@@ -9,8 +9,8 @@
 	{{ Moderate|display_restaurant_set:"moderate" }}
 {% endif %}
 <br />
-{% if Good %}
-	{{ Good|display_restaurant_set:"good" }}
+{% if Low %}
+	{{ Low|display_restaurant_set:"low" }}
 {% endif %}
 <br />
 {% if rest and rest.visible%}
@@ -26,7 +26,7 @@
 	</ul>
 	{% endfor %}
 {% endif %}
-{% if not Critical and not Moderate and not Good and not rest %}
+{% if not Critical and not Moderate and not Low and not rest %}
 	<!-- does not exist -->
 	<h1>{{ error }}</h1>
 {% endif %}

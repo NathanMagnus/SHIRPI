@@ -16,7 +16,7 @@ def display_favourite(favourite, autoescape=None):
 	elif favourite.restaurant.health_report_status > MODERATE_VAL:
 		result += "moderate"
 	else:
-		result += "good"
+		result += "low"
 	result += "'>\n"
 	result += "<h4>" + str(favourite.rank) + "</h4>\n"
 	#names can have appostrophies and will cause issues here
@@ -38,7 +38,7 @@ def display_favourite_edit(favourite, count, autoescape=None):
 	elif favourite.restaurant.health_report_status > MODERATE_VAL:
 		result += "moderate"
 	else:
-		result += "good"
+		result += "low"
 	result += "'>"
 	result += "<h4 class='delete'><a href=\"/cs215/shirpi/delete_favourite/" + urllib.quote_plus(favourite.restaurant.name) + "/" + urllib.quote_plus(favourite.restaurant.address) + "/\">Del</a></h4>\n"
 	result += "<h4><select name=\"" +favourite.restaurant.name+ "\">\n"

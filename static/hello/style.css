@@ -51,7 +51,7 @@ body {
 
 }
 
-.good {
+.low {
 	background: #55BB44;
 }
 .moderate {
@@ -60,7 +60,7 @@ body {
 .critical{
 	background: #F75D59;
 }
-.good td, .moderate td, .critical td, .good th, .moderate th, .critical th{
+.low td, .moderate td, .critical td, .low th, .moderate th, .critical th{
 	font-size: 10pt;
 }
 table caption {

@@ -26,7 +26,7 @@ def display_restaurant(restaurant, autoescape=None):
 	elif restaurant.health_report_status >= MODERATE_VAL:
 		result += "moderate"
 	else:
-		result += "good"						
+		result += "low"						
 	name = urllib.quote_plus(restaurant.name)
 	address = urllib.quote_plus(restaurant.address)
 	result += "'>\n"

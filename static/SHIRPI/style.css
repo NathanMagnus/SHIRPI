@@ -131,7 +131,7 @@ body {
 	display: inline-block;
 	width: 330px;
 }
-.good {
+.low {
 	background-color: #5B4;
 }
 .moderate {
@@ -149,13 +149,13 @@ body {
 .moderate div:n-th child(2n+1) a:hover {
 	color: green;
 }
-.good div:nth-child(2n) {
+.low div:nth-child(2n) {
 	background-color: #391;
 }
-.good div:nth-child(2n) a:hover {
+.low div:nth-child(2n) a:hover {
 	color: red;
 }
-.good div:nth-child(2n+1) a:hover {
+.low div:nth-child(2n+1) a:hover {
 	color: yellow;
 }
 .critical div:nth-child(2n) {
