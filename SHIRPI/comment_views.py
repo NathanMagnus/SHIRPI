@@ -177,6 +177,7 @@ def delete_comment(request, comment_id):
 		if comment.combined > 0:
 			restaurant.combined_count = restaurant.combined_count -1
 		
+		restaurant.save()
 		comment.delete()
 		return HttpResponseRedirect(request.META['HTTP_REFERER'])
 	except Comment.DoesNotExist:
