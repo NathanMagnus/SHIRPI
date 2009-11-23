@@ -14,7 +14,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^cs215/admin/', include(admin.site.urls)),
-    (r'^cs215/shirpi/?', include('project.SHIRPI.urls')),
+    (r'^cs215/shirpi/', include('project.SHIRPI.urls')),
     
 
     (r'^cs215/populate/', 'project.populateDB.views.populate'),
