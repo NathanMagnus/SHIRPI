@@ -12,7 +12,7 @@ def display_health_report( report, autoescape = None ):
 	result = "<div class='health_report'>\n"
 
 	# #display the date
-	result += "<h3 class='report_date'>" + report.date + "</h3>\n"
+	result += "<h3 class='report_date'>" + str(report.date) + "</h3>\n"
 
 	# display each item in the report
 	result += "<ul name='report_items'>\n"
