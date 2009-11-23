@@ -20,8 +20,9 @@ class Chain(models.Model):
 class Restaurant(models.Model):
 	location = models.ForeignKey(Location)
 	address = models.CharField(max_length="75")
+	address_simple = models.CharField(max_length="75")
 	name = models.CharField(max_length="50")
-	visible = models.BooleanField(default=True)
+	
 	health_report_status = models.IntegerField(default=0)
 	combined = models.FloatField(default = "0", choices=choices)
 	combined_count = models.IntegerField(default=0)
@@ -33,7 +34,10 @@ class Restaurant(models.Model):
 	atmosphere_count = models.IntegerField(default=0)
 	wait_time = models.FloatField(default = "0", choices=choices)
 	wait_time_count = models.IntegerField(default=0)
+	
+	visible = models.BooleanField(default=True)
 	chain = models.ForeignKey(Chain, null=True)
+	
 	def __unicode__(self):
 		return "%s - %s" % (self.name, self.address)
 

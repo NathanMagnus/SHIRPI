@@ -1,5 +1,7 @@
 import urllib
 import time
+import re
+import string
 from datetime import datetime, date, time
 import xml.etree.cElementTree as et
 from project.SHIRPI.models import *
@@ -82,7 +84,11 @@ def populate_reports():
 	for event, elem in et.iterparse("/home/cs215/project/populateDB/reports.xml"):
 		if elem.tag == "location":
 			name = elem.attrib.get("name")
+			
 			address = elem.attrib.get("address")
+			address_searchable = re.sub("^\d+\s|\s\d+\s|\s\d+$", " ", address.translate(string.maketrans("",""), string.punctuation)).strip()
+			print address_searchable
+			
 			# get/make the appropriate restaurant
 			try:
 				rest = Restaurant.objects.get(name__iexact=name, address__iexact = address)
@@ -114,7 +120,10 @@ def populate_reports():
 			first = True
 			for report in elem.findall("report"):
 				# get/make the appropriate report
+				
 				date_key = datetime.strptime( report.attrib.get("date"), "%A, %B %d, %Y" )
+				date_key = date(date_key.year, date_key.month, date_key.day) # convert to date object
+				print date_key
 				try:
 					rep = HealthReport.objects.get(date=date_key, restaurant=rest)
 					first = False
