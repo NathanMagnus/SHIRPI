@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 register = template.Library()
 
 # display a health report
-@register_filter
+@register.filter
 def display_health_report( report, autoescape = None ):
 
 	#enclosing div
