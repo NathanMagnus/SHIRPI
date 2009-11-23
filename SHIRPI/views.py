@@ -1,4 +1,3 @@
-# Create your views here.
 import urllib
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm, ProfileForm
@@ -17,22 +16,26 @@ def index(request):
 	Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by('-health_report_status', '-combined').all()[:10]
 	Moderate = Restaurant.objects.filter(health_report_status__lt=CRITICAL_VAL).filter(health_report_status__gte=MODERATE_VAL).order_by('-health_report_status', '-combined').all()[:10]
 	Low = Restaurant.objects.filter(health_report_status__lte=LOW_VAL).order_by('-health_report_status', '-combined').all()[:10]
+
 	#render the index page
 	return render_to_response("SHIRPI/index.html", {'Critical':Critical, 'Moderate':Moderate,'Low':Low}, RequestContext(request))
 
 #browsing restaurants
 def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
-
 	# determine the restaurant_name and restaurant_address
 	# any get information will override the parameters passed by the url
 	restaurant_name = request.GET.get("restaurant_name", restaurant_name)
 	restaurant_address = request.GET.get("restaurant_address", restaurant_address)
+
 	# set upper and lower limit based upon the GET information
 	lower_limit = request.GET.get('lower_limit', "")
 	upper_limit = request.GET.get('upper_limit', "")
+
+	# get order and type information
 	order = request.GET.get('sort_by', 'name').lower()
-	type = request.GET.get('type', 'DESC').lower()
+	type = request.GET.get('type', 'desc').lower()
 	
+	# if descending put the - in front, otherwise nothing
 	if type == "desc":
 		type = "-"
 	else:
@@ -40,12 +43,14 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 
 	# process the order options
 	valid_order = False
-	options = Restaurant._meta
 
+	# use the model fields for ordering
+	options = Restaurant._meta
 	for option in options.fields:
 		if order == option.name:
 			valid_order=True
 			break
+	# default is name
 	if order == "" or not valid_order:
 		order = "name"
 
@@ -85,8 +90,11 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	else:
 		lower_limit = 0
 	
+	# if the upper limit is higher than the lower limit, assume the user made a mistake and swap for them
 	if lower_limit > upper_limit:
-		upper_limt = lower_limit
+		temp = upper_limit
+		upper_limit = lower_limit
+		lower_limit = temp
 	
 	
 	# Query Database
@@ -137,30 +145,45 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 		restaurant = Restaurant.objects.get(name__iexact=urllib.unquote_plus(restaurant_name), address__iexact=urllib.unquote_plus(restaurant_address))
 		reports = HealthReport.objects.filter(restaurant=restaurant)
 		comments = Comment.objects.filter(restaurant=restaurant)
+
 		#context defined here so that isn't ugly
 		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
+
 		return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 	except Restaurant.DoesNotExist:
 		# redirect 
-		return HttpResponseRedirect("/cs215/SHIRPI/")
+		return HttpResponseRedirect("/cs215/shirpi/")
 
-
+# view a user's profile
 def view_profile(request, user_name):
-	print "here"
+	# clean the username
 	user_name = urllib.unquote_plus(user_name)
+
+	# get the user from the DB or display error page
 	try:
 		user_to_view = User.objects.get(username=user_name)
 	except User.DoesNotExist:
 		return render_to_response('SHIRPI/error.html', {'error': "No user with username '" + user_name +"'"}, RequestContext(request))
+
+	# get the favourites and comments for this user
 	favourites = Favourite.objects.filter(user=user_to_view).order_by('rank')
 	comments = Comment.objects.filter(author=user_to_view)
+
+	# render
 	context = {'user_to_view': user_to_view, 'favourites': favourites, 'comments': comments}
 	return render_to_response('SHIRPI/view_profile.html', context, RequestContext(request))	
 
+# edit the current user's profile
 def edit_profile(request):
 	user = request.user
-#	if user.is_authenticated():
+
+	# if the user isn't logged in, error
+	if not user.is_authenticated():
+		return render_to_response('SHIRPI/error.html', {'error': "You are not logged in"}, RequestContext(request))
+
+	# if the edit form has been submitted
 	if request.method == "POST":
+		# ensure it is valid and process it
 		form = ProfileForm(request.POST)
 		if form.is_valid():
 			if form.cleaned_data['new_password'] != form.cleaned_data['password_again']:
@@ -174,9 +197,10 @@ def edit_profile(request):
 			user.last_name = form.cleaned_data['last_name']
 			user.save()
 			return render_to_response('SHIRPI/edit_profile.html', {'form': form, 'message': "Changes completed"}, RequestContext(request))
+		# error if the form isn't valid
 		else:
 			return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
-	else:
-		form = ProfileForm(initial={'email': request.user.email, 'first_name': request.user.first_name, 'last_name': request.user.last_name})
-		return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))
-	return render_to_response('SHIRPI/error.html', {'error':"You are not logged in"}, RequestContext(request)) 
+
+	# otherwise render the page with the edit form
+	form = ProfileForm(initial={'email': request.user.email, 'first_name': request.user.first_name, 'last_name': request.user.last_name})
+	return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))

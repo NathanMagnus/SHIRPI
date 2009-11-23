@@ -2,6 +2,7 @@
 {% block title %}View Restaurant Information: {{restaurant.name}} at {{restaurant.address}}{%endblock%}
 {% load restaurant_filters %}
 {% load comment_filters %}
+{% load health_report_filters %}
 {% block extrahead %}
 	{% if restaurant %}
 	<script src="http://maps.google.com/?file=api&amp;v=2.x&amp;key=ABQIAAAAJZucu9WsDLjQXvuECRZKCBRFsYESLCWDQrfH4g8pYUVgNYJbSxRMjk6wTuPC3mllAtrGN9hs-42WYg" type="text/javascript"></script>
@@ -90,20 +91,7 @@
 	{% ifnotequal reps|length 0 %}
 	<h1>Health Inspections</h1>
 		{% for report in reports %}
-		<h2>{{report.date}}</h2>
-		<ul>
-			{% for item in report.items.all %}
-				<li>
-					{{item.number}}. <b>{{item.short_description|safe}}</b><br />
-					{{item.description|safe}}
-				</li>
-			{% endfor %}
-			{% ifequal report.items|length 0 %}
-				<li>
-					None
-				</li>
-			{% endifequal %}
-		</ul>
+			{{ report|display_health_report }}
 		{% endfor %}
 	{% else %}
 	 	<h1>No Health Inspections</h1>
