@@ -11,7 +11,7 @@ register = template.Library()
 # KYLE - If you dont' like it, rewrite it because thats all you do anyways
 @register.filter
 def display_sort_field(request, autoescape=None):
-	sorts = [('combined', "Combined Scores"), ('cleanliness', "Cleanliness"), ('food_quality', "Food Quality"), ('atmosphere', "Atmosphere")]
+	sorts = [('combined', "Combined Scores"), ('cleanliness', "Cleanliness"), ('food_quality', "Food Quality"), ('atmosphere', "Atmosphere"), ('wait_time', "Wait Time")]
 	get = request.GET.copy()
 
 	result ="<div id='sort'>\n"
