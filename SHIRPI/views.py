@@ -33,7 +33,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	order = request.GET.get('sort_by', 'name').lower()
 	type = request.GET.get('type', 'DESC').lower()
 	
-	if type == "DESC":
+	if type == "desc":
 		type = "-"
 	else:
 		type = ""
