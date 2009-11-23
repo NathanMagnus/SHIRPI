@@ -19,6 +19,5 @@ urlpatterns = patterns('',
 
     (r'^cs215/populate/', 'project.populateDB.views.populate'),
 
-    (r'^cs215/shirpi/accounts/?', include('registration.urls')),
     #(r'^cs215/SHIRPI|shirpi/?', 'project.SHIRPI.views.index') # not catch-all
 )
