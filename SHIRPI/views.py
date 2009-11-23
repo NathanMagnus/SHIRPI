@@ -38,7 +38,15 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	else:
 		type = ""
 
-	if order == "":
+	# process the order options
+	valid_order = False
+	options = Restaurant._meta
+
+	for option in options.fields:
+		if order == option.name:
+			valid_order=True
+			break
+	if order == "" or not valid_order:
 		order = "name"
 
 	# done this way so that browse/ works properly
