@@ -30,13 +30,16 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	# set upper and lower limit based upon the GET information
 	lower_limit = request.GET.get('lower_limit', "")
 	upper_limit = request.GET.get('upper_limit', "")
-	order = request.GET.get('sort_by', 'name')
-	type = request.GET.get('type', 'DESC')
+	order = request.GET.get('sort_by', 'name').lower()
+	type = request.GET.get('type', 'DESC').lower()
 	
 	if type == "DESC":
 		type = "-"
 	else:
 		type = ""
+
+	if order == "":
+		order = "name"
 
 	# done this way so that browse/ works properly
 	if restaurant_name == None:

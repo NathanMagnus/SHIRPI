@@ -142,7 +142,7 @@ def view_comments(request, restaurant_name, restaurant_address):
 	restaurant_name = urllilb.unquote_plus(restaurant_name)
 	restaurant_address = urllib.unquote_plus(restaurant_address)
 	try:
-		comments = Comment.objects.filter(restaurant__name__iexact = restaurant_name, restaurant__address__iexact = restaurant_address)
+		comments = Comment.objects.filter(restaurant__name__iexact = restaurant_name, restaurant__address__iexact = restaurant_address).order_by('-created')
 	except Comment.DoesNotExist:
 		return HttpResponseRedirect(request.META['HTTP_REFERER'])
 	return render_to_response('SHIRPI/view_comments.html', {'comments': comments}, RequestContext(request))
