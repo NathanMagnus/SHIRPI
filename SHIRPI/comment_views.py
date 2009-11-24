@@ -60,12 +60,13 @@ def save_edit(request, comment_id):
 				comment.save()
 
 				#forward to the restaurant browse
-				return HttpResponseRedirect("/cs215/shirpi/browse/"+urllib.quote_plus(restaurant.name)+"/"+urllib.quote_plus(restaurant.address)+"/")
+				return HttpResponseRedirect("/cs215/shirpi/view/"+urllib.quote_plus(restaurant.name)+"/"+urllib.quote_plus(restaurant.address)+"/")
 
 			#comment doesn't exist, error
 			except Comment.DoesNotExist:
-				pass
-	return render_to_response('SHIRPI/error.html', {'error': "Comment does not exist"}, RequestContext(request))	
+				return render_to_response('SHIRPI/error.html', {'error': "Comment does not exist"}, RequestContext(request))	
+		return render_to_response('SHIRPI/comment.html', {'form': form}, RequestContext(request))
+
 #save a comment
 def save(request, restaurant_name, restaurant_address):
 	restaurant_name = urllib.unquote_plus(restaurant_name)

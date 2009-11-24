@@ -21,6 +21,7 @@ class Restaurant(models.Model):
 	location = models.ForeignKey(Location)
 	address = models.CharField(max_length="75")
 	address_searchable = models.CharField(max_length="75")
+	postal_code = models.CharField(max_length="8")
 	name = models.CharField(max_length="50")
 	
 	health_report_status = models.IntegerField(default=0)
