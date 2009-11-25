@@ -242,7 +242,7 @@ def view_comments(request, restaurant_name, restaurant_address):
 
 	# get the comments or redirect to the referer page
 	try:
-		comments = Comment.objects.filter(restaurant__name__iexact = restaurant_name, restaurant__address__iexact = restaurant_address).order_by('-created')
+		comments = Comment.objects.filter(restaurant__name__iexact = restaurant_name, restaurant__address__iexact = restaurant_address).order_by('-created')[0:5]
 	except Comment.DoesNotExist:
 		return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
