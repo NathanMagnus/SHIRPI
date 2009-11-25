@@ -106,7 +106,6 @@ def populate_reports():
 				except Location.DoesNotExist:
 					loc = Location()
 					loc.rha = rha
-					loc.municipality = municipality
 					loc.city = "Regina"
 					loc.province = "Saskatchewan"
 					loc.country = "Canada"

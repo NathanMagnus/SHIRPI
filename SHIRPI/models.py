@@ -1,14 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# choices for the ratings (0 - 5)
 choices = (('0', 0), ('1', 1), ('2', 2), ('3', 3), ('4', 4), ('5', 5))
 
+'''
+Class		: Location
+Description	: A location (city, province, country, rha)
+'''
 class Location(models.Model):
 	city = models.CharField(max_length="50")
 	province = models.CharField(max_length="50")
 	country = models.CharField(max_length="50")
 	rha = models.CharField(max_length="200")
-	municipality = models.CharField(max_length="100")
 	def __unicode__(self):
 		return "%s, %s" % (self.city, self.rha)		
 
