@@ -100,9 +100,8 @@ def populate_reports():
 				rest.health_report_status=0
 				# get/make the appropriate location if the restaurant doesn't exist
 				rha = elem.attrib.get("rha")
-				municipality = elem.attrib.get("municipality")
 				try:
-					loc = Location.objects.get(rha__iexact=rha, municipality__iexact = municipality)
+					loc = Location.objects.get(rha__iexact=rha)
 				except Location.DoesNotExist:
 					loc = Location()
 					loc.rha = rha
