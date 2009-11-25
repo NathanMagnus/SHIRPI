@@ -12,8 +12,14 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.utils.safestring import mark_safe
 
-# main populate function, calls the appropriate helper function
+'''
+Function	: populate
+Description	: determine what type of population is to be done and call the appropriate function
+Parameter(s)	: request - HttpRequest
+Return		: HttpResponse
+'''
 def populate(request):
+
 	# get the mode and password from GET
 	mode = urllib.unquote_plus(request.GET.get('mode', ""))
 	password = urllib.unquote_plus(request.GET.get('password', ""))
@@ -25,11 +31,7 @@ def populate(request):
 		# check the mode
 		if mode == "reports":
 			 # return the value of populate_reports which is a http response
-			populate_reports()
-
-			# get all reports and render
-			reports = HealthReport.objects.filter()
-			return render_to_response('populateDB/populate.html', {'reports': reports}, RequestContext(request))
+			return populate_reports(request)
 		elif mode == "items":
 			populate_items()
 		elif mode == "anonymous":
@@ -39,7 +41,12 @@ def populate(request):
 	#render the error or success
 	return render_to_response("SHIRPI/error.html", {'error': error}, RequestContext(request))
 
-# populate the items
+'''
+Function	: populate_items
+Description	: populate the default Health Inspection Item information
+Parameter(s)	: None
+Return		: None
+'''
 def populate_items():
 	# file containing the item information
 	from project.populateDB.items import *
@@ -62,7 +69,12 @@ def populate_items():
 		# save changes
 		dbItem.save()
 
-# create the anonymous user
+'''
+Function	: create_anonymous
+Description	: create the anonymous user
+Parameter(s)	: None
+Return		: None 	
+'''
 def create_anonymous():
 	# if Anonymous already exists, don't do anything, otherwise create it
 	try:
@@ -71,8 +83,14 @@ def create_anonymous():
 		anonymous = User.objects.create_user('Anonymous', 'none@none.com', '`1234567890-=~!@#$%^&*()_+QAZwsxEDCrfvTGByhnUJMik,OL.p;/[]')
 		anonymous.save()
 
-# populate the db with the reports
-def populate_reports():
+'''
+Function	: populate_reports
+Description	: populate the db with the reports from the reports file
+		: reports file must be "/home/cs215/project/populateDB/reports.xml" and have the proper format
+Parameter(s)	: request - a HttpRequest used to call this function
+Return 		: HttpResponse
+'''
+def populate_reports(request):
 	# keep a count of the number of new reports and duplicates
 	existing=0
 	new = 0
@@ -153,3 +171,7 @@ def populate_reports():
 
 					# save the report
 					rep.save()
+
+	# get all reports and render
+	reports = HealthReport.objects.filter()
+	return render_to_response('populateDB/populate.html', {'reports': reports}, RequestContext(request))
