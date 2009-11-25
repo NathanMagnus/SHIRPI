@@ -3,7 +3,7 @@ import urllib
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm 
 
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
@@ -22,11 +22,30 @@ def comment( request, restaurant_name, restaurant_address ):
 	restaurant_name = urllib.unquote_plus(restaurant_name)
 	restaurant_address = urllib.unquote_plus(restaurant_address)
 
+	if request.user.is_authenticated():
+		user = request.user
+		ip = None
+	else:
+		user = User.objects.get( username = "Anonymous" )
+		ip = request.META['REMOTE_ADDR']
+
 	#see if the restaurant exists or error
 	try:
 		restaurant = Restaurant.objects.get(name__iexact = restaurant_name, address__iexact = restaurant_address)
+		if ip == None:
+			comment_set = Comment.objects.filter(author__username = user.username, restaurant = restaurant).order_by('-created')[:1]
+		else:
+			comment_set = Comment.objects.filter(author__username = user.username, restaurant = restaurant, ip = ip).order_by('-created')[:1]
+		if len(comment_set) > 0:
+			comment = comment_set[0]
+			if comment.created + timedelta(days=1) > datetime.now():
+				return render_to_response('SHIRPI/error.html', {'error': "You can only comment on a restaurant once per day"}, RequestContext(request))
+
 	except Restaurant.DoesNotExist:
 		return render_to_response('SHIRPI/error.html', {'error':"The restaurant you are trying to comment on does not exist"}, RequestContext(request))
+	except Comment.DoesNotExist:
+		pass
+
 
 	# create comment form and render
 	form = CommentForm()
