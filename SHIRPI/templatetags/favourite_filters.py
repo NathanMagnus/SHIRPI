@@ -51,7 +51,7 @@ def display_favourite_edit( favourite, count, autoescape = None ):
 	result += "<h4><select name=\"" + favourite.restaurant.name + "\">\n"
 	for i in range(1, count):
 		result += "<option"
-		if i - favourite.rank <= 0:
+		if i == favourite.rank:
 			result += " selected='selected'"
 		result += ">" + str(i) + "</option>"
 	result += "</select></h4>\n"

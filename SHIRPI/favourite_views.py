@@ -1,5 +1,3 @@
-import urllib
-from project.SHIRPI.models import *
 
 from django.db.models import Max
 from django.contrib.auth.models import User
@@ -93,7 +91,13 @@ def delete_favourite(request, restaurant_name, restaurant_address):
 	restaurant_address = urllib.unquote_plus(restaurant_address)
 	try:
 		favourite = Favourite.objects.get(user__username = request.user.username, restaurant__name__iexact = restaurant_name, restaurant__address__iexact = restaurant_address)
+		rank = favourite.rank
 		favourite.delete()
+		favourites = Favourite.objects.filter(user__username = request.user.username, rank__gt = rank).order_by('rank')
+		for favourite in favourites:
+			favourite.rank = rank
+			rank = rank + 1
+			favourite.save()
 	except Favourite.DoesNotExist:
 		pass
 	return HttpResponseRedirect('/cs215/shirpi/view_profile/' + request.user.username + '/')
