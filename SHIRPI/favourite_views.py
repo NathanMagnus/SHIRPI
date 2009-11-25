@@ -35,8 +35,10 @@ def add_favourite(request, restaurant_name, restaurant_address):
 		favourite = Favourite.objects.get(restaurant=restaurant, user__username = request.user.username)
 	except Favourite.DoesNotExist:
 		#get all preexisting favourites for the user
-		rank_set = Favourite.objects.filter(user__username = request.user.username).aggregate(Max('rank')
-		rank = rank_set['rank__max']
+		rank_set = Favourite.objects.filter(user__username = request.user.username).aggregate(Max('rank'))
+		if rank_set == None:
+			rank_set['rank__max'] = 0
+		rank = rank_set['rank__max'] + 1
 		favourite = Favourite()
 		favourite.user = User.objects.get(username=request.user.username)
 		favourite.restaurant = restaurant
