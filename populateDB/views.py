@@ -174,4 +174,4 @@ def populate_reports(request):
 
 	# get all reports and render
 	reports = HealthReport.objects.filter()
-	return render_to_response('populateDB/populate.html', {'reports': reports}, RequestContext(request))
+	return render_to_response('populateDB/populate.html', {'reports': reports, 'new': new, 'existing': existing}, RequestContext(request))
