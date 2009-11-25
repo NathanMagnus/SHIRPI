@@ -37,7 +37,6 @@ def display_favourite_edit( favourite, count, autoescape = None ):
 	# count will be 0 based
 	count = count + 1
 
-	#
 	result = "<div id='favourite' class='"
 	if favourite.restaurant.health_report_status > CRITICAL_VAL:
 		result += "critical"
@@ -52,7 +51,7 @@ def display_favourite_edit( favourite, count, autoescape = None ):
 	result += "<h4><select name=\"" + favourite.restaurant.name + "\">\n"
 	for i in range(1, count):
 		result += "<option"
-		if i == favourite.rank:
+		if i - favourite.rank <= 0:
 			result += " selected='selected'"
 		result += ">" + str(i) + "</option>"
 	result += "</select></h4>\n"
