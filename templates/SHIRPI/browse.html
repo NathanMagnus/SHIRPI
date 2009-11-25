@@ -19,7 +19,9 @@
 	{{request|display_sort_field}}
 	<div class='restaurants'>
 	{% for restaurant in restaurants %}
-		{{restaurant|display_restaurant}}
+		{% if restaurant.visible %}
+			{{restaurant|display_restaurant}}
+		{% endif %}
 	{% endfor %}
 	</div>
 {% endif %}

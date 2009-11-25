@@ -6,7 +6,7 @@ choices = (('0', 0), ('1', 1), ('2', 2), ('3', 3), ('4', 4), ('5', 5))
 
 '''
 Class		: Location
-Description	: A location (city, province, country, rha)
+Description	: Databse model for a location (city, province, country, rha)
 '''
 class Location(models.Model):
 	city = models.CharField(max_length="50")
@@ -18,7 +18,7 @@ class Location(models.Model):
 
 '''
 Class		: Restaurant
-Description	: Contain all information about the restaurants ratings
+Description	: Database model that contains all information about the restaurants ratings
 		: location information and if it is visible
 '''
 class Restaurant(models.Model):
@@ -45,8 +45,8 @@ class Restaurant(models.Model):
 		return "%s - %s" % (self.name, self.address)
 
 '''
-Class		:
-Description	:
+Class		: Comment
+Description	: Database model for a user comment
 '''
 class Comment(models.Model):
 	id = models.IntegerField(primary_key = True)
