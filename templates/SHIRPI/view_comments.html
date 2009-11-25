@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}View Comments {%endblock%}
-{% load browse_filters %}
+{% load comment_filters %}
 {% block content %}
 {% for comment in comments %}
 	{{comment|display_comment:user}}
