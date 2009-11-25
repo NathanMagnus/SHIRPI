@@ -2,6 +2,10 @@
 from django.contrib import admin
 from SHIRPI.models import *
 
+'''
+Each of the classes within this file are used to define the django admin interface for a specific model.
+'''
+
 # admin page for locations
 class LocationAdmin(admin.ModelAdmin):
 	list_display = ('city', 'province', 'country', 'rha', 'municipality')

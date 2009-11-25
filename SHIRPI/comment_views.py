@@ -23,24 +23,48 @@ def comment( request, restaurant_name, restaurant_address ):
 	form = CommentForm()
 	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form}, RequestContext(request))
 
+def updat_values(restaurant_value, comment_value, method):
+	
+	restaurant.cleanliness = restaurant.cleanliness + method * comment.cleanliness
+	if comment.cleanliness>0:
+		restaurant.cleanliness_count = restaurant.cleanliness_count + method * 1
+	
+	restaurant.food_quality = restaurant.food_quality + method * comment.food_quality
+	if comment.food_quality>0:
+		restaurant.food_quality_count = restaurant.food_quality_count + method * 1
+	
+	restaurant.atmosphere = restaurant.atmosphere + method * comment.atmosphere
+	if comment.atmosphere>0:
+		restaurant.atmosphere_count = restaurant.atmosphere_count + method * 1
+
+	restaurant.wait_time = restaurant.wait_time + method * comment.wait_time
+	if comment.wait_time>0:
+		restaurant.wait_time_count = restaurant.wait_time_count + method * 1
+	
+	restaurant.combined = restaurant.combined + method * comment.combined
+	if comment.combined>0:
+		restaurant.combined_count = restaurant.combined_count + method * 1
+	restaurant.save()
+
 # save the edits made to a comment
 def save_edit(request, comment_id):
+	# if a form has been submitted
 	if request.method=="POST":
+		# if the form is valid
 		form = CommentForm(request.POST)
 		if form.is_valid():
+			# try to get the old comment
 			try:
 				comment = Comment.objects.get(id=comment_id)
+				# if this user isn't the author, error
 				if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
 					return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
 				restaurant = comment.restaurant
-				#subtact old total
-				restaurant.cleanliness = comment.restaurant.cleanliness - comment.cleanliness
-				restaurant.food_quality = comment.restaurant.food_quality - comment.food_quality
-				restaurant.atmosphere = comment.restaurant.atmosphere - comment.atmosphere
-				restaurant.wait_time = comment.restaurant.wait_time - comment.wait_time
-				restaurant.combined = comment.restaurant.combined - comment.combined
+
+				# subtract old comment info from the restaurant totals
+				update_values(restaurant, comment, -1)
 			
-				#put in new total
+				#put in comment info
 				comment.comment = form.cleaned_data['comment']
 				comment.cleanliness = form.cleaned_data['cleanliness']
 				comment.food_quality = form.cleaned_data['food_quality']
@@ -49,14 +73,10 @@ def save_edit(request, comment_id):
 				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere - comment.wait_time
 				comment.ip = request.META['REMOTE_ADDR']
 
-				restaurant.cleanliness = restaurant.cleanliness + comment.cleanliness
-				restaurant.food_quality = restaurant.food_quality + comment.food_quality
-				restaurant.atmosphere = restaurant.atmosphere + comment.atmosphere
-				restaurant.wait_time = restaurant.wait_time + comment.wait_time
-				restaurant.combined = restaurant.combined + comment.combined
+				# update restaurant totals
+				update_values(restaurant, comment, 1)
 
-				#save updates
-				restaurant.save()
+				# save comment
 				comment.save()
 
 				#forward to the restaurant browse
@@ -99,27 +119,13 @@ def save(request, restaurant_name, restaurant_address):
 			comment.comment = comment_form.cleaned_data['comment']
 		
 			#update the restaurant info and comment info/count
-			if cleanliness>0:
-				restaurant.cleanliness_count = restaurant.cleanliness_count + 1
-				comment.cleanliness = cleanliness
-				restaurant.cleanliness = restaurant.cleanliness + cleanliness
-			if food_quality>0:
-				restaurant.food_quality_count = restaurant.food_quality_count +1
-				comment.food_quality = food_quality
-				restaurant.food_quality = restaurant.food_quality + food_quality
-			if atmosphere>0:
-				restaurant.atmosphere_count = restaurant.atmosphere_count +1
-				comment.atmosphere = atmosphere
-				restaurant.atmosphere = restaurant.atmosphere + atmosphere
-			if wait_time>0:
-				restaurant.wait_time_count = restaurant.wait_time_count + 1
-				comment.wait_time = wait_time
-				restaurant.wait_time = restaurant.wait_time + wait_time
+			comment.cleanliness = cleanliness
+			comment.food_quality = food_quality
+			comment.atmosphere = atmosphere
+			comment.wait_time = wait_time
 			comment.combined = atmosphere + food_quality + cleanliness - wait_time
-			#update the comined info/count
-			if (comment.combined > 0):
-				restaurant.combined_count = restaurant.combined_count + 1
-			restaurant.combined = restaurant.combined + comment.combined
+
+			update_values(restaurant, comment, 1)
 
 			#set datetime
 			comment.created = datetime.now()
