@@ -237,7 +237,7 @@ Parameter(s)	: request - HttpRequest
 Return		: HttpResponse
 '''
 def view_comments(request, restaurant_name, restaurant_address):
-	restaurant_name = urllilb.unquote_plus(restaurant_name)
+	restaurant_name = urllib.unquote_plus(restaurant_name)
 	restaurant_address = urllib.unquote_plus(restaurant_address)
 
 	# get the comments or redirect to the referer page
