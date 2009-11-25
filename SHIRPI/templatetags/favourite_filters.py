@@ -56,7 +56,7 @@ def display_favourite_edit( favourite, count, autoescape = None ):
 			result += " selected='selected'"
 		result += ">" + str(i) + "</option>"
 	result += "</select></h4>\n"
-	result += "<h3 class='name'><a href=\"/cs215/shirpi/browse/" + urllib.quote_plus(favourite.restaurant.name) + "/" + urllib.quote_plus(favourite.restaurant.address) + "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
+	result += "<h3 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(favourite.restaurant.name) + "/" + urllib.quote_plus(favourite.restaurant.address) + "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
 	result += "<h4>" + str(favourite.restaurant.address) + "</h4>\n"
 	result += "</div>"
 	return mark_safe(result)
