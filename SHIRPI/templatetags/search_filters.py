@@ -8,9 +8,14 @@ from project.SHIRPI.templatetags import sort_filters
 
 register = template.Library()
 
-# display the search field
+'''
+Function	: display_search_field
+Description	: generate the html for the search field
+Parameter(s)	: request - the HttpRequest for the page
+Return		: string containing html for the search form
+'''
 @register.filter
-def display_search_field( request, autoescape = None ):
+def display_search_field( request ):
 	# enclosing div
 	result ="<div id='search'>\n"
 

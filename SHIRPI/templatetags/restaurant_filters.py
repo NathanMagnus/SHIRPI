@@ -7,9 +7,14 @@ from project.SHIRPI.settings import *
 
 register = template.Library()
 
-# display the info of one restaurant
+'''
+Function	: display_restaurant
+Description	: generate the html to display one restaurant
+Parameter(s)	: restaurant - the restaurant to display
+Return		: string of html to display one restaurant
+'''
 @register.filter
-def display_restaurant( restaurant, autoescape = None ):
+def display_restaurant( restaurant ):
 	# prevent division by 0
 	if restaurant.cleanliness_count<1:
 		restaurant.cleanliness_count=1
@@ -49,5 +54,3 @@ def display_restaurant( restaurant, autoescape = None ):
 	result +="</ul>"
 	result += "</div>"
 	return mark_safe(result)
-
-display_restaurant.needs_autoescape = True

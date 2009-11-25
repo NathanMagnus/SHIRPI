@@ -7,7 +7,12 @@ from project.SHIRPI.settings import *
 
 register = template.Library()
 
-# display a favourite
+'''
+Function	: display_favourite
+Description	: generate the html for one favourite
+Parameter(s)	: favourite - the favourite to be generated for
+Return		: string of the html for one favourite
+'''
 @register.filter
 def display_favourite( favourite, autoescape = None ):
 
@@ -28,12 +33,17 @@ def display_favourite( favourite, autoescape = None ):
 	result += "</div>\n"
 	return mark_safe(result)
 
-display_favourite.needs_autoescape = True
 display_favourite.needs_category = True
 
-# display a fourite and allow editting
+'''
+Function	: display_favourite_edit
+Description	: display a favourite and the appropriate forms/links to edit it
+Parameter(s)	: favourite - the favourite to display
+		: count - the total number of favourites for the user
+Return		: string of html representing one editable favourite
+'''
 @register.filter
-def display_favourite_edit( favourite, count, autoescape = None ):
+def display_favourite_edit( favourite, count ):
 	# count will be 0 based
 	count = count + 1
 
@@ -60,7 +70,6 @@ def display_favourite_edit( favourite, count, autoescape = None ):
 	result += "</div>"
 	return mark_safe(result)
 
-display_favourite.needs_autoescape = True
 display_favourite.needs_count = True
 
 

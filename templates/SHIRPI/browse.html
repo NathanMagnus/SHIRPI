@@ -16,7 +16,7 @@
 	{{request|display_search_field}}
 	<input type="submit" name="Submit" value="Submit" id="search_sort_submit" style="visibility: hidden;"/>
 </form>
-	{{request|display_sort_field}}
+	{{request|display_sort_options}}
 	<div class='restaurants'>
 	{% for restaurant in restaurants %}
 		{% if restaurant.visible %}

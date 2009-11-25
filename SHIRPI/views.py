@@ -11,7 +11,12 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 
-#main page
+'''
+Function	: index
+Description	: the main page for SHIRPI
+Parameter(s)	: request - HttpRequest
+Return 		: HttpResponse
+'''
 def index(request):
 	#get critical, moderate and low reports
 	Critical = Restaurant.objects.filter(health_report_status__gte=CRITICAL_VAL).order_by('-health_report_status', '-combined').all()[:10]
@@ -21,7 +26,14 @@ def index(request):
 	#render the index page
 	return render_to_response("SHIRPI/index.html", {'Critical':Critical, 'Moderate':Moderate,'Low':Low}, RequestContext(request))
 
-#browsing restaurants
+'''
+Function	: browse
+Description	: determine what restaurants are to b edisplayed when browsing/searching/sorting
+Parameter(s)	: restaurant_name - the name to be searched for/displayed
+		: restaurant_address - the address to be searched for/displayed
+		: api_flag - if this is an api call or not
+Return 		: HttpResponse
+'''
 def browse(request, restaurant_name = None, restaurant_address = None, api_flag = None):
 	# determine the restaurant_name and restaurant_address
 	# any get information will override the parameters passed by the url
@@ -51,6 +63,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		if order == option.name:
 			valid_order=True
 			break
+
 	# default is name
 	if order == "" or not valid_order:
 		order = "name"
@@ -139,7 +152,14 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		context = { 'results': MySpecialApiData, 'display_type': display_type }
 		return render_to_response("SHIRPI/api.xml", context, RequestContext(request),  mimetype='application/xml')
 
-# viewing a specific restaurant
+'''
+Function	: view_restaurant
+Description	: view the information from a specific restaurant
+Parameter(s)	: request - HttpRequest
+		: restaurant_name - the name of the restaurant to display
+		: restaurant_address - the address of the restaurant to display
+Return 		: HttpResponse
+'''
 def view_restaurant(request, restaurant_name, restaurant_address):
 	try:
 		# get the restaurant, reports associated with that restaurant and comments
@@ -155,7 +175,13 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 		# redirect 
 		return HttpResponseRedirect("/cs215/shirpi/")
 
-# view a user's profile
+'''
+Function	: view_profile
+Description	: get and display the information on a user
+Parameter(s)	: request - HttpRequest
+		: user_name - the user whose information is to be viewed
+Return 		: 
+'''
 def view_profile(request, user_name):
 	# clean the username
 	user_name = urllib.unquote_plus(user_name)
@@ -175,6 +201,12 @@ def view_profile(request, user_name):
 	return render_to_response('SHIRPI/view_profile.html', context, RequestContext(request))	
 
 # edit the current user's profile
+'''
+Function	: edit_profile
+Description	: for the user to edit their profile
+Parameter(s)	: request - HttpRequest
+Return 		: HttpResponse
+'''
 def edit_profile(request):
 	user = request.user
 
@@ -198,6 +230,7 @@ def edit_profile(request):
 			user.last_name = form.cleaned_data['last_name']
 			user.save()
 			return render_to_response('SHIRPI/edit_profile.html', {'form': form, 'message': "Changes completed"}, RequestContext(request))
+
 		# error if the form isn't valid
 		else:
 			return render_to_response('SHIRPI/edit_profile.html', {'form': form}, RequestContext(request))

@@ -29,6 +29,8 @@ class Restaurant(models.Model):
 	name = models.CharField(max_length="50")
 	
 	health_report_status = models.IntegerField(default=0)
+
+	# ratings and the number of ratings that have been made for a specific metric
 	combined = models.FloatField(default = "0", choices=choices)
 	combined_count = models.IntegerField(default=0)
 	cleanliness = models.FloatField(default = "0", choices=choices)
@@ -41,6 +43,8 @@ class Restaurant(models.Model):
 	wait_time_count = models.IntegerField(default=0)
 	
 	visible = models.BooleanField(default=True)
+
+	# how this should be represented when outputted as a string
 	def __unicode__(self):
 		return "%s - %s" % (self.name, self.address)
 
@@ -51,20 +55,24 @@ Description	: Database model for a user comment
 class Comment(models.Model):
 	id = models.IntegerField(primary_key = True)
 	restaurant = models.ForeignKey(Restaurant)
+
 	author = models.ForeignKey(User)
+
 	comment = models.TextField(default = "", blank=True)
 	combined = models.FloatField(default = "0", choices=choices)
 	cleanliness = models.FloatField(default = "0", choices=choices)
 	food_quality = models.FloatField(default = "0", choices=choices)
 	atmosphere = models.FloatField(default = "0", choices=choices)
 	wait_time = models.FloatField(default = "0", choices=choices)
-        created = models.DateTimeField()
+
+	created = models.DateTimeField()
         last_modified = models.DateTimeField()
+
 	ip = models.IPAddressField()
 
 '''
-Class		:
-Description	:
+Class		: Favourite
+Description	: Database model for a users favourites
 '''
 class Favourite(models.Model):
 	restaurant = models.ForeignKey(Restaurant)
@@ -74,8 +82,8 @@ class Favourite(models.Model):
 		return "%s. %s" % (self.rank, self.restaurant)
 
 '''
-Class		:
-Description	:
+Class		: HealthInspectionItem
+Description	: Database model for an item that could appear on a health inspection reprot
 '''
 class HealthInspectionItem(models.Model):
 	id = models.IntegerField(primary_key=True, unique=True)
@@ -87,8 +95,8 @@ class HealthInspectionItem(models.Model):
 		return "%s" % (self.number)
 
 '''
-Class		:
-Description	:
+Class		: HealthReport
+Description	: Database model for a Health report
 '''
 class HealthReport(models.Model):
 	date = models.DateField()

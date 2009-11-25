@@ -6,9 +6,15 @@ from django.utils.safestring import mark_safe
 
 register = template.Library()
 
-#display one comment
+'''
+Function	: display_comment
+Description	: display a comment
+Parameter(s)	: value - the comment to be displayed
+		: user - the user accessing this page
+Return		: string containing the html for one comment
+'''
 @register.filter
-def display_comment( value, user, autoescape = None ):
+def display_comment( value, user ):
 
 	result = "<h3 class='timestamp'>" 
 	result += "<a href='#" + urllib.quote_plus(str(value.id)) + "' name ='" + str(value.id) + "'>" + str(value.last_modified.strftime("%A, %B %d %Y  %I:%M %p")) + "</a>"
@@ -50,6 +56,5 @@ def display_comment( value, user, autoescape = None ):
 	result += "</div>\n"
 	return mark_safe(result)
 
-display_comment.needs_autoescape = True
 display_comment.needs_user = True
 

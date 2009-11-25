@@ -4,9 +4,14 @@ from django.utils.safestring import mark_safe
 
 register = template.Library()
 
-# display a health report
+'''
+Function	: display_health_report
+Description	: generate the html for one health report
+Parameter(s)	: report - the report to have the html generated for
+Return		: string of html to display one health report
+'''
 @register.filter
-def display_health_report( report, autoescape = None ):
+def display_health_report( report ):
 
 	#enclosing div
 	result = "<div class='health_report'>\n"
@@ -24,4 +29,3 @@ def display_health_report( report, autoescape = None ):
 	result += "</ul>"
 	result += "</div>\n"
 	return mark_safe(result)
-display_health_report.needs_autoescape = True

@@ -7,9 +7,14 @@ from project.SHIRPI.settings import *
 
 register = template.Library()
 
-# display a group of restaurants in a table
+'''
+Function	: display_sort_options
+Description	: generate the html for the sort options
+Parameter(s)	: request - the HttpRequest for the page
+Return		: string of the html for the search options
+'''
 @register.filter
-def display_sort_field(request, autoescape=None):
+def display_sort_options(request):
 	# the possible sorts
 	sorts = [('name', "Name"), ('address_searchable', "Street"), ('combined', "Combined Scores"), ('cleanliness', "Cleanliness"), ('food_quality', "Food Quality"), ('atmosphere', "Atmosphere"), ('wait_time', "Wait Time")]
 	get = request.GET.copy()
