@@ -1,6 +1,7 @@
 import urllib
 from project.SHIRPI.models import *
 
+from django.db.models import Max
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
