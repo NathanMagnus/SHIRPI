@@ -14,9 +14,9 @@ class LocationAdmin(admin.ModelAdmin):
 
 # admin page for restaurants
 class RestaurantAdmin(admin.ModelAdmin):
-	list_display = ('name', 'address', 'address_searchable', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time', 'chain', 'health_report_status', 'visible')
+	list_display = ('name', 'address', 'address_searchable', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time','health_report_status', 'visible')
 	search_fields = ['name', 'address', 'location__rha']
-	fields = ['name', 'address', 'address_searchable', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time', 'chain', 'health_report_status', 'visible']
+	fields = ['name', 'address', 'address_searchable', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time', 'health_report_status', 'visible']
 
 # admin page for comments
 class CommentAdmin(admin.ModelAdmin):
@@ -42,13 +42,6 @@ class HealthReportAdmin(admin.ModelAdmin):
 	search_fields = ['restaurant', 'date']
 	fields = ['restaurant', 'date', 'type', 'priority', 'health_inspection_score']
 
-# admin page for chains
-# not implemented - created for potential future expansion of the project
-class ChainAdmin(admin.ModelAdmin):
-	list_display = ('regex',)
-	search_fields = ['regex']
-	fields = ['regex']
-
 # register all the admin pages
 admin.site.register(Location, LocationAdmin)
 admin.site.register(Restaurant, RestaurantAdmin)
@@ -56,4 +49,3 @@ admin.site.register(Comment, CommentAdmin)
 admin.site.register(Favourite, FavouriteAdmin)
 admin.site.register(HealthInspectionItem, HealthInspectionItemAdmin)
 admin.site.register(HealthReport, HealthReportAdmin)
-admin.site.register(Chain, ChainAdmin)
