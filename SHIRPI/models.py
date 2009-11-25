@@ -16,11 +16,11 @@ class Location(models.Model):
 	def __unicode__(self):
 		return "%s, %s" % (self.city, self.rha)		
 
-class Chain(models.Model):
-	regex = models.CharField(max_length="50")
-	def __unicode__(self):
-		return "%s" % (self.regex)
-
+'''
+Class		: Restaurant
+Description	: Contain all information about the restaurants ratings
+		: location information and if it is visible
+'''
 class Restaurant(models.Model):
 	location = models.ForeignKey(Location)
 	address = models.CharField(max_length="75")
@@ -41,11 +41,13 @@ class Restaurant(models.Model):
 	wait_time_count = models.IntegerField(default=0)
 	
 	visible = models.BooleanField(default=True)
-	chain = models.ForeignKey(Chain, null=True)
-	
 	def __unicode__(self):
 		return "%s - %s" % (self.name, self.address)
 
+'''
+Class		:
+Description	:
+'''
 class Comment(models.Model):
 	id = models.IntegerField(primary_key = True)
 	restaurant = models.ForeignKey(Restaurant)
@@ -60,6 +62,10 @@ class Comment(models.Model):
         last_modified = models.DateTimeField()
 	ip = models.IPAddressField()
 
+'''
+Class		:
+Description	:
+'''
 class Favourite(models.Model):
 	restaurant = models.ForeignKey(Restaurant)
 	user = models.ForeignKey(User)
@@ -67,6 +73,10 @@ class Favourite(models.Model):
 	def __unicode__(self):
 		return "%s. %s" % (self.rank, self.restaurant)
 
+'''
+Class		:
+Description	:
+'''
 class HealthInspectionItem(models.Model):
 	id = models.IntegerField(primary_key=True, unique=True)
 	number = models.CharField(max_length="10")
@@ -76,6 +86,10 @@ class HealthInspectionItem(models.Model):
 	def __unicode__(self):
 		return "%s" % (self.number)
 
+'''
+Class		:
+Description	:
+'''
 class HealthReport(models.Model):
 	date = models.DateField()
 	health_inspection_score = models.IntegerField(default=0)
