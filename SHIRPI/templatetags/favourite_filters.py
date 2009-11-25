@@ -13,9 +13,9 @@ def display_favourite( favourite, autoescape = None ):
 
 	# enclosing div for styling
 	result = "<div class='restaurant "
-	if favourite.restaurant.health_report_status > CRITICAL_VAL:
+	if favourite.restaurant.health_report_status >= CRITICAL_VAL:
 		result += "critical"
-	elif favourite.restaurant.health_report_status > MODERATE_VAL:
+	elif favourite.restaurant.health_report_status >= MODERATE_VAL:
 		result += "moderate"
 	else:
 		result += "low"
@@ -38,9 +38,9 @@ def display_favourite_edit( favourite, count, autoescape = None ):
 	count = count + 1
 
 	result = "<div id='favourite' class='"
-	if favourite.restaurant.health_report_status > CRITICAL_VAL:
+	if favourite.restaurant.health_report_status >= CRITICAL_VAL:
 		result += "critical"
-	elif favourite.restaurant.health_report_status > MODERATE_VAL:
+	elif favourite.restaurant.health_report_status >= MODERATE_VAL:
 		result += "moderate"
 	else:
 		result += "low"
