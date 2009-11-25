@@ -8,7 +8,7 @@ Each of the classes within this file are used to define the django admin interfa
 
 # admin page for locations
 class LocationAdmin(admin.ModelAdmin):
-	list_display = ('city', 'province', 'country', 'rha', 'municipality')
+	list_display = ('city', 'province', 'country', 'rha')
 	search_fields = ['city', 'province', 'rha']
 	fields = ['city', 'province', 'country', 'rha']
 
