@@ -165,7 +165,7 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 		# get the restaurant, reports associated with that restaurant and comments
 		restaurant = Restaurant.objects.get(name__iexact=urllib.unquote_plus(restaurant_name), address__iexact=urllib.unquote_plus(restaurant_address))
 		reports = HealthReport.objects.filter(restaurant=restaurant)
-		comments = Comment.objects.filter(restaurant=restaurant)
+		comments = Comment.objects.filter(restaurant=restaurant).order_by('-created')
 
 		#context defined here so that isn't ugly
 		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
