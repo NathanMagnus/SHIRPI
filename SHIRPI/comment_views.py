@@ -23,7 +23,7 @@ def comment( request, restaurant_name, restaurant_address ):
 	form = CommentForm()
 	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form}, RequestContext(request))
 
-def updat_values(restaurant_value, comment_value, method):
+def update_values(restaurant, comment, method):
 	
 	restaurant.cleanliness = restaurant.cleanliness + method * comment.cleanliness
 	if comment.cleanliness>0:
