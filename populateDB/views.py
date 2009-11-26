@@ -11,6 +11,10 @@ from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.utils.safestring import mark_safe
+# file containing the item information
+from project.populateDB.items import *
+
+
 
 '''
 Function	: populate
@@ -48,9 +52,6 @@ Parameter(s)	: None
 Return		: None
 '''
 def populate_items():
-	# file containing the item information
-	from project.populateDB.items import *
-
 	# populate each item
 	for item in items:
 		try:
@@ -118,16 +119,24 @@ def populate_reports(request):
 				rest.health_report_status=0
 				# get/make the appropriate location if the restaurant doesn't exist
 				rha = elem.attrib.get("rha")
+				# City, Province POS COD
+				re_results = re.match(r'(?P<city>^\w+), (?P<province>\w+) (?P<postal_code>\w+)', elem.attrib.get('municipality'))
+				city = re_results.group('city')
+				province = re_results.group('province')
+				country = "Canada"
+				postal_code = re_results.group('postal_code')
+
 				try:
 					loc = Location.objects.get(rha__iexact=rha)
 				except Location.DoesNotExist:
 					loc = Location()
 					loc.rha = rha
-					loc.city = "Regina"
-					loc.province = "Saskatchewan"
-					loc.country = "Canada"
+					loc.city = city
+					loc.province = province
+					loc.country = country
 					loc.save()
 				
+				rest.postal_code = postal_code
 				# assign the location and save the restaurant
 				rest.location = loc
 				rest.save()
