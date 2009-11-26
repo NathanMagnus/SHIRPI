@@ -23,7 +23,8 @@ def display_health_report( report ):
 	result += "<ul name='report_items'>\n"
 	if report.items.count() >0:
 		for item in report.items.all():
-			result += "<li class='report_item'>" + item.description + "</li>\n"
+			result += "<li class='report_item'>" + item.number + ". " + item.short_description
+			result += "<br />" + item.description + "</li>\n"
 	else:
 		result += "<li class='report_item'>None</li>\n"
 	result += "</ul>"
