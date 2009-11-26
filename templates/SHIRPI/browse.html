@@ -12,7 +12,7 @@
 {% endif %}
 {% if restaurants %}
 {% url project.SHIRPI.views.browse as browse_url %}
-<form method="get" id="search_sort_field" action="self">
+<form method="get" id="search_sort_field" action="">
 	{{request|display_search_field}}
 	<p><input type="submit" name="Submit" value="Submit" id="search_sort_submit" style="visibility: hidden;" /></p>
 </form>
