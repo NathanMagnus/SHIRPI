@@ -219,7 +219,7 @@ def edit_comment(request, comment_id):
 		comment = Comment.objects.get(id=comment_id)
 
 		if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
-			return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
+			return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(request))	
 
 		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'wait_time': int(comment.wait_time), 'food_quality': int(comment.food_quality)})
 
