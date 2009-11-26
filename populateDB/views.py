@@ -120,14 +120,23 @@ def populate_reports(request):
 				# get/make the appropriate location if the restaurant doesn't exist
 				rha = elem.attrib.get("rha")
 				# City, Province POS COD
-				re_results = re.match(r'(?P<city>^\w+), (?P<province>\w+) (?P<postal_code>\w+)', elem.attrib.get('municipality'))
-				city = re_results.group('city')
-				province = re_results.group('province')
+				re_results = re.match(r'(?P<city>^\w+)(,\s)?(?P<province>\w+)?\s?(?P<postal_code>\w+ \w+)?', elem.attrib.get('municipality'))
+				if re_results.group('city') != None:
+					city = re_results.group('city')
+				else:
+					city = "Regina"
+				if re_results.group('province') != None:
+					province = re_results.group('province')
+				else:
+					province = "Saskatchewan"
 				country = "Canada"
-				postal_code = re_results.group('postal_code')
+				if re_results.group('postal_code') != None:
+					postal_code = re_results.group('postal_code')
+				else:
+					postal_code = ""
 
 				try:
-					loc = Location.objects.get(rha__iexact=rha)
+					loc = Location.objects.get(rha__iexact=rha, city = city, province = province, country = country)
 				except Location.DoesNotExist:
 					loc = Location()
 					loc.rha = rha

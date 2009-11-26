@@ -14,8 +14,8 @@ class LocationAdmin(admin.ModelAdmin):
 
 # admin page for restaurants
 class RestaurantAdmin(admin.ModelAdmin):
-	list_display = ('name', 'address', 'address_searchable', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time','health_report_status', 'visible')
-	search_fields = ['name', 'address', 'location__rha']
+	list_display = ('name', 'address', 'postal_code', 'address_searchable', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time','health_report_status', 'visible')
+	search_fields = ['name', 'address', 'location__rha', 'postal_code']
 	fields = ['name', 'address', 'address_searchable', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time', 'health_report_status', 'visible', 'postal_code']
 
 # admin page for comments
