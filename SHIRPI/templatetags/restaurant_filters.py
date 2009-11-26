@@ -1,4 +1,5 @@
 import urllib
+from cgi import escape
 from django import template
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
@@ -42,8 +43,8 @@ def display_restaurant( restaurant ):
 
 	# display the information
 	result += "'>\n"
-	result += "<h4 class='name'><a href=\"/cs215/shirpi/view/" + name +"/" + address + "\">" + restaurant.name + "</a></h4>"
-	result +="<h4 class='address'>" + str(restaurant.address) + "</h4>"
+	result += "<h4 class='name'><a href=\"/cs215/shirpi/view/" + name +"/" + address + "\">" + escape(restaurant.name) + "</a></h4>"
+	result +="<h4 class='address'>" + escape(restaurant.address) + "</h4>"
 	result +="<ul class='restaurant_info'>"
 	result += "<li><h4>" + str(restaurant.health_report_status) +"</h4></li>"
 	result += "<li><h4>" + str(round(restaurant.combined/restaurant.combined_count,1)) + "</h4></li>"
