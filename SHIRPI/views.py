@@ -66,6 +66,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 
 	# default is name
 	if order == "" or not valid_order:
+		type = ""
 		order = "name"
 
 	# done this way so that browse/ works properly
