@@ -118,7 +118,7 @@ def save_edit(request, comment_id):
 				comment.atmosphere = form.cleaned_data['atmosphere']
 				comment.wait_time = form.cleaned_data['wait_time']
 
-				if cleanliness > MAX_RATING or food_quality > MAX_RATING oratmosphere > MAX_RATING or wait_time > MAX_RATING:
+				if cleanliness > MAX_RATING or food_quality > MAX_RATING or atmosphere > MAX_RATING or wait_time > MAX_RATING:
 					return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
 				
 				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere - comment.wait_time
@@ -180,7 +180,7 @@ def save(request, restaurant_name, restaurant_address):
 			food_quality = comment_form.cleaned_data['food_quality']
 			atmosphere = comment_form.cleaned_data['atmosphere']
 			wait_time = comment_form.cleaned_data['wait_time']
-			if cleanliness > MAX_RATING or food_quality > MAX_RATING oratmosphere > MAX_RATING or wait_time > MAX_RATING:
+			if cleanliness > MAX_RATING or food_quality > MAX_RATING or atmosphere > MAX_RATING or wait_time > MAX_RATING:
 				return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
 
 			#assign the comment
