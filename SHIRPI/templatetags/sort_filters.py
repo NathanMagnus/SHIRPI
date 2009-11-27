@@ -32,8 +32,10 @@ def display_sort_options(request):
 		# if it is what is currently being sorted by
 		if request.GET.get('sort_by', '') == type:
 			# swap type of sort
-			if request.GET.get('type', '') == "DESC":
+			if request.GET.get('type', default) == "DESC":
 				get['type'] = "ASC"
+			else:
+				get['type'] = "DESC"
 		# add sort_by to the GET parameters
 		get['sort_by'] = type
 		result +="<li class='type'><a href='?"+ get.urlencode() +"'>" + verbose + "</a></li>\n"
