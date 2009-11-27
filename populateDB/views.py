@@ -128,7 +128,7 @@ def populate_reports(request):
 				if re_results.group('province') != None:
 					province = re_results.group('province')
 				else:
-					province = "Saskatchewan"
+					province = "SASKATCHEWAN"
 				country = "Canada"
 				if re_results.group('postal_code') != None:
 					postal_code = re_results.group('postal_code')

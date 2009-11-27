@@ -16,7 +16,7 @@ Return		: string of the html for the search options
 @register.filter
 def display_sort_options(request):
 	# the possible sorts
-	sorts = [('name', "Name"), ('address_searchable', "Street"), ('combined', "Combined Scores"), ('cleanliness', "Cleanliness"), ('food_quality', "Food Quality"), ('atmosphere', "Atmosphere"), ('wait_time', "Wait Time")]
+	sorts = [('name', "Name", "ASC"), ('address_searchable', "Street", "ASC"), ('combined', "Combined Scores", "DESC"), ('cleanliness', "Cleanliness", "DESC"), ('food_quality', "Food Quality", "DESC"), ('atmosphere', "Atmosphere", "DESC"), ('wait_time', "Wait Time", "DESC")]
 	get = request.GET.copy()
 
 	# enclosing div
@@ -25,9 +25,9 @@ def display_sort_options(request):
 	result +="<ul id='sort_by'>\n"
 
 	# for each type of sort
-	for type, verbose in sorts:
+	for type, verbose, default in sorts:
 		# default is descending
-		get['type'] = "DESC"
+		get['type'] = default
 		
 		# if it is what is currently being sorted by
 		if request.GET.get('sort_by', '') == type:
