@@ -116,6 +116,10 @@ def save_edit(request, comment_id):
 				comment.food_quality = form.cleaned_data['food_quality']
 				comment.atmosphere = form.cleaned_data['atmosphere']
 				comment.wait_time = form.cleaned_data['wait_time']
+
+				if cleanliness > 5 or food_quality >5 or atmosphere > 5 or wait_time > 5:
+					return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than 5"}, RequestContest(request))
+				
 				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere - comment.wait_time
 				comment.ip = request.META['REMOTE_ADDR']
 
@@ -175,6 +179,8 @@ def save(request, restaurant_name, restaurant_address):
 			food_quality = comment_form.cleaned_data['food_quality']
 			atmosphere = comment_form.cleaned_data['atmosphere']
 			wait_time = comment_form.cleaned_data['wait_time']
+			if cleanliness > 5 or food_quality >5 or atmosphere > 5 or wait_time > 5:
+				return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than 5"}, RequestContest(request))
 
 			#assign the comment
 			comment.comment = comment_form.cleaned_data['comment']
