@@ -2,6 +2,7 @@
 import urllib
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm 
+from project.SHIRPI.settings import *
 
 from datetime import datetime, date, timedelta
 from django.contrib.auth.models import User
@@ -49,7 +50,7 @@ def comment( request, restaurant_name, restaurant_address ):
 
 	# create comment form and render
 	form = CommentForm()
-	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form}, RequestContext(request))
+	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form, 'max_rating': MAX_RATING}, RequestContext(request))
 
 '''
 Function	: update_values
@@ -117,8 +118,8 @@ def save_edit(request, comment_id):
 				comment.atmosphere = form.cleaned_data['atmosphere']
 				comment.wait_time = form.cleaned_data['wait_time']
 
-				if cleanliness > 5 or food_quality >5 or atmosphere > 5 or wait_time > 5:
-					return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than 5"}, RequestContest(request))
+				if cleanliness > MAX_RATING or food_quality > MAX_RATING oratmosphere > MAX_RATING or wait_time > MAX_RATING:
+					return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
 				
 				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere - comment.wait_time
 				comment.ip = request.META['REMOTE_ADDR']
@@ -179,8 +180,8 @@ def save(request, restaurant_name, restaurant_address):
 			food_quality = comment_form.cleaned_data['food_quality']
 			atmosphere = comment_form.cleaned_data['atmosphere']
 			wait_time = comment_form.cleaned_data['wait_time']
-			if cleanliness > 5 or food_quality >5 or atmosphere > 5 or wait_time > 5:
-				return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than 5"}, RequestContest(request))
+			if cleanliness > MAX_RATING or food_quality > MAX_RATING oratmosphere > MAX_RATING or wait_time > MAX_RATING:
+				return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
 
 			#assign the comment
 			comment.comment = comment_form.cleaned_data['comment']
@@ -229,7 +230,7 @@ def edit_comment(request, comment_id):
 
 		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'wait_time': int(comment.wait_time), 'food_quality': int(comment.food_quality)})
 
-		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment}, RequestContext(request))
+		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment, 'max_rating': MAX_RATING}, RequestContext(request))
 
 	except Comment.DoesNotExist:
 		return render_to_response('SHIRPI/error.html', {'error': "That comment does not exist"}, RequestContext(request))
