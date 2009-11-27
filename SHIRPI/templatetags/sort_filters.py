@@ -16,7 +16,7 @@ Return		: string of the html for the search options
 @register.filter
 def display_sort_options(request):
 	# the possible sorts
-	sorts = [('name', "Name", "ASC"), ('address_searchable', "Street", "ASC"), ('combined', "Combined Scores", "DESC"), ('cleanliness', "Cleanliness", "DESC"), ('food_quality', "Food Quality", "DESC"), ('atmosphere', "Atmosphere", "DESC"), ('wait_time', "Wait Time", "DESC")]
+	sorts = [('name_clean', "Name", "ASC"), ('address_clean', "Street", "ASC"), ('combined', "Combined Scores", "DESC"), ('cleanliness', "Cleanliness", "DESC"), ('food_quality', "Food Quality", "DESC"), ('atmosphere', "Atmosphere", "DESC"), ('wait_time', "Wait Time", "DESC")]
 	get = request.GET.copy()
 
 	# enclosing div
