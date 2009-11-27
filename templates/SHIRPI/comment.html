@@ -11,10 +11,10 @@
 <h1>{{restaurant.name}} Page<h1>
 <form id="reviewForm" name="reviewForm" method="post" action="{% url project.SHIRPI.comment_views.save restaurant.name|urlencode, restaurant.address|urlencode %}">
 	{{ form.as_p}}
-	Cleanliness: {% show_stars 0 of 5 round to half on change call myCallback with 1%}
-	Food Quality: {% show_stars 0 of 5 round to half on change call myCallback with 2%}
-	Atmosphere: {% show_stars 0 of 5 round to half on change call myCallback with 3%}
-	Wait Time: {% show_stars 0 of 5 round to half on change call myCallback with 4%}
+	Cleanliness: {% show_stars 0 of max_rating round to half on change call myCallback with 1%}
+	Food Quality: {% show_stars 0 of max_rating round to half on change call myCallback with 2%}
+	Atmosphere: {% show_stars 0 of max_rating round to half on change call myCallback with 3%}
+	Wait Time: {% show_stars 0 of max_rating round to half on change call myCallback with 4%}
 	<input type="submit" value="Submit Review" name="submit" />
 </form>
 {% endblock %}
