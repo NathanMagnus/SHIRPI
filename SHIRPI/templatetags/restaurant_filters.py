@@ -43,7 +43,7 @@ def display_restaurant( restaurant ):
 
 	# display the information
 	result += "'>\n"
-	result += "<h4 class='name'><a href=\"/cs215/shirpi/view/" + name +"/" + address + "\">" + escape(restaurant.name) + "</a></h4>"
+	result += "<h4 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(name) +"/" + urllib.quote_plus(address) + "\">" + escape(restaurant.name) + "</a></h4>"
 	result +="<h4 class='address'>" + escape(restaurant.address) + "</h4>"
 	result +="<ul class='restaurant_info'>"
 	result += "<li><h4>" + str(restaurant.health_report_status) +"</h4></li>"
