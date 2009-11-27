@@ -62,7 +62,6 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-#    'search.middleware.LuceneMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -86,12 +85,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.humanize',
     'registration',   
-    'search',
-#    'project.djangosearch',
-#    'project.hello',
     'project.SHIRPI',
     'project.populateDB',
-    'project.kwiki',
 )
 LOGIN_REDIRECT_URL = '/cs215/shirpi/'
 
