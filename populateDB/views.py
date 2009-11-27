@@ -16,13 +16,13 @@ from project.populateDB.items import *
 
 
 
-'''
-Function	: populate
-Description	: determine what type of population is to be done and call the appropriate function
-Parameter(s)	: request - HttpRequest
-Return		: HttpResponse
-'''
 def populate(request):
+	'''
+	Function	: populate
+	Description	: determine what type of population is to be done and call the appropriate function
+	Parameter(s)	: request - HttpRequest
+	Return		: HttpResponse
+	'''
 
 	# get the mode and password from GET
 	mode = urllib.unquote_plus(request.GET.get('mode', ""))
@@ -70,13 +70,13 @@ def populate_items():
 		# save changes
 		dbItem.save()
 
-'''
-Function	: create_anonymous
-Description	: create the anonymous user
-Parameter(s)	: None
-Return		: None 	
-'''
 def create_anonymous():
+	'''
+	Function	: create_anonymous
+	Description	: create the anonymous user
+	Parameter(s)	: None
+	Return		: None 	
+	'''
 	# if Anonymous already exists, don't do anything, otherwise create it
 	try:
 		User.objects.get(username="Anonymous")
@@ -103,9 +103,14 @@ def populate_reports(request):
 	for event, elem in et.iterparse("/home/cs215/project/populateDB/reports.xml"):
 		if elem.tag == "location":
 			name = elem.attrib.get("name")
+			name_clean = name.translate(string.maketrans("",""), string.punctuation).strip().lower()
+			print name_clean
 			
 			address = elem.attrib.get("address")
-			address_searchable = re.sub("^\d+\s|\s\d+\s|\s\d+$", " ", address.translate(string.maketrans("",""), string.punctuation)).strip().lower() # easier to read than some of the one liners in this project
+			address_clean = re.sub(
+				"^\d+\s|\s\d+\s|\s\d+$", " ",  # Strip isolated numbers
+				address.translate(string.maketrans("",""), string.punctuation) # Strip punctuation
+				).strip().lower() 
 			
 			# get/make the appropriate restaurant
 			try:
@@ -114,13 +119,19 @@ def populate_reports(request):
 				rest = Restaurant()
 				rest.name = name
 				rest.address = address
-				rest.address_searchable = address_searchable
+				rest.name_clean = name_clean
+				rest.address_clean = address_clean
 				rest.visible = True
 				rest.health_report_status=0
+				
 				# get/make the appropriate location if the restaurant doesn't exist
 				rha = elem.attrib.get("rha")
+				
 				# City, Province POS COD
-				re_results = re.match(r'(?P<city>^\w+)(,\s)?(?P<province>\w+)?\s?(?P<postal_code>\w+ \w+)?', elem.attrib.get('municipality'))
+				re_results = re.match(
+					r'(?P<city>^\w+)(,\s)?(?P<province>\w+)?\s?(?P<postal_code>\w+ \w+)?', 
+					elem.attrib.get('municipality'))
+
 				if re_results.group('city') != None:
 					city = re_results.group('city')
 				else:
@@ -146,6 +157,7 @@ def populate_reports(request):
 					loc.save()
 				
 				rest.postal_code = postal_code
+				
 				# assign the location and save the restaurant
 				rest.location = loc
 				rest.save()
