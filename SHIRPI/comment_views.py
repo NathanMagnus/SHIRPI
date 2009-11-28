@@ -4,7 +4,7 @@ from project.SHIRPI.forms import CommentForm
 from project.SHIRPI.settings import *
 
 from datetime import datetime, date, timedelta
-from django.contrib.http import urlquote_plus, iri_to_url
+from django.utils.http import urlquote_plus, iri_to_url
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect

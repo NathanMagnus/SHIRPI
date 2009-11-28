@@ -1,4 +1,4 @@
-from django.contrib.http import urlquote_plus, iri_to_uri
+from django.utils.http import urlquote_plus, iri_to_uri
 from project.SHIRPI.models import *
 from django.db.models import Max
 from django.contrib.auth.models import User
