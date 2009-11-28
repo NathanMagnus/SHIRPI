@@ -14,7 +14,7 @@ Minor modifications made to work with our project
 DIV_TEMPLATE = "<div id=\"star_strip_%s\">"
 END_DIV_TEMPLATE = "</div>"
 IMG_TEMPLATE = "<img border=\"0\" src=\"%s\" alt=\"%s\"/>"
-EX_IMG_TEMPLATE = "<img onmouseover=\"javascript: hoverStar(%s, %s);\" onmouseout=\"javascript: restoreStar(%s);\" onclick=\"javascript: clickStar('%s', %s, %s);\" border=\"0\" src=\"%s\" alt=\"%s\"/>"
+EX_IMG_TEMPLATE = "<img onmouseover=\"javascript: hoverStar(%s, %s);\" onmouseout=\"javascript: restoreStar(%s);\" onclick=\"javascript: clickStar('%s', %s, %s);\" style=\"border: 0;\" src=\"%s\" alt=\"%s\"/>"
 
 # the stars values and associated images and alts
 STARS = {
