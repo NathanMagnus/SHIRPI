@@ -1,7 +1,5 @@
 from django import template
-from django.utils.http import urlquote_plus
-from django.utils.encoding import iri_to_url
-
+from djanggo.utils.http import urlquote_plus, iri_to_uri
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 

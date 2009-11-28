@@ -7,9 +7,7 @@ from django.contrib.auth.models import User
 from django.views.generic.simple import direct_to_template
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from django.utils.http import urlquote_plus
-from django.utils.encoding import iri_to_url
-
+from django.utils.http import urlquote_plus, iri_to_uri
 from django.template import RequestContext
 
 '''
