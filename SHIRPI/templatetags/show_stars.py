@@ -33,8 +33,8 @@ ROUNDERS = {
 }
 
 # command patterns
-CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s)$" % "|".join(ROUNDERS))
-EX_CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s) on change call (\w*) with (.*)$" % "|".join(ROUNDERS))
+CMD_PATTERN = re.compile("^show_stars (.*) round to (%s)$" % "|".join(ROUNDERS))
+EX_CMD_PATTERN = re.compile("^show_stars (.*) round to (%s) on change call (\w*) with (.*)$" % "|".join(ROUNDERS))
 
 # the javascript
 JS_TEMPLATE = """
@@ -130,7 +130,7 @@ function myCallback(id, pos)
 # show stars node class
 class ShowStarsNode(Node):
 	# initialize the star info
-	def __init__(self, stars, total_stars, round_to, handler=None, identifier=None):
+	def __init__(self, stars, total_stars = MAX_RATING, round_to, handler=None, identifier=None):
 		self.stars = stars
 		self.total_stars = int(total_stars)
 		self.rounder = ROUNDERS[round_to.lower()]
@@ -184,7 +184,7 @@ class ShowStarsScriptNode(Node):
 # show the stars on the template
 def do_show_stars(parser, token):
 	def syntax_error():
-		raise TemplateSyntaxError("example: show_stars <value> of <total> round to %s [on change call <handler> with <identifier>]" % "|".join(ROUNDER))
+		raise TemplateSyntaxError("example: show_stars <value> of <total> round to %s [on change call <handler> with <identifier>]" % "|".join(ROUNDERS))
 	args = token.contents.split()
 	if len(args) == 7:
 		match = CMD_PATTERN.match(token.contents)
