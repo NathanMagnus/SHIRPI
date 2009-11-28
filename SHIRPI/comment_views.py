@@ -131,7 +131,7 @@ def save_edit(request, comment_id):
 				comment.save()
 
 				#forward to the restaurant browse
-				return HttpResponseRedirect("/cs215/shirpi/view/"+urllib.quote_plus(restaurant.name).replace("/", "%2F")+"/"+urllib.quote_plus(restaurant.address).replace("/", "%2F")+"/")
+				return HttpResponseRedirect("/cs215/shirpi/view/"+urllib.quote_plus(restaurant.name.replace("/", "%2F"))+"/"+urllib.quote_plus(restaurant.address.replace("/", "%2F"))+"/")
 
 			#comment doesn't exist, error
 			except Comment.DoesNotExist:
@@ -206,7 +206,7 @@ def save(request, restaurant_name, restaurant_address):
 			comment.save()
 	
 	#render response
-	return HttpResponseRedirect("/cs215/shirpi/view/"+urllib.quote_plus(restaurant_name).replace("/", "2F") + "/" + urllib.quote_plus(restaurant_address).replace("/", "%2F")+"/")
+	return HttpResponseRedirect("/cs215/shirpi/view/"+urllib.quote_plus(restaurant_name.replace("/", "2F") )+ "/" + urllib.quote_plus(restaurant_address.replace("/", "%2F")) + "/")
 
 '''
 Function	: edit_comment

@@ -13,6 +13,6 @@ Return		: string that is safe to put into a url
 @register.filter
 def escape_url( value ):
 
-	result = urllib.quote_plus(value).replace("/", "%2F")
+	result = urllib.quote_plus(value.replace("/", "%2F"))
 	
 	return mark_safe(result)
