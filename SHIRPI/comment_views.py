@@ -119,7 +119,7 @@ def save_edit(request, comment_id):
 				comment.wait_time = form.cleaned_data['wait_time']
 
 				if comment.cleanliness > MAX_RATING or comment.food_quality > MAX_RATING or comment.atmosphere > MAX_RATING or comment.wait_time > MAX_RATING:
-					return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
+					return render_to_response("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
 				
 				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere - comment.wait_time
 				comment.ip = request.META['REMOTE_ADDR']
@@ -181,7 +181,7 @@ def save(request, restaurant_name, restaurant_address):
 			atmosphere = comment_form.cleaned_data['atmosphere']
 			wait_time = comment_form.cleaned_data['wait_time']
 			if cleanliness > MAX_RATING or food_quality > MAX_RATING or atmosphere > MAX_RATING or wait_time > MAX_RATING:
-				return HttpResponseRedirect("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
+				return render_to_response("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
 
 			#assign the comment
 			comment.comment = comment_form.cleaned_data['comment']
@@ -206,7 +206,7 @@ def save(request, restaurant_name, restaurant_address):
 			comment.save()
 	
 	#render response
-	return HttpResponseRedirect("/cs215/shirpi/view/"+urllib.quote_plus(restaurant_name.replace("/", "2F") )+ "/" + urllib.quote_plus(restaurant_address.replace("/", "%2F")) + "/")
+	return HttpResponseRedirect("/cs215/shirpi/view/"+urllib.quote_plus(restaurant_name.replace("/", "%2F") )+ "/" + urllib.quote_plus(restaurant_address.replace("/", "%2F")) + "/")
 
 '''
 Function	: edit_comment
