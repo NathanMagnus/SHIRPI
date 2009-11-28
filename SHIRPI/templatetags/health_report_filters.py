@@ -20,7 +20,7 @@ def display_health_report( report ):
 	result += "<h3 class='report_date'>" + str(report.date.strftime("%A, %B %d %Y")) + "</h3>\n"
 
 	# display each item in the report
-	result += "<ul id='report_items'>\n"
+	result += "<ul class='report_items'>\n"
 	if report.items.count() >0:
 		for item in report.items.all():
 			result += "<li class='report_item'>" + item.number + ". " + item.short_description
