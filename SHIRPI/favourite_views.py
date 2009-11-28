@@ -1,4 +1,4 @@
-import urllib
+from django.contrib.http import urlquote_plus, iri_to_uri
 from project.SHIRPI.models import *
 from django.db.models import Max
 from django.contrib.auth.models import User
@@ -16,8 +16,8 @@ Parameter(s)    : request - HttpRequest
 Return          : HttpResponse
 '''
 def add_favourite(request, restaurant_name, restaurant_address):
-	restaurant_name = urllib.unquote_plus(restaurant_name)
-	rsetaurant_address = urllib.unquote_plus(restaurant_address)
+	restaurant_name = iri_to_uri(restaurant_name)
+	rsetaurant_address = iri_to_uri(restaurant_address)
 
 	#if the user is not authenticated, just send them back to the browse page they were on
 	if not request.user.is_authenticated():
@@ -57,7 +57,7 @@ Parameter(s)    : request - HttpRequest
 Return          : HttpResponse
 '''
 def view_favourites(request, user_name):
-	user_name = urllib.unquote_plus(user_name)
+	user_name = iri_to_uri(user_name)
 
 	# get the user
 	try:
@@ -99,8 +99,8 @@ Parameter(s)    : request - HttpResponse
 Return          : HttpResponse
 '''
 def delete_favourite(request, restaurant_name, restaurant_address):
-	restaurant_name = urllib.unquote_plus(restaurant_name)
-	restaurant_address = urllib.unquote_plus(restaurant_address)
+	restaurant_name = iri_to_uri(restaurant_name)
+	restaurant_address = iri_to_uri(restaurant_address)
 	try:
 		# make sure the favourite exists
 		favourite = Favourite.objects.get(user__username = request.user.username, restaurant__name__iexact = restaurant_name, restaurant__address__iexact = restaurant_address)

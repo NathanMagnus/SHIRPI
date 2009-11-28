@@ -1,5 +1,3 @@
-import urllib
-
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm, ProfileForm
 from project.SHIRPI.settings import *
@@ -9,6 +7,7 @@ from django.contrib.auth.models import User
 from django.views.generic.simple import direct_to_template
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
+from django.contrib.http import urlquote_plus, iri_to_uri
 from django.template import RequestContext
 
 '''
@@ -76,8 +75,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		restaurant_address = ""
 
 	# remove % encoding from url
-	restaurant_name = urllib.unquote_plus(restaurant_name).lower()
-	restaurant_address = urllib.unquote_plus(restaurant_address).lower()
+	restaurant_name = iri_to_uri(restaurant_name).lower()
+	restaurant_address = iri_to_uri(restaurant_address).lower()
 	
 	# if they want all, set appropriate variable to blank
 	if restaurant_name == "all":
@@ -162,8 +161,8 @@ Parameter(s)	: request - HttpRequest
 Return 		: HttpResponse
 '''
 def view_restaurant(request, restaurant_name, restaurant_address):
-	restaurant_name = urllib.unquote_plus(restaurant_name)
-	restaurant_address = urllib.unquote_plus(restaurant_address)
+	restaurant_name = iri_to_uri(restaurant_name)
+	restaurant_address = iri_to_uri(restaurant_address)
 	try:
 		# get the restaurant, reports associated with that restaurant and comments
 		restaurant = Restaurant.objects.get(name__iexact=restaurant_name, address__iexact=restaurant_address)
@@ -187,7 +186,7 @@ Return 		:
 '''
 def view_profile(request, user_name):
 	# clean the username
-	user_name = urllib.unquote_plus(user_name)
+	user_name = iri_to_uri(user_name)
 
 	# get the user from the DB or display error page
 	try:

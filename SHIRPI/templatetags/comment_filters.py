@@ -1,4 +1,4 @@
-import urllib
+from django.utils.http import urlquote_plus_plus, iri_to_uri
 from datetime import datetime, date
 from django import template
 from django.utils.html import conditional_escape
@@ -17,7 +17,7 @@ Return		: string containing the html for one comment
 def display_comment( value, user ):
 
 	result = "<h3 class='timestamp'>" 
-	result += "<a href='#" + urllib.quote_plus(str(value.id)) + "' name ='" + str(value.id) + "'>" + str(value.last_modified.strftime("%A, %B %d %Y  %I:%M %p")) + "</a>"
+	result += "<a href='#" + urlquote_plus(str(value.id)) + "' name ='" + str(value.id) + "'>" + str(value.last_modified.strftime("%A, %B %d %Y  %I:%M %p")) + "</a>"
 	result += "</h3>\n"
 	
 	# if the current user is the author or an admin, let them delete the post
@@ -27,7 +27,7 @@ def display_comment( value, user ):
 
 	# if the author isn't the anonymous user, display a link to their profile
 	if value.author.username != "Anonymous":
-	        result += "<a href='/cs215/shirpi/view_profile/" + urllib.quote_plus(value.author.username) + "/'>"
+	        result += "<a href='/cs215/shirpi/view_profile/" + urlquote_plus(value.author.username) + "/'>"
 		result += value.author.username
 		result += "</a>"
 	else:
@@ -49,7 +49,7 @@ def display_comment( value, user ):
 
 	# again, if author or admin, allow to edit
 	if user.username == value.author.username or user.has_perm("SHIRPI.comment"):
-		result += "<a href='/cs215/shirpi/edit_comment/" + urllib.quote_plus(str(value.pk)) + "/'>" + value.comment + "</a>"
+		result += "<a href='/cs215/shirpi/edit_comment/" + urlquote_plus(str(value.pk)) + "/'>" + value.comment + "</a>"
 	else:
 		result += value.comment
 

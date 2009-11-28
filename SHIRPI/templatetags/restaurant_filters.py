@@ -1,4 +1,4 @@
-import urllib
+from django.utils.http import urlquote_plus, iri_to_uri
 from cgi import escape
 from django import template
 from django.utils.html import conditional_escape
@@ -38,12 +38,12 @@ def display_restaurant( restaurant ):
 		result += "low"	
 	
 	# url escape name and address
-	name = urllib.quote_plus(restaurant.name)
-	address = urllib.quote_plus(restaurant.address)
+	name = urlquote_plus(restaurant.name)
+	address = urlquote_plus(restaurant.address)
 
 	# display the information
 	result += "'>\n"
-	result += "<h4 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(name) +"/" + urllib.quote_plus(address) + "\">" + escape(restaurant.name) + "</a></h4>"
+	result += "<h4 class='name'><a href=\"/cs215/shirpi/view/" + urlquote_plus(name) +"/" + urlquote_plus(address) + "\">" + escape(restaurant.name) + "</a></h4>"
 	result +="<h4 class='address'>" + escape(restaurant.address) + "</h4>"
 	result +="<ul class='restaurant_info'>"
 	result += "<li><h4>" + str(restaurant.health_report_status) +"</h4></li>"
