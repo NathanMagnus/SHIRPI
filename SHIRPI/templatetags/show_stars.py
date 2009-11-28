@@ -130,7 +130,7 @@ function myCallback(id, pos)
 # show stars node class
 class ShowStarsNode(Node):
 	# initialize the star info
-	def __init__(self, stars, total_stars = MAX_RATING, round_to, handler=None, identifier=None):
+	def __init__(self, stars, total_stars, round_to, handler=None, identifier=None):
 		self.stars = stars
 		self.total_stars = int(total_stars)
 		self.rounder = ROUNDERS[round_to.lower()]
