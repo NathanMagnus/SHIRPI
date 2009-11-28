@@ -76,8 +76,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		restaurant_address = ""
 
 	# remove % encoding from url
-	restaurant_name = urllib.unquote_plus(restaurant_name).lower()
-	restaurant_address = urllib.unquote_plus(restaurant_address).lower()
+	restaurant_name = urllib.unquote_plus(restaurant_name).translate(string.maketrans("",""), string.punctuation).lower()
+	restaurant_address = urllib.unquote_plus(restaurant_address).translate(string.maketrans("",""), string.punctuation).lower()
 	
 	# if they want all, set appropriate variable to blank
 	if restaurant_name == "all":
