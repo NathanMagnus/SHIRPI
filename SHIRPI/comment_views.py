@@ -1,10 +1,10 @@
 # Create your views here.
+import urllib
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm 
 from project.SHIRPI.settings import *
 
 from datetime import datetime, date, timedelta
-from django.contrib.http import urlquote_plus, iri_to_url
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
@@ -20,8 +20,8 @@ Return		: HttpResponse for the appropriate template
 '''
 
 def comment( request, restaurant_name, restaurant_address ):
-	restaurant_name = iri_to_uri(restaurant_name)
-	restaurant_address = iri_to_uri(restaurant_address)
+	restaurant_name = urllib.unquote_plus(restaurant_name)
+	restaurant_address = urllib.unquote_plus(restaurant_address)
 
 	if request.user.is_authenticated():
 		user = request.user
@@ -131,7 +131,7 @@ def save_edit(request, comment_id):
 				comment.save()
 
 				#forward to the restaurant browse
-				return HttpResponseRedirect("/cs215/shirpi/view/"+urlquote_plus(restaurant.name)+"/"+urlquote_plus(restaurant.address)+"/")
+				return HttpResponseRedirect("/cs215/shirpi/view/"+urllib.quote_plus(restaurant.name)+"/"+urllib.quote_plus(restaurant.address)+"/")
 
 			#comment doesn't exist, error
 			except Comment.DoesNotExist:
@@ -149,8 +149,8 @@ Parameter(s)	: request - HttpRequest
 Return		: HttpResponse
 '''
 def save(request, restaurant_name, restaurant_address):
-	restaurant_name = iri_to_uri(restaurant_name)
-	restaurant_address = iri_to_uri(restaurant_address)
+	restaurant_name = urllib.unquote_plus(restaurant_name)
+	restaurant_address = urllib.unquote_plus(restaurant_address)
 
 	#if the form was submitted properly
 	if request.method=="POST":
@@ -206,7 +206,7 @@ def save(request, restaurant_name, restaurant_address):
 			comment.save()
 	
 	#render response
-	return HttpResponseRedirect("/cs215/shirpi/view/"+urlquote_plus(restaurant_name) + "/" + urlquote_plus(restaurant_address)+"/")
+	return HttpResponseRedirect("/cs215/shirpi/view/"+urllib.quote_plus(restaurant_name) + "/" + urllib.quote_plus(restaurant_address)+"/")
 
 '''
 Function	: edit_comment
@@ -218,7 +218,7 @@ Return		: HttpResponseRedirect
 def edit_comment(request, comment_id):
 	
 	# anything passed through the url is a potential problem - unquote the comment_id
-	comment_id = iri_to_uri(comment_id)
+	comment_id = urllib.unquote_plus(comment_id)
 
 	# get the comment, check that the logged in user is the author then render the edit form
 	# any error in this process will return the appropriate error message on the error template
@@ -244,8 +244,8 @@ Parameter(s)	: request - HttpRequest
 Return		: HttpResponse
 '''
 def view_comments(request, restaurant_name, restaurant_address):
-	restaurant_name = iri_to_uri(restaurant_name)
-	restaurant_address = iri_to_uri(restaurant_address)
+	restaurant_name = urllib.unquote_plus(restaurant_name)
+	restaurant_address = urllib.unquote_plus(restaurant_address)
 
 	# get the comments or redirect to the referer page
 	try:
@@ -265,7 +265,7 @@ Return		: HttpResponse
 '''
 def delete_comment(request, comment_id):
 	# prevent any issues due to comment id value
-	comment_id = iri_to_uri(comment_id)
+	comment_id = urllib.unquote_plus(comment_id)
 
 	try:
 		# get the comment
