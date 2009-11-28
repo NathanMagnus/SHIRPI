@@ -28,7 +28,7 @@ def display_favourite( favourite, autoescape = None ):
 
 	# display the info and link
 	result += "<h4>" + str(favourite.rank) + "</h4>\n"
-	result += "<h3 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(favourite.restaurant.name)+ "/" + urllib.quote_plus(favourite.restaurant.address) + "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
+	result += "<h3 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(favourite.restaurant.name).replace("/", "%2F") + "/" + urllib.quote_plus(favourite.restaurant.address).replace("/", "2F") + "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
 	result += "<h3>" + str(favourite.restaurant.address) + "</h3>\n"
 	result += "</div>\n"
 	return mark_safe(result)
@@ -57,7 +57,7 @@ def display_favourite_edit( favourite, count ):
 	result += "'>"
 
 	# display info, link, delete option and current rank
-	result += "<h4 class='delete'><a href=\"/cs215/shirpi/delete_favourite/" + urllib.quote_plus(favourite.restaurant.name) + "/" + urllib.quote_plus(favourite.restaurant.address) + "/\">Del</a></h4>\n"
+	result += "<h4 class='delete'><a href=\"/cs215/shirpi/delete_favourite/" + urllib.quote_plus(favourite.restaurant.name).replace("/", "%2F") + "/" + urllib.quote_plus(favourite.restaurant.address).replace("/", "%2F") + "/\">Del</a></h4>\n"
 	result += "<h4><select name=\"" + favourite.restaurant.name + "\">\n"
 	for i in range(1, count):
 		result += "<option"
@@ -65,7 +65,7 @@ def display_favourite_edit( favourite, count ):
 			result += " selected='selected'"
 		result += ">" + str(i) + "</option>"
 	result += "</select></h4>\n"
-	result += "<h3 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(favourite.restaurant.name) + "/" + urllib.quote_plus(favourite.restaurant.address) + "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
+	result += "<h3 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(favourite.restaurant.name).replace("/", "%2F") + "/" + urllib.quote_plus(favourite.restaurant.address).replace("/", "%2F") + "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
 	result += "<h4>" + str(favourite.restaurant.address) + "</h4>\n"
 	result += "</div>"
 	return mark_safe(result)

@@ -38,8 +38,8 @@ def display_restaurant( restaurant ):
 		result += "low"	
 	
 	# url escape name and address
-	name = urllib.quote_plus(restaurant.name)
-	address = urllib.quote_plus(restaurant.address)
+	name = urllib.quote_plus(restaurant.name).replace("/", "%2F")
+	address = urllib.quote_plus(restaurant.address).replace("/", "%2F")
 
 	# display the information
 	result += "'>\n"

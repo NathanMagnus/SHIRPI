@@ -27,7 +27,7 @@ def display_comment( value, user ):
 
 	# if the author isn't the anonymous user, display a link to their profile
 	if value.author.username != "Anonymous":
-	        result += "<a href='/cs215/shirpi/view_profile/" + urllib.quote_plus(value.author.username) + "/'>"
+	        result += "<a href='/cs215/shirpi/view_profile/" + urllib.quote_plus(value.author.username).replace("/", "%2F") + "/'>"
 		result += value.author.username
 		result += "</a>"
 	else:
@@ -49,7 +49,7 @@ def display_comment( value, user ):
 
 	# again, if author or admin, allow to edit
 	if user.username == value.author.username or user.has_perm("SHIRPI.comment"):
-		result += "<a href='/cs215/shirpi/edit_comment/" + urllib.quote_plus(str(value.pk)) + "/'>" + value.comment + "</a>"
+		result += "<a href='/cs215/shirpi/edit_comment/" + urllib.quote_plus(str(value.pk)).replace("/", "%2F") + "/'>" + value.comment + "</a>"
 	else:
 		result += value.comment
 

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}View Restaurant Information: {{restaurant.name}} at {{restaurant.address}}{%endblock%}
+{% load escape_url %}
 {% load restaurant_filters %}
 {% load comment_filters %}
 {% load health_report_filters %}
@@ -79,12 +80,12 @@
 		{% endfor %}
 		</div>
 		{% ifequal comments|length 5 %}
-			<a href="{%url project.SHIRPI.comment_views.view_comments restaurant.name|urlencode, restaurant.address|urlencode %}/">More Comments</a>
+			<a href="{%url project.SHIRPI.comment_views.view_comments restaurant.name|escape_url, restaurant.address|escape_url %}/">More Comments</a>
 		{% endifequal %}
 	{% endifnotequal %}
-	<p><a href="{% url project.SHIRPI.comment_views.comment restaurant.name|urlencode,restaurant.address|urlencode %}">Comment on {{ restaurant.name }}</a></p>
+	<p><a href="{% url project.SHIRPI.comment_views.comment restaurant.name|escape_url,restaurant.address|escape_url %}">Comment on {{ restaurant.name }}</a></p>
 	{% if user.is_authenticated %}
-		<p><a href="{% url project.SHIRPI.favourite_views.add_favourite restaurant.name|urlencode, restaurant.address|urlencode%}">Add to favourites</a></p>
+		<p><a href="{% url project.SHIRPI.favourite_views.add_favourite restaurant.name|escape_url, restaurant.address|escape_url%}">Add to favourites</a></p>
 	{% endif %}
 	<br /><br />
 	<div id="map_canvas" style="width: 310px; height: 400px;"></div>
