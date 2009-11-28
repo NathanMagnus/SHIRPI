@@ -1,7 +1,6 @@
 import urllib
-from cgi import escape
 from django import template
-from django.utils.html import conditional_escape
+from django.utils.html import conditional_escape, escape
 from django.utils.safestring import mark_safe
 
 from project.SHIRPI.settings import *
@@ -28,4 +27,5 @@ def display_search_field( request ):
 	result +="<input type='hidden' name='sort_by' value='" + escape(request.GET.get('sort_by', 'name')) + "' />\n"
 	result +="<input type='hidden' name='type' value='" + escape(request.GET.get('type', 'asc'))  + "' />\n"
 	result +="</div>\n"
+	result += "escaped: " + escape(request.GET.get('restaurant_name', ""))
 	return mark_safe(result)
