@@ -40,4 +40,5 @@ def display_sort_options(request):
 		get['sort_by'] = type
 		result +="<li class='type'><a href='?"+ escape(get.urlencode()) +"'>" + verbose + "</a></li>\n"
 	result +="</ul>\n"
+	result +="</div>\n"
 	return mark_safe(result)
