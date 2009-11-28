@@ -33,8 +33,8 @@ ROUNDERS = {
 }
 
 # command patterns
-CMD_PATTERN = re.compile("^show_stars (.*) round to (%s)$" % "|".join(ROUNDERS))
-EX_CMD_PATTERN = re.compile("^show_stars (.*) round to (%s) on change call (\w*) with (.*)$" % "|".join(ROUNDERS))
+CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s)$" % "|".join(ROUNDERS))
+EX_CMD_PATTERN = re.compile("^show_stars (.*) of (\d*) round to (%s) on change call (\w*) with (.*)$" % "|".join(ROUNDERS))
 
 # the javascript
 JS_TEMPLATE = """

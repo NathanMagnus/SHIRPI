@@ -50,7 +50,7 @@ def comment( request, restaurant_name, restaurant_address ):
 
 	# create comment form and render
 	form = CommentForm()
-	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form, 'max_rating': MAX_RATING}, RequestContext(request))
+	return render_to_response('SHIRPI/comment.html', {'restaurant':restaurant, 'form':form}, RequestContext(request))
 
 '''
 Function	: update_values
@@ -230,7 +230,7 @@ def edit_comment(request, comment_id):
 
 		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'wait_time': int(comment.wait_time), 'food_quality': int(comment.food_quality)})
 
-		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment, 'max_rating': MAX_RATING}, RequestContext(request))
+		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment}, RequestContext(request))
 
 	except Comment.DoesNotExist:
 		return render_to_response('SHIRPI/error.html', {'error': "That comment does not exist"}, RequestContext(request))
