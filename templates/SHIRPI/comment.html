@@ -12,10 +12,10 @@
 <h1>{{restaurant.name}} Page</h1>
 <form id="reviewForm" method="post" action="{% url project.SHIRPI.comment_views.save restaurant.name|escape_url, restaurant.address|escape_url %}">
 	{{ form.as_p}}
-	<p>Cleanliness: {% show_stars 0 of 5 round to half on change call myCallback with 1%}</p>
-	<p>Food Quality: {% show_stars 0 of 5 round to half on change call myCallback with 2%}</p>
-	<p>Atmosphere: {% show_stars 0 of 5 round to half on change call myCallback with 3%}</p>
-	<p>Wait Time: {% show_stars 0 of 5 round to half on change call myCallback with 4%}</p>
-	<input type="submit" value="Submit Review" name="submit" />
+	<p>Cleanliness: </p>{% show_stars 0 of 5 round to half on change call myCallback with 1%}
+	<p>Food Quality: </p>{% show_stars 0 of 5 round to half on change call myCallback with 2%}
+	<p>Atmosphere: </p>{% show_stars 0 of 5 round to half on change call myCallback with 3%}
+	<p>Wait Time: </p>{% show_stars 0 of 5 round to half on change call myCallback with 4%}
+	<p><input type="submit" value="Submit Review" name="submit" /></p>
 </form>
 {% endblock %}
