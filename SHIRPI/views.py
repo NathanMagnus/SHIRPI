@@ -162,11 +162,9 @@ Parameter(s)	: request - HttpRequest
 Return 		: HttpResponse
 '''
 def view_restaurant(request, restaurant_name, restaurant_address):
-	restaurant_name = urllib.unquote_plus(restaurant_name)
-	restaurant_address = urllib.unquote_plus(restaurant_address)
 	try:
 		# get the restaurant, reports associated with that restaurant and comments
-		restaurant = Restaurant.objects.get(name__iexact=restaurant_name, address__iexact=restaurant_address)
+		restaurant = Restaurant.objects.get(name__iexact=urllib.unquote_plus(restaurant_name), address__iexact=urllib.unquote_plus(restaurant_address))
 		reports = HealthReport.objects.filter(restaurant=restaurant)
 		comments = Comment.objects.filter(restaurant=restaurant).order_by('-created')[0:5]
 
