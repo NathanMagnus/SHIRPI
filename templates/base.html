@@ -16,22 +16,23 @@
 <div id="title">
 	{% block header %}<h1>SHIRPI</h1>
 	<h2>(Saskatchewan Health Inspections Reports Parser and Interface)</h2>{% endblock %}
+	<div id="userinfo">
+	{% block userinfo %}
+		{% if user.is_authenticated %}
+			Hi, {{ user.username }} <br />
+			<a href="/cs215/shirpi/accounts/logout/">Logout</a><br />
+			<a href="{% url project.SHIRPI.views.view_profile user.username %}">My Profile</a><br />
+			{% if user.is_staff %}
+				<a href="/cs215/admin/">Admin</a>
+			{% endif %}
+			{% else %}
+				<a href="/cs215/shirpi/accounts/login/">Login</a><br />
+				<a href="/cs215/shirpi/accounts/register/">Register</a>
+			{% endif %}
+	{% endblock %}
+	</div>
 </div>
-<div id="userinfo">
-{% block userinfo %}
-	{% if user.is_authenticated %}
-		Hi, {{ user.username }} <br />
-		<a href="/cs215/shirpi/accounts/logout/">Logout</a><br />
-		<a href="{% url project.SHIRPI.views.view_profile user.username %}">My Profile</a><br />
-		{% if user.is_staff %}
-			<a href="/cs215/admin/">Admin</a>
-		{% endif %}
-		{% else %}
-			<a href="/cs215/shirpi/accounts/login/">Login</a><br />
-			<a href="/cs215/shirpi/accounts/register/">Register</a>
-		{% endif %}
-{% endblock %}
-</div>
+
 <div id="navbar">
 	{% block navbar %}
 	<!-- Default Navbar -->

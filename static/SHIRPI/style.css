@@ -21,13 +21,9 @@ body {
 	margin: auto;
 }
 #title {
-	float: left;
-	left: 0;
-	top: 0;
-	height: 105px;
-	width: 720px;
-	min-width: 720px;
-	background-color: #0f0;
+	height: 194px;
+	width: 1024px;
+	background-image: url('/cs215/static/SHIRPI/overhead.jpg');
 }
 #userinfo {
 	float: left;
