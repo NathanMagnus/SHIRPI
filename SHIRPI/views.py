@@ -1,4 +1,5 @@
 import urllib
+import string
 
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm, ProfileForm
