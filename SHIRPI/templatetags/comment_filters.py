@@ -1,4 +1,6 @@
-from django.utils.http import urlquote_plus_plus, iri_to_uri
+from django.utils.http import urlquote_plus_plus
+from django.utils.encoding import iri_to_url
+
 from datetime import datetime, date
 from django import template
 from django.utils.html import conditional_escape
