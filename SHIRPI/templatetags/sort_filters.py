@@ -1,6 +1,6 @@
 import urllib
 from django import template
-from django.utils.html import conditional_escape
+from django.utils.html import conditional_escape, escape
 from django.utils.safestring import mark_safe
 
 from project.SHIRPI.settings import *
@@ -38,6 +38,6 @@ def display_sort_options(request):
 				get['type'] = "DESC"
 		# add sort_by to the GET parameters
 		get['sort_by'] = type
-		result +="<li class='type'><a href='?"+ get.urlencode() +"'>" + verbose + "</a></li>\n"
+		result +="<li class='type'><a href='?"+ escape(get.urlencode()) +"'>" + verbose + "</a></li>\n"
 	result +="</ul>\n"
 	return mark_safe(result)
