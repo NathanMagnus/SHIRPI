@@ -22,7 +22,7 @@ class RestaurantAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
 	list_display = ('restaurant', 'author', 'comment', 'combined', 'cleanliness', 'food_quality', 'wait_time')
 	search_fields = ['author', 'restaurant', 'comment', 'ip']
-	fields = ['author', 'restaurant', 'comment', 'combined', 'cleanliness', 'food_quality', 'wait_time', 'ip', 'created']
+	fields = ['author', 'restaurant', 'comment', 'combined', 'cleanliness', 'food_quality', 'wait_time', 'ip', 'created', 'last_modified']
 
 # admin page for favourites
 class FavouriteAdmin(admin.ModelAdmin):
