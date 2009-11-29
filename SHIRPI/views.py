@@ -132,12 +132,17 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		if len(results) == 1:
 			restaurant = results[0]
 			#get the reports
-			reps = HealthReport.objects.filter(restaurant=restaurant)
+			#reps = HealthReport.objects.filter(restaurant=restaurant)
 			#get the comments
-			comments = Comment.objects.filter(restaurant=restaurant)[0:5]
+			#comments = Comment.objects.filter(restaurant=restaurant)[0:5]
 			#render the page
-			context =  {'restaurant': restaurant, 'reps':reps, 'comments': comments}
-			return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
+			#context =  {'restaurant': restaurant, 'reps':reps, 'comments': comments}
+			#return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
+			#return view_restaurant(request, restaurant.name, restaurant.address)
+			
+			# let's have it so that all views are done with the same URL. this eliminates duplicate code
+			return HttpResponseRedirect("/cs215/shirpi/view/" + restaurant.name + "/" + restaurant.address)
+			
 		# if there are no matches, error
 		elif len(results) == 0:
 			return render_to_response("SHIRPI/error.html", {'error':"No matches found"}, RequestContext(request))

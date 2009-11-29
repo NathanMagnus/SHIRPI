@@ -95,6 +95,14 @@ body{
 	
 }
 
+#navigation form select{
+	height: 100%;
+	
+	font-size: 10pt;
+	
+	
+}
+
 
 #navigation ul{
 	right: 10px;

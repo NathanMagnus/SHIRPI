@@ -21,8 +21,7 @@ def display_sort_options(request):
 
 	# enclosing div
 	result ="<div id='sort'>\n"
-	result +="<h4>Sort By</h4>\n"
-	result +="<ul id='sort_by'>\n"
+	result +="<ul>\n"
 
 	# for each type of sort
 	for type, verbose, default in sorts:
@@ -38,7 +37,7 @@ def display_sort_options(request):
 				get['type'] = "DESC"
 		# add sort_by to the GET parameters
 		get['sort_by'] = type
-		result +="<li class='type'><a href='?"+ escape(get.urlencode()) +"'>" + verbose + "</a></li>\n"
+		result +="<li><a href='?"+ escape(get.urlencode()) +"'>" + verbose + "</a></li>\n"
 	result +="</ul>\n"
 	result +="</div>\n"
 	return mark_safe(result)
