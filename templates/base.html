@@ -14,32 +14,32 @@
 <body>
 {% endblock %}
 <div id="wrapper">
-<div id="title">
-	{% block header %}<h1>SHIRPI</h1>
-	<h2>(Saskatchewan Health Inspections Reports Parser and Interface)</h2>{% endblock %}
-	<div id="userinfo">
+<div id="heading">
+	<div id="user_actions">
 	{% block userinfo %}
 		{% if user.is_authenticated %}
-			Hi, {{ user.username }} <br />
-			<a href="/cs215/shirpi/accounts/logout/">Logout</a><br />
-			<a href="{% url project.SHIRPI.views.view_profile user.username %}">My Profile</a><br />
+			<a href="/cs215/shirpi/accounts/logout/">LOGOUT</a> <span class="divider">|</span>
+			<a href="{% url project.SHIRPI.views.view_profile user.username %}">YOUR PROFILE</a>
 			{% if user.is_staff %}
-				<a href="/cs215/admin/">Admin</a>
+				<br /><br /><a href="/cs215/admin/">Admin</a>
 			{% endif %}
-			{% else %}
-				<a href="/cs215/shirpi/accounts/login/">Login</a><br />
-				<a href="/cs215/shirpi/accounts/register/">Register</a>
-			{% endif %}
+			<div id="greeting">
+				Authenticated as: {{ user.username }}
+			</div>
+		{% else %}
+			<a href="/cs215/shirpi/accounts/login/">LOGIN</a> <span class="divider">|</span>
+			<a href="/cs215/shirpi/accounts/register/">REGISTER</a>
+		{% endif %}
 	{% endblock %}
 	</div>
 </div>
 
-<div id="navbar">
+<div id="navigation">
 	{% block navbar %}
 	<!-- Default Navbar -->
 	<ul class="nav">
-		<li><a href="/cs215/shirpi/browse/all/all/?sort_by=name&amp;type=asc">Browse Restaurants</a></li>
 		<li><a href="/cs215/shirpi/">Home</a></li>
+		<li><a href="/cs215/shirpi/browse?sort_by=name&amp;type=asc">Browse All</a></li>
 	</ul>
 	{% endblock %}
 </div>

@@ -11,19 +11,21 @@
 {% if error %}
 	<h1>{{error}}</h1>
 {% endif %}
+
 {% if restaurants %}
 {% url project.SHIRPI.views.browse as browse_url %}
 <form method="get" id="search_sort_field" action="">
 	{{request|display_search_field}}
 	<p><input type="submit" name="Submit" value="Submit" id="search_sort_submit" style="visibility: hidden;" /></p>
 </form>
-	{{request|display_sort_options}}
-	<div class='restaurants'>
-	{% for restaurant in restaurants %}
-		{% if restaurant.visible %}
-			{{restaurant|display_restaurant}}
-		{% endif %}
-	{% endfor %}
-	</div>
+
+{{request|display_sort_options}}
+<div class='restaurants'>
+{% for restaurant in restaurants %}
+	{% if restaurant.visible %}
+		{{restaurant|display_restaurant}}
+	{% endif %}
+{% endfor %}
+</div>
 {% endif %}
 {% endblock %}
