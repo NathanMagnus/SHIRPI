@@ -64,17 +64,17 @@ def display_search_field( request ):
 	
 	if lower_limit == "low":
 		result += "selected='selected' "
-	result += "value='low'>Low</option>\n"
+	result += "value='" + str(LOW_VAL) + "'>Low</option>\n"
 	
 	result += "<option class='moderate' "
 	if lower_limit == "moderate":
 		result += "selected='selected' "
-	result += "value='moderate'>Moderate</option>\n"
+	result += "value='" + str(MODERATE_VAL) + "'>Moderate</option>\n"
 	
 	result += "<option class='critical' "
 	if lower_limit == "critical":
 		result += "selected='selected' "
-	result += "value='critical'>Critical</option>\n"
+	result += "value='" + str(CRITICAL_VAL) + "'>Critical</option>\n"
 	result += "</select>"
 	
 	# upper_limit dropdown
@@ -82,17 +82,17 @@ def display_search_field( request ):
 	result += "<option class='low' "
 	if upper_limit == "low":
 		result += "selected='selected' "
-	result += "value='low'>Low</option>\n"
+	result += "value='" + str(LOW_VAL) + "'>Low</option>\n"
 	
 	result += "<option class='moderate' "
 	if upper_limit == "moderate":
 		result += "selected='selected' "
-	result += "value='moderate'>Moderate</option>\n"
+	result += "value='" + str(MODERATE_VAL) + "'>Moderate</option>\n"
 	
 	result += "<option class='critical' "
 	if upper_limit == "critical":
 		result += "selected='selected' "
-	result += "value='critical'>Critical</option>\n"
+	result += "value='" + str(CRITICAL_VAL) + "'>Critical</option>\n"
 	result += "</select>"
 	
 	

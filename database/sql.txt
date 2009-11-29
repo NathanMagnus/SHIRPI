@@ -1,0 +1,78 @@
+BEGIN;
+CREATE TABLE "SHIRPI_location" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "city" varchar(50) NOT NULL,
+    "province" varchar(50) NOT NULL,
+    "country" varchar(50) NOT NULL,
+    "rha" varchar(200) NOT NULL
+)
+;
+CREATE TABLE "SHIRPI_restaurant" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "location_id" integer NOT NULL REFERENCES "SHIRPI_location" ("id"),
+    "address" varchar(75) NOT NULL,
+    "address_clean" varchar(75) NOT NULL,
+    "postal_code" varchar(8) NOT NULL,
+    "name" varchar(50) NOT NULL,
+    "name_clean" varchar(50) NOT NULL,
+    "health_report_status" integer NOT NULL,
+    "combined" real NOT NULL,
+    "combined_count" integer NOT NULL,
+    "cleanliness" real NOT NULL,
+    "cleanliness_count" integer NOT NULL,
+    "food_quality" real NOT NULL,
+    "food_quality_count" integer NOT NULL,
+    "atmosphere" real NOT NULL,
+    "atmosphere_count" integer NOT NULL,
+    "wait_time" real NOT NULL,
+    "wait_time_count" integer NOT NULL,
+    "visible" bool NOT NULL
+)
+;
+CREATE TABLE "SHIRPI_comment" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "restaurant_id" integer NOT NULL REFERENCES "SHIRPI_restaurant" ("id"),
+    "author_id" integer NOT NULL REFERENCES "auth_user" ("id"),
+    "comment" text NOT NULL,
+    "combined" real NOT NULL,
+    "cleanliness" real NOT NULL,
+    "food_quality" real NOT NULL,
+    "atmosphere" real NOT NULL,
+    "wait_time" real NOT NULL,
+    "created" datetime NOT NULL,
+    "last_modified" datetime NOT NULL,
+    "ip" char(15) NOT NULL
+)
+;
+CREATE TABLE "SHIRPI_favourite" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "restaurant_id" integer NOT NULL REFERENCES "SHIRPI_restaurant" ("id"),
+    "user_id" integer NOT NULL REFERENCES "auth_user" ("id"),
+    "rank" integer NOT NULL
+)
+;
+CREATE TABLE "SHIRPI_healthinspectionitem" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "number" varchar(10) NOT NULL,
+    "short_description" varchar(200) NOT NULL,
+    "description" text NOT NULL,
+    "severity" integer NOT NULL
+)
+;
+CREATE TABLE "SHIRPI_healthreport" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "date" date NOT NULL,
+    "health_inspection_score" integer NOT NULL,
+    "restaurant_id" integer NOT NULL REFERENCES "SHIRPI_restaurant" ("id"),
+    "priority" varchar(30) NOT NULL,
+    "type" varchar(30) NOT NULL
+)
+;
+CREATE TABLE "SHIRPI_healthreport_items" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "healthreport_id" integer NOT NULL REFERENCES "SHIRPI_healthreport" ("id"),
+    "healthinspectionitem_id" integer NOT NULL REFERENCES "SHIRPI_healthinspectionitem" ("id"),
+    UNIQUE ("healthreport_id", "healthinspectionitem_id")
+)
+;
+COMMIT;
