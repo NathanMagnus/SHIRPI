@@ -21,13 +21,13 @@ def add_favourite(request, restaurant_name, restaurant_address):
 
 	#if the user is not authenticated, just send them back to the browse page they were on
 	if not request.user.is_authenticated():
-		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address + '/')
+		return HttpResponseRedirect('/cs215/shirpi/view/' + urllib.quote_plus(restaurant_name) + '/' + urllib.quote_plus(restaurant_address) + '/')
 
 	#get the restaurant that is being added or send back to browse page if it doesn't exist
 	try:
 		restaurant = Restaurant.objects.get(name__iexact=restaurant_name, address__iexact = restaurant_address)
 	except Restaurant.DoesNotExist:
-		return HttpResponseRedirect('/cs215/shirpi/browse/' + restaurant_name + '/' + restaurant_address + '/')
+		return HttpResponseRedirect('/cs215/shirpi/view/' + urllib.quote_plus(restaurant_name) + '/' + urllib.quote_plus(restaurant_address) + '/')
 
 	#see if the favourite already exists for this user, if it does, do nothing, otherwise add the favourite
 	try:
