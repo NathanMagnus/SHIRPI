@@ -112,6 +112,7 @@ body{
 
 
 #navigation ul{
+	top: 10px;
 	right: 10px;
 	position: absolute;
 }
