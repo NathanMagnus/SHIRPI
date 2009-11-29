@@ -35,7 +35,8 @@ body{
 	float: right;
 	position: relative;
 	
-	margin: 20px;
+	top: 20px;
+	right: 20px;
 	
 	color: white;
 	font-size: 12pt;
@@ -61,9 +62,8 @@ body{
 }
 
 #greeting{
-	position: absolute;
-	bottom: 30px;
-	right: 0px;
+	position: relative;
+	top: 85px;
 }
 
 
@@ -72,10 +72,40 @@ body{
 #navigation{
 	height: 47px;
 	width: 100%;
+	position: relative;
+	
 	
 	background-image: url('/cs215/static/SHIRPI/navigation.jpg');
 }
 
+#navigation form{
+	position: relative;
+	float: left;
+	
+	padding: 10px 20px;
+}
+
+#navigation form textarea, #navigation form input, #navigation form button, #navigation form select{
+	
+	color: #222;
+	background-color: #d5e785;
+	border: 1px solid black;
+	
+	font-size: 15pt;
+	
+}
+
+
+#navigation ul{
+	right: 10px;
+	position: absolute;
+}
+
+#navigation ul li{
+	display: inline;	
+	list-style-type: none;
+	padding-right: 20px;
+}
 
 /*
 body {

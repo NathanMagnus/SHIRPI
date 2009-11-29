@@ -39,18 +39,17 @@
 
 <div id="navigation">
 	{% block navbar %}
-	<!-- Default Navbar -->
-	<form method="get" id="search_sort_field" action="/cs215/shirpi/browse"
-		onsubmit="if (restaurant_name.value == 'Location Name') restaurant_name.value='';
-		if (restaurant_address.value == 'Street / Address') restaurant_address.value='';" >
-		{{request|display_search_field}}
-		<input type="submit" name="Submit" value="Search" id="search_sort_submit" style="" />
-	</form>
 	<ul class="nav">
 		<li><a href="/cs215/shirpi/">Home</a></li>
 		<li><a href="/cs215/shirpi/browse?sort_by=name&amp;type=asc">Browse All</a></li>
 
 	</ul>
+	<!-- Default Navbar -->
+	<form method="get" id="search_sort_field" action="/cs215/shirpi/browse"
+	   onsubmit="if (restaurant_name.value == 'Location Name') restaurant_name.value='';
+	   if (restaurant_address.value == 'Street / Address') restaurant_address.value='';" >
+		{{request|display_search_field}}
+	</form>
 	{% endblock %}
 </div>
 <div id="content">

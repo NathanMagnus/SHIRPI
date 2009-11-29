@@ -16,10 +16,8 @@ Return		: string containing html for the search form
 '''
 @register.filter
 def display_search_field( request ):
-	# enclosing div
-	result ="<div id='search'>\n"
-
 	# display label and input for form, populate with current GET values if possible
+	result = ''
 	
 	try:
 		name = escape(request.GET.get('restaurant_name', 'Location Name'))
@@ -101,8 +99,8 @@ def display_search_field( request ):
 	result += "<input type='hidden' name='sort_by' value='" + sort_by + "' />\n"
 	
 	result += "<input type='hidden' name='type' value='" + sort_direction + "' />\n"
-	result += "</div>\n"
 	
+	result += "<input type='submit' name='Submit' value='Search' id='search_sort_submit'/>"
 	print "Filter Lower: " + repr(lower_limit)
 	print "Filter Upper: " + repr(upper_limit)
 	
