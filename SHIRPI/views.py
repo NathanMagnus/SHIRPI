@@ -43,8 +43,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	restaurant_address = request.GET.get("restaurant_address", restaurant_address)
 
 	# set upper and lower limit based upon the GET information
-	lower_limit = request.GET.get('lower_limit', "")
-	upper_limit = request.GET.get('upper_limit', "")
+	lower_limit = request.GET.get('lower_limit', "0")
+	upper_limit = request.GET.get('upper_limit', "100")
 
 	# get order and type information
 	order = request.GET.get('sort_by', 'name').lower()
@@ -95,7 +95,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		upper_limit = MODERATE_VAL+1
 	elif upper_limit == "low":
 		upper_limit = LOW_VAL+1
-	else:
+	elif not upper_limit.isdigit():
 		upper_limit=9999
 
 	if lower_limit == "critical":
@@ -104,7 +104,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		lower_limit = MODERATE_VAL
 	elif lower_limit == "low":
 		lower_limit = LOW_VAL
-	else:
+	elif not lower_limit.isdigit():
 		lower_limit = 0
 	
 	# if the upper limit is higher than the lower limit, assume the user made a mistake and swap for them
@@ -114,8 +114,11 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		lower_limit = temp
 	
 	
+	
 	# Query Database
 	# the blank string parameters defined above will filter ALL
+	print "Lower: " + repr(lower_limit)
+	print "Upper: " + repr(upper_limit)
 	try:
 		results = Restaurant.objects.filter(name_clean__icontains=restaurant_name, address_clean__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit).order_by(type + order, '-health_report_status')
 	except Restaurant.DoesNotExist:
