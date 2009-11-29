@@ -98,6 +98,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		upper_limit = LOW_VAL+1
 	elif not upper_limit.isdigit():
 		upper_limit=9999
+	else:
+		upper_limit = int(upper_limit) + 1
 
 	if lower_limit == "critical":
 		lower_limit = CRITICAL_VAL
@@ -108,18 +110,8 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	elif not lower_limit.isdigit():
 		lower_limit = 0
 	
-	# if the upper limit is higher than the lower limit, assume the user made a mistake and swap for them
-	if lower_limit > upper_limit:
-		temp = upper_limit
-		upper_limit = lower_limit
-		lower_limit = temp
-	
-	
-	
 	# Query Database
 	# the blank string parameters defined above will filter ALL
-	print "Lower: " + repr(lower_limit)
-	print "Upper: " + repr(upper_limit)
 	try:
 		results = Restaurant.objects.filter(name_clean__icontains=restaurant_name, address_clean__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit).order_by(type + order, '-health_report_status')
 	except Restaurant.DoesNotExist:
