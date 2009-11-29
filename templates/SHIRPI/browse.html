@@ -2,7 +2,6 @@
 {% load escape_url %}
 {% load restaurant_filters %}
 {% load sort_filters %}
-{% load search_filters %}
 {% block title %}Browse Restaurants{% endblock %}
 {% block bodytag %}
 	<body onload="initialize()" onunload="GUnload()">
@@ -13,11 +12,6 @@
 {% endif %}
 
 {% if restaurants %}
-
-<form method="get" id="search_sort_field" action="">
-	{{request|display_search_field}}
-	<p><input type="submit" name="Submit" value="Submit" id="search_sort_submit" style="visibility: hidden;" /></p>
-</form>
 
 {{request|display_sort_options}}
 <div class='restaurants'>

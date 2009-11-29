@@ -1,7 +1,8 @@
-{% load escape_url %}
-{% load search_filters %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+{% load escape_url %}
+{% load search_filters %}
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -40,8 +41,16 @@
 	{% block navbar %}
 	<!-- Default Navbar -->
 	<ul class="nav">
+		<li>Search:
+			<form method="get" id="search_sort_field" action="/cs215/shirpi/browse"
+			      onsubmit="if (restaurant_name.value == 'Location Name') restaurant_name.value='';" >
+				{{request|display_search_field}}
+				<p><input type="submit" name="Submit" value="Submit" id="search_sort_submit" style="visibility: hidden;" /></p>
+			</form>
+		</li>
 		<li><a href="/cs215/shirpi/">Home</a></li>
 		<li><a href="/cs215/shirpi/browse?sort_by=name&amp;type=asc">Browse All</a></li>
+
 	</ul>
 	{% endblock %}
 </div>
