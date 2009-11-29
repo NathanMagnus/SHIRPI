@@ -52,12 +52,6 @@ def display_search_field( request ):
 	# Dropdown menus.
 	# TODO: Make this presentable.
 	
-	# Integer handling for dropdowns
-	if not lower_limit.isdigit():
-		lower_limit = 0
-	if not upper_limit.isdigit():
-		upper_limit = 100
-	
 	# lower_limit dropdown
 	result += "<select name='lower_limit' id='lower_limit'>\n"
 	result += "<option class='low' "
