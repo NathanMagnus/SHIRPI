@@ -109,6 +109,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		lower_limit = LOW_VAL
 	elif not lower_limit.isdigit():
 		lower_limit = 0
+		
 	
 	# Query Database
 	# the blank string parameters defined above will filter ALL
