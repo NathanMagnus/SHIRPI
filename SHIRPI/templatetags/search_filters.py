@@ -90,7 +90,7 @@ def display_search_field( request ):
 	result += "value='moderate'>Moderate</option>\n"
 	
 	result += "<option class='critical' "
-	if upper_limit = "critical":
+	if upper_limit == "critical":
 		result += "selected='selected' "
 	result += "value='critical'>Critical</option>\n"
 	result += "</select>"
