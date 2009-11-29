@@ -17,17 +17,17 @@ Return          : HttpResponse
 '''
 def add_favourite(request, restaurant_name, restaurant_address):
 	restaurant_name = urllib.unquote_plus(restaurant_name)
-	rsetaurant_address = urllib.unquote_plus(restaurant_address)
+	restaurant_address = urllib.unquote_plus(restaurant_address)
 
 	#if the user is not authenticated, just send them back to the browse page they were on
 	if not request.user.is_authenticated():
-		return HttpResponseRedirect('/cs215/shirpi/view/' + urllib.quote_plus(restaurant_name) + '/' + urllib.quote_plus(restaurant_address) + '/')
+		return render_to_response("SHIRPI/error.html", {'error': "You are not logged in"}, RequestContext(request))
 
 	#get the restaurant that is being added or send back to browse page if it doesn't exist
 	try:
 		restaurant = Restaurant.objects.get(name__iexact=restaurant_name, address__iexact = restaurant_address)
 	except Restaurant.DoesNotExist:
-		return HttpResponseRedirect('/cs215/shirpi/view/' + urllib.quote_plus(restaurant_name) + '/' + urllib.quote_plus(restaurant_address) + '/')
+		return render_to_response("SHIRPI/error.html", {'error': "Restaurant does not exist: " + restaurant_name + " on " + restaurant_address}, RequestContext(request))
 
 	#see if the favourite already exists for this user, if it does, do nothing, otherwise add the favourite
 	try:
