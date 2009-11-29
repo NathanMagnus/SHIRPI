@@ -1,6 +1,7 @@
 import urllib
 import re
 import string
+from cgi import escape
 
 from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm, ProfileForm
@@ -141,6 +142,9 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			#return view_restaurant(request, restaurant.name, restaurant.address)
 			
 			# let's have it so that all views are done with the same URL. this eliminates duplicate code
+			# perhaps this escaping should be helper function somewhere
+			restaurant.name = escape(urllib.quote_plus(restaurant.name.replace("/", "%2F")))
+			restaurant.address = escape(urllib.quote_plus(restaurant.address.replace("/", "%2F")))
 			return HttpResponseRedirect("/cs215/shirpi/view/" + restaurant.name + "/" + restaurant.address)
 			
 		# if there are no matches, error

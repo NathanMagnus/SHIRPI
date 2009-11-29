@@ -4,19 +4,24 @@
 html{
 	height: 100%;
 	width: 100%;
+	
 	font-family: arial, helvetica, sans-serif;
 }
 
 body{
 	height: 100%;
 	width: 100%;
-	position: absolute;	
+	position: absolute;
+	
+	background-image: url('/cs215/static/SHIRPI/stripes.png');
 }
 
 
 #wrapper{
 	margin: auto;
 	width: 980px;
+	
+	background-color: white;
 }
 
 
@@ -91,14 +96,16 @@ body{
 	background-color: #d5e785;
 	border: 1px solid black;
 	
-	font-size: 15pt;
+	font-size: 14pt;
 	
 }
 
 #navigation form select{
-	height: 100%;
+	position: relative;
+	padding: 3px 0px;
+	top:-1px;
 	
-	font-size: 10pt;
+	font-size: 11pt;
 	
 	
 }
@@ -114,6 +121,20 @@ body{
 	list-style-type: none;
 	padding-right: 20px;
 }
+
+
+/* BROWSE */
+
+#sort ul{
+	
+}
+
+#sort li{
+	display: inline;	
+	list-style-type: none;
+	padding-right: 20px;	
+}
+
 
 /*
 body {
