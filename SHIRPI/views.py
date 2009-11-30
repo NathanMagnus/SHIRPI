@@ -179,22 +179,24 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 
 		#context defined here so that isn't ugly
 		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
-		'''
+		
+		#context defined here so that isn't ugly
+		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
+
 		if ip == None:
 			comment_set = Comment.objects.filter(author__username = user.username, restaurant = restaurant).order_by('-created')[:1]
 		else:
 			comment_set = Comment.objects.filter(author__username = user.username, restaurant = restaurant, ip = ip).order_by('-created')[:1]
-
+		
 		if len(comment_set) > 0:
 			comment = comment_set[0]
-			print str(comment_set)
-	#		if comment.created + timedelta(days=1) <= datetime.now():
-	#			context['form'] = form
-	#	else:
-	#		context['form'] = form
-
+			if comment.created + timedelta(days=1) < datetime.now():
+				context['form'] = form
+		else:
+			context['form'] = form
+		
 		print str(context)
-		'''
+	
 		return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 	except Restaurant.DoesNotExist:
 		# redirect 
