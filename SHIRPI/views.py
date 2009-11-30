@@ -49,7 +49,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 
 	# get order and type information
 	order = request.GET.get('sort_by', 'name_clean').lower()
-	type = request.GET.get('type', 'desc').lower()
+	type = request.GET.get('type', 'asc').lower()
 	
 	# if descending put the - in front, otherwise nothing
 	if type == "desc":
@@ -125,17 +125,9 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		# if there is only one result, render the view response page
 		if len(results) == 1:
 			restaurant = results[0]
-			#get the reports
-			#reps = HealthReport.objects.filter(restaurant=restaurant)
-			#get the comments
-			#comments = Comment.objects.filter(restaurant=restaurant)[0:5]
-			#render the page
-			#context =  {'restaurant': restaurant, 'reps':reps, 'comments': comments}
-			#return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
-			#return view_restaurant(request, restaurant.name, restaurant.address)
 			
-			# let's have it so that all views are done with the same URL. this eliminates duplicate code
-			# perhaps this escaping should be helper function somewhere
+			# Let's have it so that all views are done with the same URL. this eliminates duplicate code
+			# TODO: Perhaps this escaping should be helper function somewhere
 			restaurant.name = escape(urllib.quote_plus(restaurant.name.replace("/", "%2F")))
 			restaurant.address = escape(urllib.quote_plus(restaurant.address.replace("/", "%2F")))
 			return HttpResponseRedirect("/cs215/shirpi/view/" + restaurant.name + "/" + restaurant.address)
