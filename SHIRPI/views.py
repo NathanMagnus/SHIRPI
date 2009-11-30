@@ -7,7 +7,7 @@ from project.SHIRPI.models import *
 from project.SHIRPI.forms import CommentForm, ProfileForm
 from project.SHIRPI.settings import *
 
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from django.contrib.auth.models import User
 from django.views.generic.simple import direct_to_template
 from django.shortcuts import render_to_response
@@ -168,9 +168,33 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 		comments = Comment.objects.filter(restaurant=restaurant).order_by('-created')[0:5]
 		form = CommentForm()
 
-		#context defined here so that isn't ugly
-		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments, 'form': form}
 
+		commentable = True
+		if request.user.is_authenticated():
+			user = request.user
+			ip = None
+		else:
+			user = User.objects.get( username = "Anonymous" )
+			ip = request.META['REMOTE_ADDR']
+
+		#context defined here so that isn't ugly
+		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
+'''
+		if ip == None:
+			comment_set = Comment.objects.filter(author__username = user.username, restaurant = restaurant).order_by('-created')[:1]
+		else:
+			comment_set = Comment.objects.filter(author__username = user.username, restaurant = restaurant, ip = ip).order_by('-created')[:1]
+
+		if len(comment_set) > 0:
+			comment = comment_set[0]
+			print str(comment_set)
+	#		if comment.created + timedelta(days=1) <= datetime.now():
+	#			context['form'] = form
+	#	else:
+	#		context['form'] = form
+
+		print str(context)
+'''
 		return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 	except Restaurant.DoesNotExist:
 		# redirect 
