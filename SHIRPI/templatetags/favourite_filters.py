@@ -1,6 +1,6 @@
 import urllib
 from django import template
-from django.utils.html import conditional_escape
+from django.utils.html import conditional_escape, escape
 from django.utils.safestring import mark_safe
 
 from project.SHIRPI.settings import *
@@ -28,8 +28,8 @@ def display_favourite( favourite, autoescape = None ):
 
 	# display the info and link
 	result += "<h4>" + str(favourite.rank) + "</h4>\n"
-	result += "<h3 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(favourite.restaurant.name.replace("/", "%2F") )+ "/" + urllib.quote_plus(favourite.restaurant.address.replace("/", "2F") )+ "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
-	result += "<h3>" + str(favourite.restaurant.address) + "</h3>\n"
+	result += "<h3 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(favourite.restaurant.name.replace("/", "%2F") )+ "/" + urllib.quote_plus(favourite.restaurant.address.replace("/", "2F") )+ "/\">" + escape(favourite.restaurant.name) + "</a></h3>\n"
+	result += "<h3>" + escape(favourite.restaurant.address) + "</h3>\n"
 	result += "</div>\n"
 	return mark_safe(result)
 
@@ -65,8 +65,8 @@ def display_favourite_edit( favourite, count ):
 			result += " selected='selected'"
 		result += ">" + str(i) + "</option>"
 	result += "</select></h4>\n"
-	result += "<h3 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(favourite.restaurant.name.replace("/", "%2F") )+ "/" + urllib.quote_plus(favourite.restaurant.address.replace("/", "%2F") )+ "/\">" + str(favourite.restaurant.name) + "</a></h3>\n"
-	result += "<h4>" + str(favourite.restaurant.address) + "</h4>\n"
+	result += "<h3 class='name'><a href=\"/cs215/shirpi/view/" + urllib.quote_plus(favourite.restaurant.name.replace("/", "%2F") )+ "/" + urllib.quote_plus(favourite.restaurant.address.replace("/", "%2F") )+ "/\">" + escape(favourite.restaurant.name) + "</a></h3>\n"
+	result += "<h4>" + escape(favourite.restaurant.address) + "</h4>\n"
 	result += "</div>"
 	return mark_safe(result)
 
