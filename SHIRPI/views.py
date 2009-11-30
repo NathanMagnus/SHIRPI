@@ -183,6 +183,7 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 		#context defined here so that isn't ugly
 		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
 
+		#determine if the user can comment, put a form in the context if they can
 		if ip == None:
 			comment_set = Comment.objects.filter(author__username = user.username, restaurant = restaurant).order_by('-created')[:1]
 		else:
