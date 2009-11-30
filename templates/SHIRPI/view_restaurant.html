@@ -95,7 +95,7 @@
 		<p>Wait Time: </p>{% show_stars 0 of 5 round to half on change call myCallback with 4%}
 		<p><input type="submit" value="Submit Review" name="submit" /></p>
 	</form>
-	<p><a href="{% url project.SHIRPI.comment_views.comment restaurant.name|escape_url,restaurant.address|escape_url %}">Comment on {{ restaurant.name }}</a></p>
+	<!-- <p><a href="{% url project.SHIRPI.comment_views.comment restaurant.name|escape_url,restaurant.address|escape_url %}">Comment on {{ restaurant.name }}</a></p> -->
 	{% if user.is_authenticated %}
 		<p><a href="{% url project.SHIRPI.favourite_views.add_favourite restaurant.name|escape_url, restaurant.address|escape_url%}">Add to favourites</a></p>
 	{% endif %}
