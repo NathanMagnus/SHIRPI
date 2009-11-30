@@ -166,9 +166,10 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 		restaurant = Restaurant.objects.get(name__iexact=urllib.unquote_plus(restaurant_name), address__iexact=urllib.unquote_plus(restaurant_address))
 		reports = HealthReport.objects.filter(restaurant=restaurant)
 		comments = Comment.objects.filter(restaurant=restaurant).order_by('-created')[0:5]
+		form = CommentForm()
 
 		#context defined here so that isn't ugly
-		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments}
+		context = {'restaurant': restaurant, 'reports': reports, 'comments': comments, 'form': form}
 
 		return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 	except Restaurant.DoesNotExist:
