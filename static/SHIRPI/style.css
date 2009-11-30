@@ -97,8 +97,8 @@ body{
 	border: 1px solid black;
 	
 	font-size: 14pt;
-	
 }
+
 
 #navigation form select{
 	position: relative;
@@ -110,8 +110,8 @@ body{
 
 
 #navigation ul{
-	top: 20px;
-	right: 10px;
+	top: 15px;
+	right: 20px;
 	position: absolute;
 }
 
@@ -124,21 +124,30 @@ body{
 #navigation li a{
 	color: #222;
 	
-	font-size: 12pt;
+	font-size: 13pt;
 	font-weight: bold;
 }
 
 
-/* BROWSE */
+/* BROWSE - SORT */
+
+#sort{
+	clear: both;
+	
+	font-size: 9pt;
+}
 
 #sort ul{
 	
 }
 
 #sort li{
-	display: inline;	
+	display: inline;
 	list-style-type: none;
-	padding-right: 20px;	
+}
+
+#name_clean{
+	margin: 0px 10px;
 }
 
 
@@ -251,32 +260,63 @@ body {
 
 */
 .restaurant {
-	font-size: 10pt;
+	font-size: 11pt;
+	border-bottom: 1px solid #222;
 }
+
+.restaurant a{
+	text-decoration: none;
+}
+
+.restaurant a:hover{
+	text-decoration: underline;
+}
+
 .restaurant ul {
 	display: inline-block;
 }
+
 .restaurant li {
 	display: inline-block;
 	width: 40px;
+	padding: 8px 0px;
+	
 }
-.restaurant .address{
-	display: inline-block;
-	width: 330px;
-}
+
 .restaurant .name{
 	display: inline-block;
 	width: 330px;
+	
+	padding-left: 10px;
 }
+
+.restaurant .address{
+	display: inline-block;
+	width: 330px;
+	
+	padding-left: 10px;
+}
+
+
+.restaurant_info{
+	font-size: 9pt;
+	
+}
+
+
+
+
 .low {
-	background-color: #5B4;
+	background-color: #B3FF66;
 }
 .moderate {
-	background-color: #FF6;
+	background-color: #FFFF66;
 }
-.critical{
-	background-color: #C66;
+.
+critical{
+	background-color: #FFB366;
 }
+
 .moderate div:nth-child(2n) {
 	background-color: #DD3;
 }

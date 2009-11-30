@@ -47,7 +47,7 @@ def display_sort_options(request):
 		
 		# add sort_by to the GET parameters
 		get['sort_by'] = type
-		result +="<li><a id='" + type + "' href='?"+ escape(get.urlencode()) +"'>" + verbose + "</a></li>\n"
+		result +="<li id='" + type + "'><a href='?"+ escape(get.urlencode()) +"'>" + verbose + "</a></li>\n"
 		
 	result +="</ul>\n"
 	result +="</div>\n"
