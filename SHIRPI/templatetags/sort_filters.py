@@ -16,14 +16,22 @@ Return		: string of the html for the search options
 @register.filter
 def display_sort_options(request):
 	# the possible sorts
-	sorts = [('name_clean', "Name", "ASC"), ('address_clean', "Street", "ASC"), ('combined', "Combined Scores", "DESC"), ('cleanliness', "Cleanliness", "DESC"), ('food_quality', "Food Quality", "DESC"), ('atmosphere', "Atmosphere", "DESC"), ('wait_time', "Wait Time", "DESC")]
+	# Form: type (name in database and passed through url), verbose (representative text for display), default sorting type
+	sorts = [('name_clean', "Name", "ASC"),
+		('address_clean', "Street", "ASC"),
+		('combined', "Combined Scores", "DESC"),
+		('cleanliness', "Cleanliness", "DESC"),
+		('food_quality', "Food Quality", "DESC"),
+		('atmosphere', "Atmosphere", "DESC"),
+		('wait_time', "Wait Time", "DESC")]
 	get = request.GET.copy()
 
 	# enclosing div
 	result ="<div id='sort'>\n"
 	result +="<ul>\n"
-
-	# for each type of sort
+	
+	
+	# Construct list of 
 	for type, verbose, default in sorts:
 		# default is descending
 		get['type'] = default
@@ -35,9 +43,11 @@ def display_sort_options(request):
 				get['type'] = "ASC"
 			else:
 				get['type'] = "DESC"
+		
 		# add sort_by to the GET parameters
 		get['sort_by'] = type
 		result +="<li><a href='?"+ escape(get.urlencode()) +"'>" + verbose + "</a></li>\n"
+		
 	result +="</ul>\n"
 	result +="</div>\n"
 	return mark_safe(result)

@@ -48,7 +48,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	upper_limit = request.GET.get('upper_limit', "100")
 
 	# get order and type information
-	order = request.GET.get('sort_by', 'name').lower()
+	order = request.GET.get('sort_by', 'name_clean').lower()
 	type = request.GET.get('type', 'desc').lower()
 	
 	# if descending put the - in front, otherwise nothing
