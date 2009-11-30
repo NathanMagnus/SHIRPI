@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block title %}View Restaurant Information: {{restaurant.name}} at {{restaurant.address}}{%endblock%}
+{% load show_stars %}
 {% load escape_url %}
 {% load restaurant_filters %}
 {% load comment_filters %}
 {% load health_report_filters %}
 {% block extrahead %}
+        {% show_stars_script %}
+
 	{% if restaurant %}
 	<script src="http://maps.google.com/?file=api&amp;v=2.x&amp;key=ABQIAAAAJZucu9WsDLjQXvuECRZKCBRFsYESLCWDQrfH4g8pYUVgNYJbSxRMjk6wTuPC3mllAtrGN9hs-42WYg" type="text/javascript"></script>
 
