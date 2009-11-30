@@ -49,9 +49,9 @@ def display_comment( value, user ):
 
 	# again, if author or admin, allow to edit
 	if user.username == value.author.username or user.has_perm("SHIRPI.comment"):
-		result += "<a href='/cs215/shirpi/edit_comment/" + urllib.quote_plus(str(value.pk).replace("/", "%2F") )+ "/'>" + value.comment + "</a>"
+		result += "<a href='/cs215/shirpi/edit_comment/" + urllib.quote_plus(str(value.pk).replace("/", "%2F") )+ "/'>" + escape(value.comment) + "</a>"
 	else:
-		result += value.comment
+		result += escape(value.comment)
 
 	result += "</div>\n"
 	return mark_safe(result)

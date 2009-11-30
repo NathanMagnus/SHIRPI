@@ -44,8 +44,8 @@
 	<div id='comments'>
 	{% for comment in comments %}
 			<div class='comment'>
-			<h3 class='name'>{{comment.restaurant.name}}</h3>
-			<h3 class='address'>{{comment.restaurant.address}}</h3>
+			<h3 class='name'>{{comment.restaurant.name|escape}}</h3>
+			<h3 class='address'>{{comment.restaurant.address|escape}}</h3>
 			{{comment|display_comment:user}}
 			</div>
 	{% endfor %}
