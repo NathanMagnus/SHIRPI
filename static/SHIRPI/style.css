@@ -24,6 +24,11 @@ body{
 	background-color: white;
 }
 
+#content{
+	clear: both;
+	padding-top: 20px;
+}
+
 
 /* HEADING */
 
@@ -72,7 +77,7 @@ body{
 }
 
 
-/* NAVIGATION */
+/* NAVIGATION AND SEARCH */
 
 #navigation{
 	height: 47px;
@@ -90,10 +95,13 @@ body{
 	padding: 10px 20px;
 }
 
-#navigation form textarea, #navigation form input, #navigation form button, #navigation form select{
+#navigation form textarea,
+#navigation form input,
+#navigation form button,
+#navigation form select{
 	
 	color: #222;
-	background-color: #d5e785;
+	background-color: #dadada;
 	border: 1px solid black;
 	
 	font-size: 14pt;
@@ -134,7 +142,19 @@ body{
 #sort{
 	clear: both;
 	
+	padding-bottom: 7px;
+	border-bottom: 1px black solid;
+	
 	font-size: 9pt;
+}
+
+#sort a{
+	color: black;
+	text-decoration: none;
+}
+
+#sort a:hover{
+	text-decoration: underline;
 }
 
 #sort ul{
@@ -147,9 +167,135 @@ body{
 }
 
 #name_clean{
-	margin: 0px 10px;
+	padding: 0 305px 0 10px;
 }
 
+
+#address{
+	padding: 0 160px 0 15px;
+}
+
+
+
+
+.restaurant {
+	font-size: 11pt;
+	border-bottom: 1px solid #222;
+	padding-left: 10px;
+}
+
+.restaurant a{
+	text-decoration: none;
+}
+
+.restaurant a:hover{
+	text-decoration: underline;
+}
+
+.restaurant ul {
+	display: inline-block;
+	padding: 7px 0px;
+}
+
+.restaurant li {
+	display: inline-block;
+	width: 40px;
+	
+}
+
+.restaurant .name{
+	display: inline-block;
+	width: 340px;
+	
+}
+
+.restaurant .address{
+	display: inline-block;
+	width: 390px;
+}
+
+
+.restaurant_info{
+	font-size: 9pt;
+	
+}
+
+
+
+
+.low {
+	background-color: #B3FF66;
+}
+.moderate {
+	background-color: #FFFF66;
+}
+.critical{
+	background-color: #FFB366;
+}
+
+.moderate div:nth-child(2n) {
+	background-color: #DD3;
+}
+.moderate div:n-th child(2n) a:hover {
+	color: red;
+}
+.moderate div:n-th child(2n+1) a:hover {
+	color: green;
+}
+.low div:nth-child(2n) {
+	background-color: #391;
+}
+.low div:nth-child(2n) a:hover {
+	color: red;
+}
+.low div:nth-child(2n+1) a:hover {
+	color: yellow;
+}
+.critical div:nth-child(2n) {
+	background-color: #A33;
+}
+.critical div:nth-child(2n+1) a:hover {
+	color: yellow;
+}
+.critical div:nth-child(2n) a:hover {
+	color: green;
+}
+
+
+.comment {
+	background-color: #dadada;
+	border: 1px solid black;
+}
+.comment_body {
+	clear: both;
+}
+.comment_attributes {
+	list-style: none;
+}
+.comment_attributes li {
+	float: left;
+}
+.comment_attributes h4 {
+	
+}
+.timestamp {
+	
+}
+
+
+/* FORMS */
+
+div#content form{
+	margin: auto;
+	width: 300px;
+	padding: 20px;
+	border: 1px solid black
+}
+
+div#content p button{
+
+	border: 1px solid black
+}
 
 /*
 body {
@@ -259,107 +405,3 @@ body {
 }
 
 */
-.restaurant {
-	font-size: 11pt;
-	border-bottom: 1px solid #222;
-}
-
-.restaurant a{
-	text-decoration: none;
-}
-
-.restaurant a:hover{
-	text-decoration: underline;
-}
-
-.restaurant ul {
-	display: inline-block;
-}
-
-.restaurant li {
-	display: inline-block;
-	width: 40px;
-	padding: 8px 0px;
-	
-}
-
-.restaurant .name{
-	display: inline-block;
-	width: 330px;
-	
-	padding-left: 10px;
-}
-
-.restaurant .address{
-	display: inline-block;
-	width: 330px;
-	
-	padding-left: 10px;
-}
-
-
-.restaurant_info{
-	font-size: 9pt;
-	
-}
-
-
-
-
-.low {
-	background-color: #B3FF66;
-}
-.moderate {
-	background-color: #FFFF66;
-}
-.
-critical{
-	background-color: #FFB366;
-}
-
-.moderate div:nth-child(2n) {
-	background-color: #DD3;
-}
-.moderate div:n-th child(2n) a:hover {
-	color: red;
-}
-.moderate div:n-th child(2n+1) a:hover {
-	color: green;
-}
-.low div:nth-child(2n) {
-	background-color: #391;
-}
-.low div:nth-child(2n) a:hover {
-	color: red;
-}
-.low div:nth-child(2n+1) a:hover {
-	color: yellow;
-}
-.critical div:nth-child(2n) {
-	background-color: #A33;
-}
-.critical div:nth-child(2n+1) a:hover {
-	color: yellow;
-}
-.critical div:nth-child(2n) a:hover {
-	color: green;
-}
-.comment {
-	background-color: #F00;
-	border: 1px solid black;
-}
-.comment_body {
-	clear: both;
-}
-.comment_attributes {
-	list-style: none;
-}
-.comment_attributes li {
-	float: left;
-}
-.comment_attributes h4 {
-	
-}
-.timestamp {
-	
-}
