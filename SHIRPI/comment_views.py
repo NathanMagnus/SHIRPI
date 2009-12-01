@@ -165,6 +165,23 @@ def save(request, restaurant_name, restaurant_address):
 			except Restaurant.DoesNotExist:
 				return render_to_response('SHIRPI/error.html', {'error': "Restaurant or comment does not exist"}, RequestContext(request))
 			
+			if request.user.is_authenticated():
+				user = request.user
+				ip = None
+			else:
+				user = User.objects.get( username = "Anonymous" )
+				ip = request.META['REMOTE_ADDR']
+
+			#see if the restaurant exists or error
+			if ip == None:
+				comment_set = Comment.objects.filter(author__username = user.username, restaurant = restaurant).order_by('-created')[:1]
+			else:
+				comment_set = Comment.objects.filter(author__username = user.username, restaurant = restaurant, ip = ip).order_by('-created')[:1]
+			if len(comment_set) > 0:
+				comment = comment_set[0]
+				if comment.created + timedelta(days=1) > datetime.now():
+					return render_to_response('SHIRPI/error.html', {'error': "You can only comment on a restaurant once per day"}, RequestContext(request))
+
 			#create the new comment and associate to the restaurant
 			comment = Comment()
 			comment.restaurant = restaurant
