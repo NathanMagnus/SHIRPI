@@ -352,9 +352,17 @@ textarea{
 	padding: 20px;
 	border: 1px solid black;
 }
+
+#comment_form{
+	margin: auto;
+	width: 700px;
+	padding: 20px;
+	border: 1px solid black;	
+}
 #comment_form textarea
 {
-	width: 260px;
+	float: right;
+	width: 600px;
 }
 
 
