@@ -19,7 +19,7 @@ def display_health_report( report ):
 	# #display the date
 	result += "<h3 class='report_date'>Report for " + str(report.date.strftime("%A, %B %d %Y")) + "</h3>\n"
 	result += "<h3 class='report_type'>Type: " + report.type + "</h3>\n"
-	result += "<h3 class='report_priority'>Reinspection Priority: " + report.priority + "</h3></p>\n"
+	result += "<h3 class='report_priority'>Reinspection Priority: " + report.priority + "</h3>\n"
 
 	# display each item in the report
 	
@@ -32,7 +32,7 @@ def display_health_report( report ):
 			else:
 				result += "<li class='report_item'>"
 			result += item.short_description
-			result += "<p>#" + item.number + ": " + item.description + "</p>\n"
+			result += "<p>#" + item.number + ": " + item.description + "</p></li>\n"
 	else:
 		result += "<li class='report_item_none'>No infractions reported.</li>\n"
 	result += "</ul>"
