@@ -23,11 +23,11 @@ def display_health_report( report ):
 
 	# display each item in the report
 	
-	result += "<h3 class='view_heading'>Noted Items</h3><br \>\n"
+	result += "<h3 class='view_heading'>Noted Items</h3>\n"
 	result += "<ul class='report_items'>\n"
 	if report.items.count() > 0:
 		for item in report.items.all():
-			if(item.number < 8):
+			if(int(item.number) <= 8):
 				result += "<li class='report_item_c'>"
 			else:
 				result += "<li class='report_item'>"
