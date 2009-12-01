@@ -359,6 +359,25 @@ textarea{
 
 
 
+/* ABOUT */
+
+#about{
+	padding: 10px;
+}
+
+#about h1{
+	font-size: 13pt;
+	font-weight: bold;
+}
+
+#about h2{
+	font-size: 12pt;
+}
+
+#about p{
+	padding: 5px;
+}
+
 
 /* OTHER */
 
@@ -366,5 +385,7 @@ textarea{
 	min-width: 310px;
 	min-height: 400px;
 }
+
+
 
 
