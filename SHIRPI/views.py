@@ -196,8 +196,6 @@ def view_restaurant(request, restaurant_name, restaurant_address):
 		else:
 			context['form'] = form
 		
-		print str(context)
-	
 		return render_to_response("SHIRPI/view_restaurant.html", context, RequestContext(request))
 	except Restaurant.DoesNotExist:
 		# redirect 
