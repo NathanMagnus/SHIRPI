@@ -73,6 +73,16 @@
 		setInnerHTML('view_report_content', document.getElementById(report_handle).innerHTML);
 	}
 	
+	function expand(thistag){
+		styleObj=document.getElementById(thistag).style;
+		if(styleObj.display==='none'){
+			styleObj.display='block';
+		}
+		else {
+			styleObj.display='none';
+		}
+	}
+		
 	</script>
 	
 {%  endif %}
@@ -89,7 +99,7 @@
 	{% endif %}
 	
 	{% if restaurant and restaurant.visible %}
-	<h1 id="view_name" class="{{restaurant|display_class}}">{{restaurant.name}}</h1>
+	<h1 id="view_name" class="{{restaurant|display_class}}">{{restaurant.name}} - {{restaurant.address}}</h1>
 
 	
 	<div id="view_left">
@@ -123,7 +133,8 @@
 				<p><a href="{% url project.SHIRPI.favourite_views.add_favourite restaurant.name|escape_url, restaurant.address|escape_url%}">Add to favourites</a></p>
 			{% endif %}
 		</div>
-		<div id="map_canvas"></div>
+		<div id="map_canvas">
+		</div>
 	</div>
 	<div id="view_comments">
 		{% if form %}

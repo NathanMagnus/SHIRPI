@@ -107,6 +107,14 @@ body{
 	font-size: 14pt;
 }
 
+#restaurant_name_field{
+	width: 190px;
+}
+
+#restaurant_address_field{
+	width: 160px;
+}
+
 
 #navigation form select{
 	position: relative;
@@ -166,6 +174,7 @@ body{
 	list-style-type: none;
 }
 
+
 #name_clean{
 	padding: 0 305px 0 10px;
 }
@@ -176,7 +185,7 @@ body{
 }
 
 
-
+/* BROWSE - CONTENT LIST */
 
 .restaurant {
 	font-size: 11pt;
@@ -223,43 +232,49 @@ body{
 
 
 
-.low {
-	background-color: #B3FF66;
-}
-.moderate {
-	background-color: #FFFF66;
-}
-.critical{
-	background-color: #FFB366;
+.low { background-color: #B3FF66; }
+.low div:nth-child(2n) { background-color: #73E600; }
+
+.moderate { background-color: #FFFF66; }
+.moderate div:nth-child(2n) { background-color: #E6E600; }
+
+.critical{ background-color: #FFB366; }
+.critical div:nth-child(2n) { background-color: #FF8C1A; }
+
+
+
+
+
+
+
+/* RESTAURANT VIEW */
+
+#view_content{
+	padding: 10px;
 }
 
-.moderate div:nth-child(2n) {
-	background-color: #DD3;
+#view_left{
+	width: 600px;
+	float:left;
 }
-.moderate div:n-th child(2n) a:hover {
-	color: red;
+
+
+#view_right{
+	float: right{
 }
-.moderate div:n-th child(2n+1) a:hover {
-	color: green;
+
+#view_comments{
+	clear: both;
 }
-.low div:nth-child(2n) {
-	background-color: #391;
+
+
+#view_name{
+	padding: 5px 30px;
+	font-size: 13pt;
 }
-.low div:nth-child(2n) a:hover {
-	color: red;
-}
-.low div:nth-child(2n+1) a:hover {
-	color: yellow;
-}
-.critical div:nth-child(2n) {
-	background-color: #A33;
-}
-.critical div:nth-child(2n+1) a:hover {
-	color: yellow;
-}
-.critical div:nth-child(2n) a:hover {
-	color: green;
-}
+
+
+
 
 
 .comment {
@@ -285,7 +300,7 @@ body{
 
 /* FORMS */
 
-div#content form{
+/*div#content form{
 	margin: auto;
 	width: 300px;
 	padding: 20px;
@@ -295,6 +310,16 @@ div#content form{
 div#content p button{
 
 	border: 1px solid black
+}
+*/
+
+
+
+/* OTHER */
+
+#map_canvas{
+	min-width: 310px;
+	min-height: 400px;
 }
 
 /*
