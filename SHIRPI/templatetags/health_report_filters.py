@@ -17,7 +17,7 @@ def display_health_report( report ):
 	result = "<div id='r" + report.date.strftime("%B-%d-%Y") + "' class='health_report'>\n"
 
 	# #display the date
-	result += "<p><h3 class='report_date'>Report for " + str(report.date.strftime("%A, %B %d %Y")) + "</h3>\n"
+	result += "<h3 class='report_date'>Report for " + str(report.date.strftime("%A, %B %d %Y")) + "</h3>\n"
 	result += "<h3 class='report_type'>Type: " + report.type + "</h3>\n"
 	result += "<h3 class='report_priority'>Reinspection Priority: " + report.priority + "</h3></p>\n"
 
