@@ -54,9 +54,9 @@ function hoverStar(id, pos)
 		{
 			starSave[starSave.length] = imgs[i].src;
 			if(i<pos)
-				imgs[i].src = "/cs215/static/SHIRPI/images/star_1.0.gif";
+				imgs[i].src = "/cs215/static/SHIRPI/images/star_1.0.png";
 			else
-				imgs[i].src="/cs215/static/SHIRPI/images/star_0.0.gif";
+				imgs[i].src="/cs215/static/SHIRPI/images/star_0.0.png";
 		}
 		starSaves.set(id, starSave);
 	}
@@ -77,9 +77,9 @@ function clickStar(chainTo, id, pos)
 	for (var i=0;i<imgs.length;i++)
 	{
 		if(i<pos)
-			imgs[i].src="/cs215/static/SHIRPI/images/star_1.0.gif";
+			imgs[i].src="/cs215/static/SHIRPI/images/star_1.0.png";
 		else
-			imgs[i].src="/cs215/static/SHIRPI/images/star_0.0.gif";
+			imgs[i].src="/cs215/static/SHIRPI/images/star_0.0.png";
 	}
 	starSaves.unset(id);
 }
