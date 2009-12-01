@@ -344,13 +344,19 @@ textarea{
 
 /* FORMS */
 
+
 #registration_form, #comment_form, #login_form
 {
-	margin: auto;
+        margin: auto;
 	width: 300px;
 	padding: 20px;
 	border: 1px solid black;
 }
+#comment_form textarea
+{
+	width: 260px;
+}
+
 /*div#content form{
 	margin: auto;
 	width: 300px;
