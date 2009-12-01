@@ -1,0 +1,26 @@
+Django follows the model-view-controller pattern but instead calls it model-template-view.
+
+Structure: all located within the main project directory (project/)
+	SHIRPI/
+		- contains the views for the SHIRPI application. These views
+		  are separated based upon purpose.
+	SHIRPI/templatetags/
+		- django uses "custom filters" as a method of running python/django
+		  functions and code within a template. This folder contains all the
+		  custom filters created for the SHIRPI application.
+	populateDB/
+		- contains the views for populating the database with items, reports, etc
+	templates/
+		- contains the base template for the project
+	templates/SHIRPI/
+		- contains the templates specific to the SHIRPI application
+	templates/populateDB/
+		- contains the templates specific to populateDB
+	templates/registration/
+		- contains templates for user registration
+	templates/admin/
+		- contains customized templates for the admin interface
+	database/
+		- contains the database file itself (database.db), ERD (shirpi_erd.pdf) and SQL (sql.txt)
+	static/SHIRPI/
+		- contains all static content (.css, .js, images, etc) for the web application
