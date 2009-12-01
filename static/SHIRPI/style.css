@@ -368,10 +368,13 @@ textarea{
 #about h1{
 	font-size: 13pt;
 	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 #about h2{
 	font-size: 12pt;
+	font-weight: bold;
+	padding: 9px;
 }
 
 #about p{
