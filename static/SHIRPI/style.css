@@ -318,7 +318,6 @@ div#content p button{
 /* OTHER */
 
 #map_canvas{
-	position: absolute;
 	min-width: 310px;
 	min-height: 400px;
 }
