@@ -23,7 +23,7 @@ def display_health_report( report ):
 
 	# display each item in the report
 	
-	result += "<h3 class='view_heading'>Noted Items</h3><br \>\n"
+	result += "<h3 class='view_heading'>Noted Items</h3>\n"
 	
 	result += "<ul class='report_items'>\n"
 	if report.items.count() > 0:
