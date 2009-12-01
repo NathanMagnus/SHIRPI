@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     (r'^save/(?P<comment_id>\d+)/?', 'project.SHIRPI.comment_views.save_edit'),
     (r'^delete_comment/(?P<comment_id>\d+)/?', 'project.SHIRPI.comment_views.delete_comment'),
     
+    (r'^about/?$', 'project.SHIRPI.views.about'),
     (r'^accounts/', include('registration.urls')),
     (r'/?$', 'project.SHIRPI.views.index')
     
