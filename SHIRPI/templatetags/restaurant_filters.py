@@ -55,3 +55,14 @@ def display_restaurant( restaurant ):
 	result +="</ul>"
 	result += "</div>"
 	return mark_safe(result)
+
+@register.filter
+def display_class(restaurant):
+	if restaurant.health_report_status >= CRITICAL_VAL:
+		return mark_safe("critical")
+	
+	elif restaurant.health_report_status >= MODERATE_VAL:
+		return mark_safe("moderate")
+	
+	else:
+		return mark_safe("low")

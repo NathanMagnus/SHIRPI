@@ -61,55 +61,99 @@
         // e.g.
         // document.getElementById("getStatus").innerHTML = gdir.getStatus().code;
  	}
+
+	function display_report(report_handle){
+		var setInnerHTML = function( id, str ){
+			if(!document.getElementById) return; // Not Supported
+			if(document.getElementById){
+			      document.getElementById(id).innerHTML = str;
+			}
+		}
+		
+		setInnerHTML('view_report_content', document.getElementById(report_handle).innerHTML);
+	}
+	
 	</script>
+	
 {%  endif %}
 {% endblock %}
 {% block bodytag %}
 	<body onload="initialize()" onunload="GUnload()">
 {% endblock %}
-{% block content %}
-{% if error %}
-	<h1>{{error}}</h1>
-{% endif %}
-{% if restaurant and restaurant.visible%}
-	<h1>{{restaurant.name}}</h1>
-	{% ifnotequal comments|length 0 %}
-		<div id='comments'>
-		<h1>Comments</h1>
-		{% for comment in comments %}
-			<div class='comment'>
-				{{ comment|display_comment:user }}
-			</div>
-		{% endfor %}
-		</div>
-		{% ifequal comments|length 5 %}
-			<a href="{%url project.SHIRPI.comment_views.view_comments restaurant.name|escape_url, restaurant.address|escape_url %}/">More Comments</a>
-		{% endifequal %}
 
-	{% endifnotequal %}
-	{% if form %}
-		<form id="reviewForm" method="post" action="{% url project.SHIRPI.comment_views.save restaurant.name|escape_url, restaurant.address|escape_url %}">
-		        {{ form.as_p}}
-			<p>Cleanliness: </p>{% show_stars 0 of 5 round to half on change call myCallback with 1%}
-			<p>Food Quality: </p>{% show_stars 0 of 5 round to half on change call myCallback with 2%}
-			<p>Atmosphere: </p>{% show_stars 0 of 5 round to half on change call myCallback with 3%}
-			<p>Wait Time: </p>{% show_stars 0 of 5 round to half on change call myCallback with 4%}
-			<p><input type="submit" value="Submit Review" name="submit" /></p>
-		</form>
+
+{% block content %}
+<div id="view_content">
+	{% if error %}
+		<h1>{{error}}</h1>
 	{% endif %}
-	<!-- <p><a href="{% url project.SHIRPI.comment_views.comment restaurant.name|escape_url,restaurant.address|escape_url %}">Comment on {{ restaurant.name }}</a></p> -->
-	{% if user.is_authenticated %}
-		<p><a href="{% url project.SHIRPI.favourite_views.add_favourite restaurant.name|escape_url, restaurant.address|escape_url%}">Add to favourites</a></p>
+	
+	{% if restaurant and restaurant.visible %}
+	<h1 id="view_name" class="{{restaurant|display_class}}">{{restaurant.name}}</h1>
+
+	
+	<div id="view_left">
+		{% ifnotequal reps|length 0 %}
+			<div id="view_report_content">
+				{{ reports.0|display_health_report }}
+			</div>
+			<div id="view_report_hidden" style="display: none">
+				{% for report in reports %}
+					{{ report|display_health_report }}
+				{% endfor %}
+			</div>
+		{% else %}
+			<h1 id="view_NA">No reports available for this location.</h1>
+		{% endifnotequal %}	
+	</div>
+	<div id="view_right">
+		<div id="view_actions">
+			<h1>Reports available:</h1>
+			<ul id="view_report_list">
+				{% ifnotequal reps|length 0 %}
+					{% for report in reports %}
+						{{ report|display_health_report_list_element }}
+					{% endfor %}
+				{% else %}
+					<li>None.</li>
+				{% endifnotequal %}
+			</ul>
+			
+			{% if user.is_authenticated %}
+				<p><a href="{% url project.SHIRPI.favourite_views.add_favourite restaurant.name|escape_url, restaurant.address|escape_url%}">Add to favourites</a></p>
+			{% endif %}
+		</div>
+		<div id="map_canvas"></div>
+	</div>
+	<div id="view_comments">
+		{% if form %}
+		<div id="comment_submit_area">
+			<form id="reviewForm" method="post" action="{% url project.SHIRPI.comment_views.save restaurant.name|escape_url, restaurant.address|escape_url %}">
+				{{ form.as_p}}
+				<p>Cleanliness: </p>{% show_stars 0 of 5 round to half on change call myCallback with 1%}
+				<p>Food Quality: </p>{% show_stars 0 of 5 round to half on change call myCallback with 2%}
+				<p>Atmosphere: </p>{% show_stars 0 of 5 round to half on change call myCallback with 3%}
+				<p>Wait Time: </p>{% show_stars 0 of 5 round to half on change call myCallback with 4%}
+				<p><input type="submit" value="Submit Review" name="submit" /></p>
+			</form>
+		</div>
+		{% endif %}
+		
+		{% ifnotequal comments|length 0 %}
+			<div id='comments'>
+			<h1>Comments</h1>
+			{% for comment in comments %}
+				<div class='comment'>
+					{{ comment|display_comment:user }}
+				</div>
+			{% endfor %}
+			</div>
+			{% ifequal comments|length 5 %}
+				<a href="{%url project.SHIRPI.comment_views.view_comments restaurant.name|escape_url, restaurant.address|escape_url %}/">More Comments</a>
+			{% endifequal %}
+	
+		{% endifnotequal %}
+	</div>	
 	{% endif %}
-	<br /><br />
-	<div id="map_canvas" style="width: 310px; height: 400px;"></div>
-	{% ifnotequal reps|length 0 %}
-	<h1>Health Inspections</h1>
-		{% for report in reports %}
-			{{ report|display_health_report }}
-		{% endfor %}
-	{% else %}
-	 	<h1>No Health Inspections</h1>
-	{% endifnotequal %}
-{% endif %}
+</div>
 {% endblock %}
