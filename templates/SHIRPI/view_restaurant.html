@@ -138,7 +138,7 @@
 	<div id="view_comments">
 		{% if form %}
 		<div id="comment_submit_area">
-			<form id="reviewForm" method="post" action="{% url project.SHIRPI.comment_views.save restaurant.name|escape_url, restaurant.address|escape_url %}">
+			<form id="comment_form" method="post" action="{% url project.SHIRPI.comment_views.save restaurant.name|escape_url, restaurant.address|escape_url %}">
 				{{ form.as_p}}
 				<p>Cleanliness: </p>{% show_stars 0 of 5 round to half on change call myCallback with 1%}
 				<p>Food Quality: </p>{% show_stars 0 of 5 round to half on change call myCallback with 2%}

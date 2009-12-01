@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-<form method="post" action=".">
+<form method="post" id="registration_form" action=".">
   {{ form.as_p }}
   {{ recaptcha|safe }}
 

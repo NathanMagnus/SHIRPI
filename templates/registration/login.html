@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-<form method="post" action=".">
+<form method="post" id="login_form" action=".">
   {{ form.as_p }}
 
   <p><input type="submit" value="{% trans 'Log in' %}" /></p>
