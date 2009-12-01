@@ -47,8 +47,8 @@
 	</ul>
 	<!-- Default Navbar -->
 	<form method="get" id="search_sort_field" action="/cs215/shirpi/browse"
-	   onsubmit="if (restaurant_name.value == 'Location Name') restaurant_name.value='';
-	   if (restaurant_address.value == 'Street / Address') restaurant_address.value='';" >
+	   onsubmit="if (restaurant_name_field.value == 'Location Name') restaurant_name_field.value='';
+	   if (restaurant_address_field.value == 'Street / Address') restaurant_address_field.value='';" >
 		{{request|display_search_field}}
 	</form>
 	{% endblock %}

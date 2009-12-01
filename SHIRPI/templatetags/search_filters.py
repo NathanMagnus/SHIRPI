@@ -42,10 +42,10 @@ def display_search_field( request ):
 		address = 'Street / Address'
 	
 	
-	result += "<input type='text' name='restaurant_name' id='restaurant_name' size='19' value='" + name + "' " + \
+	result += "<input type='text' name='restaurant_name_field' id='restaurant_name_field' size='19' value='" + name + "' " + \
 		"onblur=\"if (this.value == '') this.value='Location Name';\" onfocus=\"if (this.value == 'Location Name') this.value='';\"/>\n"
 	
-	result += "<input type='text' name='restaurant_address' id='restaurant_address' size='18' value='" + address + "' " + \
+	result += "<input type='text' name='restaurant_address_field' id='restaurant_address_field' size='18' value='" + address + "' " + \
 		"onblur=\"if (this.value == '') this.value='Street / Address';\" onfocus=\"if (this.value == 'Street / Address') this.value='';\"/>\n"
 	
 	

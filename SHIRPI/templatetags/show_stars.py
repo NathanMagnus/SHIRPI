@@ -18,11 +18,11 @@ EX_IMG_TEMPLATE = "<img onmouseover=\"javascript: hoverStar(%s, %s);\" onmouseou
 
 # the stars values and associated images and alts
 STARS = {
-	0.0: ("No Star", "images/star_0.0.gif"),
+	0.0: ("No Star", "images/star_0.0.png"),
 	0.25: ("Quarter Star", "images/star_0.25.gif"),
-	0.5: ("Half Star", "images/star_0.5.gif"),
+	0.5: ("Half Star", "images/star_0.5.png"),
 	0.75: ("Three Quarter Star", "images/star_0.75.gif"),
-	1.0: ("Full Star", "images/star_1.0.gif")
+	1.0: ("Full Star", "images/star_1.0.png")
 }
 
 # ways this can be rounded
