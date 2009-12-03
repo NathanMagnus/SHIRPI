@@ -99,7 +99,7 @@
 	{% endif %}
 	
 	{% if restaurant and restaurant.visible %}
-	<h1 id="view_name" class="{{restaurant|display_class}}">{{restaurant.name}} - {{restaurant.address}}</h1>
+	<h1 id="view_name" class="{{restaurant|display_class}}">{{restaurant.name}} - {{restaurant.address}} <ul id ="starset_view" title="Overall user rating">{{restaurant.wait_time|display_stars}}</ul></h1>
 
 	
 	<div id="view_left">
@@ -130,7 +130,7 @@
 			</ul>
 			
 			{% if user.is_authenticated %}
-				<p><a href="{% url project.SHIRPI.favourite_views.add_favourite restaurant.name|escape_url, restaurant.address|escape_url%}">Add to favourites</a></p>
+				<p id="favey_link"><a href="{% url project.SHIRPI.favourite_views.add_favourite restaurant.name|escape_url, restaurant.address|escape_url%}">Add to favourites</a></p>
 			{% endif %}
 		</div>
 		<div id="map_canvas"></div>

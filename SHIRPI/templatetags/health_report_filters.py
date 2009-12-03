@@ -17,7 +17,7 @@ def display_health_report( report ):
 	result = "<div id='r" + report.date.strftime("%B-%d-%Y") + "' class='health_report'>\n"
 
 	# #display the date
-	result += "<h3 class='report_date'>Report for " + str(report.date.strftime("%A, %B %d %Y")) + "</h3>\n"
+	result += "<h3 class='report_date'>Report for " + str(report.date.strftime("%A, %B %d, %Y")) + "</h3>\n"
 	result += "<h3 class='report_type'>Type: " + report.type + "</h3>\n"
 	result += "<h3 class='report_priority'>Reinspection Priority: " + report.priority + "</h3>\n"
 
@@ -49,7 +49,7 @@ def display_health_report_list_element( report ):
 	Return		: string of <li> to display one health report
 	'''
 	
-	result = "<li><a href='#' onclick=\"display_report('" + display_health_report_handle(report) + "'); return false;\">" + str(report.date.strftime("%B %d %Y")) + "</a></li>"
+	result = "<li><a href='#' onclick=\"display_report('" + display_health_report_handle(report) + "'); return false;\">" + str(report.date.strftime("%B %d, %Y")) + "</a></li>"
 	return mark_safe(result)
 
 @register.filter

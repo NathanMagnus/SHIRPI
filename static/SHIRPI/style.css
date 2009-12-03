@@ -325,6 +325,10 @@ body{
 	margin-bottom: 5px;
 }
 
+#starset_view{
+	float: right;
+}
+
 
 .comment {
 	background-color: #dadada;
