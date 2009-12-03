@@ -118,7 +118,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 	# Query Database
 	# the blank string parameters defined above will filter ALL
 	try:
-		results = Restaurant.objects.filter(name_clean__icontains=restaurant_name, address_clean__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit).order_by(type + order, '-health_report_status')
+		results = Restaurant.objects.filter(name_clean__icontains=restaurant_name, address_clean__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit).order_by(type + order)
 	except Restaurant.DoesNotExist:
 		error = "No results."
 	
