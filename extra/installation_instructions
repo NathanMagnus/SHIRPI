@@ -1,0 +1,101 @@
+SHIRPI Installation and Setup Guide
+==================================
+
+Requirements
+-----------
+
+As a django application, the essential softaware required to run an instance of SHIRPI is:
+
+  - Python interpreter
+  - Django Python library
+  - Relational database
+  - Webserver with python gateway
+
+The officially supported version of SHIRPI uses:
+
+  - [Python](http://www.python.org/) 2.5.4
+  - [Django](http://www.djangoproject.com/) 1.1.1
+  - [SQLite](http://www.sqlite.org/) 3.6.20
+  - [lighttpd](http://www.lighttpd.net/) 1.4.24 with FastCGI
+   - Requires [flup](http://trac.saddi.com/flup) libary to interface with FastCGI
+  - [Debian](http://www.debian.org) [Testing](squeeze)](http://www.debian.org/releases/testing/ ) 
+  - exim4
+  - All dependencies for required packages
+
+Brief Tutorial
+-------------
+
+###Risk Disclaimer###
+
+__Note:__ Commands here are for a debian-based system. They are also untested and typically run with root privileges. Something likely has been neglected here. _Use at your own risk._
+
+
+###Installing Requirements###
+
+          $apt-get install python lighttpd python-flup django sqlite3 python-sqlite         
+
+SHIRPI also requires the django library 'django-registration' to be installed if signups are to be enabled.
+
+          $apt-get install django-registration
+
+###Configuring Requirements###
+
+####Lighttpd#### 
+
+[Official Documentation](http://docs.djangoproject.com/en/1.0/howto/deployment/fastcgi/)
+
+Lighttpd stores its entire configuration in `/etc/lighttpd/lighttpd.conf`. The syntax for it is similar to a shell script.
+
+Add the following to the given sections within lighttpd's configuration file or ensure they exist:
+
+ - server.modules
+ 		
+		"mod_fastcgi",
+
+ - static-file.exclude-extensions
+
+		, ".fcgi"
+
+
+
+ - fastcgi.server
+
+		"django.fcgi" => (
+		 "main" => (
+		  "host" => "127.0.0.1",
+		  "port" => 9090, 
+		 ),
+		),
+
+ - url.rewrite-final for given host (refer to lighttpd documentation)
+
+		"^(/cs215/static/.*)$" => "$1",
+		"^(/media/.*)$" => "$1",
+		"^(/cs215/.*)$" => "/django.fcgi$1",
+
+
+ - alias.url
+
+		"/cs215/static/" => "/home/cs215/project/static/",
+		"/media/" => "/usr/share/pyshared/django/contrib/admin/media/",
+
+A blank file named `django.fcgi` now needs to be added to `/var/www/`
+
+The alternative to all of this would be to use Apache andthe python module, mod_python, and then to follow a clear tutorial such as [this one](http://docs.djangoproject.com/en/dev/howto/deployment/modpython/).
+
+
+####Configuring Django####
+
+Copy the contents of the provided project folder to that which corresponds with the static media folder defined in lighttpd.conf. In this documentation that is `/home/cs215/project`.
+
+Modify `settings.py` within `project`:
+
+		DATABASE_NAME = Your desired sqlite db file (webserver user will need to permissions to read and write)
+
+		TEMPLATE_DIRS = ( absolute path to templates directory. )
+
+Finally, start the fcgi server from with the project directory:
+		
+		python manage.py runfcgi method=prefork host=127.0.0.1 port=9090"
+
+

@@ -397,6 +397,10 @@ textarea{
 	min-height: 400px;
 }
 
+#restaurants h1{
+	font-size: bold;
+	padding: 5px;
+}
 
 
 
