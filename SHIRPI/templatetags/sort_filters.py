@@ -17,10 +17,6 @@ def display_sort_options(request):
 	Return		: string of the html for the search options
 	'''
 
-	# TODO: Rewrite this entire turd.
-	# Actually, delete it. Make filters that that determine the sort direction and code
-	# all else within templates. Current state is serious abuse of filters.
-	
 	# the possible sorts
 	# Form: type (name in database and passed through url), verbose (representative text for display), default sorting type
 	sorts = [('name_clean', "Name", "ASC"),
@@ -28,7 +24,7 @@ def display_sort_options(request):
 		('address', "Address", "ASC"),
 		('overall', "Member Rating", "DESC"),
 		('health_report_status', "Score", "DESC"),
-		('combined', "Magic", "DESC"),
+		('combined', "Combined", "DESC"),
 		('cleanliness', "Upkeep", "DESC"),
 		('food_quality', "Food", "DESC"),
 		('atmosphere', "Locale", "DESC")]

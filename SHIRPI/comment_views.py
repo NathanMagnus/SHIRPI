@@ -121,7 +121,7 @@ def save_edit(request, comment_id):
 				if comment.cleanliness > MAX_RATING or comment.food_quality > MAX_RATING or comment.atmosphere > MAX_RATING or comment.overall > MAX_RATING:
 					return render_to_response("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
 				
-				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere - comment.overall
+				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere + comment.overall
 				comment.ip = request.META['REMOTE_ADDR']
 
 				# update restaurant totals with new values
@@ -208,7 +208,7 @@ def save(request, restaurant_name, restaurant_address):
 			comment.food_quality = food_quality
 			comment.atmosphere = atmosphere
 			comment.overall = overall
-			comment.combined = atmosphere + food_quality + cleanliness - overall
+			comment.combined = atmosphere + food_quality + cleanliness + overall
 
 			# add the new values to the restaurant
 			update_values(restaurant, comment, 1)
