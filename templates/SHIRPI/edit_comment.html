@@ -9,6 +9,7 @@
 {% if error %}
 	<h1>{{error}}</h1>
 {% else %}
+	<div id="view_comments">
 	<div id="comment_submit_area">
 		<form id="comment_form" name="reviewForm" action="{% url project.SHIRPI.comment_views.save_edit comment.id%}/" method="post">
 		{{form.as_p}}
@@ -19,6 +20,7 @@
 				 
 		<input type="submit" name="save" value="Save" />
 		</form>
+	</div>
 	</div>
 {% endif %}
 {% endblock %}
