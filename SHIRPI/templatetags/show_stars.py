@@ -105,7 +105,7 @@ function restoreStar(id)
 // function that will modify hidden form fields appropriately
 function myCallback(id, pos)
 {
-	var form = $('reviewForm');
+	var form = $('comment_form');
 	var cleanliness = form.id_cleanliness;
 	var food_quality = form.id_food_quality;
 	var atmosphere = form.id_atmosphere;
