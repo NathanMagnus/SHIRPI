@@ -9,14 +9,16 @@
 {% if error %}
 	<h1>{{error}}</h1>
 {% else %}
-	<form id="comment_form" name="reviewForm" action="{% url project.SHIRPI.comment_views.save_edit comment.id%}/" method="post">
-	{{form.as_p}}
-	Cleanliness: {% show_stars comment.cleanliness of 5 round to half on change call myCallback with 1%}
-	Food Quality: {% show_stars comment.food_quality of 5 round to half on change call myCallback with 2%}
-	Atmosphere: {% show_stars comment.atmosphere of 5 round to half on change call myCallback with 3%}
-	Overall: {% show_stars comment.wait_time of 5 round to half on change call myCallback with 4%}
+	<div id="comment_submit_area">
+		<form id="comment_form" name="reviewForm" action="{% url project.SHIRPI.comment_views.save_edit comment.id%}/" method="post">
+		{{form.as_p}}
+		Cleanliness: {% show_stars comment.cleanliness of 5 round to half on change call myCallback with 1%}
+		Food Quality: {% show_stars comment.food_quality of 5 round to half on change call myCallback with 2%}
+		Atmosphere: {% show_stars comment.atmosphere of 5 round to half on change call myCallback with 3%}
+		Overall: {% show_stars comment.wait_time of 5 round to half on change call myCallback with 4%}
 				 
-	<input type="submit" name="save" value="Save" />
-	</form>
+		<input type="submit" name="save" value="Save" />
+		</form>
+	</div>
 {% endif %}
 {% endblock %}
