@@ -4,12 +4,12 @@ SHIRPI Installation and Setup Guide
 Requirements
 -----------
 
-As a django application, the essential softaware required to run an instance of SHIRPI is:
+As a django application, the essential software required to run an instance of SHIRPI is:
 
   - Python interpreter
   - Django Python library
   - Relational database
-  - Webserver with python gateway
+  - Web server with python gateway
 
 The officially supported version of SHIRPI uses:
 
@@ -42,7 +42,7 @@ SHIRPI also requires the django library 'django-registration' to be installed if
 
 ####Lighttpd#### 
 
-[Official Documentation](http://docs.djangoproject.com/en/1.0/howto/deployment/fastcgi/)
+[Official Documentation](http://docs.djangoproject.com/en/1.0/how to/deployment/fastcgi/)
 
 Lighttpd stores its entire configuration in `/etc/lighttpd/lighttpd.conf`. The syntax for it is similar to a shell script.
 
@@ -81,7 +81,7 @@ Add the following to the given sections within lighttpd's configuration file or 
 
 A blank file named `django.fcgi` now needs to be added to `/var/www/`
 
-The alternative to all of this would be to use Apache andthe python module, mod_python, and then to follow a clear tutorial such as [this one](http://docs.djangoproject.com/en/dev/howto/deployment/modpython/).
+The alternative to all of this would be to use Apache and the python module, mod_python, and then to follow a clear tutorial such as [this one](http://docs.djangoproject.com/en/dev/howto/deployment/modpython/).
 
 
 ####Configuring Django####
@@ -90,12 +90,26 @@ Copy the contents of the provided project folder to that which corresponds with 
 
 Modify `settings.py` within `project`:
 
-		DATABASE_NAME = Your desired sqlite db file (webserver user will need to permissions to read and write)
+		DATABASE_NAME = Your desired sqlite db file (web server user will need to permissions to read and write)
 
 		TEMPLATE_DIRS = ( absolute path to templates directory. )
 
 Finally, start the fcgi server from with the project directory:
 		
 		python manage.py runfcgi method=prefork host=127.0.0.1 port=9090"
+
+Note that the fcgi processes can interfere with one another. You should kill them with every restart. `restart.php` can be used to automate this
+
+
+_Django-Registration_
+
+If you wish to be able to deliver emails, the Django-Registration module will need to be configured. Add to settings.py:
+
+		EMAIL_HOST='...'
+		EMAIL_PORT=...
+		EMAIL_HOST_USER='username'
+		EMAIL_HOST_PASSWORD='password'
+
+or similar. It can also be configured with gmail. The official SHIRPI install uses exim as a local mail forwarding agent.
 
 

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Script updates git repository and restarts fcgi handler
+pushd /home/cs215/project
+git reset --hard
+git pull origin master
+popd
+
+curl http://location/of/restart.php?p=a_password

@@ -1,0 +1,116 @@
+<h1>SHIRPI Installation and Setup Guide</h1>
+
+<h2>Requirements</h2>
+
+<p>As a django application, the essential software required to run an instance of SHIRPI is:</p>
+
+<ul>
+<li>Python interpreter</li>
+<li>Django Python library</li>
+<li>Relational database</li>
+<li>Web server with python gateway</li>
+</ul>
+
+<p>The officially supported version of SHIRPI uses:</p>
+
+<ul>
+<li><a href="http://www.python.org/">Python</a> 2.5.4</li>
+<li><a href="http://www.djangoproject.com/">Django</a> 1.1.1</li>
+<li><a href="http://www.sqlite.org/">SQLite</a> 3.6.20</li>
+<li><a href="http://www.lighttpd.net/">lighttpd</a> 1.4.24 with FastCGI
+<ul><li>Requires <a href="http://trac.saddi.com/flup">flup</a> libary to interface with FastCGI</li></ul></li>
+<li><a href="http://www.debian.org">Debian</a> <a href="http://www.debian.org/releases/testing/">Testing (squeeze)</a> </li>
+<li>exim4</li>
+<li>All dependencies for required packages</li>
+</ul>
+
+<h2>Brief Tutorial</h2>
+
+<h3>Risk Disclaimer</h3>
+
+<p><strong>Note:</strong> Commands here are for a debian-based system. They are also untested and typically run with root privileges. Something likely has been neglected here. <em>Use at your own risk.</em></p>
+
+<h3>Installing Requirements</h3>
+
+<pre><code>      $apt-get install python lighttpd python-flup django sqlite3 python-sqlite         
+</code></pre>
+
+<p>SHIRPI also requires the django library 'django-registration' to be installed if signups are to be enabled.</p>
+
+<pre><code>      $apt-get install django-registration
+</code></pre>
+
+<h3>Configuring Requirements</h3>
+
+<h4>Lighttpd####</h4>
+
+<p><a href="http://docs.djangoproject.com/en/1.0/how to/deployment/fastcgi/">Official Documentation</a></p>
+
+<p>Lighttpd stores its entire configuration in <code>/etc/lighttpd/lighttpd.conf</code>. The syntax for it is similar to a shell script.</p>
+
+<p>Add the following to the given sections within lighttpd's configuration file or ensure they exist:</p>
+
+<ul>
+<li><p>server.modules</p>
+
+<pre><code>"mod_fastcgi",
+</code></pre></li>
+<li><p>static-file.exclude-extensions</p>
+
+<pre><code>, ".fcgi"
+</code></pre></li>
+<li><p>fastcgi.server</p>
+
+<pre><code>"django.fcgi" =&gt; (
+ "main" =&gt; (
+  "host" =&gt; "127.0.0.1",
+  "port" =&gt; 9090, 
+ ),
+),
+</code></pre></li>
+<li><p>url.rewrite-final for given host (refer to lighttpd documentation)</p>
+
+<pre><code>"^(/cs215/static/.*)$" =&gt; "$1",
+"^(/media/.*)$" =&gt; "$1",
+"^(/cs215/.*)$" =&gt; "/django.fcgi$1",
+</code></pre></li>
+<li><p>alias.url</p>
+
+<pre><code>"/cs215/static/" =&gt; "/home/cs215/project/static/",
+"/media/" =&gt; "/usr/share/pyshared/django/contrib/admin/media/",
+</code></pre></li>
+</ul>
+
+<p>A blank file named <code>django.fcgi</code> now needs to be added to <code>/var/www/</code></p>
+
+<p>The alternative to all of this would be to use Apache and the python module, mod_python, and then to follow a clear tutorial such as <a href="http://docs.djangoproject.com/en/dev/howto/deployment/modpython/">this one</a>.</p>
+
+<h4>Configuring Django</h4>
+
+<p>Copy the contents of the provided project folder to that which corresponds with the static media folder defined in lighttpd.conf. In this documentation that is <code>/home/cs215/project</code>.</p>
+
+<p>Modify <code>settings.py</code> within <code>project</code>:</p>
+
+<pre><code>    DATABASE_NAME = Your desired sqlite db file (web server user will need to permissions to read and write)
+
+    TEMPLATE_DIRS = ( absolute path to templates directory. )
+</code></pre>
+
+<p>Finally, start the fcgi server from with the project directory:</p>
+
+<pre><code>    python manage.py runfcgi method=prefork host=127.0.0.1 port=9090"
+</code></pre>
+
+<p>Note that the fcgi processes can interfere with one another. You should kill them with every restart. <code>restart.php</code> can be used to automate this</p>
+
+<p><strong>Django-Registration</strong></p>
+
+<p>If you wish to be able to deliver emails, the Django-Registration module will need to be configured. Add to settings.py:</p>
+
+<pre><code>    EMAIL_HOST='...'
+    EMAIL_PORT=...
+    EMAIL_HOST_USER='username'
+    EMAIL_HOST_PASSWORD='password'
+</code></pre>
+
+<p>or similar. It can also be configured with gmail. The official SHIRPI install uses exim as a local mail forwarding agent.</p>
