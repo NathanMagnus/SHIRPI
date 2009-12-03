@@ -143,7 +143,9 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			return render_to_response("SHIRPI/browse.html", {'restaurants': results, 'request': request}, RequestContext(request))
 	
 	# API Display
+	# TODO: Convert this mostly to a filter
 	else:
+		# Fetch data and associate
 		display_type = request.GET.get('display')
 		MySpecialApiData = []
 		for location in results:
@@ -153,6 +155,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 				report_results = None
 			MySpecialApiData.append({ 'location': location, 'reports': report_results })
 		
+		# render data as XML
 		context = { 'results': MySpecialApiData, 'display_type': display_type }
 		return render_to_response("SHIRPI/api.xml", context, RequestContext(request),  mimetype='application/xml')
 
