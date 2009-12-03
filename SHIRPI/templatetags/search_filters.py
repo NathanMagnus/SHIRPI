@@ -102,8 +102,6 @@ def display_search_field( request ):
 	result += "<input type='hidden' name='type' value='" + sort_direction + "' />\n"
 	
 	result += "<input type='submit' name='Submit' value='Search' id='search_sort_submit'/>"
-	print "Filter Lower: " + repr(lower_limit)
-	print "Filter Upper: " + repr(upper_limit)
 	
 	
 	return mark_safe(result)

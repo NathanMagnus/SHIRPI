@@ -105,7 +105,6 @@ def populate_reports(request):
 		if elem.tag == "location":
 			name = elem.attrib.get("name")
 			name_clean = name.translate(string.maketrans("",""), string.punctuation).strip().lower()
-			print name_clean
 			
 			address = elem.attrib.get("address")
 			address_clean = re.sub(

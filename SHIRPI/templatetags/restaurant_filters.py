@@ -45,6 +45,7 @@ def display_restaurant( restaurant ):
 	result += "'>\n"
 	result += "<h4 class='name'><a href=\"/cs215/shirpi/view/" + name +"/" + address + "\">" + escape(restaurant.name) + "</a></h4>"
 	result +="<h4 class='address'>" + escape(restaurant.address) + "</h4>"
+	result += "<ul class='starset'>" + display_overall_stars(restaurant.wait_time/restaurant.wait_time_count) + "</ul>"
 	result +="<ul class='restaurant_info'>"
 	result += "<li><h4>" + str(restaurant.health_report_status) +"</h4></li>"
 	result += "<li><h4>" + str(round(restaurant.combined/restaurant.combined_count,1)) + "</h4></li>"
@@ -56,8 +57,42 @@ def display_restaurant( restaurant ):
 	result += "</div>"
 	return mark_safe(result)
 
+
+@register.filter	
+def display_overall_stars(overall):
+	"""
+	Generates series of stars (max 5) for given float.
+		Full stars only displayed for whole numbers.
+		Half stars displayed for decimal .5 to .9
+	Parameters: overall - float to reprent as stars
+	"""
+	
+	result = ""
+	
+	if overall == 0:
+		result += ""
+	elif overall < 1:
+		result += "<li class='astar ahalfstar'></li>"
+	else:
+		for i in range(1, 5):
+			if int(overall) / i >= 1:
+				result += "<li class='astar'></li>"
+		
+		if overall >= 5:
+			result += "<li class='astar'></li>"
+			
+		elif overall % int(overall) >= 0.5:
+			result += "<li class='astar ahalfstar'></li>"
+		
+	return mark_safe(result)
+
 @register.filter
 def display_class(restaurant):
+	"""
+	Displays textual class of restaurant
+	Paramater: restaurant to be displayed
+	"""
+	
 	if restaurant.health_report_status >= CRITICAL_VAL:
 		return mark_safe("critical")
 	
