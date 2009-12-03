@@ -71,7 +71,7 @@ def display_stars(value):
 	result = ""
 	
 	if value == 0:
-		result += ""
+		result += "<li></li>"
 	elif value < 1:
 		result += "<li class='astar ahalfstar'></li>"
 	else:

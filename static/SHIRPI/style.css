@@ -317,12 +317,33 @@ body{
 	margin-bottom: 15px;
 }
 
+#view_actions a{
+	text-decoration: none;
+	font-size: 11pt;
+}
+
 #view_report_list{
+	padding-top: 6px;
 	margin-left: 10px;
 }
 
 #view_report_list li{
-	margin-bottom: 5px;
+	margin-bottom: 6px;
+}
+
+#favey_link{
+	margin-top: 15px;
+	margin-bottom: 8px;
+}
+
+#favey_link a{
+	color: black;
+	font-size: 11pt !important;
+}
+
+#favey_link a:before{
+	padding-right: 6px;
+	content: url("/cs215/static/SHIRPI/images/heart_add.png")
 }
 
 #starset_view{
@@ -330,26 +351,79 @@ body{
 }
 
 
+
+/* COMMENTS */
+
+#comments{
+	margin: 30px 10px;
+	clear: both;
+}
+
+#comments h1{
+	font-size: 15pt;
+	margin-bottom: 20px;
+}
+
 .comment {
-	background-color: #dadada;
+	clear: both;
+	background-color: #fefefe;
 	border: 1px solid black;
+	height: 150px;
+	
+	padding: 10px;
+}
+
+.comment .timestamp{
+	float: right;
+	font-size: 11pt;
 }
 
 textarea{
 	width: 100%;
 }
+
 .comment_body {
-	clear: both;
+	width: 670px;
+	height: 100px;
+	float: right;
+	padding: 10px;
+	border-left: 1px solid black;
+
 }
-.comment_attributes {
-	list-style: none;
-}
-.comment_attributes li {
-	float: left;
-}
-.comment_attributes h4 {
+
+.comment_header .username{
+	font-size: 14pt;
 	
 }
+.comment_attributes {
+	width: 220px;
+	float: left;
+	
+	margin-top: 20px;
+}
+
+.comment_attributes h4{
+	
+	float: left;
+	width: 100px;
+	clear: both;
+	
+}
+
+.comment_attributes ul{
+	width: 120px;
+	float: right;
+	
+	margin-bottom: 10px;
+}
+
+.comment_overall{
+	font-weight: bold;
+}
+
+
+
+
 .timestamp {
 	
 }
@@ -372,10 +446,28 @@ textarea{
 	padding: 20px;
 	border: 1px solid black;	
 }
+
 #comment_form textarea
 {
 	float: right;
 	width: 600px;
+}
+
+/* FAVOURITES */
+
+.favourites{
+	padding: 10px;
+	clear: both;
+}
+
+.favourites #favourite *{
+	display: inline;
+	margin-right: 10px;
+}
+
+.favourites h1{
+	font-weight: bold;
+	margin-bottom: 9px;
 }
 
 
