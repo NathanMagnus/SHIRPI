@@ -78,9 +78,9 @@ def update_values(restaurant, comment, method):
 	if comment.atmosphere>0:
 		restaurant.atmosphere_count = restaurant.atmosphere_count + method * 1
 
-	restaurant.wait_time = restaurant.wait_time + method * comment.wait_time
-	if comment.wait_time>0:
-		restaurant.wait_time_count = restaurant.wait_time_count + method * 1
+	restaurant.overall = restaurant.overall + method * comment.overall
+	if comment.overall>0:
+		restaurant.overall_count = restaurant.overall_count + method * 1
 	
 	restaurant.combined = restaurant.combined + method * comment.combined
 	if comment.combined>0:
@@ -116,12 +116,12 @@ def save_edit(request, comment_id):
 				comment.cleanliness = form.cleaned_data['cleanliness']
 				comment.food_quality = form.cleaned_data['food_quality']
 				comment.atmosphere = form.cleaned_data['atmosphere']
-				comment.wait_time = form.cleaned_data['wait_time']
+				comment.overall = form.cleaned_data['overall']
 
-				if comment.cleanliness > MAX_RATING or comment.food_quality > MAX_RATING or comment.atmosphere > MAX_RATING or comment.wait_time > MAX_RATING:
+				if comment.cleanliness > MAX_RATING or comment.food_quality > MAX_RATING or comment.atmosphere > MAX_RATING or comment.overall > MAX_RATING:
 					return render_to_response("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
 				
-				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere - comment.wait_time
+				comment.combined = comment.cleanliness + comment.food_quality + comment.atmosphere - comment.overall
 				comment.ip = request.META['REMOTE_ADDR']
 
 				# update restaurant totals with new values
@@ -196,8 +196,8 @@ def save(request, restaurant_name, restaurant_address):
 			cleanliness = comment_form.cleaned_data['cleanliness']
 			food_quality = comment_form.cleaned_data['food_quality']
 			atmosphere = comment_form.cleaned_data['atmosphere']
-			wait_time = comment_form.cleaned_data['wait_time']
-			if cleanliness > MAX_RATING or food_quality > MAX_RATING or atmosphere > MAX_RATING or wait_time > MAX_RATING:
+			overall = comment_form.cleaned_data['overall']
+			if cleanliness > MAX_RATING or food_quality > MAX_RATING or atmosphere > MAX_RATING or overall > MAX_RATING:
 				return render_to_response("SHIRPI/error.html", {'error': "You cannot have a comment metric greater than " + str(MAX_RATING)}, RequestContest(request))
 
 			#assign the comment
@@ -207,8 +207,8 @@ def save(request, restaurant_name, restaurant_address):
 			comment.cleanliness = cleanliness
 			comment.food_quality = food_quality
 			comment.atmosphere = atmosphere
-			comment.wait_time = wait_time
-			comment.combined = atmosphere + food_quality + cleanliness - wait_time
+			comment.overall = overall
+			comment.combined = atmosphere + food_quality + cleanliness - overall
 
 			# add the new values to the restaurant
 			update_values(restaurant, comment, 1)
@@ -245,7 +245,7 @@ def edit_comment(request, comment_id):
 		if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
 			return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(request))	
 
-		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'wait_time': int(comment.wait_time), 'food_quality': int(comment.food_quality)})
+		form = CommentForm(initial={'comment': comment.comment, 'cleanliness': int(comment.cleanliness), 'atmosphere': int(comment.atmosphere), 'overall': int(comment.overall), 'food_quality': int(comment.food_quality)})
 
 		return render_to_response('SHIRPI/edit_comment.html', {'form': form, 'comment':comment}, RequestContext(request))
 

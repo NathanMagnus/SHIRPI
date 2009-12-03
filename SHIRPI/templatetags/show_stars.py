@@ -109,7 +109,7 @@ function myCallback(id, pos)
 	var cleanliness = form.id_cleanliness;
 	var food_quality = form.id_food_quality;
 	var atmosphere = form.id_atmosphere;
-	var wait_time = form.id_wait_time;
+	var overall = form.id_overall;
 	if(id==1) {
 		cleanliness.value=pos;
 	}
@@ -120,7 +120,7 @@ function myCallback(id, pos)
 		atmosphere.value=pos;
 	}
 	if(id==4) {
-		wait_time.value = pos;
+		overall.value = pos;
 	}
 }
 //-->

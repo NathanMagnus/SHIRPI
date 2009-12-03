@@ -40,8 +40,8 @@ class Restaurant(models.Model):
 	food_quality_count = models.IntegerField(default=0)
 	atmosphere = models.FloatField(default = "0", choices=choices)
 	atmosphere_count = models.IntegerField(default=0)
-	wait_time = models.FloatField(default = "0", choices=choices)
-	wait_time_count = models.IntegerField(default=0)
+	overall = models.FloatField(default = "0", choices=choices)
+	overall_count = models.IntegerField(default=0)
 	
 	visible = models.BooleanField(default=True)
 
@@ -64,7 +64,7 @@ class Comment(models.Model):
 	cleanliness = models.FloatField(default = "0", choices=choices)
 	food_quality = models.FloatField(default = "0", choices=choices)
 	atmosphere = models.FloatField(default = "0", choices=choices)
-	wait_time = models.FloatField(default = "0", choices=choices)
+	overall = models.FloatField(default = "0", choices=choices)
 
 	created = models.DateTimeField()
         last_modified = models.DateTimeField()

@@ -26,7 +26,7 @@ def display_sort_options(request):
 	sorts = [('name_clean', "Name", "ASC"),
 		('address_clean', "Street", "ASC"),
 		('address', "Address", "ASC"),
-		('wait_time', "Member Rating", "DESC"),
+		('overall', "Member Rating", "DESC"),
 		('health_report_status', "Score", "DESC"),
 		('combined', "Magic", "DESC"),
 		('cleanliness', "Upkeep", "DESC"),

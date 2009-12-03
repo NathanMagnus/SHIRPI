@@ -99,7 +99,7 @@
 	{% endif %}
 	
 	{% if restaurant and restaurant.visible %}
-	<div id="view_name" class="{{restaurant|display_class}}">{{restaurant.name}} - {{restaurant.address}} <ul id="starset_view" title="Overall user rating">{{restaurant.wait_time|display_stars}}</ul></div>
+	<div id="view_name" class="{{restaurant|display_class}}">{{restaurant.name}} - {{restaurant.address}} <ul id="starset_view" title="Overall user rating">{{restaurant.overall|display_stars}}</ul></div>
 
 	
 	<div id="view_left">

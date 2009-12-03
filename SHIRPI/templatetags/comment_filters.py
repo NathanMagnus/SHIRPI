@@ -53,8 +53,8 @@ def display_comment( value, user ):
 	if value.atmosphere > 0:
 		result += "<h4>Atmosphere</h4><ul>" + display_stars(value.atmosphere)+ "</ul>\n"
 	
-	if value.wait_time > 0:
-		result += "<h4 class='comment_overall'>Overall</h4><ul>" + display_stars(value.wait_time) + "</ul>\n"
+	if value.overall > 0:
+		result += "<h4 class='comment_overall'>Overall</h4><ul>" + display_stars(value.overall) + "</ul>\n"
 		
 	result += "</div>\n"
 	

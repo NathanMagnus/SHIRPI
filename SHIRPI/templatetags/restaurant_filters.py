@@ -25,8 +25,8 @@ def display_restaurant( restaurant ):
 		restaurant.food_quality_count=1
 	if restaurant.atmosphere_count<1:
 		restaurant.atmosphere_count = 1
-	if restaurant.wait_time_count<1:
-		restaurant.wait_time_count =1 
+	if restaurant.overall_count<1:
+		restaurant.overall_count =1 
 
 	# enclosing div
 	result = "<div class='restaurant "
@@ -45,7 +45,7 @@ def display_restaurant( restaurant ):
 	result += "'>\n"
 	result += "<h4 class='name'><a href=\"/cs215/shirpi/view/" + name +"/" + address + "\">" + escape(restaurant.name) + "</a></h4>"
 	result +="<h4 class='address'>" + escape(restaurant.address) + "</h4>"
-	result += "<ul class='starset'>" + display_stars(restaurant.wait_time/restaurant.wait_time_count) + "</ul>"
+	result += "<ul class='starset'>" + display_stars(restaurant.overall/restaurant.overall_count) + "</ul>"
 	result +="<ul class='restaurant_info'>"
 	result += "<li><h4>" + str(restaurant.health_report_status) +"</h4></li>"
 	#result += "<li><h4>" + str(round(restaurant.combined/restaurant.combined_count,1)) + "</h4></li>"

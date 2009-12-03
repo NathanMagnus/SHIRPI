@@ -24,8 +24,8 @@ CREATE TABLE "SHIRPI_restaurant" (
     "food_quality_count" integer NOT NULL,
     "atmosphere" real NOT NULL,
     "atmosphere_count" integer NOT NULL,
-    "wait_time" real NOT NULL,
-    "wait_time_count" integer NOT NULL,
+    "overall" real NOT NULL,
+    "overall_count" integer NOT NULL,
     "visible" bool NOT NULL
 )
 ;
@@ -38,7 +38,7 @@ CREATE TABLE "SHIRPI_comment" (
     "cleanliness" real NOT NULL,
     "food_quality" real NOT NULL,
     "atmosphere" real NOT NULL,
-    "wait_time" real NOT NULL,
+    "overall" real NOT NULL,
     "created" datetime NOT NULL,
     "last_modified" datetime NOT NULL,
     "ip" char(15) NOT NULL

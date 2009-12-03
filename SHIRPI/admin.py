@@ -14,15 +14,15 @@ class LocationAdmin(admin.ModelAdmin):
 
 # admin page for restaurants
 class RestaurantAdmin(admin.ModelAdmin):
-	list_display = ('name', 'address', 'postal_code', 'name_clean', 'address_clean', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time','health_report_status', 'visible')
+	list_display = ('name', 'address', 'postal_code', 'name_clean', 'address_clean', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'overall','health_report_status', 'visible')
 	search_fields = ['name', 'address', 'location__rha', 'postal_code']
-	fields = ['name', 'name_clean', 'address', 'address_clean', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'wait_time', 'health_report_status', 'visible', 'postal_code']
+	fields = ['name', 'name_clean', 'address', 'address_clean', 'location', 'combined', 'cleanliness', 'food_quality', 'atmosphere', 'overall', 'health_report_status', 'visible', 'postal_code']
 
 # admin page for comments
 class CommentAdmin(admin.ModelAdmin):
-	list_display = ('restaurant', 'author', 'comment', 'combined', 'cleanliness', 'food_quality', 'wait_time')
+	list_display = ('restaurant', 'author', 'comment', 'combined', 'cleanliness', 'food_quality', 'overall')
 	search_fields = ['author', 'restaurant', 'comment', 'ip']
-	fields = ['author', 'restaurant', 'comment', 'combined', 'cleanliness', 'food_quality', 'wait_time', 'ip', 'created', 'last_modified']
+	fields = ['author', 'restaurant', 'comment', 'combined', 'cleanliness', 'food_quality', 'overall', 'ip', 'created', 'last_modified']
 
 # admin page for favourites
 class FavouriteAdmin(admin.ModelAdmin):

@@ -13,7 +13,7 @@ class CommentForm(ModelForm):
 	cleanliness = forms.IntegerField(initial="0", widget=HiddenInput)
 	food_quality = forms.IntegerField(initial="0", widget=HiddenInput)
 	atmosphere = forms.IntegerField(initial="0", widget=HiddenInput)
-	wait_time = forms.IntegerField(initial="0", widget=HiddenInput)
+	overall = forms.IntegerField(initial="0", widget=HiddenInput)
 	class Meta:
 		model = Comment
 		exclude = ('restaurant', 'author', 'id', 'combined', 'created', 'last_modified', 'ip')

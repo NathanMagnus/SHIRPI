@@ -186,7 +186,7 @@ body{
 
 
 #address{ margin-right: 120px;}
-#wait_time {  padding-right: 44px; } /* Actually Member Rating */
+#overall {  padding-right: 44px; } /* Actually Member Rating */
 #health_report_status{ margin-right: 20px;} /* Score */
 #combined, #cleanliness{ margin-right: 15px; }
 #food_quality { margin-right: 20px}
