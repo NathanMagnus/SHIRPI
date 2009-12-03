@@ -24,7 +24,7 @@ def display_sort_options(request):
 		('address', "Address", "ASC"),
 		('overall', "Member Rating", "DESC"),
 		('health_report_status', "Score", "DESC"),
-		('combined', "Combined", "DESC"),
+		('combined', "Total", "DESC"),
 		('cleanliness', "Upkeep", "DESC"),
 		('food_quality', "Food", "DESC"),
 		('atmosphere', "Locale", "DESC")]
