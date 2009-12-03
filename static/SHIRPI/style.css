@@ -166,7 +166,7 @@ body{
 }
 
 #sort ul{
-	
+	margin-left: 10px;
 }
 
 #sort li{
@@ -176,13 +176,20 @@ body{
 
 
 #name_clean{
-	padding: 0 305px 0 10px;
+	padding-right: 305px;
+}
+
+#address_clean:after{
+	padding: 0 10px 0px 15px;
+	content: '/';
 }
 
 
-#address{
-	padding: 0 160px 0 15px;
-}
+#address{ margin-right: 120px;}
+#wait_time {  padding-right: 44px; } /* Actually Member Rating */
+#health_report_status{ margin-right: 20px;} /* Score */
+#combined, #cleanliness{ margin-right: 15px; }
+#food_quality { margin-right: 20px}
 
 
 /* BROWSE - CONTENT LIST */
@@ -190,7 +197,7 @@ body{
 .restaurant {
 	font-size: 11pt;
 	border-bottom: 1px solid #222;
-	padding-left: 10px;
+	padding: 7px 0px 7px 10px;
 }
 
 .restaurant a{
@@ -201,17 +208,6 @@ body{
 	text-decoration: underline;
 }
 
-.restaurant ul {
-	display: inline-block;
-	padding: 7px 0px;
-}
-
-.restaurant li {
-	display: inline-block;
-	width: 40px;
-	
-}
-
 .restaurant .name{
 	display: inline-block;
 	width: 340px;
@@ -220,16 +216,26 @@ body{
 
 .restaurant .address{
 	display: inline-block;
-	width: 390px;
+	width: 230px;
 }
 
 
 .restaurant_info{
-	font-size: 9pt;
+	display: inline-block;
+	float: right;
+}
+
+.restaurant_info li {
+	display: inline-block;
+	width: 55px;
 	
+	text-align: center;	
 }
 
 
+.restaurant_info{
+	font-size: 9pt;	
+}
 
 
 .low { background-color: #B3FF66; }
@@ -241,7 +247,10 @@ body{
 .critical{ background-color: #FFB366; }
 .critical div:nth-child(2n) { background-color: #FF8C1A; }
 
-
+.starset{
+	display: inline-block;
+	width: 110px;
+}
 
 
 
@@ -397,9 +406,21 @@ textarea{
 	min-height: 400px;
 }
 
-#restaurants h1{
-	font-size: bold;
-	padding: 5px;
+
+
+.astar{
+	width: 17px;
+	height: 15px;
+	display: inline-block;
+	
+	margin-right: 4px;
+	
+	background: url('/cs215/static/SHIRPI/images/star_1.0.png') no-repeat;
+}
+
+
+.ahalfstar{
+	background: url('/cs215/static/SHIRPI/images/star_0.5.png') !important
 }
 
 

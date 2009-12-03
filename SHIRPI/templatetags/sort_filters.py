@@ -7,24 +7,31 @@ from project.SHIRPI.settings import *
 
 register = template.Library()
 
-'''
-Function	: display_sort_options
-Description	: generate the html for the sort options
-Parameter(s)	: request - the HttpRequest for the page
-Return		: string of the html for the search options
-'''
+
 @register.filter
 def display_sort_options(request):
+	'''
+	Function	: display_sort_options
+	Description	: generate the html for the sort options
+	Parameter(s)	: request - the HttpRequest for the page
+	Return		: string of the html for the search options
+	'''
+
+	# TODO: Rewrite this entire turd.
+	# Actually, delete it. Make filters that that determine the sort direction and code
+	# all else within templates. Current state is serious abuse of filters.
+	
 	# the possible sorts
 	# Form: type (name in database and passed through url), verbose (representative text for display), default sorting type
 	sorts = [('name_clean', "Name", "ASC"),
 		('address_clean', "Street", "ASC"),
 		('address', "Address", "ASC"),
-		('combined', "Combined Scores", "DESC"),
-		('cleanliness', "Cleanliness", "DESC"),
-		('food_quality', "Food Quality", "DESC"),
-		('atmosphere', "Atmosphere", "DESC"),
-		('wait_time', "Wait Time", "DESC")]
+		('wait_time', "Member Rating", "DESC"),
+		('health_report_status', "Score", "DESC"),
+		('combined', "Magic", "DESC"),
+		('cleanliness', "Upkeep", "DESC"),
+		('food_quality', "Food", "DESC"),
+		('atmosphere', "Locale", "DESC")]
 	get = request.GET.copy()
 
 	# enclosing div

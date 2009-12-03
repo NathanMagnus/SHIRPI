@@ -52,36 +52,37 @@ def display_restaurant( restaurant ):
 	result += "<li><h4>" + str(round(restaurant.food_quality/restaurant.food_quality_count,1)) + "</h4></li>"
 	result += "<li><h4>" + str(round(restaurant.cleanliness/restaurant.cleanliness_count,1)) + "</h4></li>"
 	result += "<li><h4>" + str(round(restaurant.atmosphere/restaurant.atmosphere_count,1)) + "</h4></li>"
-	result += "<li><h4>" + str(round(restaurant.wait_time/restaurant.wait_time_count,1)) + "</h4></li>"
 	result +="</ul>"
 	result += "</div>"
+	
 	return mark_safe(result)
 
 
 @register.filter	
-def display_overall_stars(overall):
+def display_overall_stars(value):
 	"""
 	Generates series of stars (max 5) for given float.
 		Full stars only displayed for whole numbers.
 		Half stars displayed for decimal .5 to .9
-	Parameters: overall - float to reprent as stars
+	Parameters: value - float to reprent as stars
+	Returns: <li> (must incase within <ul>)
 	"""
 	
 	result = ""
 	
-	if overall == 0:
+	if value == 0:
 		result += ""
-	elif overall < 1:
+	elif value < 1:
 		result += "<li class='astar ahalfstar'></li>"
 	else:
 		for i in range(1, 5):
-			if int(overall) / i >= 1:
+			if int(value) / i >= 1:
 				result += "<li class='astar'></li>"
 		
-		if overall >= 5:
+		if value >= 5:
 			result += "<li class='astar'></li>"
 			
-		elif overall % int(overall) >= 0.5:
+		elif value % int(value) >= 0.5:
 			result += "<li class='astar ahalfstar'></li>"
 		
 	return mark_safe(result)
