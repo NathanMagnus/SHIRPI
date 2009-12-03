@@ -354,6 +354,10 @@ body{
 
 /* COMMENTS */
 
+#view_comments{
+	padding-top: 20px;
+}
+
 #comments{
 	margin: 30px 10px;
 	clear: both;
@@ -421,25 +425,6 @@ textarea{
 	font-weight: bold;
 }
 
-
-
-
-.timestamp {
-	
-}
-
-
-/* FORMS */
-
-
-#registration_form, #comment_form, #login_form
-{
-        margin: auto;
-	width: 300px;
-	padding: 20px;
-	border: 1px solid black;
-}
-
 #comment_form{
 	margin: auto;
 	width: 700px;
@@ -452,6 +437,46 @@ textarea{
 	float: right;
 	width: 600px;
 }
+
+
+
+/* FORMS */
+
+
+#registration_form, #login_form
+{
+        margin: auto;
+	width: 300px;
+	padding: 20px;
+	border: 1px solid black;
+}
+
+#registration_form input, #login_form input
+{
+	float: right;
+	clear: right;
+	
+	margin-bottom: 10px;
+}
+
+#login_form label{
+	float: left;
+	clear: left;
+	
+	margin-bottom: 10px;
+}
+
+#registration_form p, #login_form p, #registration_form button, #login_form button 
+{
+	margin-bottom: 5px;
+	clear: both;
+}
+
+#registration_form recaptcha_widget_div{
+	margin-top: 20px;
+	clear: both;
+}
+
 
 /* FAVOURITES */
 
@@ -475,23 +500,46 @@ textarea{
 /* ABOUT */
 
 #about{
-	padding: 10px;
+	padding: 15px;
 }
 
 #about h1{
-	font-size: 13pt;
+	font-size: 15pt;
 	font-weight: bold;
 	margin-bottom: 10px;
+	margin-top: 20px;
 }
 
 #about h2{
 	font-size: 12pt;
 	font-weight: bold;
-	padding: 9px;
+	margin-bottom: 9px;
+	margin-top: 20px;
 }
 
 #about p{
-	padding: 5px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+
+#about_disclaimer{
+	padding: 10px;
+}
+
+#about strong{
+	display: block;
+	width: 530px;
+	margin: auto;
+	text-align: center;
+	font-weight: bold
+}
+	
+#about span .example{
+	font-size: 10pt;
+}
+
+#admin{
+	padding-left: 30px;
 }
 
 

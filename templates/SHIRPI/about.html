@@ -4,20 +4,55 @@
 {% block title %}About SHIRPI{%endblock%}
 {% block content %}
 <div id="about">
+	<div id = "about_disclaimer">
+		<h1 class="">Disclaimer</h1>
+		<p>It is essential that all users of this web application understand how flawed its metrics are.</p>
+		<p>For example, the locations rated as being the absolute worst by our weights, still have only received
+		'low' re-inspection priorities according to the inspector. Our weights are based on our best interpretations
+		of the how influential a given 'item' mentioned in a report would make us disinterested in eating there.</p>
+		<p>The data provided in the reports is both limited and biased. Item number 14 for example, "All locations
+		must be free of vermin" could have been noted due to something as benign as an uncleaned flytrap or a dead
+		moth stuck in a light fixture, or potentially something as horrible as a mummified cat in the ceiling - the
+		reports do not specify.</p>
+		
+		<p><strong>Do not use these reports and our interpretations as the single deciding factor into
+		whether you will patron an establishment</strong></p>
+	</div>
+	
 	<h1>About SHIRPI</h1>
 	<p>SHIRPI was created by Kyle Ivey and Nathan Magnus as a term project for CS215 at the University of Regina</p>
-	<p>The goal of this project was to improve upon a the Government of Saskatchewan Ministry of Health's website by adding important functionality that it lacked as well as a community aspect. This data presented is publically available in its original form at http://orii.health.gov.sk.ca/.</p>
+	<p>The goal of this project was to improve upon a the Government of Saskatchewan Ministry of Health's website by adding important functionality that it lacked as well as a community aspect. This data presented is publicly available in its original form at
+		<a href='http://orii.health.gov.sk.ca/'>orii via Saskhealth</a>.</p>
+	
 	<h2>Admin Contact</h2>
 	<p>If you have any issues, please contact one of the following administrators:</p>
-		<div class='admin_info'>
-			<h3 class='name'>Kyle Ivey</h3>
-		</div>
-		<div class='admin_info'>
-			<h3 class='name'>Nathan Magnus</h3>
-		</div>
+	<p id="admin">
+		Kyle Ivey<br />
+		Nathan Magnus
+	</p>
+	
+	
 	<h2 class='api_documentation'>API</h2>
-	<h3>Available at basementbobs.com/cs215/api<br />Works identical to browse.<br /> Add &display=full to see reports<br /></h3>
-	<h3>Legal Information</h3>
+	<pre>
+	An API to the logs is <a href="http://www.basementbobs.com/cs215/shirpi/api">available here.</a> It uses get requests identical to shirpi/browse but instead outputs in XML.
+	
+	The only specail parameter it accepts is ?display=full, which will output the actuall logs within search results.
+	
+	Examples:
+		List all McDonalds in the city:
+		   <span class='example'>http://basementbobs.com/cs215/shirpi/api?restaurant_name=mcdonalds</span>
+		
+		List all locations on Victoria street:
+		   <span class='example'>http://basementbobs.com/cs215/shirpi/browse?restaurant_address=vic</span>
+		
+		Display Reports for all McDonalds on Victora:
+		   <span class='example'>http://basementbobs.com/cs215/shirpi/browse?estaurant_name=mcdonalds&restaurant_address=vic&display=full</span>
+		
+		
+	</pre>
+	
+	<h2>Legal Information</h2>
 	<p>All the information on this website is publically available courtesy of the Government of Saskatchewan's Ministry of Health.</p>
+	<p>Request removals by emailing shirpi-admin@basementbobs.com</p>
 </div>
 {% endblock %}
