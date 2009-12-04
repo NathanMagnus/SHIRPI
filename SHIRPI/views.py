@@ -123,7 +123,7 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 		results = Restaurant.objects.filter(name_clean__icontains=restaurant_name, address_clean__icontains=restaurant_address, health_report_status__gte=lower_limit, health_report_status__lt=upper_limit)
 
 		# those sort types that don't have an associated _count
-		if order.find("clean")>0 or order == "street" or order == "health_report_status":
+		if order.find("address")>0 or order == "name_clean" or order == "health_report_status":
 			results = results.order_by(type + order, '-health_report_status')
 		else:
 			#create a new column and use sqlite to filter appropriately
