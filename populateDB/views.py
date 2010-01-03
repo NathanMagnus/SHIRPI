@@ -31,7 +31,7 @@ def populate(request):
 
 	# check the password
 	error = "Bad Password"
-	if password == "Popul8IT123!":
+	if password == "__Popul8IT123!":
 		error = "Success"
 		# check the mode
 		if mode == "reports":

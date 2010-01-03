@@ -43,11 +43,11 @@
 	<h1>{{user_to_view.username}}'s Comments</h1>
 	<div id='comments'>
 	{% for comment in comments %}
-			<div class='comment'>
 			<h3 class='name'>{{comment.restaurant.name|escape}}</h3>
 			<h3 class='address'>{{comment.restaurant.address|escape}}</h3>
+			<div class='comment'>
 			{{comment|display_comment:user}}
-			</div>
+			</div><br />
 	{% endfor %}
 	</div>
 {% endif %}

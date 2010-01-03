@@ -21,13 +21,13 @@ class RestaurantAdmin(admin.ModelAdmin):
 # admin page for comments
 class CommentAdmin(admin.ModelAdmin):
 	list_display = ('restaurant', 'author', 'comment', 'combined', 'cleanliness', 'food_quality', 'overall')
-	search_fields = ['author', 'restaurant', 'comment', 'ip']
+	search_fields = ['author__username', 'restaurant__name', 'comment', 'ip']
 	fields = ['author', 'restaurant', 'comment', 'combined', 'cleanliness', 'food_quality', 'overall', 'ip', 'created', 'last_modified']
 
 # admin page for favourites
 class FavouriteAdmin(admin.ModelAdmin):
 	list_display=('user', 'restaurant', 'rank')
-	search_fields = ['user', 'restaurant']
+	search_fields = ['user__username', 'restaurant__name']
 	fields = ['user', 'restaurant', 'rank']
 
 # admin page for health inspections items
@@ -39,7 +39,7 @@ class HealthInspectionItemAdmin(admin.ModelAdmin):
 # admin page for health reports
 class HealthReportAdmin(admin.ModelAdmin):
 	list_display = ('restaurant', 'date', 'type', 'priority', 'health_inspection_score')
-	search_fields = ['restaurant', 'date']
+	search_fields = ['restaurant__name', 'date']
 	fields = ['restaurant', 'date', 'type', 'priority', 'health_inspection_score']
 
 # register all the admin pages

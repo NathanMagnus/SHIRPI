@@ -3,3 +3,4 @@ report*.xml
 *.pyc
 *.kpf
 *.eprj
+local_settings.py
