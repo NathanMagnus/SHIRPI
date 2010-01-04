@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from project.SHIRPI.settings import *
+
 # choices for the ratings (0 - 5)
 choices = (('0', 0), ('1', 1), ('2', 2), ('3', 3), ('4', 4), ('5', 5))
 
@@ -48,6 +50,46 @@ class Restaurant(models.Model):
 	# how this should be represented when outputted as a string
 	def __unicode__(self):
 		return "%s - %s" % (self.name, self.address)
+		
+	def get_hi_class(self):
+		# Returns Restaurant severity as string
+		if self.health_report_status >= CRITICAL_VAL:
+			return 'critical'
+		elif self.health_report_status >= MODERATE_VAL:
+			return 'moderate'
+		else:
+			return 'low'
+		
+	def get_scores(self):
+		# Returns Restaurant scores as labelled dictionary
+		
+		# Catch division by zero
+		try: health_report_status = self.health_report_status
+		except: health_report_status = 0
+		
+		try: combined = self.combined / self.combined_count
+		except: combined = 0
+	
+		try: food_quality = self.food_quality / self.food_quality_count
+		except: food_quality = 0
+		
+		try: cleanliness = self.cleanliness / self.cleanliness_count
+		except: cleanliness = 0
+		
+		try: atmosphere = self.atmosphere / self.atmosphere_count
+		except: atmosphere = 0
+		
+		try: overall = self.overall / self.overall_count
+		except: overall = 0
+		
+		
+		return {'health_report_status': health_report_status,
+			'combined': combined,
+			'food_quality': food_quality,
+			'cleanliness': cleanliness,
+			'atmosphere': atmosphere,
+			'overall': overall}
+
 
 '''
 Class		: Comment

@@ -16,26 +16,10 @@ Return		: string of html to display one restaurant
 '''
 @register.filter
 def display_restaurant( restaurant ):
-	# prevent division by 0
-	if restaurant.cleanliness_count<1:
-		restaurant.cleanliness_count=1
-	if restaurant.combined_count<1:
-		restaurant.combined_count = 1
-	if restaurant.food_quality_count<1:
-		restaurant.food_quality_count=1
-	if restaurant.atmosphere_count<1:
-		restaurant.atmosphere_count = 1
-	if restaurant.overall_count<1:
-		restaurant.overall_count =1 
+
 
 	# enclosing div
-	result = "<div class='restaurant "
-	if restaurant.health_report_status >= CRITICAL_VAL:
-        	result+="critical"
-	elif restaurant.health_report_status >= MODERATE_VAL:
-		result += "moderate"
-	else:
-		result += "low"	
+	result = "<div class='restaurant " + restaurant.get_hi_class()
 	
 	# url escape name and address
 	name = urllib.quote_plus(restaurant.name.replace("/", "%2F"))
@@ -45,17 +29,21 @@ def display_restaurant( restaurant ):
 	result += "'>\n"
 	result += "<h4 class='name'><a href=\"/cs215/shirpi/view/" + name +"/" + address + "\">" + escape(restaurant.name) + "</a></h4>"
 	result +="<h4 class='address'>" + escape(restaurant.address) + "</h4>"
-	result += "<ul class='starset'>" + display_stars(restaurant.overall/restaurant.overall_count) + "</ul>"
+	result += "<ul class='starset'>" + display_stars(restaurant.get_scores()['overall']) + "</ul>"
 	result +="<ul class='restaurant_info'>"
-	result += "<li><h4>" + str(restaurant.health_report_status) +"</h4></li>"
-	result += "<li><h4>" + str(round(restaurant.combined/restaurant.combined_count,1)) + "</h4></li>"
-	result += "<li><h4>" + str(round(restaurant.food_quality/restaurant.food_quality_count,1)) + "</h4></li>"
-	result += "<li><h4>" + str(round(restaurant.cleanliness/restaurant.cleanliness_count,1)) + "</h4></li>"
-	result += "<li><h4>" + str(round(restaurant.atmosphere/restaurant.atmosphere_count,1)) + "</h4></li>"
+	result += "<li><h4>" + str(restaurant.get_scores()['health_report_status']) +"</h4></li>"
+	result += "<li><h4>" + str(round(restaurant.get_scores()['combined'],1)) + "</h4></li>"
+	result += "<li><h4>" + str(round(restaurant.get_scores()['food_quality'],1)) + "</h4></li>"
+	result += "<li><h4>" + str(round(restaurant.get_scores()['cleanliness'],1)) + "</h4></li>"
+	result += "<li><h4>" + str(round(restaurant.get_scores()['atmosphere'],1)) + "</h4></li>"
 	result +="</ul>"
 	result += "</div>"
 	
 	return mark_safe(result)
+
+@register.filter
+def encode_garbage(data):
+	return urllib.quote_plus(data.replace("/", "%2F"))
 
 
 @register.filter	

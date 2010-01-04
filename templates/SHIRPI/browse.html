@@ -8,17 +8,27 @@
 {% endblock %}
 {% block content %}
 {% if error %}
-	<h1>{{error}}</h1>
+	<h1>{{ error }}</h1>
 {% endif %}
 
 {% if restaurants %}
-
-{{request|display_sort_options}}
-<div class='restaurants'>
+{{ request|display_sort_options }}
+<table class='restaurants'>
 {% for restaurant in restaurants %}
-	{% if restaurant.visible %}
-		{{restaurant|display_restaurant}}
-	{% endif %}
+    {% if restaurant.visible %}
+    <div class='restaurant {{ restaurant.get_hi_class }}'>
+        <h4 class='name'><a href="/cs215/shirpi/view/{{ restaurant.name|encode_garbage }}/{{ restaurant.address|encode_garbage }}">{{ restaurant.name|escape }}</a></h4>
+        <h4 class='address'>{{ restaurant.address|escape }}</h4>
+        <ul class='starset'>{{ restaurant.get_scores.overall|display_stars }}</ul>
+        <ul class='restaurant_info'>
+            <li><h4>{{ restaurant.get_scores.health_report_status }}</h4></li>
+            <li><h4>{{ restaurant.get_scores.combined|floatformat:1 }}</h4></li>
+            <li><h4>{{ restaurant.get_scores.food_quality|floatformat:1 }}</h4></li>
+            <li><h4>{{ restaurant.get_scores.cleanliness|floatformat:1 }}</h4></li>
+            <li><h4>{{ restaurant.get_scores.atmosphere|floatformat:1 }}</h4></li>
+        </ul>
+    </div>
+    {% endif %}
 {% endfor %}
 </div>
 {% endif %}
