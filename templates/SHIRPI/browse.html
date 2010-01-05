@@ -16,18 +16,16 @@
 <table class='restaurants'>
 {% for restaurant in restaurants %}
     {% if restaurant.visible %}
-    <div class='restaurant {{ restaurant.get_hi_class }}'>
-        <h4 class='name'><a href="/cs215/shirpi/view/{{ restaurant.name|encode_garbage }}/{{ restaurant.address|encode_garbage }}">{{ restaurant.name|escape }}</a></h4>
-        <h4 class='address'>{{ restaurant.address|escape }}</h4>
-        <ul class='starset'>{{ restaurant.get_scores.overall|display_stars }}</ul>
-        <ul class='restaurant_info'>
-            <li><h4>{{ restaurant.get_scores.health_report_status }}</h4></li>
-            <li><h4>{{ restaurant.get_scores.combined|floatformat:1 }}</h4></li>
-            <li><h4>{{ restaurant.get_scores.food_quality|floatformat:1 }}</h4></li>
-            <li><h4>{{ restaurant.get_scores.cleanliness|floatformat:1 }}</h4></li>
-            <li><h4>{{ restaurant.get_scores.atmosphere|floatformat:1 }}</h4></li>
-        </ul>
-    </div>
+    <tr class='restaurant {{ restaurant.get_hi_class }}'>
+        <td class='name'><a href="/cs215/shirpi/view/{{ restaurant.name|encode_garbage }}/{{ restaurant.address|encode_garbage }}">{{ restaurant.name|escape }}</a></td>
+        <td class='address'>{{ restaurant.address|escape }}</td>
+        <td><ul class='starset'>{{ restaurant.get_scores.overall|display_stars }}</ul></td>
+        <td>{{ restaurant.calculate_hi_status }}</td>
+        <td>{{ restaurant.calculate_combined.|floatformat:1 }}</td>
+        <td>{{ restaurant.calculate_food_quality|floatformat:1 }}</td>
+        <td>{{ restaurant.calculate_cleanliness|floatformat:1 }}</td>
+        <td>{{ restaurant.calculate_atmosphere|floatformat:1 }}</td>
+    </tr>
     {% endif %}
 {% endfor %}
 </table>

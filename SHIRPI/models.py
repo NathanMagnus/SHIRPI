@@ -59,38 +59,46 @@ class Restaurant(models.Model):
 			return 'moderate'
 		else:
 			return 'low'
+	
+	
+	def calculate_hi_status(self):
+		try: return self.health_report_status
+		except: return 0
 		
+	def calculate_combined(self):
+		try: return self.combined / self.combined_count # Catch division by zero
+		except: return 0
+	
+	def calculate_food_quality(self):
+		try: return self.food_quality / self.food_quality_count
+		except: return 0
+	
+	def calculate_cleanliness(self):
+		try: return self.cleanliness / self.cleanliness_count
+		except: return 0
+	
+	def calculate_atmosphere(self):
+		try: return self.atmosphere / self.atmosphere_count
+		except: return 0
+	
+	def calculate_overall(self):
+		try: return self.overall / self.overall_count
+		except: return 0
+	
+
 	def get_scores(self):
 		# Returns Restaurant scores as labelled dictionary
 		
-		# Catch division by zero
-		try: health_report_status = self.health_report_status
-		except: health_report_status = 0
-		
-		try: combined = self.combined / self.combined_count
-		except: combined = 0
+		return {'health_report_status': self.calculate_hi_status(),
+			'combined': self.calculate_combined(),
+			'food_quality': self.calculate_food_quality(),
+			'cleanliness': self.calculate_cleanliness(),
+			'atmosphere': self.calculate_atmosphere(),
+			'overall': self.calculate_overall()}
 	
-		try: food_quality = self.food_quality / self.food_quality_count
-		except: food_quality = 0
-		
-		try: cleanliness = self.cleanliness / self.cleanliness_count
-		except: cleanliness = 0
-		
-		try: atmosphere = self.atmosphere / self.atmosphere_count
-		except: atmosphere = 0
-		
-		try: overall = self.overall / self.overall_count
-		except: overall = 0
-		
-		
-		return {'health_report_status': health_report_status,
-			'combined': combined,
-			'food_quality': food_quality,
-			'cleanliness': cleanliness,
-			'atmosphere': atmosphere,
-			'overall': overall}
-
-
+	
+	
+	
 '''
 Class		: Comment
 Description	: Database model for a user comment
