@@ -1,4 +1,5 @@
 import urllib
+import string
 from cgi import escape
 from django import template
 from django.utils.html import conditional_escape
@@ -43,6 +44,7 @@ def display_restaurant( restaurant ):
 
 @register.filter
 def encode_garbage(data):
+	# Using this because the built-in urlencode function does not encode slashes
 	return urllib.quote_plus(data.replace("/", "%2F"))
 
 
@@ -90,3 +92,9 @@ def display_class(restaurant):
 	
 	else:
 		return mark_safe("low")
+
+@register.filter
+def switch_direction(direction):
+	if string.lower(direction) == 'asc':
+		return 'desc'
+	else: return 'asc'

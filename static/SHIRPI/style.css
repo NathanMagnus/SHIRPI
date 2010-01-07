@@ -12,7 +12,7 @@ body{
 	height: 100%;
 	width: 100%;
 	position: absolute;
-	
+		
 	background-image: url('/cs215/static/SHIRPI/stripes.png');
 }
 
@@ -20,6 +20,9 @@ body{
 #wrapper{
 	margin: auto;
 	width: 980px;
+	min-height: 100%;
+	height:auto !important;
+	position:relative;
 	
 	background-color: white;
 }
@@ -29,6 +32,11 @@ body{
 	padding-top: 20px;
 }
 
+#footer{
+	position:absolute;
+	width:100%;
+	bottom:0;
+}
 
 /* HEADING */
 
@@ -165,26 +173,6 @@ body{
 	text-decoration: underline;
 }
 
-#sort ul{
-	margin-left: 10px;
-}
-
-#sort li{
-	display: inline;
-	list-style-type: none;
-}
-
-
-#name_clean{
-	padding-right: 305px;
-}
-
-#address_clean:after{
-	padding: 0 10px 0px 15px;
-	content: '/';
-}
-
-
 #address{ margin-right: 120px;}
 #overall {  padding-right: 44px; } /* Actually Member Rating */
 #health_report_status{ margin-right: 22px;} /* Score */
@@ -194,10 +182,28 @@ body{
 
 /* BROWSE - CONTENT LIST */
 
+.restaurants{
+	width: 100%;
+	border-collapse:collapse;
+}
+
 .restaurant {
-	font-size: 11pt;
+	width: 100%;
+	
 	border-bottom: 1px solid #222;
-	padding: 7px 0px 7px 10px;
+	
+}
+
+.restaurant td{
+	padding: 7px 0;
+}
+
+#sort th{
+	padding-bottom: 3px;
+}
+
+.restaurant td:first-child, th:first-child{
+	padding-left: 15px;
 }
 
 .restaurant a{
@@ -208,34 +214,6 @@ body{
 	text-decoration: underline;
 }
 
-.restaurant .name{
-	display: inline-block;
-	width: 340px;
-	
-}
-
-.restaurant .address{
-	display: inline-block;
-	width: 230px;
-}
-
-
-.restaurant_info{
-	display: inline-block;
-	float: right;
-}
-
-.restaurant_info li {
-	display: inline-block;
-	width: 55px;
-	
-	text-align: center;	
-}
-
-
-.restaurant_info{
-	font-size: 9pt;	
-}
 
 
 .low { background-color: #B3FF66; }
@@ -247,12 +225,13 @@ body{
 .critical{ background-color: #FFB366; }
 .critical div:nth-child(2n) { background-color: #FF8C1A; }
 
-.starset{
-	display: inline-block;
-	width: 110px;
+.starset { width: 110px; display: inline-block}
+
+.search_error{
+	margin-top: 30px;
+	font-size: 20pt;
+	text-align: center;
 }
-
-
 
 
 
@@ -555,7 +534,8 @@ textarea{
 .astar{
 	width: 17px;
 	height: 15px;
-	display: inline-block;
+	float: left;
+	display: block;
 	
 	margin-right: 4px;
 	

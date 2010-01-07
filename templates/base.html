@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-type" content="text/html;charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="http://basementbobs.com/cs215/static/SHIRPI/style.css" />
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}style.css" />
 	<title>SHIRPI - {% block title %}{% endblock %}</title>
 	{% block extrahead %} 
 	<!-- default extra head information -->
@@ -23,8 +23,9 @@
 		{% if user.is_authenticated %}
 			<a href="/cs215/shirpi/accounts/logout/">LOGOUT</a> <span class="divider">|</span>
 			<a href="{% url project.SHIRPI.views.view_profile user.username %}">YOUR PROFILE</a>
+			<br /><br />
 			{% if user.is_staff %}
-				<br /><br /><a href="/cs215/admin/">Admin</a>
+				<a href="/cs215/admin/">Admin</a>
 			{% endif %}
 			<div id="greeting">
 				Authenticated as: {{ user.username }}
@@ -49,7 +50,7 @@
 	<form method="get" id="search_sort_field" action="/cs215/shirpi/browse"
 	   onsubmit="if (restaurant_name_field.value == 'Location Name') restaurant_name_field.value='';
 	   if (restaurant_address_field.value == 'Street / Address') restaurant_address_field.value='';" >
-		{{request|display_search_field}}
+		{{ request|display_search_field }}
 	</form>
 	{% endblock %}
 </div>
@@ -58,14 +59,15 @@
 	<!-- Default Content -->
 	contentDefault
 	{% endblock %}
-	<div id="footer">
-		{% block footer %}
-		<!-- Default Footer -->
-		<a href="http://validator.w3.org/check?uri=referer"><img
-		src="http://www.w3.org/Icons/valid-xhtml10"
-		alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
-		{% endblock %}
-	</div>
+
+</div>
+<div id="footer">
+	{% block footer %}
+	<!-- Default Footer -->
+	<a href="http://validator.w3.org/check?uri=referer"><img
+	src="http://www.w3.org/Icons/valid-xhtml10"
+	alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+	{% endblock %}
 </div>
 </div>
 </body>

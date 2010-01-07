@@ -31,8 +31,7 @@ def display_sort_options(request):
 	get = request.GET.copy()
 
 	# enclosing div
-	result ="<div id='sort'>\n"
-	result +="<ul>\n"
+	result ="<tr id='sort'>\n"
 	
 	
 	# Construct list of 
@@ -50,8 +49,7 @@ def display_sort_options(request):
 		
 		# add sort_by to the GET parameters
 		get['sort_by'] = type
-		result +="<li id='" + type + "'><a href='?"+ escape(get.urlencode()) +"'>" + verbose + "</a></li>\n"
+		result +="<th><a href='?"+ escape(get.urlencode()) +"'>" + verbose + "</a></th>"
 		
-	result +="</ul>\n"
-	result +="</div>\n"
+	result +="</tr>\n"
 	return mark_safe(result)

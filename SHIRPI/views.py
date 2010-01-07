@@ -150,9 +150,6 @@ def browse(request, restaurant_name = None, restaurant_address = None, api_flag 
 			restaurant.address = escape(urllib.quote_plus(restaurant.address.replace("/", "%2F")))
 			return HttpResponseRedirect("/cs215/shirpi/view/" + restaurant.name + "/" + restaurant.address)
 			
-		# if there are no matches, error
-		elif len(results) == 0:
-			return render_to_response("SHIRPI/error.html", {'error':"No matches found"}, RequestContext(request))
 		else:
 			return render_to_response("SHIRPI/browse.html", {'restaurants': results, 'request': request}, RequestContext(request))
 	

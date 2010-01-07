@@ -6,22 +6,29 @@
 {% block bodytag %}
 	<body onload="initialize()" onunload="GUnload()">
 {% endblock %}
+
 {% block content %}
-{% if error %}
-	<h1>{{ error }}</h1>
-{% endif %}
 
 {% if restaurants %}
-{{ request|display_sort_options }}
 <table class='restaurants'>
+    <colgroup span='1'>
+        <col id="col1" padding-left="15px" span=1 />
+    </colgroup>
+<tr id="sort">
+<th><a href="?sort_by=name_clean&amp;type={% ifequal request.GET.sort_by 'name_clean' %}{{ request.GET.type|switch_direction }}{% else %}asc{% endifequal %}">Name</a></th>
+<th><a href="?sort_by=address&amp;type={% ifequal request.GET.sort_by 'address' %}{{ request.GET.type|switch_direction }}{% else %}asc{% endifequal %}">Address</a> /
+    <a href="?sort_by=address_clean&amp;type={% ifequal request.GET.sort_by 'address_clean' %}{{ request.GET.type|switch_direction }}{% else %}asc{% endifequal %}">Street</a></th>
+<th><a href="?sort_by=overall&amp;type={% ifequal request.GET.sort_by 'overall' %}{{ request.GET.type|switch_direction }}{% else %}desc{% endifequal %}">Member Rating</a></th>
+<th><a href="?sort_by=cleanliness&amp;type={% ifequal request.GET.sort_by 'cleanliness' %}{{ request.GET.type|switch_direction }}{% else %}desc{% endifequal %}">Upkeep</a></th>
+<th><a href="?sort_by=food_quality&amp;type={% ifequal request.GET.sort_by 'food_quality' %}{{ request.GET.type|switch_direction }}{% else %}desc{% endifequal %}">Food</a></th>
+<th><a href="?sort_by=atmosphere&amp;type={% ifequal request.GET.sort_by 'atmosphere' %}{{ request.GET.type|switch_direction }}{% else %}desc{% endifequal %}">Locale</a></th>
+</tr>
 {% for restaurant in restaurants %}
     {% if restaurant.visible %}
     <tr class='restaurant {{ restaurant.get_hi_class }}'>
-        <td class='name'><a href="/cs215/shirpi/view/{{ restaurant.name|encode_garbage }}/{{ restaurant.address|encode_garbage }}">{{ restaurant.name|escape }}</a></td>
-        <td class='address'>{{ restaurant.address|escape }}</td>
-        <td><ul class='starset'>{{ restaurant.get_scores.overall|display_stars }}</ul></td>
-        <td>{{ restaurant.calculate_hi_status }}</td>
-        <td>{{ restaurant.calculate_combined.|floatformat:1 }}</td>
+        <td><a href="/cs215/shirpi/view/{{ restaurant.name|encode_garbage }}/{{ restaurant.address|encode_garbage }}">{{ restaurant.name|escape }}</a></td>
+        <td style="display: inline">{{ restaurant.address|escape }}</td>
+        <td><ul class='starset'>{{ restaurant.calculate_overall|display_stars }}</ul></td>
         <td>{{ restaurant.calculate_food_quality|floatformat:1 }}</td>
         <td>{{ restaurant.calculate_cleanliness|floatformat:1 }}</td>
         <td>{{ restaurant.calculate_atmosphere|floatformat:1 }}</td>
@@ -29,5 +36,8 @@
     {% endif %}
 {% endfor %}
 </table>
+
+{% else %}
+<h1 class='search_error'>Your search did not match any results.</h1>
 {% endif %}
 {% endblock %}
