@@ -290,7 +290,7 @@ def delete_comment(request, comment_id):
 
 		# if this user doesn't have permission to remove the comment, redirect them to error page
 		if request.user != comment.author and not request.user.has_perm("SHIRPI.comment"):
-			return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(requet))	
+			return render_to_response('SHIRPI/error.html', {'error': "You are not the author of this comment"}, RequestContext(request))	
 
 		# get the restaurant and update the values
 		restaurant = comment.restaurant
@@ -300,8 +300,9 @@ def delete_comment(request, comment_id):
 		comment.delete()
 
 		# redirect to referer
-		return HttpResponseRedirect(request.META['HTTP_REFERER'])
+		return HttpResponseRedirect("/cs215/shirpi/view/" + restaurant.name + "/" + restaurant.address + "/")
 	except Comment.DoesNotExist:
 		# if this comment doesn't exist, redirect to referer
-		return HttpResponseRedirect(request.META['HTTP_REFERER'])
+		return reunder_to_response("SHIRPI/error.html", {'error': "This comment doesn't exist"}, RequestContext(request))
+	#	return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
